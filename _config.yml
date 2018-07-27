@@ -15,10 +15,10 @@
 # in the templates via {{ site.myvariable }}.
 title: Interaction Programming (CSE 372)
 description: The main website for the Interaction Programming class
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+baseurl: "/interaction" # the subpath of your site, e.g. /blog
+url: "https://jmankoff.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: jcmankoff
+github_username:  jmankoff
 
 # Build settings
 markdown: kramdown
