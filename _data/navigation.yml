@@ -1,0 +1,17 @@
+nav_list_title: CSE 372
+nav_list: 
+- title: About
+  url: /about
+- title: Schedule
+  url: /schedule
+- title: Homework
+  url: /homework/
+  sublinks:
+    - title: Assignment 1
+      url: /a1
+    - title: Assignment 2
+      url: /a2
+    - title: Assignment 3
+      url: /a3
+- title: Grading
+  url: /grading
