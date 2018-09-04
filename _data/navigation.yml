@@ -4,8 +4,6 @@ nav_list:
   url: /about
 - title: Schedule
   url: /schedule
-- title: Slides
-  url: /slides
 - title: Homework
   url: /homework/
   sublinks:
