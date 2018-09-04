@@ -33,6 +33,11 @@ assets:
     sources:
         - "*"
 
+reveal.js:
+    prefix: "/reveal.js"
+    sources:
+        - "*"
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
