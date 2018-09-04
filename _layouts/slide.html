@@ -25,22 +25,22 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-    <link rel="stylesheet" href="{{ "{{site.reveal_path}}/css/reveal.css" | prepend: site.baseurl }}"/>
+    <link rel="stylesheet" href="{{site.baseurl}}/{{site.reveal_path}}/css/reveal.css/">
     {%if page.theme %}
-      <link rel="stylesheet" href="{{ "{{site.reveal_path}}/css/theme/" | prepend: site.baseurl | append: page.theme | append: '.css' }}" id="theme"/>
+    <link rel="stylesheet" href="{{site.baseurl}}/{{site.reveal_path}}/css/theme/{{page.theme}}.css" id="theme"/>
     {% else %}
-      <link rel="stylesheet" href="{{ "{{site.reveal_path}}/css/theme/black.css" | prepend: site.baseurl }}" id="theme"/>
+    <link rel="stylesheet" href="{{site.baseurl}}/{{site.reveal_path}}/css/theme/black.css" id="theme"/>
     {% endif %}
 
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="{{ "{{site.reveal_path}}/lib/css/zenburn.css" | prepend: site.baseurl }}"/>
+    <link rel="stylesheet" href="{{site.baseurl}}/{{site.reveal_path}}/lib/css/zenburn.css"/>
 
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '{{ "{{site.reveal_path}}/css/print/pdf.css" | prepend: site.baseurl }}' : '{{ "{{site.reveal_path}}/css/print/paper.css" | prepend: site.baseurl }}';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '{{site.baseurl}}/{{site.reveal_path}}/css/print/pdf.css' : '{{site.baseurl}}/{{site.reveal_path}}/css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 
@@ -61,8 +61,8 @@
       </div>
     </div>
 
-    <script src="{{ "{{site.reveal_path}}/lib/js/head.min.js" | prepend: site.baseurl }}"></script>
-    <script src="{{ "{{site.reveal_path}}/js/reveal.js" | prepend: site.baseurl }}"></script>
+    <script src="{{site.baseurl}}/{{site.reveal_path}}/lib/js/head.min.js"></script>
+    <script src="{{site.baseurl}}/{{site.reveal_path}}/js/reveal.js"></script>
     <script>
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
@@ -78,12 +78,12 @@
         {% endif %}
         // Optional reveal.js plugins
         dependencies: [
-          { src: '{{ "/reveal.js/lib/js/classList.js" | prepend: site.baseurl }}', condition: function() { return !document.body.classList; } },
-          { src: '{{ "{{site.reveal_path}}/plugin/markdown/marked.js" | prepend: site.baseurl }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '{{ "{{site.reveal_path}}/plugin/markdown/markdown.js" | prepend: site.baseurl }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '{{ "{{site.reveal_path}}/plugin/highlight/highlight.js" | prepend: site.baseurl }}', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: '{{ "{{site.reveal_path}}/plugin/zoom-js/zoom.js" | prepend: site.baseurl }}', async: true },
-          { src: '{{ "{{site.reveal_path}}/plugin/notes/notes.js" | prepend: site.baseurl }}', async: true }
+          { src: '{{site.baseurl}}/{{site.reveal_path}}/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '{{site.baseurl}}/{{site.reveal_path}}/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{site.baseurl}}/{{site.reveal_path}}/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{site.baseurl}}/{{site.reveal_path}}/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '{{site.baseurl}}/{{site.reveal_path}}/plugin/zoom-js/zoom.js', async: true },
+          { src: '{{site.baseurl}}/{{site.reveal_path}}/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
