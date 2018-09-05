@@ -1,5 +1,5 @@
 ---
-layout: slide
+layout: slide-local
 title: Introductory Slides--Week 1, Monday-- 
 description: Introduction to the course and to HCI
 theme: league
