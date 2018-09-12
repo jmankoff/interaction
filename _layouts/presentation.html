@@ -4,10 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>{{ page.title | strip_html }}</title>
     <style type="text/css">
-      @import url(/css/fontawesome.css);
-      @import url(/css/ubuntu.css);
-      @import url(/css/ubuntu-mono.css);
-      @import url(/css/yanone-kaffeesatz.css);
+      @import url(/assets/css/fontawesome.css);
+      @import url(/assets/css/ubuntu.css);
+      @import url(/assets/css/ubuntu-mono.css);
+      @import url(/assets/css/yanone-kaffeesatz.css);
       body { font-family: 'Ubuntu'; }
       h1, h2, h3 {font-family: 'Yanone Kaffeesatz'; font-weight: normal; }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
@@ -34,6 +34,7 @@
 {{ content }}
     </textarea>
     <script src="{{'/assets/js/remark-latest.min.js' | relative_url}}" type="text/javascript"></script>
+    <script src="{{'/assets/js/remark-macros-jm.js' | relative_url}}" type="text/javascript"></script>
     <script type="text/javascript">
       var slideshow = remark.create({
         navigation: {scroll: false},
