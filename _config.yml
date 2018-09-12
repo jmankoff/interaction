@@ -35,6 +35,7 @@ markdown: kramdown
 theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
+  - jekyll-font-awesome-sass
 
 highlighter: rouge
 
@@ -42,6 +43,7 @@ assets:
     prefix: "/assets"
     sources:
         - "*"
+
 
 #reveal.js:
 #    prefix: "/reveal.js"

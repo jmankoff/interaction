@@ -19,6 +19,8 @@ group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-contentblocks"
   gem "jekyll-assets"
+  gem 'font-awesome-sass'
+  gem 'remark'
 end
 
 

@@ -1,4 +1,11 @@
 ---
+# This is the main style sheet
+# '@import "bootstrap-sass/bootstrap";'
 ---
+@charset "utf-8";
 
-@import "{{ site.theme }}";
+$fa-font-path: "../fonts/font-awesome/";
+
+@import "fontawesome"
+
+	       
