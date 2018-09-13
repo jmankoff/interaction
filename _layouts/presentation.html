@@ -4,10 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>{{ page.title | strip_html }}</title>
     <style type="text/css">
-      @import url(/assets/css/fontawesome.css);
-      @import url(/assets/css/ubuntu.css);
-      @import url(/assets/css/ubuntu-mono.css);
-      @import url(/assets/css/yanone-kaffeesatz.css);
+      @import url({{'/assets/css/my-remark.css' | relative_url}});
+      @import url({{'/assets/css/fontawesome.css' | relative_url}}); 
+      @import url({{'/assets/css/ubuntu.css' | relative_url}}); 
+      @import url({{'/assets/css/ubuntu-mono.css' | relative_url}});  
+      @import url({{'/assets/css/yanone-kaffeesatz.css'  | relative_url}}); 
+
       body { font-family: 'Ubuntu'; }
       h1, h2, h3 {font-family: 'Yanone Kaffeesatz'; font-weight: normal; }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
@@ -28,12 +30,22 @@
         }
       }
     </style>
+
+    <!-- Favicon head tag -->
+    <link rel="icon" href="{{site.baseurl}}/assets/img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono|Yanone+Kaffeesatz" rel="stylesheet">
+
   </head>
   <body>
     <textarea id="source">
 {{ content }}
     </textarea>
-    <script src="{{'/assets/js/remark-latest.min.js' | relative_url}}" type="text/javascript"></script>
+    layout: true
+    <div class="my-header"><img src="{{site.baseurl}}/assets/img/favicon.ico"
+    style="height: 30px;"/> </div>
+    <div class="my-footer">9/18/18 &copy; J. Mankoff, University of Washington</div>
+
+<script src="{{'/assets/js/remark-latest.min.js' | relative_url}}" type="text/javascript"></script>
     <script src="{{'/assets/js/remark-macros-jm.js' | relative_url}}" type="text/javascript"></script>
     <script type="text/javascript">
       var slideshow = remark.create({
@@ -42,6 +54,7 @@
         highlightStyle: 'github'
       });
     </script>
+
   </body>
 
 <!--
