@@ -33,3 +33,35 @@ div.my-footer span {
     width: 100%;
 }
 
+.remark-code {
+    align: top;
+    transform: scale(0.8);
+}
+
+.left-column30 {
+      width: 30%;
+      float: left;
+}
+.left-column40 {
+      width: 40%;
+      float: left;
+}
+
+.left-column50 {
+      width: 50%;
+      float: left;
+}
+
+.right-column70 {
+      width: 68%;
+      float: right;
+      }
+.right-column60 {
+      width: 58%;
+      float: right;
+      }
+.right-column50 {
+      width: 48%;
+      float: right;
+      }
+

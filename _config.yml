@@ -5,8 +5,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Interaction Programming (CSE 340)
-tagline:             ' The Future is Mobile'
-description: The main website for the Interaction Programming class
+description: Interactive Tech is changing society. Help invent the future!
 baseurl: "/interaction" # the subpath of your site, e.g. /blog
 url: "https://jmankoff.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jcmankoff

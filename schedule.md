@@ -41,3 +41,5 @@ layout: default
 
 **Slides**
 [03: Drawing](/interaction/slides/03Drawing.html)
+
+# Week 2: Matters of the Eye (?)
