@@ -7,8 +7,8 @@
     {% break %}
   {% elsif page.url contains fullurl %}
     {% assign current_page = fullurl %}
-    {% endif %}
-  {% endfor %}
+  {% endif %}
+{% endfor %}
 
 
 <nav aria-label={{site.data.navigation.nav_list_title}} id="mainNav"
@@ -35,16 +35,33 @@
       {% assign sublinks = entry.sub links %}
       {% if sublinks %}
     <li class = "nav-item {{ current }}">
-      <a class="navbar-brand js-scroll-trigger" role="menuitem" href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a>
+      {% if entry.url contains "http" %}
+         {% assign base = "" %}
+      {% else %}
+         {% assign base = site.baseurl %}
+      {% endif %}
+     
+      <a class="navbar-brand js-scroll-trigger" role="menuitem" href="{{ base }}{{ entry.url }}">{{ entry.title }}</a>
       <ul>
         {% for sublink in sublinks %}
-        <li><a class="navbar-brand js-scroll-trigger"  role="menuitem" href="{{ site.baseurl }}{{ sublink.url }}">{{ sublink.title }}</a></li>
+	{% if sublink.url contains "http" %}
+          {% assign base = "" %}
+	{% else %}
+          {% assign base = site.baseurl %}
+	{% endif %}
+        <li><a class="navbar-brand js-scroll-trigger"  role="menuitem" href="{{ base }}{{ sublink.url }}">{{ sublink.title }}</a></li>
         {% endfor %}
       </ul>
     </li>
        {% else %}
     <li class = "nav-item {{ current }}">
-      <a class="navbar-brand js-scroll-trigger"  role="menuitem" href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a>
+      {% if entry.url contains "http" %}
+         {% assign base = "" %}
+      {% else %}
+         {% assign base = site.baseurl %}
+      {% endif %}
+
+      <a class="navbar-brand js-scroll-trigger"  role="menuitem" href="{{base}}{{entry.url}}">{{ entry.title }}</a>
     </li>
        {% endif %}
     {% endfor %}

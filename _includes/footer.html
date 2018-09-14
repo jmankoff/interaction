@@ -1,7 +1,4 @@
 <footer class="site-footer h-card">
-  {% if site.github.is_project_page %}
-  <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
-  {% endif %}
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
   <div class="wrapper">
 
@@ -12,31 +9,21 @@
     most frequently used of these include Scott Hudson's SSUI class
     (at CMU's HCII) and James Landay's CS 160 class (and Eric Paulos'
     class of the same title (at UC Berkeley).
-    <span class="site-footer-owner"><a href="{{ site.url }}">{{ site.title }}</a> is maintained by <a href="{{ site.author.url }}">{{ site.author.name }}</a>.</span>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-            </li>
+    <span class="site-footer-owner"><a href="{{ site.url }}">{{ site.title }}</a> is maintained by <a href="{{ site.author.url }}">{{ site.author.name }}</a>. &nbsp;
             {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            <a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
             {%- endif -%}
-        </ul>
-      </div>
+      </span>
 
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
+  {% if site.github.is_project_page %}
+  <span class="site-footer-owner"><a href="{{
+  site.github.repository_url }}">{{ site.github.repository_name }}'s
+  github repository </a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>@github.</span>
+  {% endif %}
+      <!-- <div class="footer-col footer-col-2"> -->
+      <!--   {%- include social.html -%} -->
+      <!-- </div> -->
 
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-      </div>
     </div>
 
   </div>

@@ -1,0 +1,467 @@
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+class: background-no-repeat, center, middle,
+background-image: url("img/instagram-example.png")
+
+.bold.text-align-center[
+  ## How would you make this?
+]
+---
+template: inverse
+
+# SSUI Mobile Lab (Fall 2016)
+## Week 1: Course Intro, Java Refresher,  Android Fundamentals
+
+.title-slide-logo[
+  ![Android Logo](img/android-logo.png)
+]
+Instructor: Michael Rivera  
+_{mlrivera@cs.cmu.edu}_  
+
+Slides online: [https://mikeriv.com/ssui-2016](https://mikeriv.com/ssui-2016)
+
+---
+layout: false
+
+.left-column[
+## People
+  .full-width-img[
+    ![Michael Rivera](./img/michael_rivera.png)
+  ]
+]
+
+.right-column[
+## Mike Rivera (Instructor)
+- Second year PhD Student in HCI
+- *mlrivera@cs.cmu.edu*
+- NSH 4501
+- Office Hours:
+  - __Thursdays, 3-4pm, NSH 3612 (Dev Lab)__
+  - Also by appointment
+]
+
+---
+.left-column[
+## People
+  .full-width-img[
+    ![Michael Rivera](./img/michael_rivera.png)
+  ]
+  <br><br><br>
+
+  .full-width-img[
+    ![Jen Mankoff](./img/jen_mankoff.jpg)
+  ]
+]
+.top.right-column[
+## Mike Rivera (Instructor)
+- Second year PhD Student in HCI
+- *mlrivera@cs.cmu.edu*
+- NSH 4501
+- Office Hours:
+  - __Thursdays, 3-4pm, NSH 3612 (Dev Lab)__
+  - Also by appointment
+
+## Professor Jen Mankoff (Coordinator)
+- *jmankoff@cs.cmu.edu*
+- NSH 3612E
+- Office Hours:
+  - __Mondays, 12-1pm, NSH 3612E (Dev Lab)__
+  - __Thursday, 9-10am, NSH 3612E (Dev Lab)__
+
+]
+---
+
+# Course Objective
+- Practical experience for learnings in SSUI lecture
+
+--
+
+- Understand considerations going into mobile apps
+
+--
+- Build simple Android applications
+
+--
+
+- Debugging in Java and for Android
+
+---
+layout: false
+# Course Details
+- Schedule: __Wednesdays 9-10:20am, NSH 3002__
+
+- Lab Site: http://mikeriv.com/ssui-2016
+
+- Syllabus: http://goo.gl/5NKJ9W
+
+--
+
+- __Attendance, Quizzes and in-class exercises__
+
+--
+
+- __Four Assignments__ (A0 - A3)
+  - Web vs. Mobile Drawing API Comparison + Simple App
+  - Sliding Puzzle Game
+  - Drawing
+  - Finite State Machine Game Engine
+
+
+--
+
+- __Final project of your choice__ (A4) - *requires approval*
+--
+.center[
+## __BRING LAPTOPS TO CLASS__
+]
+---
+# Course Details
+- Requires you are a __good programmer__ already
+
+--
+
+- You should know:
+  - __Object-oriented programming__ (classes, inheritance)
+
+  - *Java* (or other OOP language e.g. C++, Python)
+
+--
+
+- If you're lacking a strong foundation in either of these:
+  __consider talking with us__ and/or taking the PUI course.
+
+---
+layout: false
+
+# Course Survey
+
+## https://goo.gl/forms/PWEgCjEHVjPNMVOY2
+
+---
+template: inverse
+
+## Quick Java Refresher
+
+---
+
+## What is Java?
+--
+
+- Strongly typed language - ever variable gets a type!
+
+--
+
+- Compiled, class-based, Object-oriented
+
+--
+
+- __Write once__, *run anywhere* -- without recompilation (Useful for Android!)
+
+---
+
+## Java Basics - Types
+```java
+// Booleans
+boolean hasClassStarted = true;
+```
+--
+```java
+// Integers
+int numStudents = 30;
+```
+--
+```java
+// Floats
+float homeworkGradeRatio = 0.10f;
+```
+--
+```java
+// Doubles (higher precision than float)
+double maxCourseGrade = 100.0;
+```
+--
+```java
+// Characters
+char sectionCode = 'B';
+```
+--
+```java
+// Strings (this is an Object!)
+String instructorName = "Michael Rivera";
+```
+
+
+All non-primitives types inherit from `Object` class
+---
+## Java Basics - Visibility Modifiers
+  - `public` - the world see or change
+    ```java
+    public String whiteBoardContent = "Write Anything Here";
+    ```
+--
+  - `protected` - your friends can see, change, use (class, subclass, package)
+    ```java
+      protected int donutsLeftInKitchen = 10;  
+    ```
+--
+  - `private` - the things you keep secret, and only give special access
+    ```java
+      private String socialSecurityNumber = "103-90-1234";
+    ```
+--
+  - Generally you want to use `private`
+
+--
+
+  - Create getter/setter methods to modify the member variables
+
+--
+  - .red[__Almost never use__ `public`] -- unless for constants
+
+---
+
+## Java Basics - Other Modifiers
+- `final` - control modification
+
+--
+
+  - prevent value from changing
+    ```java
+    final double courseGrade = 95.0; // cannot be modified ever!
+    ```
+--
+
+  - prevent subclassing
+    ```java
+      public final class Person {
+          // can't subclass (for example to make a Student class)
+          // ...
+      }
+    ```
+--
+
+  - prevent method overriding
+    ```java
+      public final int getValue() { // can't override!
+          return 0;
+      }
+    ```
+---
+## Java Basics - Other Modifiers
+
+- `static` - memory management
+
+--
+
+  - Use for constants that exist for everyone
+  ```java
+  static double SALES_TAX_RATE = 0.07;
+  ```
+--
+
+  - Methods that can be used without an object Instance
+  ```java
+    static String toString(int i);
+    // For example Integer.toString(100) => "100";
+  ```
+
+---
+
+## Java Basics - Methods
+- Methods in Java typically follow this format:
+  ```java
+  visibility [static] [final] returnType methodName (parameter-list) {
+      // ...
+  }
+  ```
+--
+- `static` and `final` are optional, special modifiers
+
+--
+
+- More common is this format:
+  ```java
+    visibility returnType methodName(paramType paramName, ...) {
+      // ...
+    }
+  ```
+--
+- Example: Summing two numbers and returning the answer as a string
+    ```java
+    public String getSumOfTwoNumbersAsString(int first, int second) {
+      int sum = first + second;
+      return Integer.toString(sum);
+    }
+    ```
+---
+## Java Basics - Declaring a class
+```Java
+public class Student { // This is an object!
+  // TODO (mrivera): fill in later
+  // Needs student ID, name, ,
+}
+```
+---
+## Java Basics - Constructing a Class (1/2)
+```java
+public class Student {
+
+  // Class (static) variables -
+  public static final String STUDENT_KEY = "STUDENT";
+
+  private static final String sStudentIdPrefix = "S"
+
+  // Instance Variables
+  private String mIdNumber;
+  private String mName;
+
+  // Constructors - used to create an instance
+  Student(String name, String idNumber) {
+    mName = name;
+    mIdNumber = idNumber;
+  }
+
+  // Methods  
+  public String getPrefixedIdNumber() {
+    return sStudentIdPrefix + mIdNumber;
+  }
+```
+---
+## Java Basics - Constructing a Class (2/2)
+```java
+  // Getter
+  public String getName() {
+    return mName;
+  }
+
+  // Setter
+  public void setName(String newName) {
+    if (newName == null || newName == "") {
+      newName = "Unknown";
+    }
+    mName = newName;
+  }
+
+  // ... etc.
+
+}
+```
+---
+## More Java Resources
+- Java Documentation (https://docs.oracle.com/javase/8/docs/api/)
+
+- __Online Java Practice Problems__:
+
+  - http://codingbat.com/java
+
+  - https://practiceit.cs.washington.edu/problem/list
+
+---
+
+
+template: inverse
+
+# Android
+.title-slide-logo[
+  ![Android Logo](img/android-logo.png)
+]
+
+---
+## Introduction to Android (1/2)
+- Framework for building apps on mobile devices
+
+--
+
+- __Java__, EXtensible Markup Language (__XML__), and other resources (__res__) that include images, strings.
+--
+  - We've seen java, this is what __XML__ in Android looks like:
+    ```xml
+        <TextView
+          android:id="@+id/main_text_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/app_name" />
+    ```
+---
+## Introduction to Android (2/2)
+- Typically follows __Model-View-Presenter__ architecture
+  ![MVP](img/mvp-design-pattern.png)
+
+--
+
+- Apps have multiple entry points or components
+  - __Activity__
+  - __Service__
+  - __Content Provider__
+  - __Broadcast Receiver__
+--
+
+
+-  __Intents__ launch components (and provide them with data)
+- .red[Other Apps can launch your components using intents too (!)]
+
+???
+Compile once, use anywhere
+
+---
+class: center
+
+## Android Versioning
+
+.nine-tenths-width-img[
+  ![Android Versioning](img/android-versions-aug2016.png)
+]
+--
+.center[
+### We're going to target .red[Jelly Bean] :) - That's .red[__96.6%__] of devices
+]
+---
+template: inverse
+
+## Hello Android Demo
+[Dev Env Setup](http:/mikeriv.com/ssui-2016//slides/lecture-00-setup/#1)
+
+---
+## First Android Project Structure (1/2)
+
+.four-tenths-width-img.center[
+
+  ![Android Project Structure](img/first-android-project-structure.png)
+
+]
+
+---
+
+## First Android Project Structure (2/3)
+
+- `app/src/main/java/com.example.myfirstapp/MainActivity.java` - the first activity (presents the "Hello World" UI)
+
+--
+
+- `app/src/main/res/layout/activity_main.xml` - declares the views and layout of the main activity
+
+--
+
+- `app/build.gradle` - build tool configuration file, place library dependencies and `minSDKVersion` here
+
+---
+## First Android Project Structure (3/3)
+- `drawable-<density>/` - place for the different resolution images you are using to support different display sizes (keep names consistent)
+
+--
+
+- `layout/` - store all the layout files that get loaded into activities
+
+--
+
+- `menu/` - defines your app's menu items
+
+--
+
+- `mipmap/` - contains launcher icons for your app
+
+--
+
+- `values/` - place for your strings (good for translation-- *don't hardcode!*), density-independent pixel values (sizes), colors,

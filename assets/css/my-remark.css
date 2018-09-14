@@ -1,7 +1,8 @@
 /* Header/Footer stuff */
 div.my-header {
-    background-color: #F77A00;
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffb76b), color-stop(0%,#ffa73d), color-stop(0%,#ffffff), color-stop(10%,#ffffff), color-stop(25%,#F77A00), color-stop(100%,#F77A00));
+    background-color: #0086B3;
+    background: linear-gradient(120deg, #155799, #159957);
+    /*-webkit-gradient(linear, left top, right top, color-stop(0%,#445588), color-stop(0%,#445588), color-stop(0%,#159957), color-stop(10%,#159957), color-stop(25%,#1586B3), color-stop(100%,#0086B3));*/
     position: fixed;
     top: 0px;
     left: 0px;
@@ -13,7 +14,7 @@ div.my-header {
 }
 
 div.my-footer {
-    background-color: #F77A00;
+    background-color: #0086B3;
     position: absolute;
     bottom: 0px;
     left: 0px;

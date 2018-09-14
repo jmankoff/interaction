@@ -1,17 +1,19 @@
 nav_list_title: CSE 340
 nav_list: 
-- title: About
-  url: /about
+- title: Syllabus
+  url: /
 - title: Schedule
   url: /schedule
 - title: Homework
   url: /homework/
   sublinks:
-    - title: Assignment 1
-      url: /a1
+    - title: Doodle
+      url: /doodle
     - title: Assignment 2
       url: /a2
     - title: Assignment 3
       url: /a3
-- title: Grading
-  url: /grading
+- title: Canvas
+  url: https://canvas.uw.edu/courses/
+- title: Piazza
+  url: http://piazza.com
