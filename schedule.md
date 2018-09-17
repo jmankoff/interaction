@@ -17,7 +17,7 @@ layout: default
 
 **No Reading/Assignment**
 **Slides**
-[01: Introduction to course](/interaction/slides/01intro.html)
+[01: Introduction to course](/interaction/slides/wek01/01intro.html)
 
 ## Wednesday: Basic Structure of Interaction
 
@@ -29,17 +29,17 @@ layout: default
 [Doodle Assignment](/interaction/homework/doodle.md)
 
 **Slides**
-[02: MVC](/interaction/slides/02MVC.html)
+[02: MVC](/interaction/slides/wk01/02MVC.html)
 
 ## Thursday: First lab
 **Slides**
-[Lab 01: Hello World](/interaction/slides/l01hello.html)
+[Lab 01: Hello World](/interaction/slides/l01/l01hello.html)
 
 ## Friday: Drawing on the Screen
 **Required reading (10 min)**
 - Chapter 2: Drawing from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) -- especially pp. 26-38
 
 **Slides**
-[03: Drawing](/interaction/slides/03Drawing.html)
+[03: Drawing](/interaction/slides/wk01/03Drawing.html)
 
 # Week 2: Matters of the Eye (?)
