@@ -104,7 +104,7 @@ interfaces, and how to solve interesting problems with HCI. Related is
 [CSE 510](http://courses.cs.washington.edu/courses/csep510/), the HCI
 course for the professional masters program.
 
-#Teaching Staff
+# Teaching Staff
 How many TAs? Depends on students, waiting on dan/pim to confirm
 
 # Resources
@@ -152,7 +152,7 @@ possible. You can expect your weeks to look look something like this:
 - **Weekend:** 	Do your Monday reading [10 minutes], then do your homework. 
 		Stay on top of reading so you have time to focus on homework.
 
-#Class Coordination
+# Class Coordination
 We want you to succeed in this class, and an important way that you do
 that is by asking questions and discussing course issues with your
 peers and teaching staff. Some ways to do that include: 

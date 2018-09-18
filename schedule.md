@@ -17,7 +17,7 @@ layout: default
 
 **No Reading/Assignment**
 **Slides**
-[01: Introduction to course](/interaction/slides/wek01/01intro.html)
+[01: Introduction to course](/interaction/slides/wk01/01intro.html)
 
 ## Wednesday: Basic Structure of Interaction
 
