@@ -4,8 +4,8 @@ nav_list:
   url: /
 - title: Schedule
   url: /schedule
-- title: Homework
-  url: /homework/
+- title: Assignments
+  url: /assignments/
   sublinks:
     - title: Doodle
       url: /doodle

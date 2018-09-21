@@ -26,7 +26,7 @@ layout: default
 - Chapter 9-10: Understanding Android Application and Activity Lifecycles from [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
 
 **Assignment**
-[Doodle Assignment](/interaction/homework/doodle.md)
+[Doodle Assignment](/interaction/assignments/doodle)
 
 **Slides**
 [02: MVC](/interaction/slides/wk01/02MVC.html)
