@@ -51,9 +51,9 @@ There are several ways to draw a line. [android--code](https://android--code.blo
 
 You will create a beautiful doodle of your own. Here is one we created:
 
-![A picture of a phone screen with a heart on it made up of smaller pictures]({{ site.baseurl }}/assignments/doodle-img/screenshot.png "Screenshot of sample Doodle implementation"){: width=40px}
+[![A picture of a phone screen with a heart on it made up of smaller pictures](doodle-img/screenshot-small.png "Screenshot of sample Doodle implementation"){: width=150px}](doodle-img/screenshot.png)
 
-XX JEN: Needs more detail{: style="color: red"}
+XX JEN: Needs more detail
 
 ## Assignment handin instructions
 
