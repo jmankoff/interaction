@@ -5,13 +5,13 @@ layout: default
 * TOC
 {:toc}
 
-# Week 1: What's in an Interface?
-
+# Week 1: What's in an Interface
 **Learning goals**
-- Relevance of class to all of CS
-- Get up to speed on Android (hello world!)
-- Learn about basic structure of a user interface
-- Learn about common interactors and how to name them
+- [M] Relevance of class to all of CS
+- [W/Th] Get up to speed on Android (hello world!)
+- [W] Learn about basic structure of a user interface
+- [F] Human perception 
+- [F] Abstractions for drawing on the screen
 
 ## Monday: Why take this course? What is HCI?
 
@@ -42,4 +42,33 @@ layout: default
 **Slides**
 [03: Drawing](/interaction/slides/wk01/03Drawing.html)
 
-# Week 2: Matters of the Eye (?)
+# Week 2: Interact With Me
+**Learning goals**
+- [M] Essential geometry and representing your model
+- [M] Abstractions for layout (arranging things on the screen)
+- [M/W] Common interactors and how to name them
+- [W] Essential behavior and the use of finite state machines
+- [F] Paper prototyping and other methods for organizing your interface
+- [Th] Creating layouts in Android
+
+## Monday: Essential Geometry
+**Readings?**
+**Slides**
+[04: Model View Layout]
+
+## Wednesday: Essential Behavior
+**Readings?**
+**Slides**
+[05: Model Controller]
+
+## Thursday: Implementing a Widget
+[Lab 02: Layout and Event Handling]
+
+## Friday: Testing for Interactivity Best Practices
+**Readings?**
+**Slides?**
+**In class exercise: Paper Prototyping**
+
+# Week 3: Events of Interest
+**Learning goals**
+-  Interactor hierarchies vs inheritance
