@@ -21,6 +21,7 @@ group :jekyll_plugins do
   gem "jekyll-assets"
   gem 'font-awesome-sass'
   gem 'remark'
+  get 'jekyll-mermaid'
 end
 
 
