@@ -13,13 +13,13 @@ layout: default
 - [F] Human perception 
 - [F] Abstractions for drawing on the screen
 
-## Monday: Why take this course? What is HCI?
+## 4/1 Monday: Why take this course? What is HCI?
 
 **No Reading/Assignment**
 **Slides**
 [01: Introduction to course](/interaction/slides/wk01/01intro.html)
 
-## Wednesday: Basic Structure of Interaction
+## 4/3 Wednesday: Basic Structure of Interaction
 
 **Required reading (10 min)**
 - Chapter 1: Introduction from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
@@ -35,7 +35,7 @@ layout: default
 **Slides**
 [Lab 01: Hello World](/interaction/slides/l01/l01hello.html)
 
-## Friday: Drawing on the Screen
+## 4/5 Friday: Drawing on the Screen
 **Required reading (10 min)**
 - Chapter 2: Drawing from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) -- especially pp. 26-38
 
@@ -51,24 +51,105 @@ layout: default
 - [F] Paper prototyping and other methods for organizing your interface
 - [Th] Creating layouts in Android
 
-## Monday: Essential Geometry
+## 4/8 Monday: Essential Geometry
 **Readings?**
 **Slides**
-[04: Model View Layout]
+[04: Model View - Widget Level]
 
-## Wednesday: Essential Behavior
+## 4/10 Wednesday: Layout
+**Readings?**
+**Slides**
+[05: Model View Layout -- Application Level]
+
+## Thursday: Layout and Basic Structure of Event Handling 
+**Readings?**
+**Slides**
+**Activity: Layout**
+**Mini Assignment: Build a Circular Widget**
+
+## 4/12 Friday: Essential Behavior/Finite State Machines
+**Readings?**
+**Slides**
+
+## 4/15 Monday: Menu Design History 
+**Readings?**
+**Slides?**
+**In class exercise: Designing a Widget**
+
+
+## 4/17 Wednesday: Fitts Law / Data Collection for User studies
 **Readings?**
 **Slides**
 [05: Model Controller]
 
-## Thursday: Implementing a Widget
-[Lab 02: Layout and Event Handling]
+## 4/18 Thursday: Data collection for user studies 
+[Lab 03: Implementing an App for a user study]
+**Project: Test which menu is better: Marking menu or Standard Menu**
 
-## Friday: Testing for Interactivity Best Practices
+## 4/19 Friday: Application Design Best Practices & Paper Prototyping
 **Readings?**
-**Slides?**
-**In class exercise: Paper Prototyping**
+**Slides**
+[05: Model Controller]
 
 # Week 3: Events of Interest
 **Learning goals**
 -  Interactor hierarchies vs inheritance
+
+## 4/22 Monday: Event Handling in the Interactor Hierarchy 
+
+## 4/24 Wednesday: Fat Finger Syndrome
+
+## Thursday
+[Lab 04: Implementing Area Cursors]
+** Exercise: Area Cursor Implementation
+
+## 4/26 Friday: Best practices in Interface Design
+
+# Week 4: Undo 
+## 4/29 Monday: Undo 
+
+## 5/1 Wednesday: Heuristic Evaluation
+
+## 5/2 Big assignment: Undo 
+
+## 5/3 Friday: 
+
+# Week 5: Accessibility 
+
+## 5/6 Monday: Accessibility
+
+## 5/8 Wednesday: ??
+
+## 5/9 LAB Exercise: accessibility
+
+## 5/10
+
+# Week 6: Sensing
+
+## 5/13
+
+## 5/15
+
+## 5/17
+
+# Week 7: Context Awareness
+
+## 5/20
+
+## 5/21: Context Awareness
+
+## 5/22
+
+## 5/24
+
+# Week 8: Advanced Concepts
+
+## 5/27: Memorial Day
+
+## 5/29
+
+## 5/31
+
+# Post Lecture
+
+## Final exam???
