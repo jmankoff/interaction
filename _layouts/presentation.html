@@ -9,7 +9,6 @@
       @import url({{'/assets/css/ubuntu.css' | relative_url}}); 
       @import url({{'/assets/css/ubuntu-mono.css' | relative_url}});  
       @import url({{'/assets/css/yanone-kaffeesatz.css'  | relative_url}}); 
-
       body { font-family: 'Ubuntu'; }
       h1, h2, h3 {font-family: 'Yanone Kaffeesatz'; font-weight: normal; }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
@@ -46,14 +45,17 @@
     <div class="my-footer">9/18/18 &copy; J. Mankoff, University of Washington</div>
 
 <script src="{{'/assets/js/remark-latest.min.js' | relative_url}}" type="text/javascript"></script>
-    <script src="{{'/assets/js/remark-macros-jm.js' | relative_url}}" type="text/javascript"></script>
-    <script type="text/javascript">
-      var slideshow = remark.create({
-        navigation: {scroll: false},
-        ratio: "16:9",
-        highlightStyle: 'github'
-      });
-    </script>
+<script src="{{'/assets/js/remark-macros-jm.js' | relative_url}}" type="text/javascript"></script>
+<script type="text/javascript">
+  var slideshow = remark.create({
+      navigation: {scroll: false},
+      ratio: "16:9",
+      highlightStyle: 'github'
+  });
+</script>
+    <script src="{{site.baseurl}}/assets/js/mermaid.js"></script>
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/mermaid.css">
+    <script>mermaid.initialize({startOnLoad:true});</script>
 
   </body>
 

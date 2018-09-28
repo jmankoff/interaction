@@ -2,5 +2,8 @@
 	path = reveal.js
 	url = https://github.com/hakimel/reveal.js.git
 [submodule "mermaid"]
-	path = mermaid
+	path = _submodules/mermaid
 	url = https://github.com/knsv/mermaid.git
+[submodule "_submodules/he"]
+	path = _submodules/he
+	url = https://github.com/mathiasbynens/he.git

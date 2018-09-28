@@ -30,18 +30,33 @@ plugins:
   - jekyll-font-awesome-sass
   - jekyll-paginate
   - jekyll-redirect-from
+  - jekyll-assets
+  - uglifier
+  - jekyll-mermaid
+  - jekyll-bootstrap-sass
 
 highlighter: rouge
 
+bootstrap:
+    assets: true
+    
 assets:
+    digest: false
     prefix: "/assets"
-    sources:
-        - "*"
-
+#    sources:
+#        - "*"
 
 sass:
-  sass_dir: _sass
+  sass_dir:          _scss
+#  style: compressed
 
+kramdown:
+  toc_levels: '1'
+
+mermaid:
+  serc: '/assets/js/mermaid.js'
+  src_config: '/assets/js/mermaid_config.js'
+  
 remarkConfig:
   # possible highlight options:
   # arta, ascetic, dark, default, far, github, googlecode, idea, ir_black,

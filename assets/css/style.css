@@ -1,0 +1,17 @@
+ul#markdown-toc {
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+}
+
+ul#markdown-toc li{
+    display: inline;
+    padding: 5px;
+    background: #d8fccf;
+    style:bold;
+}
+
+.navbar {
+    background-color:  #445588;
+    opacity: 0.6;
+}

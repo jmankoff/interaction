@@ -2,6 +2,14 @@
 layout: default
 ---
 
+{% mermaid %}
+graph LR
+        A-->B
+        B-->C
+        C-->A
+        D-->C
+{% endmermaid %}
+
 * TOC
 {:toc}
 
@@ -71,6 +79,8 @@ layout: default
 **Readings?**
 **Slides**
 
+# Week 4: Running an Experiment
+
 ## 4/15 Monday: Menu Design History 
 **Readings?**
 **Slides?**
@@ -91,7 +101,7 @@ layout: default
 **Slides**
 [05: Model Controller]
 
-# Week 3: Events of Interest
+# Week 5: Events of Interest
 **Learning goals**
 -  Interactor hierarchies vs inheritance
 
@@ -105,7 +115,7 @@ layout: default
 
 ## 4/26 Friday: Best practices in Interface Design
 
-# Week 4: Undo 
+# Week 6:  Undo 
 ## 4/29 Monday: Undo 
 
 ## 5/1 Wednesday: Heuristic Evaluation
@@ -114,7 +124,7 @@ layout: default
 
 ## 5/3 Friday: 
 
-# Week 5: Accessibility 
+# Week 7: Accessibility 
 
 ## 5/6 Monday: Accessibility
 
@@ -124,7 +134,7 @@ layout: default
 
 ## 5/10
 
-# Week 6: Sensing
+# Week 8: Sensing
 
 ## 5/13
 
@@ -132,7 +142,7 @@ layout: default
 
 ## 5/17
 
-# Week 7: Context Awareness
+# Week 9: Context Awareness
 
 ## 5/20
 
@@ -142,7 +152,7 @@ layout: default
 
 ## 5/24
 
-# Week 8: Advanced Concepts
+# Week 10: Advanced Concepts
 
 ## 5/27: Memorial Day
 
