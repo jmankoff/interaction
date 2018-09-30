@@ -4,17 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>{{ page.title | strip_html }}</title>
     <style type="text/css">
-      @import url({{'/assets/css/my-remark.css' | relative_url}});
-      @import url({{'/assets/css/fontawesome.css' | relative_url}}); 
       @import url({{'/assets/css/ubuntu.css' | relative_url}}); 
       @import url({{'/assets/css/ubuntu-mono.css' | relative_url}});  
       @import url({{'/assets/css/yanone-kaffeesatz.css'  | relative_url}}); 
-      body { font-family: 'Ubuntu'; }
-      h1, h2, h3 {font-family: 'Yanone Kaffeesatz'; font-weight: normal; }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-      .remark-slide-content,.remark-code {font-size: 28px;}
-      .inverse { background: #111; color: #eee; text-shadow: 0 0 20px #f00;}
-      .inverse a{color: #eee;}
+      @import url({{'/assets/css/my-remark.css' | relative_url}});
       @page {
         size: 1210px 681px;
         margin: 0;
@@ -29,7 +22,7 @@
         }
       }
     </style>
-
+    
     <!-- Favicon head tag -->
     <link rel="icon" href="{{site.baseurl}}/assets/img/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono|Yanone+Kaffeesatz" rel="stylesheet">

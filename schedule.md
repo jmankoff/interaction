@@ -2,14 +2,6 @@
 layout: default
 ---
 
-{% mermaid %}
-graph LR
-        A-->B
-        B-->C
-        C-->A
-        D-->C
-{% endmermaid %}
-
 * TOC
 {:toc}
 
@@ -59,27 +51,32 @@ graph LR
 - [F] Paper prototyping and other methods for organizing your interface
 - [Th] Creating layouts in Android
 
-## 4/8 Monday: Essential Geometry
-**Readings?**
+## 4/8 Monday: Event Handling and Essential Geometry
+**Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
+**Required Reading (10 min):** - Chapter 25: A Guide to Android Constraint Layout [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
+
 **Slides**
-[04: Model View - Widget Level]
+[04: Model View - Widget Level](/interaction/slides/wk02/04modelview)
 
 ## 4/10 Wednesday: Layout
-**Readings?**
-**Slides**
-[05: Model View Layout -- Application Level]
+**Required Reading (10 min):** - Chapter 17 & 18: A Guide to Android Constraint Layout [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
 
-## Thursday: Layout and Basic Structure of Event Handling 
-**Readings?**
 **Slides**
-**Activity: Layout**
+[05: Model View Layout -- Application Level](/interaction/slides/wk02/05layout)
+
+## Thursday: Widget Assignment
+**Required Reading (10 min):** - Chapter 4: Widgets [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
+
+**Slides**
+[Lab 02: Activities, Views, and Layout](/interaction/slides/l02/02widget.html)
+
 **Mini Assignment: Build a Circular Widget**
 
 ## 4/12 Friday: Essential Behavior/Finite State Machines
 **Readings?**
 **Slides**
 
-# Week 4: Running an Experiment
+# Week 3: Running an Experiment
 
 ## 4/15 Monday: Menu Design History 
 **Readings?**
@@ -101,7 +98,7 @@ graph LR
 **Slides**
 [05: Model Controller]
 
-# Week 5: Events of Interest
+# Week 4: Events of Interest
 **Learning goals**
 -  Interactor hierarchies vs inheritance
 
@@ -115,7 +112,7 @@ graph LR
 
 ## 4/26 Friday: Best practices in Interface Design
 
-# Week 6:  Undo 
+# Week 5:  Undo 
 ## 4/29 Monday: Undo 
 
 ## 5/1 Wednesday: Heuristic Evaluation
@@ -124,7 +121,7 @@ graph LR
 
 ## 5/3 Friday: 
 
-# Week 7: Accessibility 
+# Week 6: Accessibility 
 
 ## 5/6 Monday: Accessibility
 
@@ -134,7 +131,7 @@ graph LR
 
 ## 5/10
 
-# Week 8: Sensing
+# Week 7: Sensing
 
 ## 5/13
 
@@ -142,7 +139,7 @@ graph LR
 
 ## 5/17
 
-# Week 9: Context Awareness
+# Week 8: Context Awareness
 
 ## 5/20
 
@@ -152,7 +149,7 @@ graph LR
 
 ## 5/24
 
-# Week 10: Advanced Concepts
+# Week 9: Advanced Concepts
 
 ## 5/27: Memorial Day
 

@@ -43,8 +43,8 @@ bootstrap:
 assets:
     digest: false
     prefix: "/assets"
-#    sources:
-#        - "*"
+    sources:
+        - "*"
 
 sass:
   sass_dir:          _scss
@@ -54,8 +54,8 @@ kramdown:
   toc_levels: '1'
 
 mermaid:
-  serc: '/assets/js/mermaid.js'
-  src_config: '/assets/js/mermaid_config.js'
+  src: '/interaction/assets/js/mermaid.js'
+  src_config: '/interaction/assets/js/mermaid_config.js'
   
 remarkConfig:
   # possible highlight options:
