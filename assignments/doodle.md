@@ -80,6 +80,9 @@ You should use all 3 functions implemented in part 1. You are welcome to impleme
 
 Your may use the attractive home-cooked food images ([photo credit](https://www.XiaoyiZhang.me)) we include in res/drawable folder, or use your own images.
 
+*Related APIs*:
+[Android Animation](https://developer.android.com/training/animation/reposition-view)
+
 If your animation is laggy, try reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
 
 <br/>
