@@ -1,4 +1,4 @@
-import moment from 'moment'
+import moment from './moment/moment.min.js'
 
 export const LEVELS = {
   debug: 1,

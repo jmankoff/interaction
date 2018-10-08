@@ -69,7 +69,7 @@ class: inverse, center
 ---
 
 .left-column[
-## View Update: Based on Essential Geometry
+## View Update: .red[Based on Essential Geometry]
 ]
 
 .right-column[
@@ -84,7 +84,7 @@ Examples?
 ---
 
 .left-column[
-## View Update: Based on Essential Geometry
+## View Update: .red[Based on Essential Geometry]
 ]
 
 .right-column[
@@ -96,7 +96,7 @@ Examples?
 ---
 
 .left-column[
-## View Update: Based on Essential Geometry
+## View Update: .red[Based on Essential Geometry]
 ]
 
 .right-column[
@@ -108,7 +108,7 @@ Examples?
 ---
 
 .left-column[
-## View Update: Based on Essential Geometry
+## View Update: .red[Based on Essential Geometry]
 ]
 
 .right-column[
@@ -123,7 +123,7 @@ What is the essential geometry of this menu?
 
 
 .left-column[
-## View Update: Based on Essential Geometry
+## View Update: .red[Based on Essential Geometry]
 ]
 
 .right-column[
@@ -137,7 +137,7 @@ why?
 
 ---
 .left-column[
-## View Update: Based on Essential Geometry
+## View Update: .red[Based on Essential Geometry]
 ]
 
 .right-column[
@@ -149,7 +149,7 @@ why?
 ---
 
 .left-column[
-## View Update: Based on Essential Geometry
+## View Update: .red[Based on Essential Geometry]
 ]
 
 .right-column[
@@ -160,7 +160,7 @@ why?
 ---
 
 .left-column[
-## View Update: Based on Essential Geometry
+## View Update: .red[Based on Essential Geometry]
 ]
 
 .right-column[
@@ -171,7 +171,7 @@ why?
 
 ---
 .left-column[
-## View Update: Damage Mechanism
+## View Update: .red[Damage Mechanism]
 ]
 .right-column[
 - How does the toolkit know what to redraw?
@@ -184,7 +184,7 @@ why?
 ]
 ---
 .left-column[
-## View Update: Draw/Redraw Mechanism
+## View Update: .red[Draw/Redraw Mechanism]
 ]
 .right-column[
 - Virtual device abstraction provided by windowing system
@@ -197,7 +197,7 @@ buffer) to itself
 
 ---
 .left-column[
-## View Update: Draw/Redraw Mechanism
+## View Update: .red[Draw/Redraw Mechanism]
 ]
 .right-column[
 - Virtual device abstraction provided by windowing system
@@ -212,7 +212,7 @@ itself
 
 ---
 .left-column[
-## View Update: Draw/Redraw Mechanism
+## View Update: .red[Draw/Redraw Mechanism]
 ]
 .right-column[
 - Virtual device abstraction provided by windowing system
@@ -224,10 +224,33 @@ itself
 
 ---
 .left-column[
-## View Update: Redraw Mechanism
+## View Update: .red[Value of widget abstraction]
 ]
 .right-column[
-- Damage caused by drawing (or other things)
+Each widget knows how to draw itself
+
+Based on what it is and its internal state
+
+Includes some common properties (inherited from a base class for all interactors), E.g.
+
+- position (x,y relative to parent)
+
+- size (w,h)
+
+- visible
+
+- Enabled
+
+Typically includes some specialized properties (declared in
+subclass)
+]
+
+---
+.left-column[
+## View Update: .red[Redraw Mechanism]
+]
+.right-column[
+Damage caused by drawing (or other things)
 ]
 ???
 Can you think about other things?
@@ -237,23 +260,23 @@ Can you think about other things?
 
 ---
 .left-column[
-## View Update: Redraw Mechanism
+## View Update: .red[Redraw Mechanism]
 ]
 
 .right-column[
-- Damage caused by drawing (or other things)
+Damage caused by drawing (or other things)
 
-- Naive approach to redraw -- problems?
+Naive approach to redraw -- problems?
 ]
 ---
 
 .left-column[
-## View Update: Redraw Mechanism
+## View Update: .red[Redraw Mechanism]
 ]
 .right-column[
-- Damage caused by drawing (or other things)
+Damage caused by drawing (or other things)
 
-- Naive approach to redraw -- problems?
+Naive approach to redraw -- problems?
 ]
 ![:img pic of original screen and changed screen, 72%](img/original-new.png)
 
@@ -269,26 +292,26 @@ XXX TODO ADD pic like this using divs?
 
 ---
 .left-column[
-## View Update: Redraw Mechanism
+## View Update: .red[Redraw Mechanism]
 ]
 
 .right-column[
-- Damage caused by drawing (or other things)
+Damage caused by drawing (or other things)
 
-- Naive approach to redraw -- problems?
+Naive approach to redraw -- problems?
 ]
 ![:img pic of original screen and changed screen, 72%](img/original-new.png)
 ![:img pic with double buffering included, 70%](img/full-solution-buffering.png)
 
 ---
 .left-column[
-## View Update: Redraw Mechanism
+## View Update: .red[Redraw Mechanism]
 ]
 
 .right-column[
-- Damage caused by drawing (or other things)
+Damage caused by drawing (or other things)
 
-- Naive approach to redraw -- problems?
+Naive approach to redraw -- problems?
 ]
 ![:img pic of original screen and changed screen, 72%](img/original-new.png)
 ![:img pic with double buffering included, 70%](img/full-solution-buffering.png)
@@ -307,7 +330,7 @@ XXX TODO ADD pic like this using divs?
 
 ---
 .left-column[
-## View Update: Propagating Damage
+## View Update: .red[Propagating Damage]
 ]
 
 .right-column[

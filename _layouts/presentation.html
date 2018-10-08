@@ -8,6 +8,7 @@
       @import url({{'/assets/css/ubuntu-mono.css' | relative_url}});  
       @import url({{'/assets/css/yanone-kaffeesatz.css'  | relative_url}}); 
       @import url({{'/assets/css/my-remark.css' | relative_url}});
+      @import url({{'/assets/css/mermaid.css' | relative_url}});      
       @page {
         size: 1210px 681px;
         margin: 0;
@@ -46,10 +47,7 @@
       highlightStyle: 'github'
   });
 </script>
-    <script src="{{site.baseurl}}/assets/js/mermaid.js"></script>
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/mermaid.css">
-    <script>mermaid.initialize({startOnLoad:true});</script>
-
+<script type="module" src="{{site.baseurl}}/assets/js/mermaid.js"></script>
   </body>
 
 <!--

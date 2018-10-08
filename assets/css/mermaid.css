@@ -1,6 +1,14 @@
 /* Flowchart variables */
 /* Sequence Diagram variables */
 /* Gantt chart variables */
+.remark-slide-container {
+    visibility: hidden;
+    display: initial;
+}
+.remark-visible {
+    visibility: visible;
+}
+
 .mermaid .label {
   color: #333;
 }
