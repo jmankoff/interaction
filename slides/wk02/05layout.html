@@ -114,53 +114,6 @@ Ideally:
 - widget's maximum size
 
 And they get to ignore all of that, but usually try not to.
----
-# Absolute layout -- actual implementation (slightly simplified)
-
-```java
-protected void onLayout(boolean changed, int l, int t, int r, int b) {
-    foreach child c {
-        if (child.isVisible()) {
-             Rectangle r = child.getLayoutParams();
-             childLeft = padding + r.x;
-             childTop = padding + r.y;
-             child.layout(childLeft, childTop, r.w, r.h);
-        }
-    }
-}
-```
-
-This is a simple depth first tree traversal
-
----
-# Relative layout implementation
-Simplified, basic structure for any Android layout, including your own custom one! 
-
-```java
-// Two pass traversal of widget hierarchy
-// First: Measure everything
-protected void onMeasure(int widthspec, int heightspec) {
-  sortChildren()
-  // loop through children
-  foreach child widget c {
-    // get child's layout params
-    // apply appropriate rules to them
-  }
-  // based on all that, update our dimensions
-  setMeasuredDimension(this)
-}
-// Second: do the actual updating 
-public void doLayout(Rectangle newBounds)
-{
-   // loop through the kids (this is depth first)
-   foreach child {
-      if (child.isVisible()) {
-        // get the saved parameters
-        Rectangle l = child.getLayoutParams();
-        child.layout(l.mLeft, l.mTop, l.mRight, l.mBottom);
-      }
-   }			    }
-```
 
 ---
 
@@ -179,9 +132,9 @@ D --> I[Icon:Color]
 D --> T[Text:RGB]
 R --> La[Text:Label]
 
-classDef bluegreen fill:#669999,stroke:#333,stroke-width:2px;
-classDef blue fill:#7887AB,stroke:#333,stroke-width:2px;
-classDef green fill:#88CC88,stroke:#333,stroke-width:4px;
+classDef bluegreen fill:#669999,stroke:#333,stroke-width:6px;
+classDef blue fill:#7887AB,stroke:#333,stroke-width:6px;
+classDef green fill:#88CC88,stroke:#333,stroke-width:6px;
 
 class L blue
 </div>
@@ -262,6 +215,55 @@ Brainstorm strategies
 - floats
 - constraints ('reactive programming')
 - others?
+
+---
+---
+# Absolute layout -- actual implementation (slightly simplified)
+
+```java
+protected void onLayout(boolean changed, int l, int t, int r, int b) {
+    foreach child c {
+        if (child.isVisible()) {
+             Rectangle r = child.getLayoutParams();
+             childLeft = padding + r.x;
+             childTop = padding + r.y;
+             child.layout(childLeft, childTop, r.w, r.h);
+        }
+    }
+}
+```
+
+This is a simple depth first tree traversal
+
+---
+# Relative layout implementation
+Simplified, basic structure for any Android layout, including your own custom one! 
+
+```java
+// Two pass traversal of widget hierarchy
+// First: Measure everything
+protected void onMeasure(int widthspec, int heightspec) {
+  sortChildren()
+  // loop through children
+  foreach child widget c {
+    // get child's layout params
+    // apply appropriate rules to them
+  }
+  // based on all that, update our dimensions
+  setMeasuredDimension(this)
+}
+// Second: do the actual updating 
+public void doLayout(Rectangle newBounds)
+{
+   // loop through the kids (this is depth first)
+   foreach child {
+      if (child.isVisible()) {
+        // get the saved parameters
+        Rectangle l = child.getLayoutParams();
+        child.layout(l.mLeft, l.mTop, l.mRight, l.mBottom);
+      }
+   }			    }
+```
 
 ---
 ## Powerful option: Constraints

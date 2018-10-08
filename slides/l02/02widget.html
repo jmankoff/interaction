@@ -208,8 +208,21 @@ layout: false
   - *Note*: Android Widgets are self-contained, home-screen-specific display items for apps (e.g. clock/time, weather, email-at-a-glance)
 ---
 
-.center.full-width-img[
-  ![Android ViewGroup](img/view-group.png)
+.right[# Sample Hierarchy]
+.left[
+<div class="mermaid">
+graph TD
+A(ViewGroup) -->  B(ViewGroup)
+A --> C(View)
+A --> D(View)
+B --> E(View)
+B --> F(View)
+B --> G(View)
+
+classDef blue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class A,B blue
+</div>
 ]
 
 ---
@@ -250,7 +263,8 @@ template: inverse
 - [WebView](https://developer.android.com/reference/android/webkit/WebView.html) - uses html/css to layout a page, but requires `INTERNET` permission in your manifest
 
 - More on https://developer.android.com/guide/topics/ui/declaring-layout.html
-
+???
+XX TODO GO OVER THESE? or stick to constraints only?
 ---
 template:inverse
 
