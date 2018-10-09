@@ -1,0 +1,159 @@
+---
+layout: presentation
+title: Layout --Week 2, Monday-- 
+description: Description of Layout
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Advanced Interaction Design
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+
+[//]: # (Outline Slide)
+# Today's goals
+
+---
+layout: false
+
+.left-column[##Interaction Technique]
+.right-column[
+A method for carrying out a specific interactive task
+
+Example: enter a number in a range
+
+could use...
+]
+???
+have the class try to think of examples
+--
+.right-column[
+- (simulated) slider
+- (simulated) knob
+- type in a number (text edit box)
+
+Each is a different interaction technique
+]
+---
+.left-column[##Example: Specify the end points for a line]
+.right-column[
+Could just specify two endpoints – click, click
+- not good: no affordance, no feedback (/ feedforward)
+
+Better feedback is to use “rubber banding”
+- stretch out the line as you drag
+- at all times, shows where you would end up if you “let go”
+]
+---
+.left-column[##Implementing rubber banding]
+
+.right-column[```
+Accept the press for endpoint P1; P2 = P1;
+Draw line P1-P2;
+Repeat
+  Erase line P1-P2;
+  P2 = current_position(); Draw line P1-P2;
+Until release event;
+Act on line input;
+```
+]
+---
+.left-column[##Implementing rubber banding]
+
+Need to get around this loop absolute min of 5 times / sec
+
+– 10 times better
+
+– more would be better
+
+???
+aside -- why 5-10 times per second?
+
+---
+.left-column[##What is wrong with this code?]
+
+.right-column[```
+Accept the press for endpoint P1; P2 = P1;
+Draw line P1-P2;
+Repeat
+  Erase line P1-P2;
+  P2 = current_position(); Draw line P1-P2;
+Until release event;
+Act on line input;
+```
+]
+???
+Not event based
+Not in the basic event/redraw loop
+Potentially locks up the system
+---
+.left-column[## Event driven code]
+.right-column[
+Needs to respond to events as they arrive
+
+Needs to maintain state between events 
+
+]
+
+---
+.left-column[##Simple solution: Deterministic Finite State Machines]
+.right-column[
+- Arrow for start state
+
+- double circle for 'final state' (really means 'reset to start')
+]
+???
+XXX TODO need to decide if/where to use this slide and either update
+graphs in slides to follow this format or delete it 
+---
+.left-column[##FSM Notation
+
+Transitions represent actions (callbacks)
+]
+.right-column[
+<div class="mermaid">
+  graph LR
+    A((A)) -- "Mouse_Dn/Draw_Line()" --> B((B))
+</div>
+  Means: When you are in state A, and a Mouse Down event arrives, do
+  the action ```Draw_line()``` and go to state B. 
+]
+---
+.left-column[#FSM for rubber banding?]
+.right-column[
+- Determine the states
+
+- Determine the triggers (events)
+
+- Determine the actions
+
+```
+Accept the press for endpoint P1; P2 = P1;
+Draw line P1-P2;
+Repeat
+  Erase line P1-P2;
+  P2 = current_position(); Draw line P1-P2;
+Until release event;
+Act on line input;
+```
+]
+
+???
+A: DRAW LINE
+B: LOOP CONTENTS
+C: ACTION
+---
+Pair up and discuss:
+
+How could we provide a better affordance?
+
+Does it matter if we are using a mouse or a touch screen?
+
+???
+XXX todo: decide where these slides go
+--
+

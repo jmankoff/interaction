@@ -44,21 +44,21 @@ layout: default
 
 # Week 2: Interact With Me
 **Learning goals**
-- [M] Essential geometry and representing your model
-- [M] Abstractions for layout (arranging things on the screen)
+- [M] Essential geometry and basic event handling
+- [W] Abstractions for layout (arranging things on the screen)
 - [M/W] Common interactors and how to name them
-- [W] Essential behavior and the use of finite state machines
-- [F] Paper prototyping and other methods for organizing your interface
 - [Th] Creating layouts in Android
+- [F] Essential behavior and the use of finite state machines
+- [F] Paper prototyping and other methods for organizing your interface
 
 ## 4/8 Monday: Event Handling and Essential Geometry
 **Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
-**Required Reading (10 min):** - Chapter 25: A Guide to Android Constraint Layout [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
 
 **Slides**
 [04: Model View - Widget Level](/interaction/slides/wk02/04modelview)
 
 ## 4/10 Wednesday: Layout
+**Required Reading (10 mins) Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
 **Required Reading (10 min):** - Chapter 17 & 18: A Guide to Android Constraint Layout [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
 
 **Slides**
@@ -70,11 +70,12 @@ layout: default
 **Slides**
 [Lab 02: Activities, Views, and Layout](/interaction/slides/l02/02widget.html)
 
-**Mini Assignment: Build a Circular Widget**
+**Exercise: Build a Circular Widget**
 
 ## 4/12 Friday: Essential Behavior/Finite State Machines
 **Readings?**
 **Slides**
+[06: Essential Behavior](/interaction/slides/wk02/06EssentialBehavior)
 
 # Week 3: Running an Experiment
 
