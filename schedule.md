@@ -49,7 +49,6 @@ layout: default
 - [M/W] Common interactors and how to name them
 - [Th] Creating layouts in Android
 - [F] Essential behavior and the use of finite state machines
-- [F] Paper prototyping and other methods for organizing your interface
 
 ## 4/8 Monday: Event Handling and Essential Geometry
 **Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
@@ -78,6 +77,7 @@ layout: default
 [06: Essential Behavior](/interaction/slides/wk02/06EssentialBehavior)
 
 # Week 3: Running an Experiment
+- [F] Paper prototyping and other methods for organizing your interface
 
 ## 4/15 Monday: Menu Design History 
 **Readings?**
