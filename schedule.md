@@ -57,7 +57,7 @@ layout: default
 [04: Model View - Widget Level](/interaction/slides/wk02/04modelview)
 
 ## 4/10 Wednesday: Layout
-**Required Reading (10 mins) Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
+**Required Reading (10 mins)** [Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
 **Required Reading (10 min):** - Chapter 17 & 18: A Guide to Android Constraint Layout [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
 
 **Slides**
@@ -77,18 +77,27 @@ layout: default
 [06: Essential Behavior](/interaction/slides/wk02/06EssentialBehavior)
 
 # Week 3: Running an Experiment
-- [F] Paper prototyping and other methods for organizing your interface
+**Learning goals**
+- [M] Interactor design guidelines
+- [M] Menu Design History 
+- [M] Properties of People
+- [W] Data collection for user studies
+- [Th] Data storage and download
+- [Th] Introduction to first big assignment
+- [F] Application Design Best Practices
+- [F] Paper Prototyping
 
 ## 4/15 Monday: Menu Design History 
 **Readings?**
 **Slides?**
+[07: Interactor Design](/interaction/slides/wk03/menus)
 **In class exercise: Designing a Widget**
 
-
-## 4/17 Wednesday: Fitts Law / Data Collection for User studies
+## 4/17 Wednesday: Running User studies
 **Readings?**
 **Slides**
-[05: Model Controller]
+[08: Interactor Design](/interaction/slides/wk03/studies)
+
 
 ## 4/18 Thursday: Data collection for user studies 
 [Lab 03: Implementing an App for a user study]
