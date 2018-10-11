@@ -1,19 +1,12 @@
 ---
 layout: presentation
-title: Hello World Slides--Week 1, Lab-- 
+title: Lab 1 Slides
 description: Lab project--Hello World--
 class: middle, center, inverse
 ---
 
-.bold.text-align-center[
-  ## How would you make this?
-]
-
-![:img Screen shot of a phone, 30%](img/instagram-example.png)
-
----
 # SSUI Mobile Lab (Spring 2019)
-## Week 1: Course Intro, Java Refresher,  Android Fundamentals
+## Week 1: Intro, Java Refresher, Android Fundamentals
 
 .title-slide-logo[
   ![Android Logo](img/android-logo.png)
@@ -21,136 +14,256 @@ class: middle, center, inverse
 
 ---
 
-# Course Objective
-- Practical experience for learnings in lecture
+.bold.text-align-center[
+  ## How would you make this?
+]
+
+![:img Screen shot of a phone, 25%](img/instagram-example.png)
+
+---
+
+## Course Objectives
+- Practical applications for learnings in lecture
 
 --
-
-- Understand considerations going into mobile apps
-
---
-- Build simple Android applications
+- Understand design considerations when making mobile apps
 
 --
+- Design and implement basic Android applications
 
+--
 - Debugging in Java and for Android
 
 
 ---
-## Introduction to Android (1/2)
-- Framework for building apps on mobile devices
+## Introduction to Android
+
+- World's most popular mobile operating system
 
 --
 
-- __Java__, EXtensible Markup Language (__XML__), and other resources (__res__) that include images, strings.
+  - Open source
+  - Around 75% market share
+  - Thousands of supported devices
+
 --
-  - We've seen java, this is what __XML__ in Android looks like:
-    ```xml
-        <TextView
-          android:id="@+id/main_text_view"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/app_name" />
-    ```
+
+- Exposes Android SDK
+  - Framework for building apps on mobile devices
+
+--
+  - Written in __Java__ and E__X__tensible __M__arkup __L__anguage (__XML__)
+
+--
+  - Relies on other __res__ources including images, localized strings, etc.
+
+--
+
+- We've seen Java, this is what __XML__ in Android looks like:
+
+```xml
+    <TextView
+      android:id="@+id/main_text_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/app_name" />
+```
 ---
-## Introduction to Android (2/2)
-- Typically follows __Model-View-Presenter__ architecture
-  ![MVP](img/mvp-design-pattern.png)
+## Introduction to Android
 
----
+- Applications typically follow MVP architecture
 
-- Apps have multiple entry points or components
-  - __Activity__
-  - __Service__
-  - __Content Provider__
-  - __Broadcast Receiver__
 --
 
+  - Model, View, Presenter
 
--  __Intents__ launch components (and provide them with data)
-- .red[Other Apps can launch your components using intents too (!)]
+--
 
-???
-Compile once, use anywhere
+![MVP Diagram](img/mvp-design-pattern.png)
+
+---
+## Android Applications
+
+- __Intents__
+
+--
+
+  - Launch components (and provide them with data)
+
+--
+  - Not limited to components of the same app
+    - Meaning: your components can be started by intents from other applications
+
+--
+- Components
+
+--
+
+  - Activity
+  - Service
+  - Broadcast Receiver
+  - Content Providers
+
+---
+## Activity
+  - [`android.app.Activity`](https://developer.android.com/reference/android/app/Activity)
+
+--
+  - Represents a single interface
+
+--
+  - Example: Activities for Gmail App
+    - Inbox, Message Compose, Spam Folder, etc.
+--
+  - Activities can be started by other applications, if desired
+    - E.g., sharing a photo by email starts Gmail's Message Compose activity
+
+---
+## Activity
+
+.center[
+![:img Activity Lifecycle, 40%](img/activity_lifecycle.png)
+]
+
+---
+## Service
+  - [`android.app.Service`](https://developer.android.com/reference/android/app/Service)
+
+--
+  - Entry point for background processes
+
+--
+  - Example: Spotify's player activity uses a service to play music
+    - Could be done by activity alone
+--
+    - Use of a service allows music to continue when player activity is no longer in the foreground
+--
+  - Services may be killed and restarted as required by the OS
+    - A persistent service such as music playback may use a persistent notification to prevent this
+
+---
+## Broadcast Receivers
+  - [`android.content.BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.html)
+
+--
+  - Entry point for events outside of regular userflow
+
+--
+  - Example: Alarms
+    - Application schedules callback with OS in 10 minutes
+--
+    - In the meantime, the application can be killed
+--
+    - 10 minutes later, the OS broadcasts the callback event to the app
+--
+    - App begins playing sound; vibrating
+
+---
+## Content Providers
+  - [`android.content.ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider)
+
+--
+  - Persistent storage of data
+
+--
+  - Supports multiple backends, depending on app permissions
+    - Local filesystem, web, SQLite DB, etc.
+--
+  - Can permit access to other applications
+    - Contacts can be read and written to by other apps, depending on permissions
 
 ---
 class: center
 
 ## Android Versioning
 
-.nine-tenths-width-img[
-  ![Android Versioning](img/android-versions-aug2016.png)
-]
+![:img Android Versioning and Distribution, 65%](img/android-versions-oct2018.png)
+
 --
 .center[
 ### We're going to target .red[Jelly Bean] :) - That's .red[__96.6%__] of devices
 ]
----
-template: inverse
-
-## Hello Android Demo
-[Dev Env Setup](dev-demo.html)
 
 ---
-## First Android Project Structure (1/2)
+## Android Project Structure
 
-.four-tenths-width-img.center[
-
-  ![Android Project Structure](img/first-android-project-structure.png)
-
+.center[
+  ![:img Android Project Structure, 40%](img/android_project_structure.png)
 ]
 
 ---
 
-## First Android Project Structure (2/3)
+## Android Project Structure
 
-- `app/src/main/java/com.example.myfirstapp/MainActivity.java` - the first activity (presents the "Hello World" UI)
+- `app/src/main/AndroidManifest.xml`
+
+  - Describes application at a high level for both compilation and running
+--
+
+  - Includes app package, components, permissions, and hardware features
 
 --
 
-- `app/src/main/res/layout/activity_main.xml` - declares the views and layout of the main activity
+- `app/src/main/java/com.example.myapp/MainActivity.java`
+  - The main activity activated when application launches
 
 --
 
-- `app/build.gradle` - build tool configuration file, place library dependencies and `minSDKVersion` here
+- `app/src/main/res/layout/activity_main.xml`
+  - Declares the views and layout of the main activity
+
+--
+
+- `app/build.gradle`
+  - Android build tool configuration file
+
+--
+  - Includes target and min SDK versions and dependencies
 
 ---
-## First Android Project Structure (3/3)
-- `drawable-<density>/` - place for the different resolution images you are using to support different display sizes (keep names consistent)
+## Android Project Structure
+
+- `drawable-<density>/`
+
+  - Images at various pixel densities to accommodate various display resolutions
+--
+
+  - Keep filenames consistent between folders
 
 --
 
-- `layout/` - store all the layout files that get loaded into activities
+- `layout/`
+  - Layout XML description files for application activities
+--
+
+- `mipmap/`
+
+  - Launcher icons for your application at various sizes and shapes
 
 --
 
-- `menu/` - defines your app's menu items
+- `values/`
 
+  - A good place to store constants
+      - Density-independent pixel values (sizes)
+      - Color
 --
-
-- `mipmap/` - contains launcher icons for your app
-
---
-
-- `values/` - place for your strings (good for translation-- *don't hardcode!*), density-independent pixel values (sizes), colors,
+  - Good for string localization as well
+      - Storing strings here makes it much easier to add additional languages in the future!
 
 ---
 
-
-# Assignment 1
-
-- Running sample code for [Assignment 1: Doodle](/homework/doodle.html)
-- Understanding Grading
-- Other Questions
-
-## Quick Java Refresher
+# Quick Java Refresher
 
 ---
 
 ## What is Java?
 --
 
-- Strongly typed language - ever variable gets a type!
+- Strongly, statically typed language
+
+  - Every variable has a type
+  - This type is decided at compile time (mostly)
 
 --
 
@@ -158,64 +271,102 @@ template: inverse
 
 --
 
-- __Write once__, *run anywhere* -- without recompilation (Useful for Android!)
+- Platform agnostic
+
+  - __Write once__, _run anywhere_ without recompilation
+  - Especially useful for Android
 
 ---
 
-## Java Basics - Types
+## Java Basics: Primitive Types
+
+--
+- Boolean
+
 ```java
-// Booleans
 boolean hasClassStarted = true;
+boolean isClassOver = false;
 ```
+
 --
+- Integer
+
 ```java
-// Integers
-int numStudents = 30;
+int numStudents = rand.nextInt(0, 30);
 ```
+
 --
+- Float
+
 ```java
-// Floats
-float homeworkGradeRatio = 0.10f;
+float gradePointAverage = 3.2f;
 ```
+
 --
+- Double
+  - Higher precision than float
+
 ```java
-// Doubles (higher precision than float)
-double maxCourseGrade = 100.0;
+double examScore = 97.362;
 ```
+
+--
+- Byte, Short, etc.
+
 ---
-# Java Basics - Text
-	  
-```java
-// Characters
-char sectionCode = 'B';
-```
+## Java Basics: Text
+
 --
+- Characters
+
 ```java
-// Strings (this is an Object!)
-String instructorName = "Michael Rivera";
+char section = 'B';
 ```
 
+--
+- Strings
 
+```java
+String instructor = "Jennifer Mankoff";
+```
+
+--
 All non-primitives types inherit from `Object` class
+  - Including `String`; note the capitalization
+
 ---
-## Java Basics - Visibility Modifiers
-  - `public` - the world see or change
-    ```java
-    public String whiteBoardContent = "Write Anything Here";
-    ```
+## Java Basics: Visibility Modifiers
+
+```java
+public final String course = "CSE 340";
+///...
+private final String ssn = "123-45-6789";
+```
+
 --
-  - `protected` - your friends can see, change, use (class, subclass, package)
-    ```java
-      protected int donutsLeftInKitchen = 10;  
-    ```
+- `private`
+  - Kept secret, can only be read/written by `self`
+  - Cannot be accessed by subclasses
+
 --
-  - `private` - the things you keep secret, and only give special access
-    ```java
-      private String socialSecurityNumber = "103-90-1234";
-    ```
+- `package private`
+  - This is the default access if no modifier is specified
+  - Accessible by all classes in the same package.
+
+--
+- `protected`
+  - Access restricted to `self`, subclasses, and package
+
+--
+- `public`
+  - The world can read/write (fields) or call (methods)
+
 ---
-# Java Basics - Using Visibility Modifiers Effectively
-  - Generally you want to use `private`
+## Java Basics: Visibility Modifiers
+
+--
+  - Generally, you want to be as restrictive as possible
+    - Usually, this means `private`
 
 --
 
@@ -223,121 +374,128 @@ All non-primitives types inherit from `Object` class
 
 --
 
-  - .red[__Almost never use__ `public`] -- unless for constants
+  - .red[__Almost never use__ `public`] for fields
+    - Except for constants
 
 ---
-
-## Java Basics - `final` - control modification
-
---
-  - prevent value from changing
-    ```java
-    final double courseGrade = 95.0; // cannot be modified ever!
-    ```
---
-
-  - prevent subclassing
-    ```java
-      public final class Person {
-          // can't subclass (for example to make a Student class)
-          // ...
-      }
-    ```
---
-
-  - prevent method overriding
-    ```java
-      public final int getValue() { // can't override!
-          return 0;
-      }
-    ```
----
-## Java Basics -  `static` - memory management
+## Java Basics: `final`
 
 --
+- Prevent value from changing after initialization
 
-  - Use for constants that exist for everyone
-  ```java
-  static double SALES_TAX_RATE = 0.07;
-  ```
+```java
+final double courseGrade = 95.0; // cannot be modified ever!
+```
+
 --
+- Prevent subclassing
 
-  - Methods that can be used without an object Instance
-  ```java
-    static String toString(int i);
-    // For example Integer.toString(100) => "100";
-  ```
-
----
-
-## Java Basics - Methods
-- Methods in Java typically follow this format:
-  ```java
-  visibility [static] [final] returnType methodName (parameter-list) {
+```java
+  public final class Person {
+      // can't subclass (for example to make a Student class)
       // ...
   }
-  ```
+```
+
+--
+- Prevent overriding
+
+```java
+  public final int getValue() { // can't override!
+      return 0;
+  }
+```
+
+---
+## Java Basics: `static`
+
+--
+- Use for constants that are the same for all instances of a class
+
+```java
+static double SALES_TAX_RATE = 0.07;
+```
+
+--
+- Methods that can be called without an class instance
+
+```java
+static String toString(int i);
+// For example Integer.toString(100) => "100";
+```
+
+--
+- By convention, names are capitalized and snake_cased
+
+---
+## Java Basics: Methods
+- Methods in Java typically follow this format:
+
+```java
+{visibility} [static] [final] returnType methodName(paramType paramName, ...) {
+    // ...
+}
+```
+
 --
 - `static` and `final` are optional, special modifiers
+- `visibility` is one of `public`, `private`, `protected`, or empty for package private
 
---
-
-- More common is this format:
-  ```java
-    visibility returnType methodName(paramType paramName, ...) {
-      // ...
-    }
-  ```
 ---
-# Java Basics -- Method Example
+## Java Basics: Method Example
+
 Summing two numbers and returning the answer as a string
 
 ```java
-    public String getSumOfTwoNumbersAsString(int first, int second) {
-      int sum = first + second;
-      return Integer.toString(sum);
-    }
-```
----
-## Java Basics - Declaring a class
-```Java
-public class Student { // This is an object!
-  // TODO (mrivera): fill in later
-  // Needs student ID, name, ,
+public String getSumOfTwoNumbersAsString(int first, int second) {
+  int sum = first + second;
+  return Integer.toString(sum);
 }
 ```
+
 ---
-## Java Basics - Constructing a Class (1/2)
+## Java Basics: Declaring a class
+
+```Java
+{visibility} class ClassName {
+  // Field declarations
+
+  // Method definitions
+}
+```
+
+---
+## Java Basics: Constructing a Class
 
 ```java
 public class Student {
 
   // Class (static) variables -
   public static final String STUDENT_KEY = "STUDENT";
-  private static final String sStudentIdPrefix = "S"
+  private static final String ID_PREFIX = "S";
 
   // Instance Variables
-  private String mIdNumber;
-  private String mName;
+  private String idNumber;
+  private String name;
 
   // Constructors - used to create an instance
   Student(String name, String idNumber) {
-    mName = name;
-    mIdNumber = idNumber;
+    this.name = name;
+    this.idNumber = idNumber;
   }
 
-  // Methods  
+  // Methods
   public String getPrefixedIdNumber() {
-    return sStudentIdPrefix + mIdNumber;
+    return ID_PREFIX + idNumber;
   }
 ```
-	  
+
 ---
-## Java Basics - Constructing a Class (2/2)
+## Java Basics: Constructing a Class cont.
 ```java
   // Getter
   public String getName() {
-    return mName;
+    return name;
   }
 
   // Setter
@@ -345,15 +503,18 @@ public class Student {
     if (newName == null || newName == "") {
       newName = "Unknown";
     }
-    mName = newName;
+
+    name = newName;
   }
 
   // ... etc.
 
 }
 ```
+
 ---
 ## More Java Resources
+
 - Java Documentation (https://docs.oracle.com/javase/8/docs/api/)
 
 - __Online Java Practice Problems__:
@@ -363,3 +524,172 @@ public class Student {
   - https://practiceit.cs.washington.edu/problem/list
 
 ---
+
+# Assignment 1
+
+- Running sample code for [Assignment 1: Doodle](/assignments/doodle.html)
+- Example: `addImage`
+- Understanding Grading
+- Other Questions
+
+---
+## Environment Setup
+
+- Download [Android Studo](https://developer.android.com/studio/) and install
+--
+
+- Keep default installation settings
+
+--
+  - We'll be using API 26 as a default for this class
+  - But any version above Jellybean will work
+
+---
+## Running Sample Code
+
+- Open project in Android Studio
+
+--
+
+- Run configurations should be automatically imported from Gradle
+  - If not, `build` should trigger an import
+
+--
+
+- Run with ►
+
+--
+
+  - Connect an android device by USB or create a new virtual device
+
+--
+  - If by USB, debugging must be enabled on the device
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size);
+```
+
+### Params:
+- `mainCanvas`: Canvas in which to render the image.
+
+--
+- `imageName`: Filename of image to draw in `res/drawable`.
+
+--
+- `x`: Horizontal distance from top-left corner of canvas to top-left of image.
+- `y`: Veritcal distance from top-left corner of canvas to top-left of image.
+
+--
+- `size`: Width and height of rendered image, in pixels.
+
+--
+### Returns:
+- An `ImageView` which has been added to the canvas.
+
+---
+## Implementing  `addImage`
+
+Break down into component steps, look up documentation, and implement
+
+1. Create `ImageView`
+
+--
+2. Add new view to canvas
+
+--
+3. Position and set view size
+
+--
+4. Set view contents
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    // Add imageView to mainCanvas
+    // Set imageView size and position
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+    // Set imageView size and position
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+
+    imageView.getLayoutParams().height = size;
+    imageView.getLayoutParams().width = size;
+
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+
+    imageView.getLayoutParams().height = size;
+    imageView.getLayoutParams().width = size;
+    imageView.setX(x);
+    imageView.setY(y);
+
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+
+    imageView.getLayoutParams().height = size;
+    imageView.getLayoutParams().width = size;
+    imageView.setX(x);
+    imageView.setY(y);
+
+    int resID = getResources().getIdentifier(imageName, "drawable", getPackage());
+    imageView.setImageResource(resID);
+    return imageView;
+}
+```
+
+---
+## Grading
+
+.red[TODO]
