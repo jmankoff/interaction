@@ -83,10 +83,10 @@ You will need to first figure out how to animate the TextView created by `addTex
 
 The `UW` text should translate horizontally from `(50f, 1650f)` to `(1000f, 1650f)`
 
-![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.png){:width="150px"}
-
 *Related APIs*:
 [ObjectAnimator](https://developer.android.com/reference/android/animation/ObjectAnimator)
+
+![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.png){:width="150px"}
 
 # Part 3
 
