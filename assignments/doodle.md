@@ -83,10 +83,10 @@ You will need to first figure out how to animate the TextView created by `addTex
 
 The `UW` text should translate horizontally from `(50f, 1650f)` to `(1000f, 1650f)`
 
-![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.png){:width="150px"}
-
 *Related APIs*:
 [ObjectAnimator](https://developer.android.com/reference/android/animation/ObjectAnimator)
+
+![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.png){:width="150px"}
 
 # Part 3
 
@@ -103,6 +103,7 @@ Your may use the attractive home-cooked food images ([photo credit](https://www.
 
 If your animation is laggy, try reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
 
+# Turnin
 ## Submission Instructions
 
 Please turn in your files in the following zip structure:
@@ -122,3 +123,15 @@ YOUR_STUDENT_ID.zip
 If you use your own images in [Part 3](#part-3), please include them in images folder.
 
 If you're positioning a large number of images for part 3, it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part3.csv`.
+
+## Grading (10pts)
+
+- Part 1
+  - `addText`: 2 pts
+  - `addLine`: 3 pts
+- Part 2
+  - `UW` animation: 1 pt
+- Part 3
+  - Custom Doodle: 2 pts
+  - Peer grading: 1 pts
+- Turn-in and compiles: 1pt
