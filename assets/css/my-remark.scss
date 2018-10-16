@@ -69,6 +69,7 @@
   float: right;
   padding-top: 1em;
   font-size: 1.5em;
+  padding-left: 1em;
 }
 
 .left-column50 {
@@ -79,6 +80,7 @@
   h2:last-of-type, h3:last-child {
     color: #000;
   }
+  padding-left: 1em;
 }
 
 .right-column50 {
@@ -86,6 +88,19 @@
   float: right;
   padding-top: 1em;
   font-size: 1.5em;
+}
+
+
+.right-column20 {
+  width: 20%;
+  float: right;
+  padding-left: 1em;
+}
+
+.middle-column {
+  width: 60%;
+  float: left;
+  padding-left: 1em;
 }
 
 .font-small{

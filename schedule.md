@@ -48,7 +48,7 @@ layout: default
 - [W] Abstractions for layout (arranging things on the screen)
 - [M/W] Common interactors and how to name them
 - [Th] Creating layouts in Android
-- [F] Essential behavior and the use of finite state machines
+- [F] Paper Prototyping & behavior
 
 ## 4/8 Monday: Event Handling and Essential Geometry
 **Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
@@ -63,64 +63,71 @@ layout: default
 **Slides**
 [05: Model View Layout -- Application Level](/interaction/slides/wk02/05layout)
 
-## Thursday: Widget Assignment
-**Required Reading (10 min):** - Chapter 4: Widgets [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
+## Thursday: Layout Exercise
+**Required Reading (10 min):** - Chapter 4: Widgets [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers)  
 
 **Slides**
-[Lab 02: Activities, Views, and Layout](/interaction/slides/l02/02widget.html)
+[Lab 02: Activities, Views, and Layout](/interaction/slides/l02/02layout.html)
 
-**Exercise: Build a Circular Widget**
+**Exercise: Replicate a Layout**
 
-## 4/12 Friday: Essential Behavior/Finite State Machines
+## 4/12 Friday: Overflow / Paper Prototyping
+**Readings** [Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)
+
+**Slides**
+[06: Paper Prototyping](/interaction/slides/wk02/06paper)
+
+# Week 3: Building a Widget
+**Learning goals**
+- [M] Events of Interest
+- [M] Interactor Design Guidelines
+- [W] Essential behavior and the use of finite state machines
+- [Th] Build your own Widget
+- [F] Menu Design History
+
+## 4/15 Monday: Events of Interest
+**Reading**
+**Slides**
+[07: Input Events](/interaction/slides/wk03/07Events)
+
+## 4/17 Wednesday: Essential Behavior/Finite State Machines
 **Readings?**
 **Slides**
-[06: Essential Behavior](/interaction/slides/wk02/06EssentialBehavior)
+ [08: Essential Behavior](/interaction/slides/wk03/08EssentialBehavior)
 
-# Week 3: Running an Experiment
-**Learning goals**
-- [M] Interactor design guidelines
-- [M] Menu Design History 
-- [M] Properties of People
-- [W] Data collection for user studies
-- [Th] Data storage and download
-- [Th] Introduction to first big assignment
-- [F] Application Design Best Practices
-- [F] Paper Prototyping
+## 4/18 Thursday: Build your own widget exercise (simpler than color picker in lab) 
+** Exercise: Color Picker -- could introduce state machine abstractions that will be useful for pie menu implementation ** 
 
-## 4/15 Monday: Menu Design History 
+## 4/19 Friday: Menu Design History 
 **Readings?**
 **Slides?**
-[07: Interactor Design](/interaction/slides/wk03/menus)
+[09: Interactor Design](/interaction/slides/wk03/09menus)
 **In class exercise: Designing a Widget**
-
-## 4/17 Wednesday: Running User studies
-**Readings?**
-**Slides**
-[08: Interactor Design](/interaction/slides/wk03/studies)
-
-
-## 4/18 Thursday: Data collection for user studies 
-[Lab 03: Implementing an App for a user study]
-**Project: Test which menu is better: Marking menu or Standard Menu**
-
-## 4/19 Friday: Application Design Best Practices & Paper Prototyping
-**Readings?**
-**Slides**
-[05: Model Controller]
 
 # Week 4: Events of Interest
 **Learning goals**
--  Interactor hierarchies vs inheritance
+- [M] Interactor hierarchies vs inheritance
+- [M] Event Handling  
+- [W] Running User Studies
+- [Th] Data collection for user studies
+- [Th] Introduction to first big assignment
+- [F] Application Design Best Practices
+- [F] Properties of People
+
 
 ## 4/22 Monday: Event Handling in the Interactor Hierarchy 
 
-## 4/24 Wednesday: Fat Finger Syndrome
+## 4/24 Wednesday: Running User studies
+Data collection for user studies 
+
+Fat Finger Syndrome
 
 ## Thursday
-[Lab 04: Implementing Area Cursors]
-** Exercise: Area Cursor Implementation
+[Lab 04: Implementing an App for a user study]
+**Project: Test which menu is better: Marking menu or Standard Menu**
 
 ## 4/26 Friday: Best practices in Interface Design
+**Slides**
 
 # Week 5:  Undo 
 ## 4/29 Monday: Undo 

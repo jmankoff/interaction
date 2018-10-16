@@ -1,0 +1,479 @@
+---
+layout: presentation
+title: Layout --Week 2, Monday-- 
+description: Description of Layout
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# XXX need to cut back on these slides significantly to focus on exercise...
+---
+layout:false
+
+# Marc Rettig’s Problems with Hi-Fi Prototypes
+
+Can you list some?
+???
+Hi-Fi prototypes take too long to build and change
+
+Reviewers and testers tend to comment on detailed, low-level issues rather than big picture
+
+Developers resist change
+
+A prototype in software can set expectations that are hard to change
+
+A single bug in a hi-fi prototype can bring a test to a complete halt
+
+---
+template:inverse
+
+# Quiz
+---
+# Paper Prototyping
+
+![:img Paper Prototyping, 20%](img/paper-prototype-example.jpg)
+
+Jennifer Mankoff
+CSE 340 Spring 2019
+
+---
+# Example of Paper Prototyping
+
+![:youtube Paper Prototyping of video game,9wQkLthhHKA]
+
+---
+layout:false
+
+.left-column[
+![:img Rettig Paper, 100%](img/p21-rettig.png)
+Marc Retting: Prototyping for Tiny Fingers. CACM 1994]
+
+.right-column[Paper prototyping is potentially a breakthrough idea for
+organizations that have never tried it, since it allows you to
+.red[demonstrate the behavior of an interface very early] in
+development, and .red[test designs with real users]...]
+--
+.right-column[
+It is .red[fast], it .red[brings results early] in development (when it is
+relatively cheap to make changes), and allows a team to
+.red[try far more ideas] than they could with high-fidelity
+prototypes. Lo-fi prototyping 
+helps you apply Fudd's first law of creativity: 'To get a good idea,
+get lots of ideas.'
+]
+
+---
+background-image: url(img/background-paper.png)
+
+.left-column[## What is Paper Prototyping?]
+--
+
+.right-column[
+Fast and cheap way to create and test user interfaces]
+
+--
+
+.right-column[
+It's equivalent to storyboarding in the film industry
+]
+
+--
+
+.right-column[
+Focuses on function, less on form
+]
+--
+
+.right-column[
+All you need: pen, paper (and possibly scissors/tape)
+]
+
+---
+.left-column[Paper Prototypes
+
+![:img hand pointing at drawing interface, 100%](img/drawing-interface.png)
+]
+.right-column[
+Show what an interface … 
+- looks like (sort of)
+- flows like (from screen to screen)
+- interacts like (for some things)
+
+Should be… 
+- Fast to build
+- Lo-fi or hi-fi
+
+Support … 
+- Iteration
+- Ideation
+- User testing
+]
+---
+.left-column[Paper Prototypes
+![:img hand pointing at drawing interface, 100%](img/drawing-interface.png)
+]
+.right-column[
+Can uncover what a user ...
+- fill in
+<br>
+<br>
+<br>
+Cannot uncover ...
+- fill in
+]
+???
+
+can uncover:
+- Notices
+- Prefers
+- Finds Accessible
+- Knows
+cannot uncover:
+Interaction
+Load Times
+Context aware (hard)
+---
+## Today's learning goals
+
+Why paper prototypes?
+
+How to make paper prototypes 
+
+Hands-on experience rapidly making a paper prototype
+
+Understand what paper prototyping is and isn’t good for
+
+Begin to understand the role of study design in prototyping
+
+---
+template:inverse
+
+# More Examples
+---
+layout:false
+
+.left-column[## Example Prototype Dimensions
+
+There are other spectrums, but <br> these three are <br> very important
+]
+.middle-column[
+## &nbsp;&nbsp;Faster &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  Slower.red[*]
+![:img skteched vs styled, 70%](img/sketch-styled.png)
+
+The visual look of your prototype is its most salient dimension. If not properly selected, it can sidetrack prototype reviews. Go hi-fi too soon and users will focus on aesthetics like color and font choice, which is not appropriate in early stages.
+]
+ .small[.red[*]Source: [Smashing Magazine](http://www.smashingmagazine.com/2010/06/16/design-better-faster-with-rapid-prototyping/)]
+---
+.left-column[##Visual Dimension
+
+Prototyping the Nintendo Wii UI .red[*]]
+
+.right-column[
+![:img A wii prototype, 70%](img/visual-eg.png)
+
+When a prototype looks like an early design, your users will be more comfortable providing candid—and often more critical—feedback  
+
+]
+
+.small.red[[Source: Gamustra](http://www.gamasutra.com/view/news/181321/Sometimes_paper_is_your_best_prototyping_tool__even_if_youre_Nintendo.php#.UK95NofAd8G)]
+
+???
+http://www.gamasutra.com/view/news/181321/Sometimes_paper_is_your_best_prototyping_tool__even_if_youre_Nintendo.php#.UK95NofAd8G
+
+'Oh, it's made out of cardboard! (laughs)'- Nintendo president Satoru
+Iwata marvels atthe simplicity of an early prototype of the Wii U's
+tablet controller (pictured above).Nintendo is banking on its
+Miiverse -- a sort of mini-Facebook with a layer of console game --
+	 -- makeup -- to draw players to its new Wii U console. It was
+a new concept, running on a new type of game hardware with the
+tablet-like GamePad.
+
+Nintendo contracted fellow Kyoto social media
+company Hatena Co. Ltd. to do a lot of the Miiverse design work. The
+Wii U's tablet-infused GamePad hadn't been finalized yet, but Hatena
+UI designer Kazuyuki Motoyama felt that he needed to know how the
+Miiverse would feel in his hands, so the company developed the basic
+feel of it with this simple cardboard prototype.
+
+'We wouldn't know how it felt unless we could actually hold it, but
+since we didn't have one, the only thing to do was make one,' Motoyama
+explains. 'In the middle of the night, I cut pieces of cardboard and
+glued them together.'
+
+Ithink there's a game development lesson here. You can prototype just
+about anything with the tools available to you, on just about any
+budget. Whether it's paper or an HTML website or even a free copy of
+UDK or Unity, you shouldn't let available technology hold you back
+from trying new ideas.
+
+If paper prototyping is good enough for a feature embedded in millions of Nintendo-made consoles, it's probably good enough for you too. 
+
+---
+.left-column[## Example Prototype Dimensions
+
+There are other spectrums, but these three are very important
+]
+.middle-column[
+## &nbsp;&nbsp;Faster  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  Slower.red[*]
+![:img skteched vs styled, 70%](img/sketch-styled.png)
+
+![:img static vs interactive, 70%](img/static-interactive.png)
+
+
+Does the prototype reveal how the solution will work (static) or does
+it appear to be fully functional and respond to user input
+(interactive)?   
+
+]
+
+.small[.red[*][Source: Smashing Magazine](http://www.smashingmagazine.com/2010/06/16/design-better-faster-with-rapid-prototyping/)]
+
+---
+.left-column[##Functional Dimension
+
+Prototyping the Nintendo Wii UI .red[*]]
+
+.right-column[
+![:img A wii prototype, 70%](img/visual-eg.png)
+
+Here the screen is made of paper. The controller is made of
+cardboard. But the design is interactive: The user clicks on a
+button and the facilitator updates the resulting paper interface
+
+]
+
+.small[.red[*][Source: Gamustra](http://www.gamasutra.com/view/news/181321/Sometimes_paper_is_your_best_prototyping_tool__even_if_youre_Nintendo.php#.UK95NofAd8G)]
+---
+
+
+.left-column[## Example Prototype Dimensions
+
+There are other spectrums, but these three are very important
+]
+.middle-column[
+## &nbsp;&nbsp;Faster &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  Slower.red[*]
+![:img skteched vs styled, 70%](img/sketch-styled.png)
+
+![:img static vs interactive, 70%](img/static-interactive.png)
+
+![:img lorum ipsum vs real content, 70% ](img/lorem-content.png)
+
+
+Displaying content? Early on, just squiggly lines, then maybe dummy
+text (though this can distract—be careful), then actual content.]
+]
+---
+.left-column[##'Point of need' Computing .red[*]]
+.right-column[
+![:img Picture of a wall mounted paper interface, 70% ](img/palplates.png)
+
+
+.red[*]
+Supporting knowledge workers beyond the desktop with
+PALPlates. Mankoff, Jennifer, and  Bill Schilit. CHI 1997.
+]
+---
+# Prototyping Concerns
+.left-column[## Choosing your focus]
+.right-column[
+![:img Prototyping Cartoon, 70%](img/cartoon.png)
+]
+---
+# Prototyping Concerns
+.left-column[
+### Task Design
+- Appropriate scope
+- Predictable outcomes
+- Elicits action
+]
+--
+.middle-column[
+### Prototype Design
+
+Each card represents one sub-screen/task element
+- Use a photocopier to make many version
+- Use post-its and notecards for different regions of the screen
+
+Simple is great
+]
+---
+# Prototyping Concerns
+.left-column[## Choosing your focus
+
+### Task Design
+- Appropriate scope
+- Predictable outcomes
+- Elicits action
+]
+.middle-column[
+### Prototype Design
+
+Each card represents one sub-screen/task element
+- Use a photocopier to make many version
+- Use post-its and notecards for different regions of the screen
+
+Simple is great
+]
+.right-column[
+### Roles
+- Real users
+- An observer or video camera
+- A human computer
+]
+
+???
+Computer should be mostly silent
+
+Accurate
+
+Wait for users to act
+
+---
+template:inverse
+
+#Importance of Testing .red[Multiple] Prototypes
+
+---
+layout:false
+.left-column[##Testing Multiple Prototypes
+<br>
+<br>
+Wiklund Thurrot &amp; Dumas<br>
+Human Factors Society 1992
+]
+.right-column[
+We have found subjects reluctant to be critical of designs when they are asked to assign a rating to the design. In our usability tests, we see the same phenomenon even when we encourage subjects to be critical. 
+]
+--
+.right-column[
+We speculate that the test subjects feel that giving a low rating to a
+product gives the impression that they are “negative” people, that the
+ratings reflect negatively on their ability to use computer-based
+technology, that some of the blame for a product’s poor performance
+falls on them, or that they don’t want to hurt the feelings of the
+person conducting the test.
+]
+
+---
+template:inverse
+
+#What are some strategies to combat this problem?
+---
+layout:false
+
+.left-column[##Eliciting Criticism]
+.right-column[
+Test low-fidelity prototypes that look unfinished
+
+Have independent testers (testers not invested in outcome)
+
+Show multiple prototypes/products & have them compare
+]
+---
+template: inverse
+# Exercise
+---
+layout: false
+## Exercise
+- Brainstorming - a To Do List app (7 mins)
+
+--
+
+- Paper Prototype the app in groups of 3 (20 mins)
+
+--
+
+- Come up with Task Scenarios (5 min)
+
+--
+
+- User Test with 2 students from another group (15 min)
+
+--
+
+- Discussion (10 min)
+
+--
+
+Things we would add if we had time!
+- Refine your Prototype (10 min)
+
+--
+
+- User Test with 1 student (10 min)
+
+---
+
+## Discussion
+
+--
+
+- What can and can't you learn from it?
+
+--
+
+- Why is this hard for mobile applications?
+  
+--
+
+  - Context-aware Applications?
+
+--
+
+- What other low-fi techniques can we use?
+---
+Sources:
+Storyboards, Paper Prototypes and Mockups
+Scott Klemmer’s HCI MOOC
+https://www.youtube.com/watch?v=z4glsttyxw8
+
+Paper Prototyping as a Usability Testing Technique
+https://usabilitygeek.com/paper-prototyping-as-a-usability-testing-technique/
+
+
+Also useful: wikipedia.org/wiki/Paper_prototyping
+Google image search: ‘paper prototyping’
+
+
+
+Book: Prototyping: A practitioner’s guide
+https://www.amazon.com/Prototyping-Practitioners-Todd-Zaki-Warfel/dp/1933820217
+
+Book: Paper Prototyping
+https://www.amazon.com/Paper-Prototyping-Interfaces-Interactive-Technologies/dp/1558608702
+
+
+Prototyping for tiny fingers. Rettig, Marc. Communications of the
+ACM 37.4 (1994
+
+Supporting knowledge workers beyond the desktop with
+PALPlates. Mankoff, Jennifer, and  Bill Schilit. CHI 1997.
+
+MoveableMaker: facilitating the design, generation, and assembly of
+moveable papercraft. Annett, Michelle, et al., UIST 2015. 
+
+ 
+---
+# Unused
+
+---
+ Example 1: Travellr
+
+![:youtube Paper Prototyping of travel app,_5FGeSQ7DBU]
+
+Example 2: Game (also video prototyping...)
+![:youtube Paper Prototyping of video game,x48qOA2Z_xQ]
+
+---
+# Complex has its place too .red[*]
+
+![:youtube Paper Prototyping of video game,v=0yh-omblujQ]
+
+[Long video](https://www.youtube.com/watch?v=eujk284JYOE) and [Full talk](https://www.youtube.com/watch?v=NO4Fml1UZA4)
+
+.red[*] Annett, Michelle, et al. MoveableMaker: facilitating the
+design, generation, and assembly of moveable papercraft. Proceedings
+of the 28th Annual ACM Symposium on User Interface Software &
+Technology. ACM, 2015. 

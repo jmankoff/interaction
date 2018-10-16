@@ -1,0 +1,412 @@
+---
+layout: presentation
+title: Layout --Week 2, Monday-- 
+description: Description of Layout
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Advanced Interaction Design
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+
+[//]: # (Outline Slide)
+# Today's goals
+
+---
+layout: false
+
+.left-column[##Interaction Technique]
+.right-column[
+A method for carrying out a specific interactive task
+
+Example: enter a number in a range
+
+could use...
+]
+???
+have the class try to think of examples
+--
+.right-column[
+- (simulated) slider
+- (simulated) knob
+- type in a number (text edit box)
+
+Each is a different interaction technique
+]
+---
+.left-column[##Example: Specify the end points for a line]
+.right-column[
+Could just specify two endpoints – click, click
+- not good: no affordance, no feedback (/ feedforward)
+
+Better feedback is to use “rubber banding”
+- stretch out the line as you drag
+- at all times, shows where you would end up if you “let go”
+]
+---
+.left-column[##Implementing rubber banding]
+
+.right-column[```
+Accept the press for endpoint P1; P2 = P1;
+Draw line P1-P2;
+Repeat
+  Erase line P1-P2;
+  P2 = current_position(); Draw line P1-P2;
+Until release event;
+Act on line input;
+```
+]
+---
+.left-column[##Implementing rubber banding]
+.right-column[
+Need to get around this loop <br> absolute min of 5 times / sec
+
+– 10 times better
+
+– more would be better
+]
+???
+aside -- why 5-10 times per second?
+
+---
+.left-column[##What is wrong with this code?]
+
+.right-column[```
+Accept the press for endpoint P1; P2 = P1;
+Draw line P1-P2;
+Repeat
+  Erase line P1-P2;
+  P2 = current_position(); Draw line P1-P2;
+Until release event;
+Act on line input;
+```
+]
+???
+Not event based
+Not in the basic event/redraw loop
+Potentially locks up the system
+---
+.left-column[## Event driven code]
+.right-column[
+Needs to respond to events as they arrive
+
+Needs to maintain state between events 
+
+]
+
+---
+.left-column[##Simple solution: Deterministic Finite State Machines]
+.right-column[
+Arrow for start state
+
+Double circle for 'final state' <br> (really means 'reset to start')
+]
+???
+XXX TODO need to decide if/where to use this slide and either update
+graphs in slides to follow this format or delete it 
+---
+.left-column[##FSM Notation
+]
+.right-column[
+Transitions represent actions (callbacks)
+
+<div class="mermaid">
+  graph LR
+    A((A)) -- "Mouse_Dn/Draw_Line()" --> B((B))
+</div>
+  Means: When you are in State A, and a Mouse Down event arrives, do
+  the action ```Draw_line()``` and go to state B. 
+]
+---
+.middle-column[#FSM for rubber banding?
+- Determine the states
+
+- Determine the triggers (events)
+
+- Determine the actions
+]
+.right-column[
+
+XXX this isn't a state machine!
+
+```
+Accept the press for endpoint P1; P2 = P1;
+Draw line P1-P2;
+Repeat
+  Erase line P1-P2;
+  P2 = current_position(); Draw line P1-P2;
+Until release event;
+Act on line input;
+```
+]
+
+???
+A: DRAW LINE
+B: LOOP CONTENTS
+C: ACTION
+---
+.left-column[## Pair up and discuss:]
+.right-column[
+
+How could we provide a better affordance?
+
+Does it matter if we are using a mouse or a touch screen?
+]
+???
+XXX todo: decide where these slides go
+---
+.left-column[##Second example: Button]
+.right-column[
+
+Press inside => highlight
+
+Move in/out => change highlight
+
+Release inside => act
+
+Release outside => do nothing
+]
+---
+# FSM for a button
+???
+<div class="mermaid">
+  graph LR
+  A((Start)) -- "Press-inside/A" --> B((Inside))
+  B -- "Enter/C" --> C((Outside))
+  C -- "Leave/B" --> B
+  C -- "Release/D" --> D((End))
+  B -- "Release/E" --> End((End))
+</div>
+
+---
+# FSM for a button
+
+<div class="mermaid">
+  graph LR
+  A((Start)) -- "Press-inside/A()" --> B((Inside))
+  B -- "Enter/C()" --> C((Outside))
+  C -- "Leave/B()" --> B
+  C -- "Release/D()" --> D((End))
+  B -- "Release/E()" --> End((End))
+</div>
+
+--
+A: Highlight button
+
+B: Unhighlight Button
+
+C: Highlight button
+
+D: (do nothing)
+
+E: Unhighlight; Do button action
+---
+
+.left-column[##In general...]
+.right-column[
+
+Machine states represent context of interaction
+
+- “where you are” in control flow Transitions indicate how to respond to various events
+- what to do in each context
+
+Overall you are recognizing input sequences and translating them into
+actions
+]
+
+---
+.left-column[## Events in FSMs]
+.right-column[
+
+What constitutes an “event” varies
+
+- may be just low level events, or
+- higher level (synthesized) events
+- e.g. region-enter, press-inside
+
+]
+---
+.left-column[## Guards on transitions]
+.right-column[
+Sometimes also use “guards”
+
+- predicate (Boolean expr) before event
+
+- adds extra conditions required to fire
+
+- typical notation: pred : event / action
+
+- e.g. button.enabled: press-inside / A
+
+Note: FSM augmented with guards is Turing complete
+]
+
+---
+.left-column[##When to use FSMs]
+.right-column[
+FSM are a good way to do control flow in event driven systems
+
+Can do (formal or informal) analysis
+
+- are all possible inputs (e.g. errors) handled from each state
+
+- what are next legal inputs • can use to enable / disable
+
+Can be automated based on higher level specification
+]
+---
+
+.left-column[![:img Picture of a menu with two items pulled down, 105%](img/menu.png)]
+
+.right-column[
+## Another example: Pull-down Menu
+
+How do we manage the drop-down behavior?
+
+FSM controller?
+
+]
+--
+.right-column[
+Behavior:
+
+- Body pulls down on press (in arrow)
+
+- Body stays down until release
+
+- Items highlighted while cursor is over them
+]
+---
+![:img Picture of a menu with two items pulled down, 25%](img/menu.png)
+
+<div class="mermaid">
+  graph LR
+  A((Start)) -- "Dn-inside-Top/Drop()" --> N((NotIn))
+  N -- "Enter-Item1/Highlight(1)" --> I((In1))
+  I -- "Enter-Item2/Highlight(2)" --> II
+  N -- "Enter-Item2/Highlight(2)" --> II((In2))  
+  I -- "Exit-Item1/Highlight(none)" --> N
+  II -- "Enter-Item1/Highlight(1)" --> I
+  I -- "Up/Fire-Item(1)" -->E((End))
+  II -- "Up/Fire-Item(2)"-->E((End))
+  II -- "Exit-Item2/Highlight(none)" --> N
+  N -- "Up/UnDrop()" --> F((End))
+</div>
+
+---
+# Implementing FSMs
+
+```java
+fsm_transition(state, evt) switch (state)
+  case 0: // case for each state
+  // do stuff
+  //
+  //
+  //
+  case 1: // case for next state switch (evt.kind) ...
+return state;
+```
+---
+
+# Implementing FSMs
+
+```java
+fsm_transition(state, evt) switch (state)
+  case 0: // case for each state
+      switch (evt.kind)
+          case loc_move: // trans evt
+              0 loc_move / action 42
+               ... action ... // trans action
+              state = 42; // trans target case loc_dn:
+   case 1: // case for next state switch (evt.kind) ...
+      switch(evt.kind) ...
+return state;
+```
+---
+.left-column[##FSM Issues]
+.right-column[
+### Notation
+
+– Graphical notation is nice for small things, but doesn’t scale (spaghetti)
+
+– Textual notation is not nice
+
+- Like all GOTO control flow
+
+### Handles sequencing well, but not independent action
+
+– State explosion problems
+]
+---
+.left-column[# Discussion of state explosion]
+.right-column[
+Take a button, and a control key (can you draw the state machine for
+the control key?)
+]
+--
+.right-column[Combine them (cross product)]
+
+
+<div class="mermaid" id="simplestate">
+  graph TD
+  A(( )) --> B(( ))
+  B --> A
+</div>
+
+<div class="mermaid">
+  graph LR
+  A(( )) --> B(( ))
+  B --> C(( ))
+  C --> B
+  C --> D(( ))
+  B --> End(( ))
+</div>
+
+---
+
+
+.left-column[# Cross product of state diagrams]
+.right-column[
+Replicate the larger one
+
+Once for every state in the smaller one!
+
+At transitions between corresponding states
+
+Correct semantics
+  - Eliminate impossible states
+  - Merge similar ones
+
+
+Now add another independent machine (shift key?)
+
+]
+???
+Totally out of hand -- combinatorical explosion!
+
+---
+
+.left-column[##Summary]
+.right-column[
+State machines are very good (for this job) but do have limits
+
+State machines don't handle independent actions very well (state explosion)
+
+Mostly useful for smaller things
+
+- Great for individual components
+- Not so great for whole dialogs
+
+Path of least resistance is rigid sequencing
+ Ask: is this good for what I am doing?
+
+]
+???
+xxx TODO decide whether to keep
+xxx TODO decide how to end this deck and/or what other material needs
+to be covered

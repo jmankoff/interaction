@@ -1,0 +1,541 @@
+---
+layout: presentation
+title: Layout --Week 2, Monday-- 
+description: Description of Layout
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Input Events
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+
+[//]: # (Outline Slide)
+# Today's goals
+
+---
+layout: false
+
+.left-column[##Input Event Goals]
+.right-column[
+Device Independence
+- Want / need device independence
+- Need a uniform and higher level abstraction for input
+
+Interactor Independence
+- Given a model for representing input, how do we get inputs delivered
+to the right interactor?
+- How do interactors deal with events (Essential Behavior, Coming Up)
+]
+???
+
+--
+.left-column[Review: Logical Device Approach]
+.right-column[
+- Valuator → returns a scalar value
+
+- Button → returns integer value
+
+- Locator → returns position on a logical view surface
+
+- Keyboard → returns character string
+
+- Stroke → obtain sequence of points
+
+- Pick → select an object
+]
+
+---
+.left-column[##Not really satisfactory...]
+
+.right-column[
+Doesn't capture device diversity
+
+Event based devices
+- Time of input determined by user
+- Value changes only when activated
+- e.g. button
+
+Sampled devices
+- Time of input determined by program
+- Value is continuously changing
+- e.g. mouse
+]
+
+---
+.left-column[## Not really satisfactory...]
+.right-column[
+Doesn't capture device diversity
+- Event based devices
+- Sampled devices
+- Capability differences
+ - Discussion of mouse vs pen
+ - what are some differences?
+]
+---
+.left-column[## We model everything as events]
+.right-column[
+Sampled devices
+  - Handled as “incremental change” events
+  - Each measurable change: a new event with new value
+Device differences
+  - Handled implicitly by only generating events they can generate
+]
+---
+.left-column[## Contents of Event Record]
+.right-column[
+What do we need to know about each event? 
+]
+--
+.right-column[
+- What
+- Where
+- When
+- Value
+- Additional Context
+]
+???
+Discuss each with examples
+---
+.left-column[## Case study: Android Events]
+.right-column[
+Each kind of event has its own class but they all implement the event interface
+- A little hard to find all the parts defined in one place
+- Harder to deal with uniformly
+- But easily extensible for new event types
+
+Each kind of event has its own class
+
+.red[Artificial] events are a thing (e.g. window events)
+]
+
+---
+.left-column[## Case study: Android [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)]
+.right-column[
+```java
+java.lang.Object
+   ↳	android.view.InputEvent
+ 	   ↳	android.view.MotionEvent
+```
+
+```java
+public final class MotionEvent 
+extends InputEvent implements Parcelable {
+
+int getAction()      // up, down etc
+int getActionIndex() // multi touch support -- which pointer
+float getX()         // position
+float getY()         // position
+int getButtonState() // pressed or not, for example
+long getDownTime()
+float getOrientation(int pointerIndex)
+float getPressure()
+float getSize()      // fingers aren't pixel sized
+                     // and many more...
+}
+```
+]
+---
+.left-column[
+## Input Handling Process
+]
+.right-column[
+Events represent input
+- Go into a queue
+- Are passed to apps
+ - Front event comes off
+ - recursive pick() to identify objects of interest (or just focus())
+ - ‘capture()’ (most things don’t) top to bottom deliver to target object (bottom)
+ - ‘bubble()’ (bottom to top)
+
+Apps have to listen for events
+]
+---
+
+# Responding to Users
+
+- When a user interacts with our apps, Android creates __events__
+
+--
+
+- As app developers, we react "listening" for events and responding appropriately
+
+--
+
+- Let's look at some of the ways users can give input and we can respond
+
+---
+# Basics of Event Listeners (1/3)
+
+- Interface on the `View` class that acts as a _callback_ method
+
+--
+
+- Must be attached to a particular `View`
+
+--
+
+- Android framework triggers the method once the `View` has interacted with by the user
+
+--
+
+- A `View` can have listen for different types of interactions
+- But: the `View` must implement and registering the appropriate listeners
+
+---
+
+# Basics of Event Listeners (2/2)
+
+- The set of Android's provided interfaces include:
+  ```java
+    // User tapped a view
+    public static interface View.OnClickListener { ... }
+
+    // User long pressed on a View
+    public static interface View.OnLongClickListener { ... }
+
+    // State of view has changed
+    // (e.g. user clicked outside a EditText input box)
+    public static interface View.OnFocusChangeListener { ... }
+  ```
+  More listed in the API Documentation (https://developer.android.com/guide/topics/ui/ui-events.html)
+---
+
+# Declaring an Event Listener
+- Two ways to use declare an event listener:
+
+  - Create an Anonymous Class
+
+  - Implement an Interface
+
+---
+## Create an Anonymous Class
+```java
+  public class ExampleActivity extends AppCompatActivity {
+
+    private Button mButton;
+    private int mButtonClicks = 0;
+
+    // As a member variable in an Activity
+    private View.OnClickListener mClickListener = new View.OnClickListener() {
+      public void OnClick(View v) {
+        if (mButton != v) {
+          // Do nothing if its not the right view
+          return;
+        }
+        // Increment the click count
+        mButtonClicks += 1;
+      }
+    };
+
+    protected void onCreate(Bundle savedState) {
+      Button mButton = (Button) findViewById(R.id.button_test);
+      if (mButton != null) {
+        // 'this' refers to the activity itself here
+        // When the button clicked, Android will trigger
+        // the Activity's OnClick method
+        mButton.setOnClickListener(mClickListener);
+      }
+    }
+  }
+```
+---
+## Implement the Interface
+  ```java
+    // Start by implementing the interface
+    public class ExampleActivity extends AppCompatActivity
+      implements View.OnClickListener { // Necessary to implement
+
+      private Button mButton;
+      private int mButtonClicks = 0;
+
+      protected void onCreate(Bundle savedState) {
+        Button mButton = (Button) findViewById(R.id.button_test);
+        if (mButton != null) {
+          // 'this' refers to the activity itself here
+          // When the button clicked, Android will trigger
+          // the Activity's OnClick method
+          mButton.setOnClickListener(this);
+        }
+      }
+
+      // Here's where you do the implementation of your listener
+      public void OnClick(View v) {
+        if (mButton != v) {
+          // Do nothing if its not the right view
+          return;
+        }
+        // Increment the click count
+        mButtonClicks += 1;
+      }
+
+    }
+  ```
+---
+
+# Registering a Listener (1/2)
+
+- Once a listener is created
+  ```java
+    View.OnClickListener buttonListener = new View.OnClickListener({
+      public void OnClick(View v) {
+        if (mButton != v) {
+          // Do nothing if its not the right view
+          return;
+        }
+        // Increment the click count
+        mButtonClicks += 1;
+      }
+    });
+  ```
+
+--
+
+- Set it on the view:
+  ```java
+    Button mButton = (Button) findViewById(R.id.button_test);
+    if (mButton != null) {
+      mButton.setOnClickListener(buttonListener);
+    }
+  ```
+---
+# Registering a Listener (2/2)
+
+- `View` has a series of `set*Listeners(...)`, for example:
+  ```java
+  View v = new View();
+  v.setOnClickListener(...);
+  v.setLongClickListener(...);
+  ```
+---
+
+# Exercise
+
+- Pair up! - Base Code (http://shoutkey.com/come)
+
+- Using listeners, when the pup is clicked, increment a petting count
+
+- When long clicked, show a `Toast` saying "that tickles!" (but don't increment the count !)
+
+.center.quarter-width-img[
+
+  ![Android Input](img/pet-pupper-app.gif)
+
+]
+
+---
+# How Android Triggers Listeners
+
+- Android traverses the view hierarchy (starting at root)
+
+--
+
+- "Picks" `Views` that respond to an input event
+
+--
+
+- Loops through the list of `View` objects, checks if they will "capture" the event
+
+--
+
+- If none capture the event, the event "bubbles" back up the `View` object list
+
+---
+# Input Example - Picking
+```
+      V0
+    /   \
+   V1*   V4*
+  / \    / \
+V2  V3* V5 V6*
+
+// *: denotes the element responds to the event
+```
+--
+
+- What `View` objects does Android "pick"?
+
+--
+
+- Picked Views = { `V1`, `V3`, `V4`, `V6`}
+
+--
+
+- Order matters!
+---
+# Input Example - Capture
+
+- Picked Views = { `V1`, `V3`, `V4`, `V6`}
+
+- What happens next?
+--
+
+- Android starts at the front of the picked `View` object list
+
+--
+
+- In order, Android asks: will you consume this event?
+--
+
+  - If `true`: the event is consumed and the event propagation __stops__
+
+  - If `false`: Move to the next element in the `View` list
+
+--
+
+- What happens when we reach the last `View` in the list and no one has consumed the event?
+
+---
+# Input Example - Bubbling
+
+- Picked Views = { `V1`, `V3`, `V4`, `V6`}
+
+--
+
+- Android backtracks through the list, asking if they want to consume the event
+
+--
+
+- Who gets asked first ?
+
+---
+# Input Example - Recap
+.three-quarters-width[
+|State           |Ordering|
+|:---------------|:-------|
+|*Picking*       | V1| V3 | V4 | V6|
+|*Capture Order* | 1 | 2  | 3  | 4 |
+|*Bubbling Order*| 4 | 3  | 2  | 1 |
+]
+
+---
+# Marking an event as handled
+- Many listeners return a `boolean` value that indicate the event has been handled
+  ```java
+    /**
+     * onLongClick - triggered when a view is long clicked
+     * @param v - the view long pressed
+     * @return - true if the callback consumed the long click, false otherwise.
+     **/
+    boolean onLongClick (View v) { ... };
+  ```
+--
+
+- Returning `false` causes the event to bubble up to the next possible view that can handle it
+
+
+
+[API Documentation for Long Click](https://developer.android.com/reference/android/view/View.OnLongClickListener.html)
+---
+
+## Many Views, Same Listener (1/3)
+
+- Event callbacks are passed the `View` as a parameter
+
+--
+
+- We can reuse a listener for views that handle the same action
+  (e.g. 3 buttons increment the same click count)
+
+---
+
+## Many Views, Same Listener (2/3)
+
+- And we can handle different actions by checking the `View` or its `id`:
+  ```java
+    protected void onCreate(Bundle savedState) {
+      Button mButtonOne = (Button) findViewById(R.id.button_one);
+      if (mButtonOne != null) {
+        mButtonOne.setOnClickListener(mButtonClickListener);
+      }
+
+      Button mButtonTwo = (Button) findViewById(R.id.button_two);
+      if (mButtonTwo != null) {
+        mButton.setOnClickListener(mButtonClickListener);
+      }
+    }
+  ```
+---
+## Many Views, Same Listener (3/3)
+
+```java
+  View.OnClickListener mButtonClickListener = new View.OnClickListener({
+    public void OnClick(View v) {
+      if (v == null) {
+        return;
+      }
+
+      int viewId = v.getId();
+
+      switch (viewId) {
+        case R.id.button_one:
+          // First Button
+          Log.d("Button Press", "First Button");
+          break;
+        case R.id.button_two:
+          // Second Button
+          Log.d("Button Press", "Second Button");
+          break;
+        default:
+          // Someone else is using the listener!
+          Log.d("Button Press", "Invalid Button!");
+
+      }
+    }
+  });
+```
+---
+
+# More on Listeners
+
+- Different views can have different handlers
+
+--
+
+    - `ListView`: `onItemClick`
+    - Context menus from long clicks: `onCreateContextMenu`
+    - Keystrokes: `onKey`
+    - And others...
+
+--
+
+- Check documentation for specifics
+
+---
+# Types of Input
+
+- Not just touches, clicks, key presses
+
+--
+
+- *Sensors* - GPS, IMU/Accelerometer, humidity, temperature, etc
+
+--
+  - `Managers` (e.g. `LocationManager`) let us create and register a listener
+
+  - Listeners can receive updates at different intervals, etc.
+
+  - Some Sensor-specific settings  
+    https://source.android.com/devices/sensors/sensor-types.html
+
+---
+# Other Kinds of Input
+
+- Microphone
+
+- Camera
+
+- Multi-touch
+
+- Connected Devices?
+---
+
+.left-column[##Summary]
+.right-column[
+
+]
+???
