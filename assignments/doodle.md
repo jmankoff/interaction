@@ -99,9 +99,10 @@ You should use all 3 functions implemented in [Part 1](#part-1). You are welcome
 Your may use the attractive home-cooked food images ([photo credit](https://www.XiaoyiZhang.me)) we include in `res/drawable` or use your own images.
 
 *Related APIs*:
-[Android Animation](https://developer.android.com/training/animation/reposition-view)
 
-If your animation is laggy, try reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
+[Android Animation](https://developer.android.com/training/animation/reposition-view) / [View Animation](https://developer.android.com/guide/topics/graphics/view-animation.html) / [Property Animation](https://developer.android.com/guide/topics/graphics/prop-animation.html) / [Vogella Tutorials - Android Animation](http://www.vogella.com/tutorials/AndroidAnimation/article.html)
+
+If your animation is laggy, please reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
 
 # Turnin
 ## Submission Instructions
