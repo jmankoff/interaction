@@ -34,53 +34,37 @@ layout: false
 
 - Finite State Machine Exercise
 
---
+---
+.left-column[## Activity Lifecycle]
+.right-column[![:img Android activity lifecycle, 50%](img/activity_lifecycle.png)]
 
-- Assignment 3 Overview
 
 ---
 
-## Activity Lifecycle
-.half-width-img.center[
-  ![Android Activity Lifecycle](img/activity_lifecycle.png)
-]
+.left-column[## When to save state? (1/3)]
+.right-column[![:img Android activity state diagram, 50%](img/android-activity-states-01.png)]
+
 
 ---
 
-# When to save state? (1/3)
-
-.center.four-tenths-width-img[
-
-  ![Android Activity State Diagram](img/android-activity-states-01.png)
-
-]
+.left-column[## When to save state? (2/3)]
+.right-column[![:img Android activity state diagram -- process killed, 50%](img/android-activity-states-02.png)]
 
 ---
 
-# When to save state? (2/3)
-
-.center.four-tenths-width-img[
-
-  ![Android Activity State Diagram - Process Killed](img/android-activity-states-02.png)
-
-]
-
----
-
-# When to save state? (3/3)
-
+.left-column[# When to save state? (3/3)]
+.right-column[
 - Activity `A` spawns Activity `B`
-
   - E.g. Typing a Facebook post, then you select 'Add a Location'
-
+]
 --
-
+.right-column[
 - Android kills `A` to reclaim resources while the user is interacting with `B`
-
+]
 --
-
+.right-column[
 - User finishes with `B`, returns to `A` but the post is gone!
-
+]
 ---
 
 # Maintaining Activity State

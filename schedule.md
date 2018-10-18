@@ -80,6 +80,7 @@ layout: default
 # Week 3: Building a Widget
 **Learning goals**
 - [M] Events of Interest
+- [M] Interactor hierarchies vs inheritance
 - [M] Interactor Design Guidelines
 - [W] Essential behavior and the use of finite state machines
 - [Th] Build your own Widget
@@ -96,29 +97,37 @@ layout: default
  [08: Essential Behavior](/interaction/slides/wk03/08EssentialBehavior)
 
 ## 4/18 Thursday: Build your own widget exercise (simpler than color picker in lab) 
-** Exercise: Color Picker -- could introduce state machine abstractions that will be useful for pie menu implementation ** 
+**Exercise**
+Color Picker -- could introduce state machine abstractions that will be useful for pie menu implementation
+
+**Slides**
+[Lab 03: State Management](/interaction/slides/l03/03state.html)
+**In class exercise: Designing a Widget ??**
+
 
 ## 4/19 Friday: Menu Design History 
-**Readings?**
-**Slides?**
-[09: Interactor Design](/interaction/slides/wk03/09menus)
-**In class exercise: Designing a Widget**
+**Readings**
+xx See dan olsen's book, there's a chapter on thi
 
-# Week 4: Events of Interest
+**Slides**
+[09: Interactor Design](/interaction/slides/wk03/09menus)
+
+# Week 4: Getting Data from Users
 **Learning goals**
-- [M] Interactor hierarchies vs inheritance
-- [M] Event Handling  
-- [W] Running User Studies
+- [M] Running User Studies
+- [W] ??
 - [Th] Data collection for user studies
 - [Th] Introduction to first big assignment
 - [F] Application Design Best Practices
 - [F] Properties of People
 
 
-## 4/22 Monday: Event Handling in the Interactor Hierarchy 
-
-## 4/24 Wednesday: Running User studies
+## 4/22 Monday: Running User studies
 Data collection for user studies 
+**Slides**
+[10: Studies](/interaction/slides/wk04/studies.html)
+
+## 4/24 Wednesday: 
 
 Fat Finger Syndrome
 
