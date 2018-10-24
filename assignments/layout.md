@@ -5,7 +5,7 @@ layout: default
 * TOC
 {:toc}
 
-# Layout Assignment
+# Layout Exercise
 
 **Objective**: Replicate an existing application layout.
 

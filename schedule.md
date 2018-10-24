@@ -26,7 +26,7 @@ layout: default
 - Chapter 9-10: Understanding Android Application and Activity Lifecycles from [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
 
 **Assignment**
-[Doodle Assignment](/interaction/assignments/doodle)
+[Doodle](/interaction/assignments/doodle)
 
 **Slides**
 [02: MVC](/interaction/slides/wk01/02MVC.html)
@@ -69,7 +69,8 @@ layout: default
 **Slides**
 [Lab 02: Activities, Views, and Layout](/interaction/slides/l02/02layout.html)
 
-**Exercise: Replicate a Layout**
+**Exercise**
+[Layout](/interaction/assignments/layout)
 
 ## 4/12 Friday: Overflow / Paper Prototyping
 **Readings** [Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)
