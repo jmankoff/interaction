@@ -99,7 +99,7 @@ layout: default
 
 ## 4/18 Thursday: Build your own widget exercise (simpler than color picker in lab) 
 **Exercise**
-Color Picker -- could introduce state machine abstractions that will be useful for pie menu implementation
+[Color Picker](/interaction/assignments/colorpicker)
 
 **Slides**
 [Lab 03: State Management](/interaction/slides/l03/03state.html)
