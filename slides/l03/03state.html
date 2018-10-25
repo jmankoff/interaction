@@ -1,6 +1,6 @@
 ---
 layout: presentation
-title: Lab 03 Managing State in Response to Events --Week 3, Thursday-- 
+title: Lab 03 Managing State in Response to Events --Week 3, Thursday--
 description: Introduction to state management in Android
 class: middle, center, inverse
 ---
@@ -14,7 +14,7 @@ template: inverse
 ## Week 3: State; Event Handling
 
 Instructor: TBD
-_{email}_  
+_{email}_
 
 Slides online: xxx url
 
@@ -81,8 +81,8 @@ layout: false
 
 --
 
-- Used to:  
-  (1) Save/restore state  
+- Used to:
+  (1) Save/restore state
   (2) Transfer data between different `Activity` in an app
 
 --
@@ -196,6 +196,8 @@ public class MyPersonModel implements Parcelable {
 
 - Methods for getting items out of a Bundle
 
+  - Ints: `getInt(String key)`
+
   - Floats: `getFloat(String key)`
 
   - Characters: `getChar(String key)`
@@ -221,12 +223,12 @@ private String mUsername; // Set to "Michael" by our user
 
 @Override
 public void onSaveInstanceState(Bundle outState) {
-  // Always call super - your super classes could be saving state for you!
+    // Always call super - your super classes could be saving state for you!
     super.onSaveInstanceState(outState);
 
     // Now
     outState.putInt(FIB_SUM_KEY, mFibSumValue);
-    outState.putString(USERNAME_KEY,mUsername;
+    outState.putString(USERNAME_KEY, mUsername);
 }
 ```
 ---
