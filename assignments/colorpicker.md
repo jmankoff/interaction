@@ -26,9 +26,9 @@ Tasks:
 - Add Bundler support
   - <span style="color:red">XXX TODO: Do we want this?</span>
 
-### `onTouchReceived`
+### Touch Input
 
-This is the event handler that will be called when a touch is registered in this view. First, we need to reject any touches that are outside of the circle. Colors may only be selected by tapping on or inside the color wheel.
+We'll handle touch input by implementing `onTouchReceived`. This is the event handler that will be called when a touch is registered in this view. First, we need to reject any touches that are outside of the circle. Colors may only be selected by tapping on or inside the color wheel.
 
 If accepted, use the x and y coordinates of the touch event to calculate the angle (in radians) of the touch on the color circle by implementing `getTouchAngle`.
 
