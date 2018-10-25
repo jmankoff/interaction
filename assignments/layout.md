@@ -31,7 +31,7 @@ Start by creating a base activity with a `Toolbar` and `TextView`. The `TextView
 *Related APIs*:
 [TextView](https://developer.android.com/reference/android/widget/TextView.html)
 
-![Screenshot of base layout](layout-img/1_base.png)
+![Screenshot of base layout](layout-img/1_base.png){:width="150px"}
 
 Next, create the drawer layout. It requires a header and a menu. In the screenshot below, the header consists of a green background, an icon, and "CSE 340". The menu should have "Import", "Gallery", and "Share" options with appropriate icons as well as a separate "Next" option to go to [Part 2](#part-2)'s layout.
 
@@ -45,7 +45,7 @@ If back is pressed while the drawer is open, it should be closed. If it is press
 [ActionBarDrawerToggle](https://developer.android.com/reference/android/support/v4/app/ActionBarDrawerToggle)
 [NavigationView.OnNavigationItemSelectedListener](https://developer.android.com/reference/android/support/design/widget/NavigationView.OnNavigationItemSelectedListener)
 
-![Screenshot of expanded navigation drawer](layout_img/1_drawer.png)
+![Screenshot of expanded navigation drawer](layout_img/1_drawer.png){:width="150px"}
 
 # Part 2
 
@@ -60,9 +60,9 @@ This activity should consist of a toolbar and scrolling `TextView` separated by 
 [NestedScrollView](https://developer.android.com/reference/android/support/v4/widget/NestedScrollView)
 [FloatingActionButton](https://developer.android.com/reference/android/support/design/widget/FloatingActionButton)
 
-![Screenshot of scroll view with expanded toolbar](layout-img/2_base.png)
+![Screenshot of scroll view with expanded toolbar](layout-img/2_base.png){:width="150px"}
 
-![Screenshot of scroll view with collapsed toolbar](layout-img/2_collapsed.png)
+![Screenshot of scroll view with collapsed toolbar](layout-img/2_collapsed.png){:width="150px"}
 
 # Part 3
 
@@ -77,7 +77,7 @@ Again start with a base layout with a `Toolbar` and `TextView` layout. Create a 
 [BottomNavigationView](https://developer.android.com/reference/android/support/design/widget/BottomNavigationView)
 [NavigationView.OnNavigationItemSelectedListener](https://developer.android.com/reference/android/support/design/widget/NavigationView.OnNavigationItemSelectedListener)
 
-![Screenshot of tab bar layout](layout-img/3.png)
+![Screenshot of tab bar layout](layout-img/3.png){:width="150px"}
 
 # Turnin
 ## Submission Instructions
