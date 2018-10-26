@@ -25,7 +25,7 @@ layout: default
 - Chapter 1: Introduction from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
 - Chapter 9-10: Understanding Android Application and Activity Lifecycles from [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
 
-**Assignment**
+**Exercise**
 [Doodle](/interaction/assignments/doodle)
 
 **Slides**
@@ -139,22 +139,22 @@ Fat Finger Syndrome
 ## 4/26 Friday: Best practices in Interface Design
 **Slides**
 
-# Week 5:  Undo 
-## 4/29 Monday: Undo 
+# Week 5:  Accessibility
+## 4/29 Monday: Accessibility
 
-## 5/1 Wednesday: Heuristic Evaluation
+## 5/1 Wednesday: ??
 
-## 5/2 Big assignment: Undo 
+## 5/2 Exercise: Accessibility 
 
 ## 5/3 Friday: 
 
-# Week 6: Accessibility 
+# Week 6: Undo
 
-## 5/6 Monday: Accessibility
+## 5/6 Monday: Undo
 
-## 5/8 Wednesday: ??
+## 5/8 Wednesday:  Heuristic Evaluation
 
-## 5/9 LAB Exercise: accessibility
+## 5/9 Big Assignment: Undo
 
 ## 5/10
 
@@ -162,7 +162,7 @@ Fat Finger Syndrome
 
 ## 5/13
 
-## 5/15
+## 5/15 Exercise: Sensing
 
 ## 5/17
 
@@ -172,7 +172,7 @@ Fat Finger Syndrome
 
 ## 5/21: Context Awareness
 
-## 5/22
+## 5/22: Big assignment: Context Awareness
 
 ## 5/24
 
