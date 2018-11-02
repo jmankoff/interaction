@@ -24,17 +24,18 @@ layout: default
 Tasks:
 - Import our code skeleton to Android Studio
 - **Implement 3 functions** (addImage, addText, addLine)
-- Run app and compare your app screen with our screenshot
-  - <span style="color:red">There's no screenshot to compare to</span>
+- Call the functions you implemented and compare your app screen with our screenshot
+- Read through this [basic animation](https://developer.android.com/training/animation/reposition-view) tutorial
+- Animate `UW` so it slides from left to right when the app opens.
 
 ### Specs for addImage
 ```java
 Function addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size)
 ```
 
-This method is already implemented for you. Please read through it to understand how it works.
+Most of this method is already implemented for you. Please read through it to understand how it works.
 
-**<span style="color:red">(Maybe we can leave “Set size and location” part for students to implement?)</span>**
+Please set the size and location of image in this method.
 
 ### Specs for addText
 ```java
@@ -71,25 +72,18 @@ addLine(mainCanvas, 100f, 250f, 700f, 1200f, 15, Color.rgb(200,0,0))
 ![A red line starts from top left to the center of the screenshot.](doodle-img/add_line_sample.png){:width="150px"}
 
 
-# Part 2
-
-Tasks:
-- Read through this [basic animation](https://developer.android.com/training/animation/reposition-view) tutorial
-- Animate `UW` so it slides from left to right when the app opens.
-
-## Animating Text
+### Animating Text
 
 You will need to first figure out how to animate the TextView created by `addText` then decide where in the Activity lifecycle the animation should be placed so it is triggered when the app opens.
 
-The `UW` text should translate horizontally from `(50f, 1650f)` to `(1000f, 1650f)`
+The `UW` text should translate horizontally from `(50f, 1650f)` to `(1000f, 1650f)`. Animation duration should be less than 2 seconds.
 
 *Related APIs*:
 [ObjectAnimator](https://developer.android.com/reference/android/animation/ObjectAnimator)
 
 ![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.png){:width="150px"}
 
-# Part 3
-
+# Part 2
 
 Tasks:
 - Create a beautiful doodle of your own
@@ -113,26 +107,24 @@ Please turn in your files in the following zip structure:
 YOUR_STUDENT_ID.zip
 ├── Part1Activity.java
 ├── Part2Activity.java
-├── Part3Activity.java
 ├── images (optional)
 │   ├── abc.jpg
 │   ├── ...
 │   └── xyz.jpg
-└── part3.csv (optional)
+└── part2.csv (optional)
 ```
 
-If you use your own images in [Part 3](#part-3), please include them in images folder.
+If you use your own images in [Part 2](#part-2), please include them in images folder.
 
-If you're positioning a large number of images for part 3, it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part3.csv`.
+If you're positioning a large number of images for part 2, it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part2.csv`.
 
 ## Grading (10pts)
 
 - Part 1
   - `addText`: 2 pts
   - `addLine`: 3 pts
-- Part 2
   - `UW` animation: 1 pt
-- Part 3
+- Part 2
   - Custom Doodle: 2 pts
   - Peer grading: 1 pts
 - Turn-in and compiles: 1pt
