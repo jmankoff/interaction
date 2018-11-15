@@ -30,15 +30,24 @@ Tasks:
 
 We'll handle touch input by implementing `onTouchReceived`. This is the event handler that will be called when a touch is registered in this view. First, we need to reject any touches that are outside of the circle. Colors may only be selected by tapping on or inside the color wheel.
 
+Then we should update handle transparency based on touch events:
+- When a finger touch down, it will show the handle (in 100% alpha).
+- When a finger drags on screen, it will always show the handle (in 50% alpha).
+- When a finger leaves screen, it will show the handle (in 100% alpha) at the last touch point on the screen.
+
+![Screenshot of color picker, original](colorpicker-img/1.png){:width="150px"}
+![Screenshot of color picker, when press down and drag](colorpicker-img/2.png){:width="150px"}
+![Screenshot of color picker, when release the finger](colorpicker-img/3.png){:width="150px"}
+
 If accepted, use the x and y coordinates of the touch event to calculate the angle (in radians) of the touch on the color circle by implementing `getTouchAngle`.
 
-With the angle, we can compute the color that was picked by using `HSVToColor`. You can read more about the HSV color space [here](https://en.wikipedia.org/wiki/HSL_and_HSV). Since we're just adjusting color, we only want to modify hue while leaving saturation and value constant.
+With the angle, we can compute the color that was picked by using `HSVToColor`. You can read more about the HSV color space [here](https://en.wikipedia.org/wiki/HSL_and_HSV). Since we're just adjusting color, we only want to modify hue while leaving saturation and value constant. You may see detailed instruction in code comments.
 
 Finally, you'll need to update the UI to reflect the new selected color. This includes moving the handle to the position on the circle for the selected color and calling `onColorSelected` on any `ColorListeners` with our newly selected color.
 
+
 *Related APIs*:
-[MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)
-[HSVToColor](https://developer.android.com/reference/android/graphics/Color#HSVToColor(float[]))
+[MotionEvent](https://developer.android.com/reference/android/view/MotionEvent) / [HSVToColor](https://developer.android.com/reference/android/graphics/Color#HSVToColor(float[]))
 
 ### First Layout
 
@@ -48,11 +57,10 @@ On the first layout, we want our color picker to be nicely initialized. To do th
 
 There are two callbacks that need to be registered. First, we want to trigger our `onFirstLayout` on global layout. We also need to register `onTouchReceived` as a touch listener.
 
-Finally, we need to connect the color picker to a view to display our newly chosen color. In `MainActivity`, add a `ColorListener` to `mColorPickerView` such that `mColorView`'s color is changed whenever `onColorSelected` is called.
+Finally, we need to connect the color picker to a view to display our newly chosen color. In `MainActivity`, add a `ColorListener` to `colorPickerView` so that `colorView`'s color and `colorTextView`'s text are changed whenever `onColorSelected` is called.
 
 *Related APIs*:
-[OnGlobalLayoutListener](https://developer.android.com/reference/android/view/ViewTreeObserver.OnGlobalLayoutListener)
-[OnTouchListener](https://developer.android.com/reference/android/view/View.OnTouchListener)
+[OnGlobalLayoutListener](https://developer.android.com/reference/android/view/ViewTreeObserver.OnGlobalLayoutListener) / [OnTouchListener](https://developer.android.com/reference/android/view/View.OnTouchListener)
 
 ### Add Bundler support
 
@@ -65,14 +73,8 @@ Please turn in your files in the following zip structure:
 
 ```bash
 YOUR_STUDENT_ID.zip
-├── Part1Activity.java
-├── Part2Activity.java
-├── Part3Activity.java
-├── images (optional)
-│   ├── abc.jpg
-│   ├── ...
-│   └── xyz.jpg
-└── part3.csv (optional)
+├── ColorPickerView.java
+└── MainActivity.java
 ```
 
 ## Grading (10pts)
