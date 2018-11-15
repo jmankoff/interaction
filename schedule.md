@@ -134,7 +134,9 @@ Fat Finger Syndrome
 
 ## Thursday
 [Lab 04: Implementing an App for a user study]
-**Project: Test which menu is better: Marking menu or Standard Menu**
+
+**Assignment: Test which menu is better: Marking menu or Standard Menu**
+[Menus](/interaction/assignments/menus)
 
 ## 4/26 Friday: Best practices in Interface Design
 **Slides**
@@ -145,6 +147,8 @@ Fat Finger Syndrome
 ## 5/1 Wednesday: ??
 
 ## 5/2 Exercise: Accessibility 
+**Exercise**
+[Accessibility](/interaction/assignments/accessibility)
 
 ## 5/3 Friday: 
 
@@ -154,7 +158,9 @@ Fat Finger Syndrome
 
 ## 5/8 Wednesday:  Heuristic Evaluation
 
-## 5/9 Big Assignment: Undo
+## 5/9 Assignment: Undo
+**Assignment: Undo**
+[Undo](/interaction/assignments/undo)
 
 ## 5/10
 
