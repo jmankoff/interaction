@@ -5,14 +5,14 @@ layout: default
 * TOC
 {:toc}
 
-# Layout Exercise
+# User Study Assignment
 
-**Objective**: Use XML and programmatic constraints to replicate three layouts.
+**Objective**: Build an end-to-end application. Interact with users.
 
 **Learning Goals**:
-- Familiarize with different layout types
-- Explore XML and programmatic constraints
-- Handle fixed and variable size container views
+- Reproduce our sample application
+- Record user study data
+- Produce plausible experiment results (within expected ranges)
 
 **Assigned Date**: ???, 2019
 
@@ -21,66 +21,93 @@ layout: default
 # Part 1
 
 Tasks:
-- Create TextView, ImageView, and Button
-- Constrain them for automatic portrait and landscape layouts
+- Read the paper of this user study
+- Understand sample code to set up condition of experiments
 
-Create a TextView containing `0` with black background and white 200sp text. Along with it, create a button and ImageView with `food_0` which is 150dp by 150dp.
+Please read [An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b) to better understand the purpose and procedures in this user study.
 
-Position them as in the photo below. There should be a 20dp margin around the edges and between the textview and button/image. As the view rotates, the image and button should stay a constant size and distance from the edge while the text view expands to fill the extra space.
+In `MainActivity.java`, please understand `createExperimentSetupList()` method which sets up conditions for whole experiment.
 
-![Screenshot of part 1 in portrait ](layout-img/1_portrait.png){:width="150px"}
-![Screenshot of part 1 in landscape](layout-img/1_landscape.png){:width="300px"}
+An experiment has 6 sessions (2 menu types * 3 task types), and each session has 5 tasks.
+
+For each session:
+- Create one type of menu (linear/pie) based on current experiment condition.
+- Create 5 tasks in the same type based on current experiment condition.
+  - We already provide 5 sets of options for each task type (linear/pie/unclass).
+For each task:
+- Show 8 options in the menu based on the task type (linear/pie/unclass)
+- Record the selected option
+
+![Screenshot of a pie menu](menus-img/pie.png){:width="250px"}
+
+For example, in the first session, the condition may be `linear task` in `pie menu`. For each of the 5 tasks in that session:
+- When participant presses on the screen, a pie menu should show up as the screenshot above, with 8 task options in linear order (e.g., 1st/2nd/3rd/4th/5th/6th/7th/8th).
+- The instruction text will prompt participant to select one option (e.g., 300).
+- When participant moves finger on an option and release the finger, an option is selected
+  - The participant may select the prompted option, or they may select another option by mistake.
+
+Once the participant selects an option, they complete a `task`, and you should record these info in a `TaskObj` object:
+- `selectedOptionIndex`: The index of selected option
+- `startTime`: The timestamp when finger presses on the screen to show the menu
+- `taskDurationMillSec`: The duration (in millsec) between finger presses down and leaves screen
+- `startPoint`: The point on screen where finger presses down
+- `endPoint`: The point on screen where finger leaves screen
+
+In addition, for each task, you already have these info in an `ExperimentSetupObj` object:
+- `sessionId`: 0-5
+- `taskId`: 0-4
+- `menuType`: Linear/pie
+- `taskType`: Linear/pie/unclass
+- `promptedOptionIndex`: The index of prompted option
+- `optionList`: A list of 8 options' text
+
+In part 3, you will analyze these recorded data.
+
 
 # Part 2
 
 Tasks:
-- Implement a basic scrolling view
-- Add a fixed number of items with fixed constraints.
+- Extend class LinearMenuView and class PieMenuView from the abstract class CustomMenuView
+- Handle input events on menus
+- Update visual output of menus
+- Record user study data
 
-Add ImageViews for `food_0` through `food_3`. Using constraints, center them vertically and position them such that `food_0` is 15dp from the top, then each `food_i` is (15*i)dp from `food_i-1`. That is, `food_1` is 15dp below `food_0`, `food_2` is 30dp below `food_1`, and `food_3` is 45dp below `food_2`. This increasing margin layout will also be used in [Part 3](#part-3). When the layout is rotated, the images should stay the same size and remain horizontally centered.
+Please read the abstract class CustomMenuView we provide in code stub. You will extend this class to create your linear menu and pie menu.
 
-![Screenshot of part 2](layout-img/2_0.png){:width="150px"}
-![Screenshot of part 2, landscape](layout-img/2_landscape.png){:width="300px"}
+For both menus, you should handle input events in `onTouchEvent()` method. In specific:
+- ACTION_DOWN: Draw the menu view and record start information.
+- ACTION_MOVE: Highlight the option closest to finger.
+- ACTION_UP: Clear the menu view and record end information.
 
-![Screenshot of part 2, scrolled down](layout-img/2_1.png){:width="150px"}
+For both menus, you should update visual output (menu layout) in `onDraw()` method, based on the input events above. In specific:
+- ACTION_DOWN:
+  - Draw cell for each option.
+  - Draw text on cell of linear menu.
+- ACTION_MOVE:
+  - Draw cell for each option.
+  - Draw text on cell of linear menu.
+  - Highlight the cell that finger moves in.
+- ACTION_UP:
+  - Clear canvas.
 
-
+![Screenshot of a pie menu](menus-img/pie.png){:width="250px"}
+![Screenshot of a linear menu](menus-img/linear.png){:width="250px"}
 
 # Part 3
 
 Tasks:
-- Implement a basic scrolling view
-- Add a variable number of items with programmatic constraints.
+- Conduct user study
+- Analyze recorded data
 
-This time, we'll be adding images and constraints programmatically, but with the exact same conditions as [Part 2](#part-2). First, add a ConstraintLayout then create ImageViews for each image to add to the ScrollView. Using the same math as part 2, position the first image 15dp from the top, then the top of each image i afterward (15*i)dp from the bottom of the previous image. Again, when the layout is rotated, the images should stay the same size and remain horizontally centered.
+You will recruit 2 students and conduct this user study (6 session * 5 task) with each of them.
 
-![Screenshot of part 3](layout-img/2_0.png){:width="150px"}
+After each user study, please export the recorded data. If you are using emulator, you can use this command to pull data to your computer. <span style="color:red">TODO: Update path to pull data from Android phones.</span>
+```bash
+adb pull /storage/emulated/0/CSE340_PieMenu/Test.csv YOUR_COMPUTER_LOCAL_PATH
+```
 
-![Screenshot of part 3, scrolled down](layout-img/2_1.png){:width="150px"}
-
-![Screenshot of part 3, scrolled down more](layout-img/2_1.png){:width="150px"}
-
-![Screenshot of part 3, scrolled down even more](layout-img/2_1.png){:width="150px"}
-
-# Part 4
-
-Tasks:
-- Implement an advanced scrolling view.
-- Add a variable number of items with programmatic constraints.
-- Maintain two columns and maintain the "pinterest" property.
-
-First, create two LinearLayouts inside `part4_grid.xml`. They should equally divide the horizontal space and fill the vertical with no margins around them. These will act as our columns. When the view is rotated, the columns should stretch to maintain 50% width.
-
-Then, programmatically add the ConstraintLayout to the Part4View. Iterate over every image name and create a corresponding ImageView. Determine which column to place it in using the "pinterest" property. That is, add the image to the shortest column or the leftmost column if they're equal. There should be a 30px margin between columns, photos, and the edges.
-
-If using the resolution of drawables for each ImageView to determine column height, remember to normalize as actual photo resolution does not matter when determining displayed height as much as displayed size or image aspect ratio.
-
-When rotated, the view should scale such that the images increase in size and margins remain the same.
-
-![Screenshot of part 4](layout-img/4_0.png){:width="150px"}
-![Screenshot of part 4, landscape](layout-img/4_landscape.png){:width="300px"}
-
-![Screenshot of part 4, scrolled down](layout-img/4_1.png){:width="150px"}
+Then, please use the equation in our excel file to analyze your recorded data.
+<span style="color:red">TODO: Create excel, add analysis instructions.</span>
 
 # Turnin
 ## Submission Instructions
@@ -89,11 +116,9 @@ Please turn in your files in the following zip structure:
 
 ```bash
 YOUR_STUDENT_ID.zip
-├── part1.xml
-├── part2.xml
-├── Part3View.java
-├── Part4View.java
-└── part4_grid.java
+├── LinearMenuView.java
+├── PieMenuView.java
+└── MainActivity.java
 ```
 
 ## Grading (10pts)
