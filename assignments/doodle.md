@@ -98,6 +98,12 @@ Your may use the attractive home-cooked food images ([photo credit](https://www.
 
 If your animation is laggy, please reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
 
+*For Peer Grading*
+You will receive 1 pt for peer grading others' doodles.
+Grading standard (2 pts in total): 1 pt for using functions, 1 pt for using animation.
+You will have a chance to nominate most creative doodles, and we will show them in class.
+
+
 # Turnin
 ## Submission Instructions
 
@@ -121,10 +127,11 @@ If you're positioning a large number of images for part 2, it may be best to use
 ## Grading (10pts)
 
 - Part 1
-  - `addText`: 2 pts
+  - `addImage`: 1 pt
+  - `addText`: 1 pt
   - `addLine`: 3 pts
-  - `UW` animation: 1 pt
+  - `UW` Animation: 1 pt
 - Part 2
-  - Custom Doodle: 2 pts
-  - Peer grading: 1 pts
+  - Custom doodle (peer grading score): 2 pts
+  - Do peer grading on others' doodles: 1 pt
 - Turn-in and compiles: 1pt
