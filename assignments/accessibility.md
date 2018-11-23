@@ -38,6 +38,8 @@ It is helpful to have basic understanding about [Talkback](https://support.googl
 Here are some guidelines of Android accessibility:
 [Google Android Accessibility](https://developer.android.com/guide/topics/ui/accessibility/) / [Android Accessibility: Apps](https://developer.android.com/guide/topics/ui/accessibility/apps) / [Material Design: Accessibility](https://material.io/design/usability/accessibility.html#composition)
 
+We will ask you to report all accessibility issues you identified. For each issue, you will identify the inaccessible UI element(s), indicate its issue type, and describe how to fix the issue.
+
 <span style="color:red">
 Should we ask them to write a report with the description of each issue? (Increases the workload of TA). Or we only grade based on how many issues are repaired? (What if they can identify but cannot repair some issues?)
 </span>
@@ -67,6 +69,8 @@ YOUR_STUDENT_ID.zip
 ├── MainActivity.java
 └── content_main.xml
 ```
+
+Please also submit accessibility issues report in *Google Form link placeholder*.
 
 ## Grading (10pts)
 
