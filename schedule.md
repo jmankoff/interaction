@@ -169,6 +169,8 @@ Fat Finger Syndrome
 ## 5/13
 
 ## 5/15 Exercise: Sensing
+**Exercise**
+[Sensing](/interaction/assignments/sensing)
 
 ## 5/17
 
@@ -179,6 +181,8 @@ Fat Finger Syndrome
 ## 5/21: Context Awareness
 
 ## 5/22: Big assignment: Context Awareness
+**Assignment: Context Awareness**
+[Context Awareness](/interaction/assignments/contextaware)
 
 ## 5/24
 
