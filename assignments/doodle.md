@@ -5,7 +5,7 @@ layout: default
 * TOC
 {:toc}
 
-# Doodle Assignment
+# Doodle Exercise
 
 **Objective**: Create an Android app that draws a doodle consisting of a text, a line, and a set of images on the main canvas.
 

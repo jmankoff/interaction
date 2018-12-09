@@ -62,13 +62,13 @@ There are a number of classes on campus that teach related concepts
 which you may wish to consider in addition to this one. As of summer,
 2018, here are the ones we are aware of:
 
-- [HCID 520: User Interface Software +
-Technology](http://faculty.washington.edu/ajko/hcid520/) This course
+- HCID 520: User Interface Software +
+Technology ([Wi 17](http://uwdata.github.io/hcid520/17wi/), [Wi 16](http://faculty.washington.edu/ajko/hcid520/))
+This course
 teaches about user interfaces, including what they are, how they are
 built, and some inventions in user interface software and
-technology. Somem readings in this class may be from HCID 520. However
-it differs from CSE 372 in that it is theoretical, not implementation
-based. 
+technology. There are many similarities between these classes. However HCID 520
+is only open to [MHCI+D students](https://mhcid.washington.edu/) Masters students. 
 - [HCDE 310: Interactive Systems Design &
 Technology](https://www.smunson.com/teaching/hcde310/a13/) This course is a
 project based course that teaches how to prototype applications on the
@@ -88,7 +88,7 @@ material. However, both are about programming on the web using
 Javascript instead of on Android, using Java. In addition, CSE 372
 covers more of the theory of UI programming and design, similar to
 HCID 520.  
-- [HCDE 451: Prototyping](https://canvas.uw.edu/courses/1052079/assignments/syllabus)
+- [HCID 521: Prototyping](https://canvas.uw.edu/courses/1128377/assignments/syllabus)
 This class is for the [MHCI+D students](https://mhcid.washington.edu/)
 only and focuses on prototyping techniques, not implementation. It
 covers everything from paper prototyping to physical interfaces to 3D

@@ -50,11 +50,7 @@ layout: default
 - [Th] Creating layouts in Android
 - [F] Paper Prototyping & behavior
 
-## 4/8 Monday: Event Handling and Essential Geometry
-**Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
-
-**Slides**
-[04: Model View - Widget Level](/interaction/slides/wk02/04modelview)
+## 4/8 Accessibility: [lecture and exercise]; Doodle Exercise due
 
 ## 4/10 Wednesday: Layout
 **Required Reading (10 mins)** [Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
@@ -63,7 +59,7 @@ layout: default
 **Slides**
 [05: Model View Layout -- Application Level](/interaction/slides/wk02/05layout)
 
-## Thursday: Layout Exercise
+## Thursday: Layout Exercise Assigned; Accessibility Exercise due
 **Required Reading (10 min):** - Chapter 4: Widgets [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers)  
 
 **Slides**
@@ -72,11 +68,11 @@ layout: default
 **Exercise**
 [Layout](/interaction/assignments/layout)
 
-## 4/12 Friday: Overflow / Paper Prototyping
-**Readings** [Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)
+## 4/12 Friday: Event Handling and Essential Geometry
+**Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
 
 **Slides**
-[06: Paper Prototyping](/interaction/slides/wk02/06paper)
+[04: Model View - Widget Level](/interaction/slides/wk02/04modelview)
 
 # Week 3: Building a Widget
 **Learning goals**
@@ -87,7 +83,7 @@ layout: default
 - [Th] Build your own Widget
 - [F] Menu Design History
 
-## 4/15 Monday: Events of Interest
+## 4/15 Monday: Events of Interest; Layout Exercise due
 **Reading**
 **Slides**
 [07: Input Events](/interaction/slides/wk03/07Events)
@@ -123,7 +119,7 @@ xx See dan olsen's book, there's a chapter on thi
 - [F] Properties of People
 
 
-## 4/22 Monday: Running User studies
+## 4/22 Monday: Running User studies; Color Picker exercise due
 Data collection for user studies 
 **Slides**
 [10: Studies](/interaction/slides/wk04/studies.html)
@@ -138,8 +134,10 @@ Fat Finger Syndrome
 **Assignment: Test which menu is better: Marking menu or Standard Menu**
 [Menus](/interaction/assignments/menus)
 
-## 4/26 Friday: Best practices in Interface Design
+## 4/26 Friday: Best practices in Interface Design OR Paper Prototyping
+**Readings** [Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)
 **Slides**
+[06: Paper Prototyping](/interaction/slides/wk02/06paper)
 
 # Week 5:  Accessibility
 ## 4/29 Monday: Accessibility
