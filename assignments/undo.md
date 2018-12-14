@@ -94,4 +94,17 @@ YOUR_STUDENT_ID.zip
 
 ## Grading (10pts)
 
+- Part 1
+  - Portrait: 1pt
+  - Landscape: 1pt
+- Part 2
+  - Portrait and Landscape: 1pt
+- Part 3
+  - Portrait: 1pt
+  - Landscape: 1pt
+- Part 4
+  - Portrait: 1pt
+  - Landscape: 1pt
+  - Image widths and margins: 1pt
+  - Correct "pinterest" column ordering: 1pt
 - Turn-in and compiles: 1pt
