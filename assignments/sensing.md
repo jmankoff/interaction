@@ -35,6 +35,18 @@ There are two ways to get context from sensors: `Snapshot` and `Fence`
 
 We already provide example code to get headphone state, using snapshot and fence. Please follow the instruction in code comments to implement the rest of sensing capabilities.
 
+Here are sample screenshots for sensor results:
+
+![Screenshot of sensor list](sensing/1.png){:width="200px"}
+![Screenshot of headphone snapshot](sensing/2.png){:width="200px"}
+![Screenshot of location snapshot](sensing/3.png){:width="200px"}
+![Screenshot of places snapshot](sensing/4.png){:width="200px"}
+![Screenshot of weather snapshot](sensing/5.png){:width="200px"}
+![Screenshot of detected activity snapshot](sensing/6.png){:width="200px"}
+![Screenshot of headphone fence](sensing/7.png){:width="200px"}
+![Screenshot of location fence](sensing/8.png){:width="200px"}
+![Screenshot of detected activity fence](sensing/9.png){:width="200px"}
+
 ```bash0
 Notes for TA:
 
