@@ -9,9 +9,19 @@ layout: default
 
 **Objective**: Use XML and programmatic constraints to replicate three layouts.
 
-**Learning Goals**:
-- Familiarize with different layout types
-- Explore XML and programmatic constraints
+**HCI Goals**:
+- Make use of interactor hierachy
+- Use constraints to create responsive layouts
+- Make use of complex built-in layouts
+- Implement reusable layouts
+- Understand how scrolling works
+- Understand how sizes influence layout
+
+**Android Goals**:
+- Understand Android layout GUI and XML
+- Familiarize with Android programmatic layout API
+- Understand Android constraints implementation
+- Handle portrait and landscape orientation correctly
 - Handle fixed and variable size container views
 
 **Assigned Date**: ???, 2019

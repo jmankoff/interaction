@@ -9,11 +9,17 @@ layout: default
 
 **Objective**: Create an Android app that draws a doodle consisting of a text, a line, and a set of images on the main canvas.
 
-**Learning Goals**:
-- Activity Lifecycle
-- Creating views and adding to canvas
-- Loading image resources
-- Basic animations
+**HCI Goals**:
+- Use abstractions to draw on screen
+- Create animations
+- Use coordinate transformation
+- Try to create something appealing
+
+**Android Goals**:
+- Get familiar with Android Studio
+- Understand XML and View
+- Load image and drawable resources
+- Learn Activity Lifecycle
 
 **Assigned Date**: ???, 2019
 
