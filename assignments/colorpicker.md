@@ -9,12 +9,18 @@ layout: default
 
 **Objective**: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
 
-**Learning Goals**:
-- Creating Non-rectangle Widget
-- Finite State Machine
-- Saving App State in Bundle
-- Event Handlers
-- Callbacks and Event Bubbling
+**HCI Goals**:
+- Create non-rectangle widget
+- Finite state machine
+- Event handlers and event bubbling
+- Callbacks
+
+**Android Goals**:
+- Save app state in Bundle
+- Understand Android event handling APIs
+- Handle touch input properly
+- Understand app lifecycle
+
 
 **Assigned Date**: ???, 2019
 
@@ -88,12 +94,14 @@ YOUR_STUDENT_ID.zip
 
 ## Grading (10pts)
 
-- State Machine: 2pts
-- Handle Edge Cases in State Machine: 1pt
-- Map Angle to Color (also correctly compute angle): 1pt
-- Place Handle in Correct Location: 1pt
+- State Machine
+  - Creat working basic functionalities: 2pts
+  - Handle Edge Cases in State Machine: 1pt
+- Event handling and bubbling
+  - Map Angle to Color (also correctly compute angle): 1pt
+  - Place Handle in Correct Location: 1pt
+  - Reject Events outside Color Wheel: 1pt
 - Save State: 1pt
-- Reject Events outside Color Wheel: 1pt
 - Callback: 1pt
 - OnFirstLayout: 1pt
 - Turn-in and Compiles: 1pt
