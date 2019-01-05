@@ -3,8 +3,10 @@ layout: default
 ---
 
 <h1> Welcome to Interaction Programming! </h1>
+Interactive technology is changing society. Some of today’s interfaces are used by a billion people at a time. Almost everything we create is created for people to use, through user interfaces. We will learn about interactive systems, including programming paradigms and design of event handling, layout, undo, accessibility and context awareness.
+
 For quick links to key things,
-chick out the navbar above and the table of contents here: 
+check out the navbar above and the table of contents here: 
 * TOC
 {:toc}
 
