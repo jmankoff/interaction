@@ -46,7 +46,7 @@ Java, and have some experience with data structures. However, if you
 are not comfortable working in an IDE environment, using version
 control, and picking up and working with someone else’s library code,
 you will likely need to plan for extra time with TAs, and possibly
-attend extra tutoring sessions, to keep up with the class.  
+attend extra tutoring sessions, to keep up with the class.  A good plan is to take 391 juts before or concurrently with 340 to learn some of these things.
 
 The specific platform and language for this class are Java on Android
 phones (or simulators); using the IntelliJ IDE (Android Studio). While
