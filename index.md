@@ -32,7 +32,7 @@ experience and the business value of what you create.
 - How to avoid common gotchas in the implementation of user
 interfaces. We will teach you the proper way to implement Undo, create
 Accessible Interfaces. We will also touch on other necessities (no
-modal dialogues; good use of color; inclusion of spport for help and
+modal dialogues; good use of color; inclusion of support for help and
 so on).  
 
 Taking a class is a big commitment, and you will work hard in this
@@ -46,7 +46,8 @@ Java, and have some experience with data structures. However, if you
 are not comfortable working in an IDE environment, using version
 control, and picking up and working with someone else’s library code,
 you will likely need to plan for extra time with TAs, and possibly
-attend extra tutoring sessions, to keep up with the class.  A good plan is to take 391 juts before or concurrently with 340 to learn some of these things.
+attend extra tutoring sessions, to keep up with the class.
+A good plan is to take 391 just before or concurrently with 340 to learn some of these things. 
 
 The specific platform and language for this class are Java on Android
 phones (or simulators); using the IntelliJ IDE (Android Studio). While
@@ -75,8 +76,8 @@ is only open to [MHCI+D students](https://mhcid.washington.edu/) Masters student
 Technology](https://www.smunson.com/teaching/hcde310/a13/) This course is a
 project based course that teaches how to prototype applications on the
 web using Python that solve human problems or enable new
-activities. Includes information about APIs how people interact. It
-differs from CSE 372 in its choice of platform. Additionally, it
+activities. Includes information about APIs and how people interact with them. It
+differs from CSE 340 in its choice of platform. Additionally, it
 doesn’t cover the theory of UI programming, nor issues such as
 accessibility, undo, and so on.   
 - [INFO 343: Client side web
@@ -87,7 +88,7 @@ and accessibility. [CSE 154: Web
 Programming](https://courses.cs.washington.edu/courses/cse154/18sp/)
 also covers some related 
 material. However, both are about programming on the web using
-Javascript instead of on Android, using Java. In addition, CSE 372
+JavaScript instead of on Android, using Java. In addition, CSE 340
 covers more of the theory of UI programming and design, similar to
 HCID 520.  
 - [HCID 521: Prototyping](https://canvas.uw.edu/courses/1128377/assignments/syllabus)
@@ -100,17 +101,18 @@ HCI](http://courses.cs.washington.edu/courses/cse440/);  [441: Advanced HCI](htt
 seniors. The focus of 440 is less on programming and more broadly on
 methods for designing, prototyping, and evaluating user interfaces to
 computing applications, while 441 is an open ended capstone
-course. These are excellent follow on courses to 372, for a student
+course. These are excellent follow on courses to 340, for a student
 who wants to go deeper into how to make usable, enjoyable effective
 interfaces, and how to solve interesting problems with HCI. Related is
 [CSE 510](http://courses.cs.washington.edu/courses/csep510/), the HCI
 course for the professional masters program.
 
 # Teaching Staff
-How many TAs? Depends on students, waiting on dan/pim to confirm
+- <a href="make4all.org">Jennifer Mankoff</a> 
+- Ryan Rowe (Head TA)
 
 # Resources
-- Books: [Android textbook](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)/[Ui textbook](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
+- Books: [Android textbook](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)/[UI textbook](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
 - Programming Platforms: Android Platform/Github
 
 # Course Structure
@@ -177,7 +179,7 @@ you treat everyone in the class with respect. Some specific things we
 will do to try to make the class a welcoming environment: 
 - **Accessibility**: I have attempted to make all the course materials
 accessible according to web standards. If you need any additional
-support, I am always happy to work with you and the DSO to make sure
+support, I am always happy to work with you and the Disabled Students Office to make sure
 that the class meets your needs 
 - **Inclusivity**: I will be working toward a broad base of examples,
 and a welcoming environment for all. Please let me know if you see
@@ -192,11 +194,10 @@ class to get things started.
 # Grading
 
 Grades will be assigned approximately as follows:
-- 10%: exercises
-- 50%: labs 1–5
-- 10%: lab X
+- 25%: Exercises (Five of these)
+- 45%: Assignments (Three of these)
 - 10%: Effort, participation and altruism
-- 20%: final exam
+- 20%: Exams
 
 This maps to the 4.0 scale roughly as follows. You will get at least the grade below for the percentage shown: 
 - 90%: at least 3.5 
@@ -217,7 +218,7 @@ This maps to the 4.0 scale roughly as follows. You will get at least the grade b
 
 <!-- # Header 1 -->
 
-<!-- This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. -->
+<!-- This is a normal paragraph following a header. Github is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. -->
 
 <!-- ## Header 2 -->
 
@@ -228,7 +229,7 @@ This maps to the 4.0 scale roughly as follows. You will get at least the grade b
 <!-- ### Header 3 -->
 
 <!-- ```js -->
-<!-- // Javascript code with syntax highlighting. -->
+<!-- // JavaScript code with syntax highlighting. -->
 <!-- var fun = function lang(l) { -->
 <!--   dateformat.i18n = require('./lang/' + l) -->
 <!--   return true; -->
@@ -258,7 +259,7 @@ This maps to the 4.0 scale roughly as follows. You will get at least the grade b
 
 <!-- | head1        | head two          | three | -->
 <!-- |:-------------|:------------------|:------| -->
-<!-- | ok           | good swedish fish | nice  | -->
+<!-- | OK           | good swedish fish | nice  | -->
 <!-- | out of stock | good and plenty   | nice  | -->
 <!-- | ok           | good `oreos`      | hmm   | -->
 <!-- | ok           | good `zoute` drop | yumm  | -->
