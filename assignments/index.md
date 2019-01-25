@@ -10,8 +10,8 @@ layout: default
 - 4/8 Monday: [Doodle](/interaction/assignments/doodle) Exercise due
 
 ## [Layout](/interaction/assignments/layout) 
-- 4/9 Thursday: [Layout](/interaction/assignments/layout) Exercise assigned
-- 4/1 Monday: [Layout](/interaction/assignments/layout) Exercise due
+- 4/8 Thursday: [Layout](/interaction/assignments/layout) Exercise assigned
+- 4/11 Monday: [Layout](/interaction/assignments/layout) Exercise due
 
 ## [Accessibility](/interaction/assignments/accessibility) 
 - 4/11 Monday: [Accessibility](/interaction/assignments/accessibility) Exercise assigned
