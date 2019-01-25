@@ -9,13 +9,13 @@ layout: default
 - 4/3 Wednesday: Exercise assigned
 - 4/8 Monday: [Doodle](/interaction/assignments/doodle) Exercise due
 
-## [Accessibility](/interaction/assignments/accessibility) 
-- 4/8 Monday: [Accessibility](/interaction/assignments/accessibility) Exercise assigned
-- 4/11 Thursday: [Accessibility](/interaction/assignments/accessibility) Exercise due
-
 ## [Layout](/interaction/assignments/layout) 
-- 4/11 Thursday: [Layout](/interaction/assignments/layout) Exercise assigned
-- 4/15 Monday: [Layout](/interaction/assignments/layout) Exercise due
+- 4/9 Thursday: [Layout](/interaction/assignments/layout) Exercise assigned
+- 4/1 Monday: [Layout](/interaction/assignments/layout) Exercise due
+
+## [Accessibility](/interaction/assignments/accessibility) 
+- 4/11 Monday: [Accessibility](/interaction/assignments/accessibility) Exercise assigned
+- 4/15 Thursday: [Accessibility](/interaction/assignments/accessibility) Exercise due
 
 ## [Color Picker](/interaction/assignments/colorpicker) 
 - 4/18 Thursday: [Color Picker](/interaction/assignments/colorpicker) Exercise assigned
