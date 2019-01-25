@@ -9,10 +9,15 @@ layout: default
 
 **Objective**: Build an end-to-end application. Interact with users.
 
-**Learning Goals**:
-- Reproduce our sample application
+**HCI Goals**:
+- Build an application based on specs
 - Record user study data
 - Produce plausible experiment results (within expected ranges)
+- Implement menus
+- Understand marking menus
+
+**Android Goals**:
+- Store data in file system
 
 **Assigned Date**: ???, 2019
 
