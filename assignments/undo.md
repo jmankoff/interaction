@@ -9,10 +9,17 @@ layout: default
 
 **Objective**: Understand Undo Abstractions.
 
-**Learning Goals**:
-- Reproduce a sample app
-- Create command objects
-- Separate concerns
+**HCI Goals**:
+- Make an accessible app
+- Use heuristic evaluation to assess an app
+- Build an app that does not have severe usability issues
+
+**Android Goals**:
+- Build an application based on specs
+- Create Command objects
+- Separation of concerns
+- Event handlers
+
 
 **Assigned Date**: ???, 2019
 
@@ -78,6 +85,27 @@ A CanvasStateManager will keep track of all CanvasState.
 ![Screenshot of step 8](undo-img/8.png){:width="200px"}
 
 
+Peer grading
+
+3 students?
+
+Heuristic evaluation
+
+The Task:
+- Step 1: draw something
+- Step 2: undo
+- Step 3: use menu to change color
+- Step 4: try to redo
+- Step 4: draw something
+- Step 5: use new feature
+- Step 6: undo and redo
+
+Pick 3 most severe issues in all steps: Title + Screenshot + Pick one or more heuristics + severity rating + description
+
+Feedback of their customized command
+
+The current menu icon sizes are too small, already an usability issue. Just keep it.
+
 
 # Turnin
 ## Submission Instructions
@@ -92,19 +120,18 @@ YOUR_STUDENT_ID.zip
 └── MainActivity.java
 ```
 
+
 ## Grading (10pts)
 
-- Part 1
-  - Portrait: 1pt
-  - Landscape: 1pt
-- Part 2
-  - Portrait and Landscape: 1pt
-- Part 3
-  - Portrait: 1pt
-  - Landscape: 1pt
-- Part 4
-  - Portrait: 1pt
-  - Landscape: 1pt
-  - Image widths and margins: 1pt
-  - Correct "pinterest" column ordering: 1pt
+- Part 1: Implementation
+  - Accessible app: 1pt
+  - Undo and redo works in general: 1pt
+  - Edge cases in undo/redo works: 1pt
+  - Changing color works: 1pt
+  - Changing thickness works: 1pt
+
+- Part 2: Peer grading
+  - Support one additional command: 1pt
+  - Complete heuristic evaluation for other students: 2pt
+  - No severe usability issues: 1pt
 - Turn-in and compiles: 1pt

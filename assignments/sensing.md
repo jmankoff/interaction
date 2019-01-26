@@ -9,7 +9,7 @@ layout: default
 
 **Objective**: Access Android sensors as the preparation to build context aware application.
 
-**Learning Goals**:
+**Android Goals**:
 - Learn Android Awareness APIs
 - Load sensor data
 - Understand how and when to use Snapshot or Fence
@@ -21,7 +21,6 @@ layout: default
 Tasks:
 - Load data from sensor snapshot
 - Use Fence to listen to sensor change
-
 
 Context awareness capabilities enable mobile phones to sense their physical environment and adapt their behavior accordingly. You can practice how to load data from different sensors in this exercise, as the preparation to build context aware app in the final assignment.
 
@@ -47,12 +46,11 @@ Here are sample screenshots for sensor results:
 ![Screenshot of location fence](sensing/8.png){:width="200px"}
 ![Screenshot of detected activity fence](sensing/9.png){:width="200px"}
 
+Get your own API keys!
+
+
 ```bash0
 Notes for TA:
-
-Two code examples, shouldn't show to students.
-https://github.com/googlesamples/android-play-awareness
-https://github.com/hitherejoe/Aware
 
 This key is necessary for Awareness API. You may apply a new one, or use this one.
 
@@ -95,6 +93,18 @@ YOUR_STUDENT_ID.zip
 └── LocationFenceActivity.java
 ```
 
+- Learn Android Awareness APIs
+- Load sensor data
+- Understand how and when to use Snapshot or Fence
+
+
 ## Grading (10pts)
 
+- Get API Keys: 1pt
+- Location: 1pt
+- Place: 1pt
+- Weather: 1pt
+- Activity: 1pt
+- Location Fence: 2pt
+- Activity Fence: 2pt
 - Turn-in and compiles: 1pt

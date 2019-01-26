@@ -9,18 +9,21 @@ layout: default
 
 **Objective**: Access Android sensors as the preparation to build context aware application.
 
-**Learning Goals**:
-- Learn Android Awareness APIs
-- Load sensor data
-- Understand how and when to use Snapshot or Fence
+**HCI Goals**:
+- Make an enjoyable app
+- Use context effectively
+
+**Android Goals**:
+- Use location and another sensor
+- Understand when to use Snapshot or Fence
 
 **Assigned Date**: ???, 2019
 
 **Due Date**: ???, 2019
 
 Tasks:
-- Load data from sensor snapshot
-- Use Fence to listen to sensor change
+- 
+- 
 
 After sensing exercise, students will be ready to create a context-aware app.
 
@@ -39,7 +42,6 @@ In peer grading survey,
 - We will ask what type of context is used
 - Ask if the app is enjoyable, in a Likert scale
 - Prompt to write a paragraph feedback
-- Feedback from users
 
 Critical incident reporting? Heuristic eval?
 
@@ -54,11 +56,23 @@ YOUR_STUDENT_ID.zip
 └── MainActivity.java
 ```
 
+**HCI Goals**:
+- Make an enjoyable app
+- Use context effectively
+
+**Android Goals**
+- Use location and another sensor
+- Understand when to use Snapshot or Fence
+
 ## Grading (10pts)
 
-- Part 1
-  - Portrait: 1pt
-  - Landscape: 1pt
-- Part 2
-  - Video: 1pt
+- Part 1: Implementation
+  - Use location and another sensor: 1pt
+  - App is context-aware: 2pt
+- Part 2: Peer grading
+  - Submit a narrative video: 2pt
+  - Complete peer grading: 1pt
+  - Make an enjoyable app: 1pt
+  - Peer and you agree with context type: 1pt
 - Turn-in and compiles: 1pt
+- Group participation: 1pt
