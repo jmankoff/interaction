@@ -40,13 +40,13 @@ Here are some guidelines of Android accessibility:
 
 We will ask you to report all accessibility issues you identified. For each issue, you will identify the inaccessible UI element(s), indicate its issue type, and describe how to fix the issue.
 
-<span style="color:red">
-Should we ask them to write a report with the description of each issue? (Increases the workload of TA). Or we only grade based on how many issues are repaired? (What if they can identify but cannot repair some issues?)
-</span>
+<!-- <span style="color:red">
+XXX TODO: Should we ask them to write a report with the description of each issue? (Increases the workload of TA). Or we only grade based on how many issues are repaired? (What if they can identify but cannot repair some issues?)
+</span> -->
 
-<span style="color:red">
-Should we provide them Google Accessibility Scanner? (Although it may not cover all issues...)
-</span>
+<!-- <span style="color:red">
+XXX TODO: Should we provide them Google Accessibility Scanner? (Although it may not cover all issues...)
+</span> -->
 
 # Part 2
 
@@ -56,7 +56,7 @@ Tasks:
 Once you identify an accessibility issue in the example app, please repair it by modifying code or xml layout file.
 
 For example: To repair "Item Label" error above, we can either
-- In layout editor, add "broccoli in a black bowl" as contentDescription property 
+- In layout editor, add "broccoli in a black bowl" as contentDescription property
 - In code, call method imageView.setContentDescription("broccoli in a black bowl")
 
 # Turnin

@@ -36,7 +36,7 @@ Tasks:
 
 We'll handle touch input by implementing `onTouchReceived`. This is the event handler that will be called when a touch is registered in this view. First, we need to reject any touches that are outside of the circle. Colors may only be selected by tapping on or inside the color wheel.
 
-<span style="color:red">Check edge case: e.g., drag and move outside wheel, the handle stays in 50% alpha (should be 100% alpha). I added examples in test to check alpha of handle to check state.</span>
+<!-- <span style="color:red"> XXX TODO: Check edge case: e.g., drag and move outside wheel, the handle stays in 50% alpha (should be 100% alpha). I added examples in test to check alpha of handle to check state.</span> -->
 
 ![Finite State Machine](colorpicker-img/fsm.png){:width="800px"}
 
