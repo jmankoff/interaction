@@ -7,12 +7,9 @@
     <main id="content" class="main-content" role="main">
       <h1>{{ page.code }}: {{ page.title }}</h1>
 
-      <strong>Assigned</strong>: {{ page.assigned }}
-
-      <span style="float: right;"><strong >Due</strong>: {{ page.due }}</span>
-
       <div class="learning-goals">
         <div id="android-goals">
+          <strong>Assigned</strong>: {{ page.assigned }}
           <h3>Android Goals:</h3>
           <ul>
             {% for goal in page.android_goals %}
@@ -21,6 +18,7 @@
           </ul>
         </div>
         <div id="hci-goals">
+          <strong>Due</strong>: {{ page.due }}
           <h3>HCI Goals:</h3>
           <ul>
             {% for goal in page.hci_goals %}
