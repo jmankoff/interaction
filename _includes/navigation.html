@@ -16,7 +16,7 @@
   <div class="container">
     <a class="navbar-brand js-scroll-trigg"
        href="https://www.cs.washington.edu" aria-label={{site.data.navigation.nav_list_title}}>
-       <img src="{{site.baseurl}}/assets/img/Allen-School-white-RGB-sm.png" alt="Allen School Logo" align=left height=50> 
+       <img src="{{site.baseurl}}/assets/img/Allen-School-white-RGB-sm.png" alt="Allen School Logo" align=left style="max-width: 100%; height: auto;"> 
 	  </a>
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,7 @@
       {% else %}
          {% assign base = site.baseurl %}
       {% endif %}
-     
+
       <a class="navbar-brand js-scroll-trigger" role="menuitem" href="{{ base }}{{ entry.url }}">{{ entry.title }}</a>
       <ul>
         {% for sublink in sublinks %}
