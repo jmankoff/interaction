@@ -4,11 +4,39 @@ title: Basic Interaction --Week 1, Wednesday--
 description: Discussion of basic abstractions for user interfaces
 class: middle, center, inverse
 ---
+---
 
-# Basic Structure of Interaction
-Discussion of readings:
-- Model View Controller 
-- Relationship to Android software stack
+# Relating the Human and the Machine
+
+- Gulf of Execution and Gulf of Evaluation
+- Relation to Mental model formation
+
+???
+consider starting this discussion in german
+Talk about how the mental model builds up
+---
+
+#Reading quiz
+
+---
+
+# In class Exercise
+
+- Brainstorm a list of common interactors
+- Diagram them wrt reading
+
+---
+# What about a whole interface
+
+![:img Minimalist Recipe App showing the title 'simple food', a heart
+for favoriting, a bookmark and sharing icon, the title 'boiled eggs',
+a picture of an egg, and a description of what you need to boil an egg
+along with a button saying 'cook it', 30%](img/minimalist-app.png)
+minimalist-app-ui-37.png
+
+
+# Model View Controller
+
 ???
 - Input -- we need to know when people are doing things. This needs to be event driven.
 - Output -- we need to show people feedback. This cannot ‘take over’ i.e. it needs to be multi threaded
@@ -17,12 +45,116 @@ Discussion of readings:
 - What don’t we need? We don’t need to know about the rest of the UI, probably, etc etc
 - Model View Controller -- this works within interactors (draw diagram), but also represents the overall structure (ideally) of a whole user interface
 - NOTE: Be careful to write any new vocabulary words on the board and define as they come up.
----
 
-#Reading quiz
 ---
+---
+## Introduction to Android
 
-#In class Exercise
+- Applications typically follow MVP architecture
+
+--
+
+  - Model, View, Presenter
+
+--
+
+![MVP Diagram](img/mvp-design-pattern.png)
+
+---
+## Android Applications
+
+- __Intents__
+
+--
+
+  - Launch components (and provide them with data)
+
+--
+  - Not limited to components of the same app
+    - Meaning: your components can be started by intents from other applications
+
+--
+- Components
+
+--
+
+  - Activity
+  - Service
+  - Broadcast Receiver
+  - Content Providers
+
+---
+## Activity
+  - [`android.app.Activity`](https://developer.android.com/reference/android/app/Activity)
+
+--
+  - Represents a single interface
+
+--
+  - Example: Activities for Gmail App
+    - Inbox, Message Compose, Spam Folder, etc.
+--
+  - Activities can be started by other applications, if desired
+    - E.g., sharing a photo by email starts Gmail's Message Compose activity
+
+---
+## Activity
+
+.center[
+![:img Activity Lifecycle, 40%](img/activity_lifecycle.png)
+]
+
+---
+## Service
+  - [`android.app.Service`](https://developer.android.com/reference/android/app/Service)
+
+--
+  - Entry point for background processes
+
+--
+  - Example: Spotify's player activity uses a service to play music
+    - Could be done by activity alone
+--
+    - Use of a service allows music to continue when player activity is no longer in the foreground
+--
+  - Services may be killed and restarted as required by the OS
+    - A persistent service such as music playback may use a persistent notification to prevent this
+
+---
+## Broadcast Receivers
+  - [`android.content.BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.html)
+
+--
+  - Entry point for events outside of regular userflow
+
+--
+  - Example: Alarms
+    - Application schedules callback with OS in 10 minutes
+--
+    - In the meantime, the application can be killed
+--
+    - 10 minutes later, the OS broadcasts the callback event to the app
+--
+    - App begins playing sound; vibrating
+
+---
+## Content Providers
+  - [`android.content.ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider)
+
+--
+  - Persistent storage of data
+
+--
+  - Supports multiple backends, depending on app permissions
+    - Local filesystem, web, SQLite DB, etc.
+--
+  - Can permit access to other applications
+    - Contacts can be read and written to by other apps, depending on permissions
+---
+# Relationship to Android software stack
+
+???
+---
 
 ???
 *** what is a good main topic for lecture? ***

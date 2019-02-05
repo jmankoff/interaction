@@ -21,12 +21,13 @@ layout: default
 
 ## 4/3 Wednesday: Basic Structure of Interaction
 
-**Required reading (10 min)**
+**Required Preparation (30-40 min)**
 - Chapter 1: Introduction from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
-- Chapter 9-10: Understanding Android Application and Activity Lifecycles from [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
+- Chapter 3; 9-10: Understanding Android Application and Activity Lifecycles from [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
+- Download Android Studio and follow the directions in Chapter 3 to create an Android Application
 
-**Exercise**
-[Doodle](/interaction/assignments/doodle)
+**Exercise Assigned**
+[Doodle](/interaction/assignments/doodle) 
 
 **Slides**
 [02: MVC](/interaction/slides/wk01/02MVC.html)
@@ -36,8 +37,9 @@ layout: default
 [Lab 01: Hello World](/interaction/slides/l01/l01hello.html)
 
 ## 4/5 Friday: Drawing on the Screen
-**Required reading (10 min)**
-- Chapter 2: Drawing from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) -- especially pp. 26-38
+**Required Prep (10 min)**
+- Read: Chapter 2 from Drawing from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) -- especially pp. 26-38
+- Watch: [Example perceptual visual effect involving color](https://www.youtube.com/watch?time_continue=9&v=Db4PwJ2LDVk)
 
 **Slides**
 [03: Drawing](/interaction/slides/wk01/03Drawing.html)
@@ -51,6 +53,8 @@ layout: default
 - [F] Paper Prototyping & behavior
 
 ## 4/8 Accessibility: [lecture and exercise]; Doodle Exercise due
+**Exercise Due**
+[Doodle](/interaction/assignments/doodle) 
 
 ## 4/10 Wednesday: Layout
 **Required Reading (10 mins)** [Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
@@ -62,11 +66,11 @@ layout: default
 ## Thursday: Layout Exercise Assigned; Accessibility Exercise due
 **Required Reading (10 min):** - Chapter 4: Widgets [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers)  
 
+**Exercise Assigned**
+[Layout](/interaction/assignments/layout)
+
 **Slides**
 [Lab 02: Activities, Views, and Layout](/interaction/slides/l02/02layout.html)
-
-**Exercise**
-[Layout](/interaction/assignments/layout)
 
 ## 4/12 Friday: Event Handling and Essential Geometry
 **Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
@@ -88,13 +92,17 @@ layout: default
 **Slides**
 [07: Input Events](/interaction/slides/wk03/07Events)
 
+**Exercise Due **
+[Layout](/interaction/assignments/layout)
+
+
 ## 4/17 Wednesday: Essential Behavior/Finite State Machines
 **Readings?**
 **Slides**
  [08: Essential Behavior](/interaction/slides/wk03/08EssentialBehavior)
 
 ## 4/18 Thursday: Build your own widget exercise (simpler than color picker in lab) 
-**Exercise**
+**Exercise Assigned**
 [Color Picker](/interaction/assignments/colorpicker)
 
 **Slides**
@@ -124,14 +132,18 @@ Data collection for user studies
 **Slides**
 [10: Studies](/interaction/slides/wk04/studies.html)
 
+**Exercise Due**
+[Color Picker](/interaction/assignments/colorpicker)
+
 ## 4/24 Wednesday: 
 
 Fat Finger Syndrome
 
-## Thursday
+## 4/25 Thursday
 [Lab 04: Implementing an App for a user study]
 
-**Assignment: Test which menu is better: Marking menu or Standard Menu**
+**Assignment: Menu Assigned**
+Test which menu is better: Marking menu or Standard Menu
 [Menus](/interaction/assignments/menus)
 
 ## 4/26 Friday: Best practices in Interface Design OR Paper Prototyping
@@ -145,8 +157,6 @@ Fat Finger Syndrome
 ## 5/1 Wednesday: ??
 
 ## 5/2 Exercise: Accessibility 
-**Exercise**
-[Accessibility](/interaction/assignments/accessibility)
 
 ## 5/3 Friday: 
 
@@ -154,21 +164,26 @@ Fat Finger Syndrome
 
 ## 5/6 Monday: Undo
 
+**Assignment: Menu Due**
+[Menus](/interaction/assignments/menus)
+
 ## 5/8 Wednesday:  Heuristic Evaluation
 
 ## 5/9 Assignment: Undo
-**Assignment: Undo**
-[Undo](/interaction/assignments/undo)
+**Exercise Assigned**
+[Accessibility](/interaction/assignments/accessibility)
 
 ## 5/10
 
 # Week 7: Sensing
 
 ## 5/13
+**Exercise Due**
+[Accessibility](/interaction/assignments/accessibility)
 
 ## 5/15 Exercise: Sensing
-**Exercise**
-[Sensing](/interaction/assignments/sensing)
+**Assignment: Undo Assigned**
+[Undo](/interaction/assignments/undo)
 
 ## 5/17
 
@@ -187,10 +202,26 @@ Fat Finger Syndrome
 # Week 9: Advanced Concepts
 
 ## 5/27: Memorial Day
+**Assignment: Undo Due**
+[Undo](/interaction/assignments/undo)
+**Exercise Assigned**
+[Sensing](/interaction/assignments/sensing)
+**Assignment: Context Assigned**
+[Context/AR](/interaction/assignments/context)
 
 ## 5/29
 
 ## 5/31
+
+## 6/3
+**Exercise Due**
+[Sensing](/interaction/assignments/sensing)
+## 6/5
+## 6/6
+## 6/7
+**Assignment: Context Due (6/10)**
+[Context/AR](/interaction/assignments/context)
+
 
 # Post Lecture
 
