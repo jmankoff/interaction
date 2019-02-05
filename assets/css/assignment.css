@@ -1,0 +1,9 @@
+div.learning-goals {
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+}
+
+div.learning-goals div {
+  flex: 1 1 auto;
+}

@@ -1,53 +1,52 @@
 ---
-layout: default
+layout: assignment
+title: Doodle
+code: EX1
+
+assigned: Thursday, April 4, 2019
+due: 11:59 PM Monday, April 8, 2019
+
+objective: Create an Android app that draws a doodle consisting of a text, a line, and a set of images on the main canvas.
+
+android_goals:
+  - Use abstractions to draw on screen
+  - Create animations
+  - Use coordinate transformation
+  - Try to create something appealing
+hci_goals:
+  - Get familiar with Android Studio
+  - Understand XML and View
+  - Load image and drawable resources
+  - Learn Activity Lifecycle
+
 ---
 
-* TOC
-{:toc}
-
-# Doodle Exercise
-
-**Objective**: Create an Android app that draws a doodle consisting of a text, a line, and a set of images on the main canvas.
-
-**HCI Goals**:
-- Use abstractions to draw on screen
-- Create animations
-- Use coordinate transformation
-- Try to create something appealing
-
-**Android Goals**:
-- Get familiar with Android Studio
-- Understand XML and View
-- Load image and drawable resources
-- Learn Activity Lifecycle
-
-**Assigned Date**: ???, 2019
-
-**Due Date**: ???, 2019
-
 # Part 1
+***
 
 Tasks:
-- Import our code skeleton to Android Studio
-- **Implement 3 functions** (addImage, addText, addLine)
+- Download and install Android development environment
+- Open our skeleton code in Android Studio
+- Implement three functions: `addImage`, `addText`, `addLine`
 - Call the functions you implemented and compare your app screen with our screenshot
-- Read through this [basic animation](https://developer.android.com/training/animation/reposition-view) tutorial
 - Animate `UW` so it slides from left to right when the app opens.
+
+This task involves implementing three functions in `Part1Activity.java`. Each function is named here but detailed doc comments can be found in the interface which `Part1Activity` extends: `Doodler`.
 
 ### Specs for addImage
 ```java
-Function addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size)
+ImageView addImage(FrameLayout canvas, String imageName, float x, float y, int size);
 ```
 
-Most of this method is already implemented for you. Please read through it to understand how it works.
+Most of this method is mostly implemented for you. Please read through it to understand how it works, then set the size and location of ImageView added in this method.
 
-Please set the size and location of image in this method.
+*Related APIs*:
+[TextView](https://developer.android.com/reference/android/widget/ImageView.html)
 
 ### Specs for addText
 ```java
-Function addText(FrameLayout mainCanvas, String text, Float x, Float y, int fontSize, int color)
+TextView addText(FrameLayout canvas, String text, float x, float y, int fontSize, int color);
 ```
-Please implement addText function so that you can add text on canvas.
 
 *Related APIs*:
 [TextView](https://developer.android.com/reference/android/widget/TextView.html) /
@@ -60,12 +59,11 @@ If you implement it correctly, you'll see the image below if you run:
 addText(mainCanvas, "CSE340", 550f, 200f, 60, Color.rgb(51,0,111))
 ```
 
-![A purple text "CSE340" shows at the top right of the screenshot.](doodle-img/add_text_sample.png){:width="150px"}
-
+![A purple text "CSE340" shows at the top right of the screenshot.](doodle-img/add_text_sample.png){:width="25%"}
 
 ### Specs for addLine
 ```java
-Function addLine(FrameLayout mainCanvas, Float startX, Float startY, Float endX, Float endY, int width, int color)
+ImageView addLine(FrameLayout canvas, Point start, Point end, int width, int color);
 ```
 
 There are several ways to draw a line. [android--code](https://android--code.blogspot.com) has [a good example](https://android--code.blogspot.com/2015/11/android-how-to-draw-line-on-canvas.html)
@@ -75,60 +73,61 @@ If you implement it correctly, you'll see the image below if you run:
 addLine(mainCanvas, 100f, 250f, 700f, 1200f, 15, Color.rgb(200,0,0))
 ```
 
-![A red line starts from top left to the center of the screenshot.](doodle-img/add_line_sample.png){:width="150px"}
-
+![A red line starts from top left to the center of the screenshot.](doodle-img/add_line_sample.png){:width="25%"}
 
 ### Animating Text
 
-You will need to first figure out how to animate the TextView created by `addText` then decide where in the Activity lifecycle the animation should be placed so it is triggered when the app opens.
+Read through this [basic animation](https://developer.android.com/training/animation/reposition-view) tutorial. You will need to first figure out how to animate the TextView created by `addText` then decide where in the Activity lifecycle the animation should be placed so it is triggered when the app opens.
 
 The `UW` text should translate horizontally from `(50f, 1650f)` to `(1000f, 1650f)`. Animation duration should be less than 2 seconds.
 
 *Related APIs*:
 [ObjectAnimator](https://developer.android.com/reference/android/animation/ObjectAnimator)
 
-![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.png){:width="150px"}
+![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.png){:width="25%"}
 
 # Part 2
+***
 
 Tasks:
 - Create a beautiful doodle of your own
 
-You should use all 3 functions implemented in [Part 1](#part-1). You are welcome to implement new functions to make a creative and/or beautiful doodle. Aim for complexity similar to part 1 (images, text, and shapes) though you don't need to use as many images. Try to be creative, you work will be graded by your peers.
+Create a new activity called `Part2Activity`. In here you should use all 3 functions implemented in [Part 1](#part-1) to draw your own doodle. You are welcome to implement new functions to make a creative and/or beautiful doodle.
 
-Your may use the attractive home-cooked food images ([photo credit](https://www.XiaoyiZhang.me)) we include in `res/drawable` or use your own images.
+**Tip**: Add your new activity to `AndroidManifest.xml`. You can control which activity launches with the app by moving the existing `<intent-filter>` tag between different activities.
 
-*Related APIs*:
-
-[Android Animation](https://developer.android.com/training/animation/reposition-view) / [View Animation](https://developer.android.com/guide/topics/graphics/view-animation.html) / [Property Animation](https://developer.android.com/guide/topics/graphics/prop-animation.html) / [Vogella Tutorials - Android Animation](http://www.vogella.com/tutorials/AndroidAnimation/article.html)
+Aim for complexity similar to [Part 1](#part-1) (images, text, and shapes) though you don't need to use as many images. Try to be creative, you work will be graded by your peers. Your may use the attractive home-cooked food images ([photo credit](https://www.XiaoyiZhang.me)) we include in `res/drawable` or use your own images. If you chose to use your own images, please be sure to turn them in exactly as specified in [Turn-in](#turn-in).
 
 If your animation is laggy, please reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
 
 *For Peer Grading*
-You will receive 1 pt for peer grading others' doodles.
-Grading standard (2 pts in total): 1 pt for using functions, 1 pt for using animation.
-You will have a chance to nominate most creative doodles, and we will show them in class.
+<!-- XXX TODO(rfrowe): Will we use canvas -->
+This portion of the assignment will be peer graded. You will receive 1pt for peer grading others' doodles through Canvas. You will have a chance to nominate the most creative doodles. The winners will be shown off in class.
 
+*Related APIs*:
+[Android Animation](https://developer.android.com/training/animation/reposition-view) /
+[View Animation](https://developer.android.com/guide/topics/graphics/view-animation.html) /
+[Property Animation](https://developer.android.com/guide/topics/graphics/prop-animation.html) /
+[Vogella Tutorials - Android Animation](http://www.vogella.com/tutorials/AndroidAnimation/article.html)
 
-# Turnin
+# Turn-in
 ## Submission Instructions
 
-Please turn in your files in the following zip structure:
+You will turn in the following files [here](https://gradeit.cs.washington.edu):
 
-```bash
-YOUR_STUDENT_ID.zip
-├── Part1Activity.java
-├── Part2Activity.java
-├── images (optional)
-│   ├── abc.jpg
-│   ├── ...
-│   └── xyz.jpg
-└── part2.csv (optional)
+```
+─ Part1Activity.java
+─ Part2Activity.java
+- images.zip (optional)
+  ├── abc.jpg
+  ├── ...
+  └── xyz.jpg
+- part2.csv (optional)
 ```
 
-If you use your own images in [Part 2](#part-2), please include them in images folder.
+If you use your own images in [Part 2](#part-2), please include them in images folder. The images should be compressed together into a ZIP file. Do not compress a folder called `images` containing the actual images. Ex: `zip images.zip abc.jpg ... xyz.jpg`
 
-If you're positioning a large number of images for part 2, it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part2.csv`.
+If you're positioning a large number of images for [Part 2](#part-2), it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part2.csv` if necessary.
 
 ## Grading (10pts)
 
@@ -138,6 +137,8 @@ If you're positioning a large number of images for part 2, it may be best to use
   - `addLine`: 3 pts
   - `UW` Animation: 1 pt
 - Part 2
-  - Custom doodle (peer grading score): 2 pts
-  - Do peer grading on others' doodles: 1 pt
-- Turn-in and compiles: 1pt
+  - Peer Grading of Custom Doodle
+    - Using each of the three functions: 1 pt
+    - Using an animation: 1 pt
+  - Complete assigned peer grading: 1 pt
+- Turn-in and compiles: 1 pt
