@@ -116,31 +116,19 @@ course for the professional masters program.
 - Programming Platforms: Android Platform/Github
 
 # Course Structure
-The most important goals in this class center around learning by
-doing. This means that hands on time trying out everything from
-implementation to interviewing is critical to learning. To help
-facilitate this, this class is mostly ‘flipped’ meaning that all of
-the information you need for this course will be provided in the form
-of assigned readings, rather than lectures (for the most part). In
-person meetings will be used for review and discussion, as well as
-collaborative work assignments that help you make progress toward your
-assigned homework. In other words, instead of getting information in
-lecture and doing assignments at home, you'll get information at home
-and (partially) do assignments in lecture. 
 
-This structure will you allow you to work at a pace that is
-comfortable for you individually, rather than requiring lectures to
-fit a diverse range of backgrounds. It also means you'll easily be
-able to get more direct support when learning and practicing the
-material: whether from us or from other students in the class. 
+Many of the goals in this class center around learning by doing. This
+means that hands on time trying out everything from implementation to
+evaluation is critical to learning. An educational approach that can
+support this is 'flipped' classes. In these cases, readings and videos
+will be available *ahead* of class, while class time will be used for
+discussion, review, and homework. This means you'll be getting
+information at home and doing homework in lecture, rather than the
+reverse. We will help to support and guide your learning, but your
+preparation outside of class is *essential*.
 
-However, this structure does require you to take more responsibility
-for your own learning: it is up to you to read the course materials
-before each class meeting, and to be willing to ask questions and seek
-help if there are any problems. We will serve as mediators and support
-for your learning, but your participation in and outside of class is
-essential. You are accountable for your own learning—but we are here
-to help! 
+
+**Why break the mold of standard lecture classes?** I believe that this will *improve your learning* by allowing you to work at your own pace. I also value the chance to support you while you do work on assignments and practice material. However flipped classes require you to be independent and accountable for your own learning, stay on top of course materials, bring your questions to class and seek help if there are problems. 
 
 # Workload 
 This is a challenging, four credit class, meaning you should expect 8
@@ -156,11 +144,13 @@ possible. You can expect your weeks to look look something like this:
 - **Weekend:** 	Do your Monday reading [10 minutes], then do your homework. 
 		Stay on top of reading so you have time to focus on homework.
 
+Homework takes two forms -- exercises and assignments. Exercises are assigned on Thursdays and due on Mondays. Assignments typically have two weekends to be completed. 
+
 # Class Coordination
 We want you to succeed in this class, and an important way that you do
 that is by asking questions and discussing course issues with your
 peers and teaching staff. Some ways to do that include: 
-- We have a class discussion board on Piazza [link], where you can
+- We have a class discussion board on [Piazza](https://piazza.com/class/jrs35ogb3wa28x), where you can
 make public posts that benefit the whole class, and are answered more
 quickly because your fellow students can help the course staff by
 responding also. This is the best way to ask questions about things
@@ -168,10 +158,11 @@ like homework. Before posting, please search through the questions
 that have already been posted in case someone has already asked the
 same question. 
 - We hold office hours (see [link]). If none of those times work for
-you. You can also discuss matters with us privately on Piazza
-[link]. Using Piazza gets the whole course staff at once and is
-usually faster than email. Lastly, if none of these work for you you
-can send an email asking to set up an appointment.  
+you. You can also discuss matters with us privately on
+[Piazza](https://piazza.com/class/jrs35ogb3wa28x). Using Piazza gets
+the whole course staff at once and is usually faster than
+email. Lastly, if none of these work for you you can send an email
+asking to set up an appointment.
 
 # Class Expectations
 The class is a shared learning environment, and it is important that
@@ -187,8 +178,7 @@ opportunities to improve this.
 - **Sharing and Group Projects**: Working together is encouraged, as
 long as you in the end implement your own code, and make sure to
 document any information you get from other students. You will work on
-some of your projects in pairs, and may work in groups on homework in
-class to get things started.  
+one of your projects in pairs.
 - **Pronouns**: I use she/her, please let me know if you have any specific pronoun preferences
 
 # Grading
