@@ -135,13 +135,13 @@ This is a challenging, four credit class, meaning you should expect 8
 hours of homework a week. We hope make the workload as predictable as
 possible. You can expect your weeks to look look something like this: 
 - **Monday:** 	Come to class ready for discussion and activity
-- **Tuesday:**     	Do your Wednesday reading [10 minutes]
+- **Tuesday:**     	Do your Wednesday reading and quiz [10 minutes]
 - **Wednesday:** 	Come to class ready for discussion and activity; 
 		Finish your homework by class today [6-7 hours]
 - **Thursday:**    	Come to lab ready to work on your homework; 
-	          	do your Friday reading [10 minutes]
+	          	do your Friday reading and quiz [10 minutes]
 - **Friday:** 	Come to class ready for discussion and activity
-- **Weekend:** 	Do your Monday reading [10 minutes], then do your homework. 
+- **Weekend:** 	Do your Monday reading and quiz [10 minutes], then do your homework. 
 		Stay on top of reading so you have time to focus on homework.
 
 Homework takes two forms -- exercises and assignments. Exercises are assigned on Thursdays and due on Mondays. Assignments typically have two weekends to be completed. 

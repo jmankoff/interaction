@@ -4,85 +4,78 @@ title: Basic Interaction --Week 1, Wednesday--
 description: Discussion of basic abstractions for user interfaces
 class: middle, center, inverse
 ---
+# Discussion of Reading quiz
 
+---
+# How does an application know what to draw?
+
+![:img Picture of a very simple interface showing a ringing bell at
+left and an x at right to close the window with the words Google
+Calendar reminder Christian and Anind (Jen Mankoff) is starting at
+12:30pm. Video call between them, 70%](img/interface.png)
+
+
+- Discuss
+???
+discuss with your neighbor based on the reading what does the
+toolkit need to know to draw this 
+- what to draw; where to draw it
+- what are good abstractions for this?
+- Hierarchy normally reflects spatial containment relationships
+
+--
+
+- Deconstruct
+
+???
+
+- deconstruct this interface into an interactor hierarchy
+
+---
+# More complex example
+
+![:img Picture of a messaging interface with two messages in it, 30%](img/messaging.png)
+
+---
+# How is the tree used for drawing?
+- Programmer:
+ - Build and interface == build an interactor hierarchy
+ - Change an interface == change the interactor hierarchy (or its --
+ - parameters)
+--
+
+- Toolkit:
+ - Draw an interface == walk the tree and draw things
+ - Update an interface == walk the tree, clip, translate, redraw()
+ - Deliver input == walk the tree and deliver events (TBD)
+--
+
+- Widgets:
+ - Receive redraw()
+ - Show feedback (how?)
+ - Respond to input 
+ - Send notifications of model changes
+
+???
+HTML is like this too
+
+---
 # Drawing on the Screen
-Discussion of reading:
-- How does a toolkit provide access to drawing? 
+- What is a Graphics object and how do you draw on it?
 - Importance of pixel vs stroke model
 - Making it pretty: Buffering & Anti Aliasing
 ???
 - Talk about canvas, graphics object, object for each thing, etc Efficiencies?
 - Mention redraw
-- Discuss inconsistencies across toolkits
----
-
-# Reading quiz
----
-
-<!-- # Putting Drawing in Context -->
-<!-- - Drawing in context of the whole windowing system -->
-<!-- - Drawing in context of the whole interface -->
-
-# Why Pixels are enough
-- Limits of human perceptual system
-- Eye reconstructs
-- Similar effect for video at 40-60 FPS
----
-layout: false
-
-# Why RGB are enough
-
-.left-column50[
-- Match eye's model
-  - Receptor cells for red, green, yellow, blue (cones)
-- Receptor cells for grayscale (rods)
-]
-.right-column50[
-![:img Picture of Rod & Cone cells, 70%](img/rods_cones.png)
-]
----
-# Ironically, it's not enough
-- RGB isn't all that intuitive
-- HSV is much better
+- Discuss inconsistencies across toolkits -- whorfian effects again
 
 ---
-# Perception of Color is Culturally Defined!
-
-[BBC](http://www.bbc.com/future/story/20120427- when-is-a-colour-not-a-colour):
-“Vietnamese and Korean people do not differentiate blue from green – leaves and sky are both coloured xanh in Vietnam. “
-
---
-<br>
-.. And Quite Fluid
-
----
-# People are easy to trick
-
-- How do we actually create color? We don't have LEDs of every color
---
-
-  - Three LCD cells per pixel
-
-  - Keep them small!
-
---
-- How might we do grayscale?
-
-???
-make connection to video 
---
-
-  - Black 25% of the time, 40-60 FPS
-
----
-
 # Drawing in Android
 
 - `Canvas` is an object level abstraction for performing drawing operations
 --
 
 - All drawing should be done in `protected void onDraw(Canvas canvas) {...}`
-
 ---
 # How does Canvas work?
 
@@ -92,18 +85,6 @@ make connection to video
 - For example: `drawRect`, `drawOval`, `drawLine`, `drawPath` ...
 
   [Full List in the API Documentation](https://developer.android.com/reference/android/graphics/Canvas.html)
-
----
-# The Path Object
-
-- Canvas supports drawing primitive shapes _and_ arbitrary paths
-```java
-  void drawPath(Path p, Paint paint);
-```
-
---
-
-- Declaring a `Path` can be done by combining basic primitive shapes (e.g rectangles, circles, ovals, curves like arc, cubic, etc.)
 
 ---
 # How does Canvas work?
@@ -127,7 +108,20 @@ Implications for GUI design
   - Performs __transformations__ on drawn visual elements
 
 ---
-# Coordinate Transformations
+# Work through clipping example (bell)
+.left[
+- For draw
+- For redraw
+]
+.right[
+![:img Picture of a very simple interface showing a ringing bell at
+left and an x at right to close the window with the words Google
+Calendar reminder Christian and Anind (Jen Mankoff) is starting at
+12:30pm. Video call between them, 70%](img/interface.png)
+
+]
+---
+# Coordinate Transformations in Android
 
 ```java
   Canvas c = new Canvas();
@@ -175,7 +169,12 @@ itself based on its position
 ![:img a rotated and angled moon, 30%](img/shear.png)
 
 ---
-Exercise: How to rotate about the center of an object *vs* the origin
+# Exercise: How to rotate about the center of an object
+
+- A: Translate, rotate, translate
+- B: Rotate, Translate, Rotate
+- C: Scale, Rotate, Scale
+- D: Rotate
 
 ???
 XX define exercise
@@ -336,9 +335,32 @@ Asrc⋅[as]+Adest⋅[ad]+Aboth⋅[ab]
 
 where [ab] is determined by the blend mode. 
 ---
+# The Path Object
+
+- Canvas supports drawing primitive shapes _and_ arbitrary paths
+```java
+  void drawPath(Path p, Paint paint);
+```
+
+--
+
+- Declaring a `Path` can be done by combining basic primitive shapes (e.g rectangles, circles, ovals, curves like arc, cubic, etc.)
+
+--
+
+- What drawing model does this correspond to?
+ - A (Pixel model)
+ - B (Path model)
+
+--
+
+- Which is more scalable?
+ - A (Pixel model)
+ - B (Path model)
+ 
+---
 
 Summary & revisiting learning goals for this week
 
 ???
 XX Todo
-

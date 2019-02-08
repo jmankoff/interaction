@@ -32,13 +32,13 @@ layout: default
 **Slides**
 [02: MVC](/interaction/slides/wk01/02MVC.html)
 
-## Thursday: First lab
+## 4/4 Thursday: Introduction to Android 
 **Slides**
 [Lab 01: Hello World](/interaction/slides/l01/l01hello.html)
 
 ## 4/5 Friday: Drawing on the Screen
 **Required Prep (10 min)**
-- Read: Chapter 2 from Drawing from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) -- especially pp. 26-38
+- Read: Chapter 2 from Drawing from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
 - Watch: [Example perceptual visual effect involving color](https://www.youtube.com/watch?time_continue=9&v=Db4PwJ2LDVk)
 
 **Slides**
@@ -52,7 +52,7 @@ layout: default
 - [Th] Creating layouts in Android
 - [F] Paper Prototyping & behavior
 
-## 4/8 Accessibility: [lecture and exercise]; Doodle Exercise due
+## 4/8 TBD: 
 **Exercise Due**
 [Doodle](/interaction/assignments/doodle) 
 

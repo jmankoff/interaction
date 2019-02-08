@@ -8,12 +8,12 @@ due: 11:59 PM Monday, April 8, 2019
 
 objective: Create an Android app that draws a doodle consisting of a text, a line, and a set of images on the main canvas.
 
-android_goals:
+hci_goals:
   - Use abstractions to draw on screen
   - Create animations
   - Use coordinate transformation
   - Try to create something appealing
-hci_goals:
+android_goals:
   - Get familiar with Android Studio
   - Understand XML and View
   - Load image and drawable resources
