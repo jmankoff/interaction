@@ -9,15 +9,14 @@ layout: default
 **Learning goals**
 - [M] Relevance of class to all of CS
 - [W/Th] Get up to speed on Android (hello world!)
-- [W] Learn about basic structure of a user interface
-- [F] Human perception 
+- [W] Learn about basic structure of a user interface; Common interactors
 - [F] Abstractions for drawing on the screen
 
 ## 4/1 Monday: Why take this course? What is HCI?
 
 **No Reading/Assignment**
 **Slides**
-[01: Introduction to course](/interaction/slides/wk01/01intro.html)
+[Introduction to course](/interaction/slides/wk01/intro.html)
 
 ## 4/3 Wednesday: Basic Structure of Interaction
 
@@ -30,11 +29,11 @@ layout: default
 [Doodle](/interaction/assignments/doodle) 
 
 **Slides**
-[02: MVC](/interaction/slides/wk01/02MVC.html)
+[MVC](/interaction/slides/wk01/MVC.html)
 
 ## 4/4 Thursday: Introduction to Android 
 **Slides**
-[Lab 01: Hello World](/interaction/slides/l01/l01hello.html)
+[Lab 01: Hello World](/interaction/slides/l01/hello.html)
 
 ## 4/5 Friday: Drawing on the Screen
 **Required Prep (10 min)**
@@ -42,41 +41,48 @@ layout: default
 - Watch: [Example perceptual visual effect involving color](https://www.youtube.com/watch?time_continue=9&v=Db4PwJ2LDVk)
 
 **Slides**
-[03: Drawing](/interaction/slides/wk01/03Drawing.html)
+[Drawing](/interaction/slides/wk01/Drawing.html)
 
 # Week 2: Interact With Me
 **Learning goals**
-- [M] Essential geometry and basic event handling
-- [W] Abstractions for layout (arranging things on the screen)
-- [M/W] Common interactors and how to name them
+- [M] Abstractions for layout (arranging things on the screen)
+- [W] Essential geometry and basic event handling
 - [Th] Creating layouts in Android
-- [F] Paper Prototyping & behavior
+- [F] Common interactors and how to name them
 
-## 4/8 TBD: 
-**Exercise Due**
-[Doodle](/interaction/assignments/doodle) 
-
-## 4/10 Wednesday: Layout
-**Required Reading (10 mins)** [Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
+## 4/8 Monday: Layout
+**Required Reading (10 mins)** [Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) 
 **Required Reading (10 min):** - Chapter 17 & 18: A Guide to Android Constraint Layout [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
 
 **Slides**
-[05: Model View Layout -- Application Level](/interaction/slides/wk02/05layout)
+[Layout](/interaction/slides/wk02/layout.html)
 
-## Thursday: Layout Exercise Assigned; Accessibility Exercise due
-**Required Reading (10 min):** - Chapter 4: Widgets [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers)  
+**Exercise Due**
+[Doodle](/interaction/assignments/doodle) 
+
+## 4/10 Wednesday: Interaction I: Event Handling and Input Devices
+
+**Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) 
+
+**Slides**
+[Event Handling](/interaction/slides/wk02/events.html)
+
+## Thursday: Layout Exercise Assigned; 
 
 **Exercise Assigned**
 [Layout](/interaction/assignments/layout)
 
-**Slides**
-[Lab 02: Activities, Views, and Layout](/interaction/slides/l02/02layout.html)
+** Lab Focus **
+- Peer grade Doodle exercise
+- Discuss layout assignment
+- Work on layout assignment
 
-## 4/12 Friday: Event Handling and Essential Geometry
-**Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) and 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
+## 4/12 Friday: Properties of People
+**Possibly provide video**
 
 **Slides**
-[04: Model View - Widget Level](/interaction/slides/wk02/04modelview)
+[Properties of People](/interaction/slides/wk02/people.html)
+
 
 # Week 3: Building a Widget
 **Learning goals**
@@ -86,11 +92,13 @@ layout: default
 - [W] Essential behavior and the use of finite state machines
 - [Th] Build your own Widget
 - [F] Menu Design History
+- [F] Paper Prototyping & behavior
 
-## 4/15 Monday: Events of Interest; Layout Exercise due
+## 4/15 Monday: Interaction II: Essential Behavior
 **Reading**
+Chapter 3: 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
 **Slides**
-[07: Input Events](/interaction/slides/wk03/07Events)
+[07: Input Events](/interaction/slides/wk03/events.html)
 
 **Exercise Due **
 [Layout](/interaction/assignments/layout)
@@ -99,14 +107,14 @@ layout: default
 ## 4/17 Wednesday: Essential Behavior/Finite State Machines
 **Readings?**
 **Slides**
- [08: Essential Behavior](/interaction/slides/wk03/08EssentialBehavior)
+ [08: Essential Behavior](/interaction/slides/wk03/essentialbehavior.html)
 
 ## 4/18 Thursday: Build your own widget exercise (simpler than color picker in lab) 
 **Exercise Assigned**
 [Color Picker](/interaction/assignments/colorpicker)
 
 **Slides**
-[Lab 03: State Management](/interaction/slides/l03/03state.html)
+[Lab 03: State Management](/interaction/slides/l03/state.html)
 **In class exercise: Designing a Widget ??**
 
 
@@ -115,7 +123,7 @@ layout: default
 xx See dan olsen's book, there's a chapter on thi
 
 **Slides**
-[09: Interactor Design](/interaction/slides/wk03/09menus)
+[09: Interactor Design](/interaction/slides/wk03/menus.html)
 
 # Week 4: Getting Data from Users
 **Learning goals**
@@ -149,7 +157,7 @@ Test which menu is better: Marking menu or Standard Menu
 ## 4/26 Friday: Best practices in Interface Design OR Paper Prototyping
 **Readings** [Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)
 **Slides**
-[06: Paper Prototyping](/interaction/slides/wk02/06paper)
+[06: Paper Prototyping](/interaction/slides/wk02/paper.html)
 
 # Week 5:  Accessibility
 ## 4/29 Monday: Accessibility

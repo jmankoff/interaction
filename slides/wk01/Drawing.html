@@ -4,6 +4,24 @@ title: Basic Interaction --Week 1, Wednesday--
 description: Discussion of basic abstractions for user interfaces
 class: middle, center, inverse
 ---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Introduction to Drawing
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+layout: false
+
+[//]: # (Outline Slide)
+# Today's goals
+- Widget Hierarchy and use for drawing
+- Abstractions for drawing on the screen
+- Drawing in Android
+- Clipping and other transformations
+---
 # Discussion of Reading quiz
 
 ---
@@ -27,15 +45,104 @@ toolkit need to know to draw this
 
 - Deconstruct
 
+ - Let's list all the widgets... and arrange them in a tree
+ 
 ???
 
 - deconstruct this interface into an interactor hierarchy
+
+---
+![:img Picture of a very simple interface showing a ringing bell at
+left and an x at right to close the window with the words Google
+Calendar reminder Christian and Anind (Jen Mankoff) is starting at
+12:30pm. Video call between them, 60%](img/interface.png)
+
+<!-- <div class="mermaid"> -->
+<!-- graph LR -->
+<!-- W((Window)) -\-> L(LeftSide:Icon) -->
+<!-- W -\-> M(Middle:Label) -->
+<!-- W -\-> R(Right:Control) -->
+<!-- L -\-> M[Icon:Bellpic] -->
+<!-- M -\-> A[Title:Google Calendar Reminder] -->
+<!-- M -\-> B[Description:People and time] -->
+<!-- R -\-> C(Close Button) -->
+
+<!-- classDef bluegreen fill:#669999,stroke:#333,stroke-width:2px; -->
+<!-- classDef blue fill:#7887AB,stroke:#333,stroke-width:2px; -->
+<!-- classDef green fill:#88CC88,stroke:#333,stroke-width:4px; -->
+<!-- </div> -->
+
+
+<div class="mermaid">
+graph LR
+W((Window)) --> L(LeftSide:Icon)
+W --> M(Middle:Label)
+W --> R(Right:Close Button)
+
+
+classDef bluegreen fill:#669999,stroke:#333,stroke-width:2px;
+classDef blue fill:#7887AB,stroke:#333,stroke-width:2px;
+classDef green fill:#88CC88,stroke:#333,stroke-width:4px;
+</div>
 
 ---
 # More complex example
 
 ![:img Picture of a messaging interface with two messages in it, 30%](img/messaging.png)
 
+---
+.left-column[
+![:img Picture of a messaging interface with two messages in it, 80%](img/messaging.png)]
+
+.right-column[
+<div class="mermaid">
+graph LR
+W((Window)) --> T(Controls)
+W --> M(Chats)
+W --> Q(Text Entry)
+T --> A[Button:Messages]
+T --> B[Label:288-88]
+T --> C[Button:Edit]
+M --> G[Button:Call]
+M --> H[Button:Add to Contacts]
+M --> E[Chat1]
+M --> F[Chat2...]
+E --> I[Date]
+E --> J[Chat Msg]
+E --> K[Arrow]
+
+classDef bluegreen fill:#669999,stroke:#333,stroke-width:2px;
+classDef blue fill:#7887AB,stroke:#333,stroke-width:2px;
+classDef green fill:#88CC88,stroke:#333,stroke-width:4px;
+</div>
+
+<!-- <div class="mermaid"> -->
+<!-- graph LR -->
+<!-- W((Window)) -\-> T(Top:Controls) -->
+<!-- W -\-> M(Middle:Chats) -->
+<!-- W -\-> Q(Bottom:Type) -->
+<!-- T -\-> A[Button:Messages] -->
+<!-- T -\-> B[Label:288-88] -->
+<!-- T -\-> C[Button:Edit] -->
+<!-- M -\-> D[Top:Actions] -->
+<!-- M -\-> E[Next:Chat1] -->
+<!-- M -\-> F[Next:Chat2] -->
+<!-- D -\-> G[Button:Call] -->
+<!-- D -\-> H[Button:Add to Contacts] -->
+<!-- E -\-> I[Top:Date] -->
+<!-- E -\-> J[Bottom:Content] -->
+<!-- J -\-> K[Left:Chat Msg] -->
+<!-- J -\-> L[Right:Arrow] -->
+<!-- F -\-> R[...] -->
+<!-- Q -\-> S[Left: Camera] -->
+<!-- Q -\-> V[Middle: TextEntry] -->
+<!-- Q -\-> U[Right: Send] -->
+
+<!-- classDef bluegreen fill:#669999,stroke:#333,stroke-width:2px; -->
+<!-- classDef blue fill:#7887AB,stroke:#333,stroke-width:2px; -->
+<!-- classDef green fill:#88CC88,stroke:#333,stroke-width:4px; -->
+<!-- </div> -->
+]
 ---
 # How is the tree used for drawing?
 - Programmer:
@@ -121,6 +228,15 @@ Calendar reminder Christian and Anind (Jen Mankoff) is starting at
 
 ]
 ---
+Which of the following must a parent widget do before passing a
+drawable region to the child? [raise your signs for the first... and second]
+
+- [a] Translate (child.x, child.y)
+- [b] Clip(parent.x, parent.y, parent.w, parent.h)
+- [c] Translate (-child.x, -child.y)
+- [d] Clip(0,0,child.w,child.h)
+
+---
 # Coordinate Transformations in Android
 
 ```java
@@ -170,6 +286,8 @@ itself based on its position
 
 ---
 # Exercise: How to rotate about the center of an object
+
+(raise your cards!)
 
 - A: Translate, rotate, translate
 - B: Rotate, Translate, Rotate
@@ -360,7 +478,10 @@ where [ab] is determined by the blend mode.
  
 ---
 
-Summary & revisiting learning goals for this week
+# Summary & revisiting learning goals for this week
 
-???
-XX Todo
+- Widget Hierarchy and use for drawing
+- Pixel & stroke models
+- Rotating around an object 
+- Canvas & Paint & Paths in Android
+- Text Quirks

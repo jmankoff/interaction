@@ -1,0 +1,85 @@
+---
+layout: presentation
+title: Basic Interaction --Week 1, Wednesday-- 
+description: Discussion of basic abstractions for user interfaces
+class: middle, center, inverse
+---
+# Why Pixels are enough
+- Limits of human perceptual system
+- Eye reconstructs
+- Similar effect for video at 40-60 FPS
+---
+layout: false
+# What does this image show? (raise hands if you know)
+.left-column50[
+![:img Picture of unknown object. Color range is -3500 (blue) to 1000 (red) but
+only yellow and a little blue shows, 70%](img/badviz.png)
+]
+???
+Example from http://www.research.ibm.com/people/l/lloydt/color/color.HTM
+
+--
+.right-column50[
+![:img Picture of US Coastline (florida). Color range is -3500 (blue)
+to 1000 (white) and range maps well onto values so detail can be made out, 70%](img/goodviz.png)
+]
+???
+So why is the color choice poor? 
+- No mapping of color (note on right how blues are used for water, and greens for land)
+- Color is better if you adjust by saturation (purity) or value (brightness) rather than hue (rough color, ie red, green, blue, orange) for mapping. People can more easily see and compare differences in saturation and value over hue. Also, changes in hue don’t naturally map to a scale, whereas saturation and value do.
+
+---
+# Visible Spectrum (Human Limits matter!)
+![:img Color spectrum, UV to IR (purple to red), 70%](img/spectrum.png)
+
+Best advice: Use existing color palettes; test in greyscale
+! Accessibility Issue ! 
+???
+- There is tons more to know about good use of color. For not, the simplest thing to do is to look for existing color palettes, and just those. That should account for the vast majority of your needs for colors. There is also red-green color blindness too. Simplest thing to do is to turn your screens into greyscale, and see if you can see differences. 
+
+---
+
+# Why RGB are enough
+
+.left-column50[
+- Match eye's model
+  - Receptor cells for red, green, yellow, blue (cones)
+- Receptor cells for grayscale (rods)
+]
+.right-column50[
+![:img Picture of Rod & Cone cells, 70%](img/rods_cones.png)
+]
+---
+# Ironically, it's not enough
+- RGB isn't all that intuitive
+- HSV is much better
+
+---
+# Perception of Color is Culturally Defined!
+
+[BBC](http://www.bbc.com/future/story/20120427- when-is-a-colour-not-a-colour):
+“Vietnamese and Korean people do not differentiate blue from green – leaves and sky are both coloured xanh in Vietnam. “
+
+--
+<br>
+.. And Quite Fluid
+
+---
+# People are easy to trick
+
+- How do we actually create color? We don't have LEDs of every color
+--
+
+  - Three LCD cells per pixel
+
+  - Keep them small!
+
+--
+- How might we do grayscale?
+
+???
+make connection to video 
+--
+
+  - Black 25% of the time, 40-60 FPS
+

@@ -1,0 +1,592 @@
+---
+layout: presentation
+title: Layout --Week 2, Monday-- 
+description: Description of Layout
+class: middle, center, inverse
+---
+layout: false
+
+![:img Windows tablet screen with a grid of interactive squares...
+icons along the side for invoking menus... and a colorful background
+picture,90%](img/windowsLayout.png)]
+???
+Key Issues
+- where do components get placed?
+- how much space should they occupy?
+---
+# Layout
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+
+[//]: # (Outline Slide)
+# Today's goals
+---
+name: normal
+layout: true
+class: 
+
+---
+# What went wrong?
+.left-column50[![:img File browser with toolbar, 90%](img/goodLayout.png)]
+.right-column50[![:img File browser with only half of same toolbar, 80%](img/badLayout.png)]
+
+???
+- Changing available space e.g., window resized by user
+- Changing sizes, fonts, etc.
+- Adding and removing components
+- Layout mechanism has to deal with all cases
+---
+# What went wrong?
+![:img File browser with only half of same toolbar, 80%](img/worseLayout.png)
+
+???
+- No scroll bar for text boxes that are too narrow
+- No way to redistribute space between directory & file list
+- Important controls (e.g., Open) get hidden
+- Min size is much too small
+- No way to send the dialog away (buttons gone)
+
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+
+# Introduction to Layout
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+
+---
+layout: false
+
+[//]: # (Outline Slide)
+# Today's goals
+
+---
+
+.left-column50[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 90%](img/colormeter.png)]
+--
+.right-column50[
+Review of tree construction
+]
+
+---
+# Naive version
+
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+.large.right-column[
+<div class="mermaid">
+graph TD
+W((Window)) --> M[Icon:Mag Window]
+W --> A[Slider:Aperture Size x y w h]
+W --> C[Menu:Choice x y w h]
+W --> I[Icon:Color x y w h]
+W --> T[Text:RGB x y w h]
+W --> La[Text:Label x y w h]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+class W bluegreen
+class M,A,C,I,T,La blue
+</div>
+]
+---
+# Review of quiz on layout pros and cons
+
+???
+- boxes and springs
+- floats
+- constraints ('reactive programming')
+- others?
+
+---
+# Using Glue to control placement
+
+How can you center something?
+How can you lock it to an edge?
+
+---
+# Let's redraw this layout using containers and glue
+
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+.right-column[
+<div class="mermaid">
+graph TD
+W((Window)) --> L(LeftSide:DisplayVert)
+W --> R(RightSide:SettingsVert)
+L --> Z[Glue:Fixed]
+L --> M[Icon:Mag Window]
+L --> A[Slider:Aperture Size]
+L --> Y[Glue:Stretchy]
+L --> C[Menu:Choice]
+R --> D(RGB DisplayHor)
+D --> V[Glue:Fixed]
+D --> I[Icon:Color]
+D --> T[Text:RGB]
+D --> U[Glue:Flexible]
+R --> Q[Text:Label]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+class W bluegreen
+class L,R,D green
+class Z,Y,V,U yellow
+class M,A,C,I,T,Q blue
+</div>
+]
+
+---
+.left-column[
+# Remember the Widget abstraction?
+]
+.right-column[
+Each widget knows how to draw itself
+
+Doesn't have to worry about position, clipping, etc
+
+... So how is position defined?
+]
+---
+## Container Widgets
+
+Help with layout
+
+Manage size and position of children
+- Enforce widget abstraction
+
+- Simple loop through child widgets --> Recursive tree traversal 
+
+ - Translate child to correct location
+
+ - Clip child after drawing is complete
+
+Know how to handle resizing (reactive)
+
+???
+- Parent knows how to setup for drawing of children, invoke their
+drawing code, and add additional output (before and/or after) based on
+what the parent is and its internal state
+
+- Whorfian effects (things not in the library are hard)
+
+- Nesting not well defined
+
+---
+.left-column[## How do Container Widgets actually do layout?]
+
+.right-column[
+Key Issues:
+
+Where do components get placed?
+
+How much space should they occupy?
+
+How to react to changes
+
+- number of components
+- size of window
+
+]
+
+---
+# What do container widgets need to do this?
+
+Ideally:
+- widget's preferred size
+
+- widget's minimum size
+
+- widget's maximum size
+
+And they get to ignore all of that, but usually try not to.
+
+---
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+.right-column[
+<div class="mermaid">
+graph TD
+W((Window)) --> L(LeftSide:DisplayVert)
+W --> R(RightSide:SettingsVert)
+L --> Z[Glue:Fixed]
+L --> M[Icon:Mag Window]
+L --> A[Slider:Aperture Size]
+L --> Y[Glue:Stretchy]
+L --> C[Menu:Choice]
+R --> D(RGB DisplayHor)
+D --> V[Glue:Fixed]
+D --> I[Icon:Color]
+D --> T[Text:RGB]
+D --> U[Glue:Flexible]
+R --> Q[Text:Label]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class W bluegreen
+class L,R,D green
+class Z,Y,V,U yellow
+class M,A,C,I,T,Q blue
+</div>
+]
+
+---
+# Vertical Container
+
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+.right-column[
+<div class="mermaid">
+graph TD
+W((Window)) --> L(LeftSide:DisplayVert)
+W --> R(RightSide:SettingsVert)
+L --> Z[Glue:Fixed]
+L --> M[Icon:Mag Window]
+L --> A[Slider:Aperture Size]
+L --> Y[Glue:Stretchy]
+L --> C[Menu:Choice]
+R --> D(RGB DisplayHor)
+D --> V[Glue:Fixed]
+D --> I[Icon:Color]
+D --> T[Text:RGB]
+D --> U[Glue:Flexible]
+R --> Q[Text:Label]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class L.R darkblue
+class W bluegreen
+class D green
+class Z,Y,V,U yellow
+class M,A,C,I,T,Q blue
+</div>
+]
+
+---
+# Horizontal Container
+
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+.right-column[
+<div class="mermaid">
+graph TD
+W((Window)) --> L(LeftSide:DisplayVert)
+W --> R(RightSide:SettingsVert)
+L --> Z[Glue:Fixed]
+L --> M[Icon:Mag Window]
+L --> A[Slider:Aperture Size]
+L --> Y[Glue:Stretchy]
+L --> C[Menu:Choice]
+R --> D(RGB DisplayHor)
+D --> V[Glue:Fixed]
+D --> I[Icon:Color]
+D --> T[Text:RGB]
+D --> U[Glue:Flexible]
+R --> Q[Text:Label]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class D darkblue
+class W bluegreen
+class L,R,D green
+class Z,Y,V,U yellow
+class M,A,C,I,T,Q blue
+</div>
+]
+
+---
+# Glue
+
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+.right-column[
+<div class="mermaid">
+graph TD
+W((Window)) --> L(LeftSide:DisplayVert)
+W --> R(RightSide:SettingsVert)
+L --> Z[Glue:Fixed]
+L --> M[Icon:Mag Window]
+L --> A[Slider:Aperture Size]
+L --> Y[Glue:Stretchy]
+L --> C[Menu:Choice]
+R --> D(RGB DisplayHor)
+D --> V[Glue:Fixed]
+D --> I[Icon:Color]
+D --> T[Text:RGB]
+D --> U[Glue:Flexible]
+R --> Q[Text:Label]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class Y,Z,V,U darkblue
+class W bluegreen
+class L,R,D green
+class Z,Y,V,U yellow
+class M,A,C,I,T,Q blue
+</div>
+]
+
+
+---
+# Absolute layout -- actual implementation (slightly simplified)
+
+```java
+protected void onLayout(boolean changed, int l, int t, int r, int b) {
+    foreach child c {
+        if (child.isVisible()) {
+             Rectangle r = child.getLayoutParams();
+             childLeft = padding + r.x;
+             childTop = padding + r.y;
+             child.layout(childLeft, childTop, r.w, r.h);
+        }
+    }
+}
+```
+
+This is a simple depth first tree traversal
+
+---
+# Relative layout implementation
+Simplified, basic structure for any Android layout, including your own custom one! 
+
+```java
+// Two pass traversal of widget hierarchy
+// First: Measure everything
+protected void onMeasure(int widthspec, int heightspec) {
+  sortChildren()
+  // loop through children
+  foreach child widget c {
+    // get child's layout params
+    // apply appropriate rules to them
+  }
+  // based on all that, update our dimensions
+  setMeasuredDimension(this)
+}
+// Second: do the actual updating 
+public void doLayout(Rectangle newBounds)
+{
+   // loop through the kids (this is depth first)
+   foreach child {
+      if (child.isVisible()) {
+        // get the saved parameters
+        Rectangle l = child.getLayoutParams();
+        child.layout(l.mLeft, l.mTop, l.mRight, l.mBottom);
+      }
+   }			    }
+```
+
+---
+## Powerful option: Constraints
+
+Declare relationships (.red[what] should be true)
+
+System automatically maintains relationships under change (.red[how])
+
+---
+## Powerful option: Constraints
+
+Declare relationships (what should be true)
+
+- This should be centered in that
+
+- This should be 12 pixels to the right of that
+
+- Parent should be 5 pixels larger than child
+
+System automatically maintains relationships under change (how)
+
+--
+Too good to be true?
+
+--
+
+Unsolvable for arbitrary things
+
+Works really well for a limited set
+
+???
+a good set for ui programming
+xx need to make sure I know why it is hard for arbitrary things
+
+---
+## Note that these are one-way constraints
+
+You can change the right side, and it will update the left side (not
+the reverse)
+
+Can be very inefficient -- O(2^n)
+
+But highly efficient incremental update algorithms exist
+
+???
+
+Only have to update things that might change
+
+Hudson's work on this was seminal
+
+can have a DAG but not a cycle (thus, a tree)
+hard to guard against cycles
+---
+## How is this done in Android?
+.left-column[![:img picture of attributes window showing controls for
+constraint-based layout including five types of elements, 100%](img/constraints.png)]
+
+.small-font.right-column[
+Limited set of constraints
+https://developer.android.com/training/constraint-layout/
+
+
+- 1 Size ration
+- 2 Delete constraint
+- 3 Height/width mode (3 main types):
+ - Wrap constraint ![:img wrap symbol >>>, 5%](img/wrap.png)
+ - Fixed size ![:img fixed symbol I--I, 5%](img/fixed.png)
+ - Match Constraint ![:img match symbol IvvvI, 5%](img/match.png)
+- 4 Margins
+- 5 Constraint bias
+]
+
+--
+.right-column[Range of attachment options (e.g. button sides, corners)]
+
+---
+.left-column[## How is this done in Android?]
+.right-column[
+Handled with a set of abstractions associated with a container
+widget
+
+[https://developer.android.com/reference/android/support/constraint/package-summary](javadocs for constraint package)
+
+ - Specified in the GUI (Chapter 18 & 19)
+
+ - Can also be specified or viewed in XML (Chapter 21 describes)
+
+
+]
+--
+.right-column[
+
+Additional abstractions <br>
+(e.g. groups; guidelines &amp; barriers; chains
+]
+---
+# Example: Linear Layout of Email
+[https://developer.android.com/guide/topics/ui/layout/linear](Linear
+Layout Tutorial)
+
+
+.pull-left[![:img Linear layout of an email message with to line subject
+line and message arranged vertically, 50%](img/linearlayout.png)]
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/to" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/subject" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="@string/message" />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/send" />
+</LinearLayout>
+```
+
+???
+Can implement all of the things we discussed earlier using constraints
+
+note that they can be hard to debug?
+
+Discussion of specific inheritance hierarchy for constraints
+
+- Only have to write once when we use classes properly
+- can mix and match things
+
+---
+# Try it yourself
+![:img 2d scroll view with labels or buttons at top spread over the
+width of the container and a horizontal  scrollbar that
+cannot be squeezed or stretched vertically but can be horizontally and
+the opposite for a vertical scrollbar and a small corner element that
+cannot be squeezed or stretched in either direction, 100%](img/trylayout.png)]
+
+---
+
+# In Lab: Layout (solo)
+Learning goals: Create a layout to a spec
+ - Reproduce three layouts we give you
+ - Should position things as shown in the image
+ - Should resize appropriately if phone is turned
+
+---
+# Review
+
+A More Flexible Model of Interactor Size
+Natural size (preferred size)
+Min size
+Max size
+
+---
+#General & Powerful Approach: Constraints
+
+General mechanism for establishing and maintaining relationships between things
+- Layout is one use
+- Several other uses in UI
+ - Connection of application to UI, e.g. deriving appearance from data
+ - Multiple views of same data
+ - Automated semantic feedback
+ - Automatic arrangement of lines (powerpoint snapping!)
+
+
+---
+# End of deck
+---
+#Conceptual form of UI constraints
+
+``` java
+// this is 5 pixels to the right of that
+this.x = that.x + that.w + 5
+// this is centered
+this.x = that.x + that.w/2 - this.w/2
+// this is 10 larger than children
+this.w = 10 + max_child().x + max_child().w
+```

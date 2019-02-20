@@ -10,6 +10,13 @@ check out the navbar above and the table of contents here:
 * TOC
 {:toc}
 
+# Class Instructors, time and date
+
+CSE 340 will be held on M/W/F at 10:30am
+Labs will be Thursday morning
+
+CSE 340 is taught by <a href="make4all.org">Jennifer Mankoff</a>.  Ryan Rowe  is Head TA.
+
 # Should I take this class?
 Yes! Some of today’s interfaces are being used by a billion people at
 a time. Almost everything we create is created for people to use, and
@@ -106,10 +113,6 @@ who wants to go deeper into how to make usable, enjoyable effective
 interfaces, and how to solve interesting problems with HCI. Related is
 [CSE 510](http://courses.cs.washington.edu/courses/csep510/), the HCI
 course for the professional masters program.
-
-# Teaching Staff
-- <a href="make4all.org">Jennifer Mankoff</a> 
-- Ryan Rowe (Head TA)
 
 # Resources
 - Books: [Android textbook](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)/[UI textbook](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
