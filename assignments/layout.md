@@ -1,7 +1,7 @@
 ---
 layout: assignment
 title: Layout
-code: EX1
+code: EX2
 
 assigned: Thursday, April 11, 2019
 due: 11:59 PM Monday, April 15, 2019
