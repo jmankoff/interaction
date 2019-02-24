@@ -38,8 +38,8 @@ Create a TextView containing `0` with black background and white 200sp text. Alo
 
 Position them as in the photo below. There should be a 20dp margin around the edges and between the textview and button/image. As the view rotates, the image and button should stay a constant size and distance from the edge while the text view expands to fill the extra space.
 
-![Screenshot of part 1 in portrait](layout-img/1_portrait.png){:width="25%"}
-![Screenshot of part 1 in landscape](layout-img/1_landscape.png){:width="50%"}
+![Screenshot of part 1 in portrait](layout-img/1_portrait.jpeg){:width="25%"}
+![Screenshot of part 1 in landscape](layout-img/1_landscape.jpeg){:width="50%"}
 
 # Part 2
 ***
