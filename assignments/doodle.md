@@ -21,6 +21,9 @@ android_goals:
 
 ---
 
+* TOC
+{:toc}
+
 # Part 1
 ***
 
@@ -113,7 +116,7 @@ This portion of the assignment will be peer graded. You will receive 1pt for pee
 # Turn-in
 ## Submission Instructions
 
-You will turn in the following files [here](https://gradeit.cs.washington.edu):
+You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
 ```
 ─ Part1Activity.java

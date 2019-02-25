@@ -1,34 +1,34 @@
 ---
-layout: default
+layout: assignment
+title: Layout
+code: EX2
+
+assigned: Thursday, April 11, 2019
+due: 11:59 PM Monday, April 15, 2019
+
+objective: Use XML and programmatic constraints to replicate three layouts.
+
+android_goals:
+  - Understand Android layout GUI and XML
+  - Familiarize with Android programmatic layout API
+  - Understand Android constraints implementation
+  - Handle portrait and landscape orientation correctly
+  - Handle fixed and variable size container views
+hci_goals:
+  - Make use of interactor hierarchy
+  - Use constraints to create responsive layouts
+  - Make use of complex built-in layouts
+  - Implement reusable layouts
+  - Understand how scrolling works
+  - Understand how sizes influence layout
+
 ---
 
 * TOC
 {:toc}
 
-# Layout Exercise
-
-**Objective**: Use XML and programmatic constraints to replicate three layouts.
-
-**HCI Goals**:
-- Make use of interactor hierachy
-- Use constraints to create responsive layouts
-- Make use of complex built-in layouts
-- Implement reusable layouts
-- Understand how scrolling works
-- Understand how sizes influence layout
-
-**Android Goals**:
-- Understand Android layout GUI and XML
-- Familiarize with Android programmatic layout API
-- Understand Android constraints implementation
-- Handle portrait and landscape orientation correctly
-- Handle fixed and variable size container views
-
-**Assigned Date**: ???, 2019
-
-**Due Date**: ???, 2019
-
 # Part 1
+***
 
 Tasks:
 - Create TextView, ImageView, and Button
@@ -38,10 +38,11 @@ Create a TextView containing `0` with black background and white 200sp text. Alo
 
 Position them as in the photo below. There should be a 20dp margin around the edges and between the textview and button/image. As the view rotates, the image and button should stay a constant size and distance from the edge while the text view expands to fill the extra space.
 
-![Screenshot of part 1 in portrait ](layout-img/1_portrait.png){:width="150px"}
-![Screenshot of part 1 in landscape](layout-img/1_landscape.png){:width="300px"}
+![Screenshot of part 1 in portrait](layout-img/1_portrait.jpeg){:width="25%"}
+![Screenshot of part 1 in landscape](layout-img/1_landscape.jpeg){:width="50%"}
 
 # Part 2
+***
 
 Tasks:
 - Implement a basic scrolling view
@@ -53,15 +54,13 @@ That is, `food_1` is 15dp below `food_0`, `food_2` is 30dp below `food_1`, and `
 
 When the layout is rotated, the images should stay the same size and remain horizontally centered.
 
-
-![Screenshot of part 2](layout-img/2_0.png){:width="150px"}
-![Screenshot of part 2, landscape](layout-img/2_landscape.png){:width="300px"}
-
-![Screenshot of part 2, scrolled down](layout-img/2_1.png){:width="150px"}
-
+![Screenshot of part 2](layout-img/2_0.png){:width="20%"}
+![Screenshot of part 2, scrolled down](layout-img/2_1.png){:width="20%"}
+![Screenshot of part 2, landscape](layout-img/2_landscape.png){:width="50%"}
 
 
 # Part 3
+***
 
 Tasks:
 - Implement a basic scrolling view
@@ -75,12 +74,13 @@ Using the similar math as part 2, position the first image `vMargin` dp from the
 
 Again, when the layout is rotated, the images should stay the same size and remain horizontally centered.
 
-![Screenshot of part 3](layout-img/3_0.png){:width="150px"}
-![Screenshot of part 3, scrolled down](layout-img/3_1.png){:width="150px"}
-![Screenshot of part 3, scrolled down more](layout-img/3_2.png){:width="150px"}
-![Screenshot of part 3, scrolled down even more](layout-img/3_3.png){:width="150px"}
+![Screenshot of part 3](layout-img/3_0.png){:width="20%"}
+![Screenshot of part 3, scrolled down](layout-img/3_1.png){:width="20%"}
+![Screenshot of part 3, scrolled down more](layout-img/3_2.png){:width="20%"}
+![Screenshot of part 3, scrolled down even more](layout-img/3_3.png){:width="20%"}
 
 # Part 4
+***
 
 Tasks:
 - Implement an advanced scrolling view.
@@ -97,41 +97,38 @@ If you use the resolution of drawables for each ImageView to determine column he
 
 When rotated, the view should scale such that the images increase in size and margins remain the same.
 
-![Screenshot of part 4](layout-img/4_0.png){:width="150px"}
-![Screenshot of part 4, landscape](layout-img/4_landscape.png){:width="300px"}
+![Screenshot of part 4](layout-img/4_0.png){:width="20%"}
+![Screenshot of part 4, scrolled down](layout-img/4_1.png){:width="20%"}
+![Screenshot of part 4, landscape](layout-img/4_landscape.png){:width="50%"}
 
-![Screenshot of part 4, scrolled down](layout-img/4_1.png){:width="150px"}
-
-
-#### We will test layout on emulators with different screen sizes. Please use constraint correctly. Don't just try to match pixels in our sample screenshots.
-
-# Turnin
+# Turn-in
 ## Submission Instructions
 
-Please turn in your files in the following zip structure:
+You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
-```bash
-YOUR_STUDENT_ID.zip
-├── part1.xml
-├── part2.xml
-├── Part3View.java
-├── Part4View.java
-└── part4_grid.java
 ```
+─ part1.xml
+─ part2.xml
+- Part3View.java
+- Part4View.java
+- part4_grid.xml
+```
+
+<span style="color:red;">We will test layout on emulators with different screen sizes. Please use constraint correctly. Don't just try to match pixels in our sample screenshots.</span>
 
 ## Grading (10pts)
 
 - Part 1
-  - Portrait: 1pt
-  - Landscape: 1pt
+  - Portrait: 1 pt
+  - Landscape: 1 pt
 - Part 2
-  - Portrait and Landscape: 1pt
+  - Portrait and Landscape: 1 pt
 - Part 3
-  - Portrait: 1pt
-  - Landscape: 1pt
+  - Portrait: 1 pt
+  - Landscape: 1 pt
 - Part 4
-  - (Portrait) Correct “Pinterest” column ordering: 1pt
-  - (Landscape) Correct “Pinterest” column ordering: 1pt
-  - (Portrait and Landscape) Correct image widths: 1pt
-  - (Portrait and Landscape) Correct image margins: 1pt
-- Turn-in and compiles: 1pt
+  - (Portrait) Correct “Pinterest” column ordering: 1 pt
+  - (Landscape) Correct “Pinterest” column ordering: 1 pt
+  - (Portrait and Landscape) Correct image widths: 1 pt
+  - (Portrait and Landscape) Correct image margins: 1 pt
+- Turn-in and compiles: 1 pt
