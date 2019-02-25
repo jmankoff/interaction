@@ -150,8 +150,7 @@ possible. You can expect your weeks to look look something like this:
 - **Thursday:**    	Come to lab ready to work on your homework; 
 	          	do your Friday reading and quiz [10 minutes]
 - **Friday:** 	Come to class ready for discussion and activity
-- **Weekend:** 	Do your Monday reading and quiz [10 minutes], then do your homework. 
-		Stay on top of reading so you have time to focus on homework.
+- **Weekend:** 	Focus on your homework. Most Monday classes will have no assigned reading. 
 
 Homework takes two forms -- exercises and assignments. Exercises are assigned on Thursdays and due on Mondays. Assignments typically have two weekends to be completed. 
 

@@ -51,7 +51,7 @@ layout: default
 - [F] Interactor hierarchies vs inheritance
 
 ## 4/8 Monday: Properties of People I: Visual Perception
-
+**No Reading/Assignment**
 **Slides**
 [Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)
 
@@ -93,7 +93,7 @@ layout: default
 - [F] Paper Prototyping & behavior
 
 ## 4/15 Monday: MVC at the Widget Level Essential Geometry and Essential Behavior
-
+**No Reading/Assignment**
 **Slides**
 [From Events to Behavior](/interaction/slides/wk03/events.html)
 
@@ -118,9 +118,10 @@ Chapter 11: Input Syntax Specification [Building Interactive Systems](https://ww
 **Other Material (optional)**
 [Activity State Change Events](/interaction/slides/l03/activity-events.html)
 
-## 4/19 Friday: Interactior Design Case Study: Menu Design History 
-**Readings**
-xx See dan olsen's book, there's a chapter on thi
+## 4/19 Friday: Interaction Design Case Study: Selection
+** Required Reading**
+Chapter 20: Selection [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
+
 
 **Slides**
 [09: Interactor Design](/interaction/slides/wk03/menus.html)
@@ -136,6 +137,7 @@ xx See dan olsen's book, there's a chapter on thi
 
 
 ## 4/22 Monday: Running User studies; Color Picker exercise due
+**No Reading/Assignment**
 Data collection for user studies 
 **Slides**
 [10: Studies](/interaction/slides/wk04/studies.html)

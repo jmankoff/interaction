@@ -11,7 +11,7 @@ layout: default
 
 **HCI Goals**:
 - Create non-rectangle widget
-- Finite state machine
+- Propositional Production System
 - Event handlers and event bubbling
 - Callbacks
 
@@ -38,7 +38,24 @@ We'll handle touch input by implementing `onTouchReceived`. This is the event ha
 
 <!-- <span style="color:red"> XXX TODO: Check edge case: e.g., drag and move outside wheel, the handle stays in 50% alpha (should be 100% alpha). I added examples in test to check alpha of handle to check state.</span> -->
 
-![Finite State Machine](colorpicker-img/fsm.png){:width="800px"}
+<div class="mermaid">
+graph LR
+S((.)) --> A((Start))
+A -- "Press?insideCircle:setAlpha(.75f)" --> I((Inside))
+I -- "Release?insideCircle:setAlpha(1.00f)" --> E[End]
+I -- "Drag?insideCircle:setAlpha(.5f),updateHandle(),updateColor()" --> I
+I -- "Drag?outsideCircle:setAlpha(1.00f)" --> E
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+class S invisible
+class A start
+class E finish
+class I normal
+</div>
 
 Then we should update handle transparency based on touch events:
 - When a finger touch down, it will show the handle (in 75% alpha).

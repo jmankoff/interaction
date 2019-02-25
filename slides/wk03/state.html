@@ -1,7 +1,7 @@
 ---
 layout: presentation
 title: Capturing Behavior through State 
-description: Description the use of finite state machines to describe component behavior (interaction techniques)
+description: Description the use of propositional production systems to describe component behavior (interaction techniques)
 class: middle, center, inverse
 ---
 name: inverse
@@ -82,6 +82,11 @@ Until release event;
 Act on line input;
 ```
 ]
+???
+Discuss! 
+Not event based
+Not in the basic event/redraw loop
+Potentially locks up the system
 ---
 .left-column[
 # Implementing rubber banding]
@@ -96,25 +101,6 @@ Need to get around this loop <br> absolute min of 5 times / sec
 aside -- why 5-10 times per second?
 
 ---
-.left-column[
-# What is wrong with this code?]
-
-.right-column[```
-Accept the press for endpoint P1; P2 = P1;
-Draw line P1-P2;
-Repeat
-  Erase line P1-P2;
-  P2 = current_position(); Draw line P1-P2;
-Until release event;
-Act on line input;
-```
-]
-???
-Discuss! 
-Not event based
-Not in the basic event/redraw loop
-Potentially locks up the system
----
 .left-column[## Event driven code]
 .right-column[
 Needs to respond to events as they arrive
@@ -125,7 +111,7 @@ Needs to maintain state between events
 
 ---
 .left-column[
-# Simple solution: Deterministic Finite State Machines]
+# Solution: Deterministic Finite State Machines]
 .right-column[
 
 <div class="mermaid">
@@ -154,13 +140,16 @@ Special circle start state <br> (arrow going into it)
 
 Special circle for 'final state' <br> (really means 'reset to start')
 
-Transitions represent actions (callbacks). 
+Transitions represent actions (callbacks).
+
+Can expand this with __Queries__ to become a Propositional Production
+System (PPS)
 ]
 ???
 
 ---
 .left-column[
-# FSM Example: Rubber Banding
+# PPS Example: Rubber Banding
 
 
 Compare to previous implementation: 
@@ -177,15 +166,15 @@ Act on line input;
 ]
 .right-column[
 
-- Determine the states
+- Determine the Events (triggers)
 
-- Determine the triggers (events)
+- Determine the States
 
-- Determine the actions
+- Determine the Actions
 ]
 ---
 .left-column[
-# FSM Example: Rubber Banding
+# PPS Example: Rubber Banding
 
 Compare to previous implementation: 
 
@@ -240,14 +229,19 @@ class B normal
 ---
 
 .left-column[
-# FSM for Button?
+# PPS for Button?
+
+![:img FB Messenger Animation, 100%](img/messenger-bubble.gif)
+
 ]
 .right-column[
-- Determine the states
+- Determine the Events (triggers)
 
-- Determine the triggers (events)
+- Determine the States
 
-- Determine the actions
+- Determine the Queries (essential geometry, context)
+
+- Determine the Actions
 ]
 
 ???
@@ -257,30 +251,33 @@ What constitutes an “event” varies
 - higher level (synthesized) events
 - e.g. region-enter, press-inside
 
+What is missing? Query fields 
+
 ---
 .left-column[
-# Button Solution
-
-
-Press inside => highlight
-
-Move in/out => change highlight
-
-Release inside => act
-
-Release outside => do nothing
+# Facebook Button Solution
+![:img FB Messenger Animation, 100%](img/messenger-bubble.gif)
 ]
 --
 .right-column[
 
+Press:?inside => highlight(), start_animation(), small, active<br>
+AnimateStep ==> update(), active<br>
+AnimateFinish ==> !small, active<br>
+Release:inside,small => unhighlight(), exit()<br>
+Release:inside,!small => add_to_chat(), small, unhighlight(),
+exit()<br>
+
+__rest is unknowable from this animation__
+
 <div class="mermaid">
   graph LR
   S((.)) --> A((Start))
-  A -- "Press-inside/Highlight()" --> B((Inside))
-  B -- "Enter/Highlight()" --> C((Outside))
-  C -- "Leave/Unhighlight()" --> B
-  C -- "Release" --> D[End]
-  B -- "Release/Unhighlight();Act()" --> D
+  A -- "Press:?inside/highlight(), start_animation()" --> B((Active))
+  B -- "AnimateStep,update()" --> B
+  B -- "AnimateFinish,!small"--> B
+  B -- "Release,inside:small, unhighlight" -->D(End)
+  B -- "Release,inside:!small,add_to_chat(),unhighlight()" --> D
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
@@ -291,32 +288,31 @@ linkStyle 0 stroke-width:4px;
 linkStyle 1 stroke-width:4px;
 linkStyle 2 stroke-width:4px;
 linkStyle 3 stroke-width:4px;
-linkStyle 5 stroke-width:4px;  
+linkStyle 4 stroke-width:4px;
+linkStyle 5 stroke-width:4px;    
  
 class S invisible
 class A start
 class D finish
-class B,C normal
+class B normal
 </div>
 
 ]
 
----
-.left-column[##When to use FSMs]
-.right-column[
-FSM are a good way to do control flow in event driven systems
+???
+#When to use PPSs
+
+- You're probably already using them, just not intentionally (and maybe
+less well as a result)
+- PPSs are a good way to do control flow in event driven systems
 
 Can do (formal or informal) analysis
-
 - are all possible inputs (e.g. errors) handled from each state
-
 - what are next legal inputs: can use to enable / disable
-
 Can be automated based on higher level specification
-]
 
 ---
-# Implementing FSMs
+# Implementation of PPS
 
 ???
 fsm_transition(state, evt) switch (state)
@@ -335,21 +331,15 @@ fsm_transition(state, evt) switch (state)
 return state;
 
 ---
-.left-column[
-# FSM Issues]
-.right-column[
-### Notation
+# Color Picker PPS 
 
-– Graphical notation is nice for small things, but doesn’t scale (spaghetti)
+Work in pairs on this
 
-– Textual notation is not nice
+---
+# Summary
 
-- Like all GOTO control flow
-
-### Handles sequencing well, but not independent action
-
-– State explosion problems
-]
+---
+# End of Slides / Old material below here
 ---
 .left-column[# Discussion of state explosion]
 .right-column[
@@ -376,8 +366,6 @@ the control key?)
 </div>
 
 ---
-
-
 .left-column[# Cross product of state diagrams]
 .right-column[
 Replicate the larger one
@@ -418,8 +406,6 @@ Path of least resistance is rigid sequencing
 xxx TODO decide whether to keep
 xxx TODO decide how to end this deck and/or what other material needs
 to be covered
----
-# End of Slides
 ---
 .left-column[## Guards on transitions]
 .right-column[
