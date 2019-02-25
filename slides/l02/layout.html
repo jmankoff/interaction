@@ -1,7 +1,7 @@
 ---
 layout: presentation
-title: Lab 02 Activities, Views and Layout --Week 2, Thursday-- 
-description: Introduction to layout in Android and Widget project
+title: Lab 02 Events and Layout
+description: Introduction to event handling and layout in Android
 class: middle, center, inverse
 ---
 name: inverse
@@ -22,161 +22,21 @@ Slides online: xxx url
 layout: false
 
 # Goals for Today
-- Understanding more about __Activities__
-
+- Peer grade Doodle exercise
+- Drawing an Interface in Android
 - __Layouts__ - constraints on Android
+- Discuss layout assignment
+- Work on layout assignment
 
 ---
 template: inverse
 
-## Activities
+## Peer Grading
 ---
-
-## Activity.red[*]
-
-- Application component providing a screen for users to interact
-
---
-
-- Typically fills whole the screen (though it doesn't have to)
-
---
-<br><br>
-![:img Android Calculator App, 20%](img/android-calculator-example.png)
-![:img Android Contacts App, 20%](img/android-contacts-example.png)
-![:img Android Search App, 20%](img/android-search-example.png)
-<br>
-
---
-
-<br>
-.footnote[
- More on Activites: https://developer.android.com/guide/components/activities.html
-
-]
+template: none
 ---
-## Activity and Events
-- Event-based interaction paradigm
-
---
-
-- Your code should respond to event changes, interactions, and processes
-
---
-
-- Get familiar with its state changes and __Lifecycle__
----
-## Activity States
-- __Active__: in foreground of screen, and receives input
-
---
-
-- __Paused__: activity lost focus (is no longer displayed on screen)
-
---
-
-- __Stopped__:
-  - Another activity has focus
-
-  - Original activity remains in memory -- perfect place to save data & state
-
-  - Often can be *killed* by Android OS if not resumed relatively quickly
-
---
-
-- __Inactive__: after an activity has been killed; or before it is launched
-
----
-
-## Switching States - Activity Lifecycle
-.half-width-img.center[
-  ![Android Activity Lifecycle](img/activity_lifecycle.png)
-]
----
-## Responding to State Changes with Callbacks (1/3)
-- `onCreate`
---
-
-  - called when the activity is first created
-  - we've seen this in our `HelloAndroidWorld` App:
-
---
-
-
-```java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-  // We want to do any view initialization work here
-  super.onCreate(savedInstanceState);
-  // Load the XML representation of our layout into the view
-  setContentView(R.layout.activity_main);
-  // Remember findViewById let's us find the xml views we declared in our
-  // program (this is a link between the xml world and java)
-  mMainTextView = (TextView) findViewById(R.id.text_main_title);
-  mSumTextView = (TextView) findViewById(R.id.text_sum);
-}
-```
-
---
-
-- `onStart`
-  - Called when activity is about to be visible to the user
-  - Always gets called after `onCreate` or `onRestart`
-
----
-## Responding to State Changes with Callbacks (2/3)
-
-- `onResume`
-  - Called when the activity will start interacting with a use
---
-
-  - Always gets called after `onStart`  
-
---
-
-
-- `onPause`
-  - Called when the system is about to start resuming another previous activity
---
-
-  - __Commit changes__ to persistent data, __stop animations & intense operations__, __kill network__ requests  
---
-
-  - .red[Fast implementation required!] - the next activity will not resume until this finishes in your activity
-
---
-
-
-- `onStop`: Called when the activity is no longer visible to the user
-
----
-## Responding to State Changes with Callbacks (3/3)
-
-- `onRestart`
---
-
-  - Called when the activity was previously stopped but is coming back to the user
-  - Followed by a call to `onStart`
-
---
-
-
-- `onDestroy`: the final notice before your activity is .red[__destroyed__]
-
---
-
-  .center.half-width-img[
-    ![Cookie Monster Eating](img/cookie-monster.gif)
-  ]
----
-template: inverse
-
-# Short Activity  
- (Pun Intended)
-
-???
-XX todo what was this?
----
+# Peer Grading Doodle
+- XX describe rubric and how to do it.
 
 ---
 template: inverse
@@ -195,17 +55,17 @@ layout: false
   - Controls (switches, sliders, etc)
 --
 
-  - UI Widgets - typical display elements mentioned in SSUI lecture (e.g buttons, labels, image views, etc)
+  - UI Components - typical display elements mentioned in SSUI lecture (e.g buttons, labels, image views, etc)
 --
 
 
 - View Groups
 
-  - Encapsulates one or more views (e.g. Android Widgets, Layouts)
+  - Encapsulates one or more views (e.g. Android Components, Layouts)
 
 --
 
-  - *Note*: Android Widgets are self-contained, home-screen-specific display items for apps (e.g. clock/time, weather, email-at-a-glance)
+  - *Note*: Android Components are self-contained, home-screen-specific display items for apps (e.g. clock/time, weather, email-at-a-glance)
 ---
 
 .right[# Sample Hierarchy]
@@ -226,7 +86,7 @@ class A,B blue
 ]
 
 ---
-## UI Widget Toolbox
+## UI Component Toolbox
 - Most Common:
   - __TextView__ - read-only text label
 
@@ -248,17 +108,17 @@ template: inverse
 ---
 
 ## ViewGroups - Layout Types
-- [FrameLayout](https://developer.android.com/reference/android/widget/FrameLayout.html) - good for position views on top of each other, or encapsulating a bunch of views
+- [FrameLayout](https://developer.android.com/reference/android/component/FrameLayout.html) - good for position views on top of each other, or encapsulating a bunch of views
 
-- [__LinearLayout__](https://developer.android.com/reference/android/widget/LinearLayout.html) - places views one after the other in order according to the orientation (Horizontal or Vertical)
+- [__LinearLayout__](https://developer.android.com/reference/android/component/LinearLayout.html) - places views one after the other in order according to the orientation (Horizontal or Vertical)
 
-- [__TableLayout__](https://developer.android.com/reference/android/widget/TableLayout.html) - Rows and columns style way of declaring a layout
+- [__TableLayout__](https://developer.android.com/reference/android/component/TableLayout.html) - Rows and columns style way of declaring a layout
 
-- [GridLayout](https://developer.android.com/reference/android/widget/GridLayout.html) - Uses an [*adapter*](https://developer.android.com/reference/android/widget/Adapter.html) that provides items to display in a grid
+- [GridLayout](https://developer.android.com/reference/android/component/GridLayout.html) - Uses an [*adapter*](https://developer.android.com/reference/android/widget/Adapter.html) that provides items to display in a grid
 
-- [ListView](https://developer.android.com/guide/topics/ui/layout/listview.html) - Uses an [*adapter*](https://developer.android.com/reference/android/widget/Adapter.html) class that provides items to display in a list
+- [ListView](https://developer.android.com/guide/topics/ui/layout/listview.html) - Uses an [*adapter*](https://developer.android.com/reference/android/component/Adapter.html) class that provides items to display in a list
 
-- [__RelativeLayout__](https://developer.android.com/reference/android/widget/RelativeLayout.html) - positions views with respect to on another
+- [__RelativeLayout__](https://developer.android.com/reference/android/component/RelativeLayout.html) - positions views with respect to on another
 
 - [WebView](https://developer.android.com/reference/android/webkit/WebView.html) - uses html/css to layout a page, but requires `INTERNET` permission in your manifest
 
@@ -270,6 +130,8 @@ template:inverse
 
 ## Layout Exercise
 
+XXX TODO decide whether to use [activityFun](https://github.com/mriveralee/ssui-mobile-exercises-2016/tree/master/exercises/lab02/ActivityFun) or something else
+
 ---
 .center[
   ## Spot the layouts + views
@@ -278,4 +140,122 @@ template:inverse
     ![AnyDo Calendar](img/anydo-example.png)
   ]
 
+]
+
+---
+.left-column[
+# How Android Draws Views (1/2)
+]
+.right-column[
+When an `Activity` receives focus, Android requests the activity draw its layout
+]
+--
+.right-column[
+An activity __must__ provide a root node of the layout hierarchy
+]
+--
+.right-column[
+The root node will measure and draw the layout tree
+]
+---
+.left-column[
+# How Android Draws Views (2/2)
+]
+.right-column[
+__In-order tree traversal__ is done on the layout hierarchy..
+]
+
+--
+.right-column[
+Each view is responsible for drawing itself before (i.e. __behind__) their children
+]
+--
+.right-column[
+Siblings are drawn in the order that they appear  
+
+.center.half-width-img[
+  ![Android Drawing](img/view-group.png)
+  ]
+]
+---
+.left-column[
+# When to (re)Draw?
+]
+.right-column[
+Drawing is costly- (e.g. frame rates dropping for scrolling interactions)
+]
+--
+.right-column[
+Often the screen is static
+]
+--
+.right-column[
+We should *draw when we need to*
+]
+
+--
+.right-column[
+Re-drawing "damaged" areas: call `invalidate()`
+]
+---
+.left-column[
+# The Drawing Process
+]
+.right-column[
+1) Android calls measure on root node (view)
+```java
+// View specifies size of self
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec);
+```
+]
+--
+.right-column[
+2) Android calls layout on view
+```java
+// View specifies size and position of children
+protected void onLayout(boolean changed, int left, int top, int right, int bottom);
+```
+]
+--
+.right-column[
+3) Android calls draw on view
+```java
+// Add the drawing happens
+protected void onDraw(Canvas canvas);
+```
+]
+---
+.left-column[
+# Measuring
+]
+.right-column[
+`onMeasure()` is a callback invoked by `View.measure()`
+]
+--
+.right-column[
+Guidance about the size is given from parent view in the form of `MeasureSpec` parameters
+]
+--
+.right-column[
+Ensures every view has a width and height value set prior to a layout pass
+]
+--
+.footnote[
+Note: You must manually take padding into account (subtract padding
+from the width/height dimensions)
+]
+---
+.left-column[
+# Layout
+]
+.right-column[
+`onLayout()` is a callback triggered when a view's position is changed
+]
+--
+.right-column[
+Gives the new position __relative__ to the parent
+]
+--
+.right-column[
+Causes a layout call on all children (!)
 ]

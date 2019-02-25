@@ -123,15 +123,21 @@ course for the professional masters program.
 Many of the goals in this class center around learning by doing. This
 means that hands on time trying out everything from implementation to
 evaluation is critical to learning. An educational approach that can
-support this is 'flipped' classes. In these cases, readings and videos
-will be available *ahead* of class, while class time will be used for
-discussion, review, and homework. This means you'll be getting
-information at home and doing homework in lecture, rather than the
-reverse. We will help to support and guide your learning, but your
-preparation outside of class is *essential*.
+support this is active learning. To support this, readings and videos
+will be available *ahead* of class, while class time will be used as
+much as possible for activities, discussion, review, and
+homework. This means you'll be getting information at home and doing
+problem sets in lecture, rather than the reverse. We will help to support
+and guide your learning, but your preparation outside of class is
+*essential*.
 
 
-**Why break the mold of standard lecture classes?** I believe that this will *improve your learning* by allowing you to work at your own pace. I also value the chance to support you while you do work on assignments and practice material. However flipped classes require you to be independent and accountable for your own learning, stay on top of course materials, bring your questions to class and seek help if there are problems. 
+**Why break the mold of standard lecture classes?** I believe that
+  this will *improve your learning*.I also value the chance to support
+  you while you do work on assignments and practice material. However
+  this requires you to be independent and accountable for
+  your own learning, stay on top of course materials, bring your
+  questions to class and seek help if there are problems.
 
 # Workload 
 This is a challenging, four credit class, meaning you should expect 8

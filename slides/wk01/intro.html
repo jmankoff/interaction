@@ -49,9 +49,13 @@ rfrowe@cs.uw.edu, Grad TA, '19
 # Lecture Structure
 Reading, Discussion and Exercises in lectures
 - Emphasis on active learning
-- Class attendance (and quizzes) instead of midterm
+
+Class attendance
 - No other way to get this material
-- XX final exam??
+
+Exams
+- Midterm
+- Final Exam
 
 ---
 # A typical week includes
@@ -97,7 +101,7 @@ class: center
 ![:img Android Versioning and Distribution, 65%](img/android-versions-oct2018.png)
 
 .center[
-### We're going to target   - XX update to correct version & name -- .red[Oreo] :) - That's .red[__21%__] of devices, and growing]
+### We're going to target  .red[Oreo] :) - That's .red[__21%__] of devices, and growing]
 --- 
 ## Android Versioning
 - We encourage you to buy an android phone (no tablets) ~$50
@@ -217,7 +221,7 @@ Grading
 <!-- - 10% Turned in on time, passes code review -->
 <!-- </section> -->
 
-# Exercise: Build a Widget (solo)
+# Exercise: Build a Component (solo)
 Learning goals: Create a layout to a spec
  - Reproduce three layouts we give you
  - Should position things as shown in the image
@@ -336,11 +340,16 @@ Sketchpad introduced direct manipulation, constraints, and chorded input.
 70%](/interaction/assets/img/engelbart.png)
 
 Engelbart's *Mother of all Demos*, in December 9, 1968 at the Fall Joint Computer Conference. His presentation included windows; hypertext; graphics; video conferencing; the computer mouse; word processing; dynamic file linking; revision control; collaborative real-time editing, all new inventions!
----
-![:img A desktop personal computer showing a WYSIWYG word processor
-and graphical window system, 50%](/interaction/assets/img/star.png)
 
-Engelbart inspires many things, including the Xerox Star, the first graphical personal computer
+---
+Engelbart inspires many things, including the Xerox Star, the first
+graphical personal computer, and Smalltalk 80 the first UI Toolkit
+
+![:img A desktop personal computer showing a WYSIWYG
+word processor and graphical window system, 30%](img/smalltalk-interface.png)
+![:img A picture of a woman interacting with the Xerox
+Alto computer, 35%](img/alto.jpg)
+
 ---
 
 # HCI in the Present
@@ -426,7 +435,7 @@ class hlt darkblue
 <div class="mermaid">
   graph LR
   ip[Interface Programmer]
-  w[Widget Developer]
+  w[Component Developer]
   l[Library Extender]
   a[Architecture Extender]
   t[Toolkit Builder]
@@ -447,7 +456,7 @@ class w,l,a green
 <div class="mermaid">
   graph LR
   ip[Interface Programmer]
-  w[Widget Developer]
+  w[Component Developer]
   l[Library Extender]
   a[Architecture Extender]
   t[Toolkit Builder]
@@ -475,7 +484,7 @@ Supported by all toolkits
 <div class="mermaid">
   graph LR
   ip[Interface Programmer]
-  w[Widget Developer]
+  w[Component Developer]
   l[Library Extender]
   a[Architecture Extender]
   t[Toolkit Builder]
@@ -517,7 +526,7 @@ list on an android phone, 30%](img/android-swipe.png)
 <div class="mermaid">
   graph LR
   ip[Interface Programmer]
-  w[Widget Developer]
+  w[Component Developer]
   l[Library Extender]
   a[Architecture Extender]
   t[Toolkit Builder]
@@ -556,7 +565,7 @@ and Kenichiro Tanaka. (UIST '00)
 <div class="mermaid">
   graph LR
   ip[Interface Programmer]
-  w[Widget Developer]
+  w[Component Developer]
   l[Library Extender]
   a[Architecture Extender]
   t[Toolkit Builder]
@@ -580,19 +589,20 @@ Supported by very few toolkits
 ---
 # Architecture Extender: Animation
 
-
-.left-column[
-![img: A picture of a flow diagram for animation, 25%](img/animation.png)
-
+.right-column50[
+![:img A picture of a phone interface using animation to show a menu, 100%](img/animation.gif)
 ]
-.right-column[
+
 Integrated into existing GUI toolkit
 
 Primary abstraction: transition
 - models movement over time
 - through arbitrary space of values (e.g., color)
 - screen space is most common 
-]
+
+
+.footnote[Great post about [types of animation on mobile phones](https://yalantis.com/blog/-seven-types-of-animations-for-mobile-apps/), also
+source of the image]
 
 ---
 # Development Roles
@@ -600,7 +610,7 @@ Primary abstraction: transition
 <div class="mermaid">
   graph LR
   ip[Interface Programmer]
-  w[Widget Developer]
+  w[Component Developer]
   l[Library Extender]
   a[Architecture Extender]
   t[Toolkit Builder]

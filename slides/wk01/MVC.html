@@ -1,6 +1,6 @@
 ---
 layout: presentation
-title: Basic Interaction --Week 1, Wednesday-- 
+title: Basic Toolkit Abstractions
 description: Discussion of basic abstractions for user interfaces
 class: middle, center, inverse
 ---
@@ -13,13 +13,18 @@ class: center, middle, inverse
 Jennifer Mankoff
 CSE 340 Spring 2019 
 ---
+name: normal
+layout: true
+class: 
+---
 layout: false
-[//]: # (Outline Slide)
+
 # Today's goals
-* Gulf of Evaluation/Execution
+
+- __Gulf of Evaluation/Execution__
 - Mental models
-- Common Widgets
-- Widget Anatomy
+- Common Components
+- Component Anatomy
 - Relate to Android
 ---
 
@@ -35,31 +40,31 @@ Build up a list of good UI design principals from these basics
 - Undo
 - Predictability
 - ...
-What is missing? (e.g. fun
+What is missing? (e.g. fun)
 ---
 # Causes of Gulf of Evaluation
 ???
-Hard to understand visual feedback
-Poor use of colors
-Bad layout, poor grouping
-Unfamiliar display of information
-Unfamiliar design patterns, or doesn’t follow convention
-Forcing people to remember lots of things
-Lack of feedback in response to inputs
-Might not see visual updates
-Can’t find info on screen 
-Might look same as unimportant
-Irrelevant info on screen / important info missing
+- Hard to understand visual feedback
+- Poor use of colors
+- Bad layout, poor grouping
+- Unfamiliar display of information
+- Unfamiliar design patterns, or doesn’t follow convention
+- Forcing people to remember lots of things
+- Lack of feedback in response to inputs
+- Might not see visual updates
+- Can’t find info on screen 
+- Might look same as unimportant
+- Irrelevant info on screen / important info missing
 ---
 # Causes of Gulf of Execution
 ???
-Unfamiliar devices and inputs
-Don’t know what is possible
-Unfamiliar GUI widgets 
-Solvable with experience
-Unfamiliar interaction patterns
-Also solvable with experience
-Example patterns: Dialogs, Shopping Carts
+- Unfamiliar devices and inputs
+- Don’t know what is possible
+- Unfamiliar GUI components 
+- Solvable with experience
+- Unfamiliar interaction patterns
+- Also solvable with experience
+- Example patterns: Dialogs, Shopping Carts
 ---
 # Discussion of reading quiz
 ---
@@ -69,11 +74,27 @@ Example patterns: Dialogs, Shopping Carts
 ???
 Menu, Button(types), Slider, Scrollbar, Spinner, List box, Icon, Link,
 Text box, Label,
---
-- Pick One (Button)
-- Diagram it wrt reading
-- Repeat once more (Pick your own)
+---
+# Widget (Component) Model
 
+__Encapsulate interactive components__ (widgets)
+- Component library (button, slider, container)
+- Interface built as a hierarchy of components
+
+__Components drawn by underlying graphics library__
+- Input event generation and dispatch
+- Historically mouse & keyboard, now touch, ...
+
+__Bounds management & damage/redraw__
+Model geometry, redraw updated regions only
+--
+# Exercise continued
+- Brainstorm a list of common components
+- Pick One (Button)
+- Diagram it with respect to reading
+ - Model
+ - View
+ - Controller
 ---
 # What about a whole interface
 
@@ -83,18 +104,36 @@ a picture of an egg, and a description of what you need to boil an egg
 along with a button saying 'cook it', 30%](img/minimalist-app.png)
 minimalist-app-ui-37.png
 
-
-# Model View Controller
+## Model View Controller
 
 ???
+Sketch out key concepts 
 - Input -- we need to know when people are doing things. This needs to be event driven.
 - Output -- we need to show people feedback. This cannot ‘take over’ i.e. it needs to be multi threaded
 - Back end -- we need to be able to talk to the application. 
 - State machine -- we need to keep track of state. 
 - What don’t we need? We don’t need to know about the rest of the UI, probably, etc etc
-- Model View Controller -- this works within widgets (draw diagram), but also represents the overall structure (ideally) of a whole user interface
+- Model View Controller -- this works within components (draw diagram), but also represents the overall structure (ideally) of a whole user interface
 - NOTE: Be careful to write any new vocabulary words on the board and define as they come up.
 
+---
+# Assignment 1
+
+- Running sample code for [Assignment 1: Doodle](/assignments/doodle.html)
+- Example: `addImage`
+- Understanding Grading
+- Other Questions
+---
+## Environment Setup
+
+- Should already be done: Download [Android Studo](https://developer.android.com/studio/) and install
+--
+
+- Keep default installation settings
+
+--
+  - We'll be using Oreo as a default for this class
+  - But any version above Jellybean will work
 ---
 ## Introduction to Android
 
@@ -103,112 +142,169 @@ minimalist-app-ui-37.png
 --
 
   - Model, View, Presenter
-
+  
 --
 
 ![MVP Diagram](img/mvp-design-pattern.png)
 
----
-## Android Applications
 
-- __Intents__
-
---
-
-  - Launch components (and provide them with data)
-
---
-  - Not limited to components of the same app
-    - Meaning: your components can be started by intents from other applications
-
---
-- Components
-
---
-
-  - Activity
-  - Service
-  - Broadcast Receiver
-  - Content Providers
+???
+- Relationship of MVC to Android software stack
+- Discuss Whorfian effects
 
 ---
-## Activity
-  - [`android.app.Activity`](https://developer.android.com/reference/android/app/Activity)
+## Running Sample Code
+
+- Open project in Android Studio
 
 --
-  - Represents a single interface
+
+- Run configurations should be automatically imported from Gradle
+  - If not, `build` should trigger an import
 
 --
-  - Example: Activities for Gmail App
-    - Inbox, Message Compose, Spam Folder, etc.
---
-  - Activities can be started by other applications, if desired
-    - E.g., sharing a photo by email starts Gmail's Message Compose activity
 
----
-## Activity
-
-.center[
-![:img Activity Lifecycle, 40%](img/activity_lifecycle.png)
-]
-
----
-## Service
-  - [`android.app.Service`](https://developer.android.com/reference/android/app/Service)
+- Run with ►
 
 --
-  - Entry point for background processes
+
+  - Connect an android device by USB or create a new virtual device
 
 --
-  - Example: Spotify's player activity uses a service to play music
-    - Could be done by activity alone
---
-    - Use of a service allows music to continue when player activity is no longer in the foreground
---
-  - Services may be killed and restarted as required by the OS
-    - A persistent service such as music playback may use a persistent notification to prevent this
+  - If by USB, debugging must be enabled on the device
 
 ---
-## Broadcast Receivers
-  - [`android.content.BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.html)
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size);
+```
+
+### Params:
+- `mainCanvas`: Canvas in which to render the image.
 
 --
-  - Entry point for events outside of regular userflow
+- `imageName`: Filename of image to draw in `res/drawable`.
 
 --
-  - Example: Alarms
-    - Application schedules callback with OS in 10 minutes
+- `x`: Horizontal distance from top-left corner of canvas to top-left of image.
+- `y`: Veritcal distance from top-left corner of canvas to top-left of image.
+
 --
-    - In the meantime, the application can be killed
+- `size`: Width and height of rendered image, in pixels.
+
 --
-    - 10 minutes later, the OS broadcasts the callback event to the app
---
-    - App begins playing sound; vibrating
+### Returns:
+- An `ImageView` which has been added to the canvas.
 
 ---
-## Content Providers
-  - [`android.content.ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider)
+## Implementing  `addImage`
+
+Break down into component steps, look up documentation, and implement
+
+1. Create `ImageView`
 
 --
-  - Persistent storage of data
+2. Add new view to canvas
 
 --
-  - Supports multiple backends, depending on app permissions
-    - Local filesystem, web, SQLite DB, etc.
+3. Position and set view size
+
 --
-  - Can permit access to other applications
-    - Contacts can be read and written to by other apps, depending on permissions
+4. Set view contents
+
 ---
-# Relationship of MVC to Android software stack
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    // Add imageView to mainCanvas
+    // Set imageView size and position
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+    // Set imageView size and position
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+
+    imageView.getLayoutParams().height = size;
+    imageView.getLayoutParams().width = size;
+
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+
+    imageView.getLayoutParams().height = size;
+    imageView.getLayoutParams().width = size;
+    imageView.setX(x);
+    imageView.setY(y);
+
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+
+    imageView.getLayoutParams().height = size;
+    imageView.getLayoutParams().width = size;
+    imageView.setX(x);
+    imageView.setY(y);
+
+    int resID = getResources().getIdentifier(imageName, "drawable", getPackage());
+    imageView.setImageResource(resID);
+    return imageView;
+}
+```
+---
+## Grading
 
 Discuss
 
-???
-- Discuss Whorfian effects
 ---
 # Summary
-- Common Widgets
-- Role of MVC in Widgets
+- Common Components of an Interface
+- Role of MVC in Components
 - Role of MVC in whole application
 - Intents; Components (Activity; Service; Broadcast Receiver; Content
 Provider)

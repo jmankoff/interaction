@@ -1,0 +1,811 @@
+---
+layout: presentation
+title: Properties of People-- Visual Capacity
+description: Discussion of what we know about people that influences interface design in the vision realm
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Properties of People
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+name: normal
+layout: true
+class: 
+---
+
+[//]: # (Outline Slide)
+# Today's goals
+- Discuss visual properties of people
+
+# Future Goals
+- Discuss memory
+- Discuss motion
+---
+# Visual Properties of People
+People's visual abilities have a big impact on everything from how we
+model color to what makes for good design
+
+People have a variety of visual capabilities, which you should know
+- 4.5% of the world population (mostly men) is color blind<sup>1</sup>
+- 17% of the world population live with some vision impairment<sup>2</sup>
+
+Good design is generally more accessible design
+.footnote[
+<sup>1</sup>[colourblindawareness.org](www.colourblindawareness.org/colour-blindness/)<br>
+<sup>2</sup>[WHO](https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment)<br>
+]
+--
+*Bad psychology is good enough to support good design (I hope! :)*
+
+---
+name: normal
+layout: true
+class: 
+
+---
+layout: false
+# What does this image show? (raise hands if you know)
+
+.right-column[
+![:img Picture of unknown object. Color range is -3500 (blue) to 1000 (red) but
+only yellow and a little blue shows, 50%](img/badviz.png)
+]
+.footnote[
+Example from
+http://www.research.ibm.com/people/l/lloydt/color/color.HTM
+]
+
+---
+# What does this image show? (raise hands if you know)
+
+.right-column[
+![:img Picture of US Coastline (florida). Color range is -3500 (blue)
+to 1000 (white) and range maps well onto values so detail can be made out, 100%](img/goodviz.png)
+]
+
+.footnote[
+Example from
+http://www.research.ibm.com/people/l/lloydt/color/color.HTM
+]
+
+???
+So why is the color choice poor? 
+- No mapping of color (note on right how blues are used for water, and greens for land)
+- Color is better if you adjust by saturation (purity) or value (brightness) rather than hue (rough color, ie red, green, blue, orange) for mapping. People can more easily see and compare differences in saturation and value over hue. Also, changes in hue don’t naturally map to a scale, whereas saturation and value do.
+
+---
+# Visible Spectrum (Human Limits matter!)
+![:img Color spectrum UV to IR (purple to red), 70%](img/humanspectrum.png)
+
+.footnote[
+http://insight.med.utah.edu/Webvision/index.html]
+---
+
+# Why RGB
+
+.float-left[
+- Match eye's model
+  - Receptor cells for red, green, yellow, blue (cones)
+- Receptor cells for grayscale (rods)
+]
+![:img Picture of Rod & Cone cells, 30%](img/rods_cones.png)
+
+---
+# Retina covered with light-sensitive receptors
+
+.right-column[
+Rods
+- Primarily for night vision & perceiving movement
+- Sense intensity or shades of gray
+- Can’t discriminate between colors
+- Mostly at edge of retina
+- ~75M – 150M rods
+]
+.left-column[
+![:img Diagram of eye, 120%](img/eye.png)
+]
+
+---
+# Retina covered with light-sensitive receptors
+
+.right-column[
+Rods
+- ~75M – 150M rods 
+
+Cones
+- Used to sense color
+- Mostly in center of retina
+- ~4.5M – 7M cones
+
+Many more rods than cones
+]
+.left-column[
+![:img Diagram of eye, 120%](img/eye.png)
+]
+---
+# RGB Matches how human vision works
+.left-column[
+##RGB
+![:img RGB color scheme, 100%](img/rgb.png)
+
+]
+.right-column[
+In Java, CSS, and other GUI programming, color is 24 bit (+ 8 bits for
+alpha transparency) 
+
+So 8 bits for each of red, green, blue
+
+- Why not more bits?
+- Why not 64 bit color?
+
+Discuss!
+]
+
+???
+Humans can’t really see much more colors
+
+---
+# RGB Matches how human vision works
+.left-column[
+##RGB
+![:img RGB color scheme, 100%](img/rgb.png)
+
+]
+.right-column[
+However, RGB isn't all that intuitive (technology centric)
+- Especially artists and visual designers
+- Hard to pick colors in 3d on a 2d screen
+- Or actually perceive them at a cognitive level
+]
+
+???
+
+---
+# RGB Matches how human vision works
+.left-column[
+##RGB
+![:img RGB color scheme, 100%](img/rgb.png)
+##HSV
+![:img HSV color scheme, 100%](img/hsv.png)
+
+]
+.right-column[
+However, RGB isn't all that intuitive (technology centric)
+- Especially artists and visual designers
+- Hard to pick colors in 3d on a 2d screen
+- Or actually perceive them at a cognitive level
+
+HSV is much better for *people*
+- Hue: Dominant wavelength of light
+- Saturation: Purity (how much white/black mixed in)
+- Value: Luminance or amount of light in color = max(R,G,B)
+]
+
+???
+HSV cylindrical – hue around the outside (angle) on the web value between
+0 and 360 (red is 0, green is 120, blue is 240) and it’s in rainbow
+order), saturation from center to edge, value is top to bottom
+
+---
+# Compare the following colors using HSV
+.left-column[
+![:img Darker and lighter red boxes, 100%](img/redcomp.png)
+]
+.right-column[
+Vote:
+- A: Top color has different *hue* than bottom color
+- B: Top color has higher *saturation* than bottom color
+- C: Top color has higher *value* than bottom color
+]
+---
+# Demonstrate your Understanding of HSV
+
+.medium[
+You have been asked to create a digital-paper compatible interface. As
+a result, you need to pick colors that will be easily distinguishable
+in black and white. Which of 'H' 'S' and 'V' should you vary to
+support black and white display?
+
+Vote: Which is correct?
+- A: Hue
+- B: Saturation
+- C: Value
+]
+---
+# Aside: Color Gamuts<sup>1</sup>
+
+![:youtube Explanation of color gamuts,8y9yENEdtG4]
+
+.footnote[
+<sup>1</sup>
+See the [Wikipedia page on color
+gamuts](http://en.wikipedia.org/wiki/Gamut) for more information]
+
+???
+- Outside is wavelengths (hues)
+- Triangle shows primary colors for this gamut
+---
+# Perception of Color is Culturally Defined! 
+
+.left-column[
+![:img Picture of blues that not everyone can distinguish,90%](img/blues.jpg)
+]
+.footnote[
+<sup>1</sup>[New Scientist: Russian speakers get the blues](https://www.newscientist.com/article/dn11759-russian-speakers-get-the-blues/)
+]
+
+.right-column[
+(People have color gamuts too)
+
+Not only are we limited to RGB, but we disagree about how to interpret
+it<sup>1</sup>
+]
+???
+
+The language you speak can affect how you see the world, a new study of colour perception indicates. Native speakers of Russian – which lacks a single word for “blue” – discriminated between light and dark blues differently from their English-speaking counterparts, researchers found.
+
+---
+# And Relative
+![:youtube Vergeer and Van Lier illusion,Db4PwJ2LDVk]
+
+---
+# Design Tip #1: Don't rely on Blue for Small Objects
+
+.left-column[
+![:img Example webpage from
+https://www.crazyegg.com/blog/why-hyperlinks-are-blue/ describing why
+hyperlinks are blue historically and which has blue hyperlinks, 150%](img/bluelinks.png)
+
+]
+.medium.right-column70[
+Photopigments not distributed evenly
+
+- Mainly reds (64%) & few blues (2-4%)
+- Less sensitive to short wavelengths (blue)
+
+Few blue cones in fovea
+
+- Harder to see small blue objects you fixate on
+- Blue text also slightly harder to read
+
+So blue hyperlinks as default is worst choice
+
+- Note: strong contrast >> avoiding blue
+]
+
+
+---
+# Design Tip #2: Don’t Rely on Blue for Older Users
+
+.left-column[
+<br>
+<br>
+<br>
+
+![:img Example article from IEEE pervasive with inaccessible blue on blue text, 400%](img/blueonblue.png)
+]
+
+.medium.right-column70[
+
+- As we age, our lens yellows and absorbs <Br> shorter wavelengths
+- Sensitivity to blue is even more reduced
+]
+
+---
+# Design Tip #3: Make sure that contrast is high enough
+
+## Accessibility Issue!
+WCAG requires *at least 4.5:1* contrast, so you cannot round a
+contrast ratio up to 4.5:1. For example, #777777 <br>(![:img grey with
+black text,3%](img/777777.png)![:img grey with
+white text,3%](img/777777w.png)) is a commonly-used
+shade of gray with a 4.48:1 contrast ratio. It does not meet the WCAG
+contrast threshold.<sup>1</sup>
+
+![:img Windows tablet screen with a grid of interactive squares...
+icons along the side for invoking menus... and a colorful background
+picture,90%](img/windowsLayout.png)]
+
+.footnote[
+[WCAG guidelines on contrast](https://webaim.org/articles/contrast/)
+]
+???
+Test in greyscale
+
+---
+# Design Tip #3: Make sure that contrast is high enough
+
+## Accessibility Issue!
+WCAG requires "at least 4.5:1" contrast, so you cannot round a
+contrast ratio up to 4.5:1. For example, #777777 <br>(![:img grey with
+black text,3%](img/777777.png)![:img grey with
+white text,3%](img/777777w.png)) is a commonly-used
+shade of gray with a 4.48:1 contrast ratio. It does not meet the WCAG
+contrast threshold.
+
+![:img Windows tablet screen with a grid of interactive squares...
+icons along the side for invoking menus... and a colorful background
+picture,90%](img/windowsLayoutGreyscale.png)]
+
+???
+Test in greyscale
+
+Focus on value over hue or saturation
+
+This will help ensure visibility
+
+Can use a b/w photocopier to help if you already have a GUI
+
+Keep luminance / intensity / value the same from grayscale when moving to color
+
+---
+# Designing Tip #4: Minimize saturated Colors
+
+.left-column[
+![:img Picture of President Trump and Hilary Clinton in bright blue
+and red with yellow writing over the top,150%](img/saturated.png)
+
+[mediaelection.com](http://mediaelection.com/)
+]
+
+.medium.right-column70[
+Different wavelengths of light focus at different distances behind
+eye’s lens
+
+If your GUI has lots of reds and blues, will force lots of
+refocusing and cause fatigue
+
+Design Implication
+Pure (saturated) colors require more focusing than less pure
+(desaturated, pastel)
+
+Avoid saturated colors in UIs unless really need something to stand
+out (stop sign)
+
+Don't follow this advice! [Vibrant Colors in Web Design](https://uxplanet.org/vibrant-colors-in-web-design-20-visually-impactful-websites-to-inspire-you-bc7988da1e95)
+]
+---
+# Where to Find More Color Advice?
+
+.left-column[![:img Picture of color palette that is vibrant and less saturated, 150%](img/color-guidelines.png)]
+
+.medium.right-column50[
+- Martin Krzywinski<sup>1</sup> on <br>[Brewer Palettes](http://mkweb.bcgsc.ca/brewer/)
+- [Color Brewer](http://colorbrewer2.org/), [Color Scheme
+Desginer](http://colorschemedesigner.com),[Color Schemer](http://colorschemer.com)
+]
+.footnote[
+<sup>1</sup>Famous information graphics artist, [bio](http://mkweb.bcgsc.ca/bio/martin-krzywinski-bio.pdf)]
+---
+#Adobe, what were you thinking?
+
+Critique with a neighbor. Which design principles are violated by this
+ad?
+
+![:img Adobe advertisement in vibrant colors showing a red cloud icon
+on a blueish background along with bold and very thin white text on
+the blueish background and more white text on a
+blue button and a play arrow in light blue on a light grey
+background,100%](img/adobe.jpg)
+
+???
+
+---
+# Color Blindness: Ishihara Test
+
+![:youtube Ishihara Colorblindness test showing colored dots inside
+colored dots showing numbers,WzAW41DugXQ]
+
+If you can’t see numbers, don’t worry
+- Projectors, LCD screens, CRT, and print all have different dynamic ranges, hard to get them to match
+
+???
+
+Trouble discriminating colors
+
+About 9% of males, 0.5% of females
+
+Two main types
+- Different photopigment response is common
+ - Reduces capability to discern small color diffs
+- Red-green deficiency is best known
+ - Lack of either green or red photopigment can’t discriminate colors dependent on R & G
+ - More rare are blue-yellow and total color blindness
+
+Some women have a fourth type of cone
+- Estimates are 12% women
+- Some can see more colors than ordinary humans
+
+
+---
+# Design Tip #5: Use Redundant Cues
+Don't rely solely on Hue: Use mixtures of colors (red / green issues)
+
+Also have contrast in intensity 
+
+Consider having other redundant cues too
+ - What redundant cues used for traffic signs?
+ 
+![:img Picture of hexagonal red stopsign and triangular red yield
+sign, 70%](img/signs.png)]
+
+???
+Traffic signs have multiple cues: color, word, shape
+
+another case for using greyscale to test
+
+---
+# People are easy to trick
+
+How do we actually create color? We don't have LEDs of every color
+--
+
+- Three LCD cells per pixel
+
+- Keep them small!
+
+---
+# Why Pixels are enough
+
+Limits of human perceptual system
+
+Eye reconstructs
+
+![:img Picture of mona lisa,30%](img/monalisa.png) ![:img pixelated
+zoomed in picture of mona lisa, 30%](img/pixelmonalisa.png)
+---
+# People are easy to trick
+
+How do we actually create color? We don't have LEDs of every color
+
+- Three LCD cells per pixel
+
+- Keep them small!
+
+How might we do grayscale?
+
+???
+make connection to video 
+---
+# How fast can people see things?
+
+*&lt; ~20ms (1/50 sec) discrete images/flashes merge into continuous perception*
+
+Image you are looking at flickers 60 times per second
+
+Differences in peripheral vision 
+ -  Sabertooth tigers
+
+.footnote[
+![:img Picture of a sabertooth tiger,50%](img/tiger.png)
+]
+---
+# How fast can people see things?
+
+*&lt; ~20ms (1/50 sec) discrete images/flashes merge into continuous perception*
+
+Pretty much never have to be faster than this for user response!  
+- Get >120 million instructions per core (@3Ghz)
+- High end GPU theoretically as high as 26 *billion* instr.
+- First GUIs had ~20 *thousand*
+
+---
+# Can use this to create Greyscale
+
+How might we do grayscale?
+- Black 25% of the time,
+- 40-60 frames per second (FPS)?
+
+???
+40-60 FPS
+
+---
+# Can use this for animation
+- minimum of 10 FPS
+- 24-40 smoother
+
+---
+# Chang & Ungar, UIST '93
+
+.quote[ Despite the differences between user interfaces and cartoons
+-- cartoons are frivolous, passive entertainment and user interfaces 
+are serious, interactive tools -- cartoon animation has much to lend 
+user interfaces to realize both affective and cognitive benefits]
+.small[Principals of animation borrowed from Johnston & Thomas ‘81,
+Lasseter ‘87]
+
+![:youtube Pixar short film about an alien abduction,oqhgg6swliE]
+
+???
+- Squash-and-Stretch
+- Staging, Overlapping Action
+- Anticipation
+- Follow-Through
+- Slow In Slow Out
+
+---
+# How fast can people see things?
+
+&lt; ~20ms (1/50 sec) discrete images/flashes merge into continuous perception
+
+*&lt; ~100-200ms seems like “instant response”*
+- Hard to tell response times below this apart
+- Upper range of eye saccades 
+
+---
+# Also useful for Pre-attentive processing
+
+![:img Picture of red squares,50%](img/distinct1.png)
+
+.footnote[Need a <s>victim</s> volunteer with a stopwatch]
+???
+Grouping looks at how to make things look related
+
+What if we want to make things look different and stand out?
+
+Let's try it: Say out loud:
+
+Same 		if every object is the same
+
+Different 	if at least one object is different
+---
+# Pre-attentive processing
+
+![:img Picture of red squares and one red circle,50%](img/distinct2.png)
+
+???
+this is about shape
+
+---
+# Pre-attentive processing
+
+![:img Picture of blue circles and one red
+circle,50%](img/distinct3.png)
+
+???
+this is about color
+---
+# Pre-attentive processing
+
+![:img Picture of blue circles with no standout,50%](img/distinct4.png)
+
+???
+gotcha!
+
+---
+# Pre-attentive processing
+
+![:img Picture of blue circles and one larger blue
+circle,50%](img/distinct5.png)
+
+???
+this is about size
+---
+# Pre-attentive processing
+
+![:img Picture of blue circles and red squares and one red circle. ,50%](img/distinct6.png)
+???
+This one doesn't work well
+---
+#Design Tip #6 Make things Distinct
+
+.left-column[
+What other variables might be important to making things distinct?]
+.right-column[
+![:img Picture of blue circles and red squares and one red circle. ,50%](img/distinct7.png)
+]
+
+???
+From Kevin Mullet and Darrell Sano, Designing Visual Interfaces
+
+- Value
+- Orientation
+- Texture
+- Position (2d/3d)
+---
+# Design Tip #8 Use Small Multiples
+.left-column[
+![:img 5 star rating for a review with the stars being
+multiples,150%](img/stars.png)
+]
+<br>
+<br>
+<br>
+
+![:img Picture of Tufte book cover with examples of small multiples 
+including micro-macro readings (clothes of different colors hanging on
+a line) and layering and separation ( people waving signals). ,50%](img/tufte.png)
+
+.footnote["Information consists of differences that make a difference" -- Edward --
+-- Tufte, Envisioning Information]
+
+
+---
+# How fast can people see things?
+
+&lt; ~20ms (1/50 sec) discrete images/flashes merge into continuous perception
+
+&lt; ~100-200ms seems like “instant response”
+
+.bold.blue[&lt; 1-2 seconds typically “good response time”]
+- Similar times in conversational turn taking protocols
+- Longer delays ~5 sec have to say something to keep conversation
+       alive
+- Note: numbers fuzzier as we go out
+---
+# How fast can people see things?
+
+&lt; ~20ms (1/50 sec) discrete images/flashes merge into continuous perception
+
+&lt; ~100-200ms seems like “instant response”
+
+&lt; 1-2 seconds typically “good response time”
+
+.bold.blue[More than  10-15 sec is typically “bad response time”]
+
+- STM decay effects
+- Web has trained us to accept slower response times
+- However a difference of 250 ms can switch people to a competitor
+
+"Two hundred fifty msec, either slower or faster, is close to the magic number now for competitive advantage on the Web," said Harry Shum, a computer scientist and speed specialist at Microsoft
+---
+# Design Tip #9 Manage Expectations
+
+Long response times are more manageable if you
+
+- Tell people what to expect, be predictable (follow through)
+
+- Also good to support interrupts
+
+---
+# How fast can people see things?
+
+&lt; ~20ms (1/50 sec) discrete images/flashes merge into continuous perception
+
+&lt; ~100-200ms seems like “instant response”
+
+&lt; 1-2 seconds typically “good response time”
+
+.bold.blue[More than  10-15 sec is typically “bad response time”]
+
+Can also manipulate perception: [Chris Harrison's
+work](http://chrisharrison.net/index.php/Research/ProgressBars2)
+
+
+![:youtube Harrison progress bar manipulation shows how animation of
+progress bars changes perception of response time,CDnN3wLY3OE]
+---
+# How fast can people see things?
+
+&lt; ~20ms (1/50 sec) discrete images/flashes merge into continuous perception
+
+&lt; ~100-200ms seems like “instant response”
+
+&lt; 1-2 seconds typically “good response time”
+
+More than  10-15 sec is typically “bad response time”
+
+.bold.blue[No response: Change Blindness]
+
+![:youtube Video of someone asking for directions while another person
+walks by with a door,FWSxSQsspiQ]
+
+
+???
+
+- Subtle changes over time
+- Distractors
+- Discontinuities (Ex. in movies)
+
+---
+# How fast can people see things?
+
+&lt; ~20ms (1/50 sec) discrete images/flashes merge into continuous perception
+
+&lt; ~100-200ms seems like “instant response”
+
+&lt; 1-2 seconds typically “good response time”
+
+More than  10-15 sec is typically “bad response time”
+
+.bold.blue[No response: Change Blindness]
+![:youtube Video of basketball players, 0grANlx7y2E]
+---
+# Design Tip #10: Replace subtle changes with obvious ones
+
+![:img Picture of a web page form,80%](img/web1.png)
+
+---
+# Design Tip #10: Replace subtle changes with obvious ones
+
+![:img Picture of a web page form,80%](img/web2.png)
+
+---
+# Design Tip #10: Replace subtle changes with obvious ones
+
+![:img Picture of a web page form,80%](img/web3.png)
+
+---
+# Lots of other visual design choices can improve usability
+
+![:img Picture of an elevator button panel with the labels and buttons
+not visually associated leading to ambiguity,60%](img/elevator1.png)
+
+???
+No clear association between buttons and labels
+---
+# Lots of other visual design choices can improve usability
+
+![:img Picture of an elevator button panel with the labels and buttons
+ visually associated removing ambiguity,60%](img/elevator2.png)
+
+???
+Clear association between buttons and labels
+
+---
+# Lots of other visual design choices can improve usability
+
+![:img Similar issue but with star ratings for multiple categories of
+issues such as durability and fun ambiguously associated on Amazon,60%](img/amazon.png)
+
+???
+No clear association between stars and labels
+
+---
+# Lots of other visual design choices can improve usability
+
+![:img Similar issue but with labels for icons on
+Facebook,60%](img/facebook.png)
+
+???
+No clear association between icons and labels
+
+---
+# Design Tip #11: Use well-tested visual grouping strategies
+
+.right-column[![:img Visual grouping strategies including proximity similarity and
+connections between related things are shown in the image. For example
+putting things close together that are grouped and further otherwise
+is proximity. Using color or shape could be for similarity. Lines can support connections. ,50%](img/visualgrouping.png)
+]
+.left-column[
+Also check out other [gestalt psychology](https://www.interaction-design.org/literature/article/the-law-of-similarity-gestalt-principles-1) principles 
+]
+---
+# Recap of design tips
+
+Don't rely on blue for small objects
+
+Don't rely on blue for older users
+
+Make sure that contrast is high enough
+
+Minimize saturated colors
+
+Use redundant cues
+
+Make things distinct
+
+Use small multiples
+
+Manage expectations if you can't change response time
+
+Replace subtle changes with obvious ones
+
+Use well-tested visual grouping strategies
+---
+# Summary
+
+Human Physiology drives design
+- Number of colors
+- Pixel size (retina displays)
+
+Good design is accessible design 
+
+- There is tons to know about good use of color and other visual
+design elements. For not, the simplest thing to do is to look for existing color palettes, and just those. That should account for the vast majority of your needs for colors. There is also red-green color blindness too. Simplest thing to do is to turn your screens into greyscale, and see if you can see differences. 

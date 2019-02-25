@@ -1,7 +1,7 @@
 ---
 layout: presentation
-title: Layout --Week 2, Monday-- 
-description: Description of Layout
+title: Layout
+description: Description of Layout Algorithms and Approaches
 class: middle, center, inverse
 ---
 layout: false
@@ -14,14 +14,16 @@ Key Issues
 - where do components get placed?
 - how much space should they occupy?
 ---
-# Layout
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+
+# Introduction to Layout
 
 Jennifer Mankoff
 CSE 340 Spring 2019 
----
 
-[//]: # (Outline Slide)
-# Today's goals
 ---
 name: normal
 layout: true
@@ -49,29 +51,27 @@ class:
 - No way to send the dialog away (buttons gone)
 
 ---
-name: inverse
-layout: true
-class: center, middle, inverse
----
-
-# Introduction to Layout
-
-Jennifer Mankoff
-CSE 340 Spring 2019 
-
----
 layout: false
-
 [//]: # (Outline Slide)
+
+.left-column[
 # Today's goals
-
----
-
-.left-column50[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 90%](img/colormeter.png)]
---
-.right-column50[
-Review of tree construction
 ]
+.right-column[
+- Review of tree construction
+- Review of quiz on layout pros and cons
+- Using tree for layout
+- Container components
+- Layout Implementation in General
+- Draw and Redraw 
+- Constraint based layout
+]
+---
+# Review of tree construction
+
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+
 
 ---
 # Naive version
@@ -105,16 +105,22 @@ class M,A,C,I,T,La blue
 - others?
 
 ---
+.left-column[
 # Using Glue to control placement
-
+]
+.right-column[
 How can you center something?
-How can you lock it to an edge?
 
+How can you lock it to an edge?
+]
 ---
 # Let's redraw this layout using containers and glue
 
 .left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+---
+# Let's redraw this layout using containers and glue
 
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
 .right-column[
 <div class="mermaid">
 graph TD
@@ -145,31 +151,33 @@ class M,A,C,I,T,Q blue
 
 ---
 .left-column[
-# Remember the Widget abstraction?
+# Remember the Component abstraction?
 ]
 .right-column[
-Each widget knows how to draw itself
+Each component knows how to draw itself
 
 Doesn't have to worry about position, clipping, etc
 
 ... So how is position defined?
 ]
 ---
-## Container Widgets
-
+.left-column[
+# Container Components
+]
+.right-column[
 Help with layout
 
 Manage size and position of children
-- Enforce widget abstraction
+- Enforce component abstraction
 
-- Simple loop through child widgets --> Recursive tree traversal 
+- Simple loop through child components --> Recursive tree traversal 
 
  - Translate child to correct location
 
  - Clip child after drawing is complete
 
 Know how to handle resizing (reactive)
-
+]
 ???
 - Parent knows how to setup for drawing of children, invoke their
 drawing code, and add additional output (before and/or after) based on
@@ -180,7 +188,9 @@ what the parent is and its internal state
 - Nesting not well defined
 
 ---
-.left-column[## How do Container Widgets actually do layout?]
+.left-column[
+# How do Container Components actually do layout?
+]
 
 .right-column[
 Key Issues:
@@ -197,18 +207,21 @@ How to react to changes
 ]
 
 ---
-# What do container widgets need to do this?
-
+.left-column[
+# What do container components need to do this?
+]
+.right-column[
 Ideally:
-- widget's preferred size
+- component's preferred size
 
-- widget's minimum size
+- component's minimum size
 
-- widget's maximum size
+- component's maximum size
 
 And they get to ignore all of that, but usually try not to.
-
+]
 ---
+# Using Container Components 
 .left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
 
 .right-column[
@@ -242,7 +255,7 @@ class M,A,C,I,T,Q blue
 ]
 
 ---
-# Vertical Container
+# Vertical Container Components
 
 .left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
 
@@ -278,7 +291,7 @@ class M,A,C,I,T,Q blue
 ]
 
 ---
-# Horizontal Container
+# Horizontal Container Components
 
 .left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
 
@@ -348,10 +361,26 @@ class Z,Y,V,U yellow
 class M,A,C,I,T,Q blue
 </div>
 ]
+---
+[//]: # (Outline Slide)
 
+.left-column[
+# Today's goals
+]
+.right-column[
+- Review of tree construction
+- Review of quiz on layout pros and cons
+- Using tree for layout
+- Container components
+- __Layout Implementation in General__
+- Draw and Redraw 
+- Constraint based layout
+]
 
 ---
 # Absolute layout -- actual implementation (slightly simplified)
+
+This is a simple depth first tree traversal
 
 ```java
 protected void onLayout(boolean changed, int l, int t, int r, int b) {
@@ -366,19 +395,18 @@ protected void onLayout(boolean changed, int l, int t, int r, int b) {
 }
 ```
 
-This is a simple depth first tree traversal
 
 ---
 # Relative layout implementation
 Simplified, basic structure for any Android layout, including your own custom one! 
 
 ```java
-// Two pass traversal of widget hierarchy
+// Two pass traversal of component hierarchy
 // First: Measure everything
 protected void onMeasure(int widthspec, int heightspec) {
   sortChildren()
   // loop through children
-  foreach child widget c {
+  foreach child component c {
     // get child's layout params
     // apply appropriate rules to them
   }
@@ -397,17 +425,38 @@ public void doLayout(Rectangle newBounds)
       }
    }			    }
 ```
-
 ---
-## Powerful option: Constraints
+layout: false
+[//]: # (Outline Slide)
 
+.left-column[
+# Today's goals
+]
+.right-column[
+- Review of tree construction
+- Review of quiz on layout pros and cons
+- Using tree for layout
+- Container components
+- Layout Implementation in General
+- Draw and Redraw 
+- Layout Implementation in Android
+- __Constraint based layout__
+- Constraints in Android
+]
+---
+.left-column[
+# Powerful option: Constraints
+]
+.right-column[
 Declare relationships (.red[what] should be true)
 
 System automatically maintains relationships under change (.red[how])
-
+]
 ---
-## Powerful option: Constraints
-
+.left-column[
+# Powerful option: Constraints
+]
+.right-column[
 Declare relationships (what should be true)
 
 - This should be centered in that
@@ -417,30 +466,29 @@ Declare relationships (what should be true)
 - Parent should be 5 pixels larger than child
 
 System automatically maintains relationships under change (how)
-
+]
 --
+.right-column[
 Too good to be true?
-
---
-
-Unsolvable for arbitrary things
-
-Works really well for a limited set
-
+- Unsolvable for arbitrary things
+- Works really well for a limited set
+]
 ???
 a good set for ui programming
 xx need to make sure I know why it is hard for arbitrary things
 
 ---
-## Note that these are one-way constraints
-
+.left-column[
+# Note that these are one-way constraints
+]
+.right-column[
 You can change the right side, and it will update the left side (not
 the reverse)
 
 Can be very inefficient -- O(2^n)
 
 But highly efficient incremental update algorithms exist
-
+]
 ???
 
 Only have to update things that might change
@@ -450,7 +498,7 @@ Hudson's work on this was seminal
 can have a DAG but not a cycle (thus, a tree)
 hard to guard against cycles
 ---
-## How is this done in Android?
+# How is this done in Android?
 .left-column[![:img picture of attributes window showing controls for
 constraint-based layout including five types of elements, 100%](img/constraints.png)]
 
@@ -473,12 +521,14 @@ https://developer.android.com/training/constraint-layout/
 .right-column[Range of attachment options (e.g. button sides, corners)]
 
 ---
-.left-column[## How is this done in Android?]
+.left-column[
+# How is this done in Android?
+]
 .right-column[
 Handled with a set of abstractions associated with a container
-widget
+component
 
-[https://developer.android.com/reference/android/support/constraint/package-summary](javadocs for constraint package)
+[javadocs for constraint package](https://developer.android.com/reference/android/support/constraint/package-summary)
 
  - Specified in the GUI (Chapter 18 & 19)
 
@@ -490,7 +540,7 @@ widget
 .right-column[
 
 Additional abstractions <br>
-(e.g. groups; guidelines &amp; barriers; chains
+(e.g., groups; guidelines &amp; barriers; chains)
 ]
 ---
 # Example: Linear Layout of Email
@@ -550,24 +600,29 @@ the opposite for a vertical scrollbar and a small corner element that
 cannot be squeezed or stretched in either direction, 100%](img/trylayout.png)]
 
 ---
-
-# In Lab: Layout (solo)
-Learning goals: Create a layout to a spec
- - Reproduce three layouts we give you
- - Should position things as shown in the image
- - Should resize appropriately if phone is turned
-
----
+.left-column[
 # Review
+]
+.right-column[
+The importance of the Component Hierarchy in just about everything
+- Draw and redraw
+- Layout
 
 A More Flexible Model of Interactor Size
-Natural size (preferred size)
-Min size
-Max size
 
+- Natural size (preferred size)
+- Min size
+- Max size
+
+Declarative implementation of layout containers
+
+Constraints
+]
 ---
-#General & Powerful Approach: Constraints
-
+.left-column[
+# General & Powerful Approach: Constraints
+]
+.right-column[
 General mechanism for establishing and maintaining relationships between things
 - Layout is one use
 - Several other uses in UI
@@ -575,7 +630,7 @@ General mechanism for establishing and maintaining relationships between things
  - Multiple views of same data
  - Automated semantic feedback
  - Automatic arrangement of lines (powerpoint snapping!)
-
+]
 
 ---
 # End of deck

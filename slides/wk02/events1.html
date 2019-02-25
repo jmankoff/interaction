@@ -1,0 +1,427 @@
+---
+layout: presentation
+title: Event Handling I -- Input Devices, Events and Event Delivery
+description: Describes input devices, abstractions around events, Listeners, Event Delivery
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Event Types and Event Dispatch
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+name: normal
+layout: true
+class: 
+---
+
+[//]: # (Outline Slide)
+.left-column[
+# Today's goals
+]
+.right-column[
+Discuss how input is handled
+- Difference between hardware and interaction techniques / Components
+- Logical device abstraction and types of devices
+- Sensor based input 
+- Event vs sampled devices
+- Events as an abstraction
+
+Discuss how Android models input
+- Event hierarchy
+- Input dispatch process
+- Listeners
+- Picking, capture and bubble
+]
+---
+.left-column[
+# Handling Input
+]
+.right-column[
+Generally, input is harder than output
+
+- More diversity, less uniformity
+
+- More affected by human properties
+]
+---
+.left-column[
+# Is this an input device?
+]
+.right-column[
+![:img Picture of swipe keyboard showing text entry of satisfying, 50%](img/swipe.png)
+]
+--
+.right-column[
+No … it’s an interaction technique. Over 50 WPM!
+]
+???
+Who/what/where/etc
+Dimensionality – how many dimensions can a device sense?
+Range – is a device bounded or unbounded?
+Mapping – is a device absolute or relative?
+
+---
+.left-column[
+# Interaction techniques / Components make input devices effective
+]
+.right-column[
+For example, consider text entry: 
+- 60-80 (keyboards; twiddler)
+- ~20 (soft keyboards)
+- ~50? Swype – but is it an input device?
+]
+---
+.left-column[
+# Modern hardware and software starting to muddy the waters around this
+]
+
+![:img Picture of OLED keyboard with labels on keys for gaming instead
+of typing, 50%](img/oled.png)
+
+???
+Add OLEDs to keys -> reconfigurable label displays
+
+---
+.left-column[
+# Can never ignore hardware completely
+]
+.right-column[
+Consider Location
+
+What is different about a joystick, a touch screen, and a mouse?
+]
+???
+Mouse was originally just a 1:1 mapping in 2 dimensions == absolute
+location; bounded
+
+Joystick is relative (maps movement into rate of change in location); unbounded
+
+Touch screen is absolute; bounded
+
+What about today's mouse? Lifting?
+
+---
+
+.left-column[
+# Is there a higher level abstraction here?
+]
+
+--
+.right-column[
+Logical Device Approach:
+
+- Valuator -> returns a scalar value
+
+- Button -> returns integer value
+
+- Locator -> returns position on a logical view surface
+
+- Keyboard -> returns character string
+
+- Stroke -> obtain sequence of points
+
+- Pick -> select an object
+]
+
+???
+
+- Can obscure important differences -- hence use inheritance
+
+- Discussion of mouse vs pen -- what are some differences?
+
+
+???
+
+- Helps us deal with a diversity of devices
+
+- Make sure everyone understands types of events
+
+- Make sure everyone has a basic concept of how one registers listeners
+
+---
+.left-column[
+# Not really satisfactory...
+]
+
+.right-column[
+Doesn't capture device diversity
+
+Event based devices
+- Time of input determined by user
+- Value changes only when activated
+- e.g. button
+
+Sampled devices
+- Time of input determined by program
+- Value is continuously changing
+- e.g. mouse
+]
+
+---
+.left-column[
+# Doesn't capture device diversity
+]
+.right-column[
+
+Event based devices
+
+Sampled devices
+
+Capability differences
+ - Discussion of mouse vs pen
+ - what are some differences?
+]
+---
+.left-column[
+# Contents of Event Record
+]
+.right-column[
+What do we need to know about each event? 
+]
+--
+.right-column[
+__What__: Event Type (mouse moved, key down, etc)
+
+__Where__: Event Target (the input component)
+
+__When__: Timestamp (when did event occur)
+
+__Value__: Mouse coordinates; which key; etc.
+
+__Context__: Modifiers (Ctrl, Shift, Alt, etc); Number of clicks; etc.
+]
+???
+Discuss each with examples
+---
+.left-column[
+# Aside: Multiple Hierarchies discussed so far in class
+]
+.right-column[
+Can you think of them?
+]
+???
+Inheritance hierarchy for widgets
+Inheritance hierarchy for layout
+Inheritance hierarchy for events
+Component hierarchy
+---
+.left-column[
+# Responding to Users
+]
+.right-column[
+When a user interacts with our apps, Android creates __events__
+]
+--
+.right-column[
+As app developers, we react "listening" for events and responding
+appropriately
+]
+
+---
+.left-column[## Case study: Android Events]
+.right-column[
+Each kind of event has its own class but they all implement the event interface
+- A little hard to find all the parts defined in one place
+- Harder to deal with uniformly
+- But easily extensible for new event types
+
+Each kind of event has its own class
+
+.red[Artificial] events are a thing (e.g. window events)
+]
+
+---
+.left-column[## Case study: Android [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)]
+.right-column[
+```java
+java.lang.Object
+   ↳	android.view.InputEvent
+ 	   ↳	android.view.MotionEvent
+```
+
+```java
+public final class MotionEvent 
+extends InputEvent implements Parcelable {
+
+int getAction()      // up, down etc
+int getActionIndex() // multi touch support -- which pointer
+float getX()         // position
+float getY()         // position
+int getButtonState() // pressed or not, for example
+long getDownTime()
+float getOrientation(int pointerIndex)
+float getPressure()
+float getSize()      // fingers aren't pixel sized
+                     // and many more...
+}
+```
+]
+---
+.left-column[
+# Input __Dispatch__ Process
+]
+.right-column[
+## Threaded
+Input thread: 
+- When a user interacts,  __events__ are created
+- Events go into a queue
+]
+---
+.left-column[
+# Input __Dispatch__ Process
+]
+.right-column[
+Input Thread
+
+Dispatch thread:
+- Front event comes off queue
+- How do we decide where to send events?
+]
+
+---
+.left-column[
+# How do we decide where to send events?]
+
+.right-column[
+Input Thread
+
+Dispatch thread:
+  - Worked example of mouse input
+]
+???
+
+(focus) Discuss Quiz on Input Events
+(non-focus) Determine proper component 
+ - recursive pick() to identify objects of interest (or just focus())
+ - ‘capture()’ (most things don’t) top to bottom deliver to target object (bottom)
+ - ‘bubble()’ (bottom to top)
+- Invoke callback (wait until complete)
+
+
+---
+.left-column[
+# Input __Dispatch__ Process
+]
+.right-column[
+Input Thread
+
+Dispatch thread
+
+Components:
+- Components have to listen for events
+- How do components respond? 
+]
+???
+- Update application state if appropriate
+- Request repaint if needed
+
+
+---
+# Input Process - Picking
+
+<div class="mermaid">
+graph TD
+V0((V0)) --> V1((V1*))
+V0 --> V4((V4*))
+V1 --> V2((V2))
+V1 --> V3((V3*))
+V4 --> V5((V5))
+V4 --> V6((V6*))
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+class V0,V2,V5 blue
+class V1,V4,V3,V6 bluegreen
+</div>
+
+.footnote[*: denotes the element responds to the event]
+
+--
+
+- What `View` objects does dispatch "pick"?
+
+--
+
+- Picked Views = { `V1`, `V3`, `V4`, `V6`}
+
+--
+
+- Order matters!
+---
+# Input Example - Capture
+
+- Picked Views = { `V1`, `V3`, `V4`, `V6`}
+
+- What happens next?
+--
+
+- Dispatch starts at the front of the picked `View` object list
+
+--
+
+- In order, dispatch asks: will you consume this event?
+--
+
+  - If `true`: the event is consumed and the event propagation __stops__
+
+  - If `false`: Move to the next element in the `View` list
+
+--
+
+- What happens when we reach the last `View` in the list and no one has consumed the event?
+
+---
+# Input Example - Bubbling
+
+- Picked Views = { `V1`, `V3`, `V4`, `V6`}
+
+--
+
+- Android backtracks through the list, asking if they want to consume the event
+
+--
+
+- Who gets asked first ?
+
+---
+# Input Example - Recap
+.three-quarters-width[
+|State           |Ordering         |
+|:---------------|:----------------|
+|*Picking*       | V1| V3 | V4 | V6|
+|*Capture Order* | 1 | 2  | 3  | 4 |
+|*Bubbling Order*| 4 | 3  | 2  | 1 |
+]
+
+---
+
+.left-column[##Summary]
+.right-column[
+
+]
+???
+---
+# How would you handle input in a circular component?
+???
+Picking is based on the bounding box...
+---
+# Summary XXX fill in
+---
+# End of Deck
+---
+---
+.left-column[
+# We model everything as events
+]
+.right-column[
+Sampled devices
+  - Handled as “incremental change” events
+  - Each measurable change: a new event with new value
+Device differences
+  - Handled implicitly by only generating events they can generate
+]

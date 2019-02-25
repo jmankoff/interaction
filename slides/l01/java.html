@@ -1,0 +1,286 @@
+---
+layout: presentation
+title: Lab 1 Slides
+description: Lab project--Hello World--
+class: middle, center, inverse
+---
+
+# SSUI Mobile Lab (Spring 2019)
+## Week 1: Java Refresher
+
+.title-slide-logo[
+  ![Android Logo](img/android-logo.png)
+]
+
+---
+      
+# Quick Java Refresher
+
+---
+
+## What is Java?
+--
+
+- Strongly, statically typed language
+
+  - Every variable has a type
+  - This type is decided at compile time (mostly)
+
+--
+
+- Compiled, class-based, Object-oriented
+
+--
+
+- Platform agnostic
+
+  - __Write once__, _run anywhere_ without recompilation
+  - Especially useful for Android
+
+---
+
+## Java Basics: Primitive Types
+
+--
+- Boolean
+
+```java
+boolean hasClassStarted = true;
+boolean isClassOver = false;
+```
+
+--
+- Integer
+
+```java
+int numStudents = rand.nextInt(0, 30);
+```
+
+--
+- Float
+
+```java
+float gradePointAverage = 3.2f;
+```
+
+--
+- Double
+  - Higher precision than float
+
+```java
+double examScore = 97.362;
+```
+
+--
+- Byte, Short, etc.
+
+---
+## Java Basics: Text
+
+--
+- Characters
+
+```java
+char section = 'B';
+```
+
+--
+- Strings
+
+```java
+String instructor = "Jennifer Mankoff";
+```
+
+--
+All non-primitives types inherit from `Object` class
+  - Including `String`; note the capitalization
+
+---
+## Java Basics: Visibility Modifiers
+
+```java
+public final String course = "CSE 340";
+///...
+private final String ssn = "123-45-6789";
+```
+
+--
+- `private`
+  - Kept secret, can only be read/written by `self`
+  - Cannot be accessed by subclasses
+
+--
+- `package private`
+  - This is the default access if no modifier is specified
+  - Accessible by all classes in the same package.
+
+--
+- `protected`
+  - Access restricted to `self`, subclasses, and package
+
+--
+- `public`
+  - The world can read/write (fields) or call (methods)
+
+---
+## Java Basics: Visibility Modifiers
+
+--
+  - Generally, you want to be as restrictive as possible
+    - Usually, this means `private`
+
+--
+
+  - Create getter/setter methods to modify the member variables
+
+--
+
+  - .red[__Almost never use__ `public`] for fields
+    - Except for constants
+
+---
+## Java Basics: `final`
+
+--
+- Prevent value from changing after initialization
+
+```java
+final double courseGrade = 95.0; // cannot be modified ever!
+```
+
+--
+- Prevent subclassing
+
+```java
+  public final class Person {
+      // can't subclass (for example to make a Student class)
+      // ...
+  }
+```
+
+--
+- Prevent overriding
+
+```java
+  public final int getValue() { // can't override!
+      return 0;
+  }
+```
+
+---
+## Java Basics: `static`
+
+--
+- Use for constants that are the same for all instances of a class
+
+```java
+static double SALES_TAX_RATE = 0.07;
+```
+
+--
+- Methods that can be called without an class instance
+
+```java
+static String toString(int i);
+// For example Integer.toString(100) => "100";
+```
+
+--
+- By convention, names are capitalized and snake_cased
+
+---
+## Java Basics: Methods
+- Methods in Java typically follow this format:
+
+```java
+{visibility} [static] [final] returnType methodName(paramType paramName, ...) {
+    // ...
+}
+```
+
+--
+- `static` and `final` are optional, special modifiers
+- `visibility` is one of `public`, `private`, `protected`, or empty for package private
+
+---
+## Java Basics: Method Example
+
+Summing two numbers and returning the answer as a string
+
+```java
+public String getSumOfTwoNumbersAsString(int first, int second) {
+  int sum = first + second;
+  return Integer.toString(sum);
+}
+```
+
+---
+## Java Basics: Declaring a class
+
+```Java
+{visibility} class ClassName {
+  // Field declarations
+
+  // Method definitions
+}
+```
+
+---
+## Java Basics: Constructing a Class
+
+```java
+public class Student {
+
+  // Class (static) variables -
+  public static final String STUDENT_KEY = "STUDENT";
+  private static final String ID_PREFIX = "S";
+
+  // Instance Variables
+  private String idNumber;
+  private String name;
+
+  // Constructors - used to create an instance
+  Student(String name, String idNumber) {
+    this.name = name;
+    this.idNumber = idNumber;
+  }
+
+  // Methods
+  public String getPrefixedIdNumber() {
+    return ID_PREFIX + idNumber;
+  }
+```
+
+---
+## Java Basics: Constructing a Class cont.
+```java
+  // Getter
+  public String getName() {
+    return name;
+  }
+
+  // Setter
+  public void setName(String newName) {
+    if (newName == null || newName == "") {
+      newName = "Unknown";
+    }
+
+    name = newName;
+  }
+
+  // ... etc.
+
+}
+```
+
+---
+## More Java Resources
+
+- Java Documentation (https://docs.oracle.com/javase/8/docs/api/)
+
+- __Online Java Practice Problems__:
+
+  - http://codingbat.com/java
+
+  - https://practiceit.cs.washington.edu/problem/list
+

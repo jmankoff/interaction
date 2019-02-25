@@ -1,0 +1,163 @@
+---
+layout: presentation
+title: Background on how Activities Generate Events
+description: Activity state changes generate events. Here's how
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+template: inverse
+
+# Interaction Programming Lab (Spring 2019)
+## Activity State Change Event Handling
+---
+layout: false
+---
+
+## Activity.red[*]
+
+- Application component providing a screen for users to interact
+
+--
+
+- Typically fills whole the screen (though it doesn't have to)
+
+--
+<br><br>
+![:img Android Calculator App, 20%](img/android-calculator-example.png)
+![:img Android Contacts App, 20%](img/android-contacts-example.png)
+![:img Android Search App, 20%](img/android-search-example.png)
+<br>
+
+--
+
+<br>
+.footnote[
+ More on Activites: https://developer.android.com/guide/components/activities.html
+
+]
+---
+## Activity and Events
+- Event-based interaction paradigm
+
+--
+
+- Your code should respond to event changes, interactions, and processes
+
+--
+
+- Get familiar with its state changes and __Lifecycle__
+---
+## Activity States
+- __Active__: in foreground of screen, and receives input
+
+--
+
+- __Paused__: activity lost focus (is no longer displayed on screen)
+
+--
+
+- __Stopped__:
+  - Another activity has focus
+
+  - Original activity remains in memory -- perfect place to save data & state
+
+  - Often can be *killed* by Android OS if not resumed relatively quickly
+
+--
+
+- __Inactive__: after an activity has been killed; or before it is launched
+
+---
+
+## Switching States - Activity Lifecycle
+.half-width-img.center[
+  ![Android Activity Lifecycle](img/activity_lifecycle.png)
+]
+---
+## Responding to State Changes with Callbacks (1/3)
+- `onCreate`
+--
+
+  - called when the activity is first created
+  - we've seen this in our `HelloAndroidWorld` App:
+
+--
+
+
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+  // We want to do any view initialization work here
+  super.onCreate(savedInstanceState);
+  // Load the XML representation of our layout into the view
+  setContentView(R.layout.activity_main);
+  // Remember findViewById let's us find the xml views we declared in our
+  // program (this is a link between the xml world and java)
+  mMainTextView = (TextView) findViewById(R.id.text_main_title);
+  mSumTextView = (TextView) findViewById(R.id.text_sum);
+}
+```
+
+--
+
+- `onStart`
+  - Called when activity is about to be visible to the user
+  - Always gets called after `onCreate` or `onRestart`
+
+---
+## Responding to State Changes with Callbacks (2/3)
+
+- `onResume`
+  - Called when the activity will start interacting with a use
+--
+
+  - Always gets called after `onStart`  
+
+--
+
+
+- `onPause`
+  - Called when the system is about to start resuming another previous activity
+--
+
+  - __Commit changes__ to persistent data, __stop animations & intense operations__, __kill network__ requests  
+--
+
+  - .red[Fast implementation required!] - the next activity will not resume until this finishes in your activity
+
+--
+
+
+- `onStop`: Called when the activity is no longer visible to the user
+
+---
+## Responding to State Changes with Callbacks (3/3)
+
+- `onRestart`
+--
+
+  - Called when the activity was previously stopped but is coming back to the user
+  - Followed by a call to `onStart`
+
+--
+
+
+- `onDestroy`: the final notice before your activity is .red[__destroyed__]
+
+--
+
+  .center.half-width-img[
+    ![Cookie Monster Eating](img/cookie-monster.gif)
+  ]
+---
+template: inverse
+
+# Short Activity  
+ (Pun Intended)
+
+???
+XX todo what was this?
+---

@@ -17,7 +17,7 @@ layout: false
 
 [//]: # (Outline Slide)
 # Today's goals
-- Widget Hierarchy and use for drawing
+- Component Hierarchy and use for drawing
 - Abstractions for drawing on the screen
 - Drawing in Android
 - Clipping and other transformations
@@ -45,7 +45,7 @@ toolkit need to know to draw this
 
 - Deconstruct
 
- - Let's list all the widgets... and arrange them in a tree
+ - Let's list all the components... and arrange them in a tree
  
 ???
 
@@ -157,7 +157,7 @@ classDef green fill:#88CC88,stroke:#333,stroke-width:4px;
  - Deliver input == walk the tree and deliver events (TBD)
 --
 
-- Widgets:
+- Components:
  - Receive redraw()
  - Show feedback (how?)
  - Respond to input 
@@ -175,11 +175,13 @@ HTML is like this too
 - Talk about canvas, graphics object, object for each thing, etc Efficiencies?
 - Mention redraw
 - Discuss inconsistencies across toolkits -- whorfian effects again
+- Discuss raster graphics and where coordinates are (00 at top left)
 
 ---
 # Drawing in Android
 
 - `Canvas` is an object level abstraction for performing drawing operations
+
 --
 
 - All drawing should be done in `protected void onDraw(Canvas canvas) {...}`
@@ -228,8 +230,8 @@ Calendar reminder Christian and Anind (Jen Mankoff) is starting at
 
 ]
 ---
-Which of the following must a parent widget do before passing a
-drawable region to the child? [raise your signs for the first... and second]
+Which of the following must a parent component do before passing a
+drawable region to the child? [raise your hands]
 
 - [a] Translate (child.x, child.y)
 - [b] Clip(parent.x, parent.y, parent.w, parent.h)
@@ -271,7 +273,7 @@ Linear (“affine”) transformation
 
 ???
 used extensively in GUIS because child objects just draw themselves
-at *their* origin, so a widget doesn't have to calculate how to draw
+at *their* origin, so a component doesn't have to calculate how to draw
 itself based on its position
 
 --
@@ -475,13 +477,54 @@ where [ab] is determined by the blend mode.
 - Which is more scalable?
  - A (Pixel model)
  - B (Path model)
- 
+
+???
+XXXX could do in-class [drawing
+exercise](https://github.com/mriveralee/ssui-mobile-exercises-2016/tree/master/exercises/lab05/CustomDrawing)
+IF time XXXX needs updating
+
+---
+# Animation becoming core pillar of UX design
+
+Greater awareness of role for communicating UI behavior
+Guide, provide context, delight, engage
+
+.quote[‘Animation is increasingly becoming an important part of the UI
+design experience. Google’s material design guidelines are a good
+illustration of this. Expect to see even more tools and optimisations
+made to improve the production workflow and performance in browsers
+and on devices.’ (Weareathlon)]
+---
+# Using Animation Well
+
+- Used sparingly and understandingly, animation can enhance the interface … otherwise can distract!
+- Need to mimic real world
+- Observing motion tells us about size, weight, rigidity
+- No abrupt changes in velocity!
+
+---
+# Main implementation approach
+
+Frame-based 
+- Redraw scene at regular intervals
+- Developer defines redraw function
+
+Transition-based (Hudson & Stasko '93)
+- Specify property values of animation transition speed and process
+ - Uses 'pacing' functions to stylize animation, e.g. slow-in
+slow-out (see [easings.net](http://easings.net))
+- Typically computed via __interpolation__
+```java
+step(fraction){x_now = x_start + fraction*(x_end - x_start);}
+```
+- Timing and redraw managed by toolkit
 ---
 
 # Summary & revisiting learning goals for this week
 
-- Widget Hierarchy and use for drawing
+- Component Hierarchy and use for drawing
 - Pixel & stroke models
 - Rotating around an object 
 - Canvas & Paint & Paths in Android
 - Text Quirks
+- Animation Implementation

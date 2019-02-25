@@ -5,7 +5,7 @@ layout: default
 * TOC
 {:toc}
 
-# Week 1: What's in an Interface
+# Week 1: What's in an Interface 
 **Learning goals**
 - [M] Relevance of class to all of CS
 - [W/Th] Get up to speed on Android (hello world!)
@@ -18,107 +18,107 @@ layout: default
 **Slides**
 [Introduction to course](/interaction/slides/wk01/intro.html)
 
-## 4/3 Wednesday: Basic Structure of Interaction
-
+## 4/3 Wednesday: Basic Structure of Interaction 
 **Required Preparation (30-40 min)**
 - Chapter 1: Introduction from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
 - Chapter 3; 9-10: Understanding Android Application and Activity Lifecycles from [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
-- Download Android Studio and follow the directions in Chapter 3 to create an Android Application
+- Download Android Studio and follow the directions in Chapter 3 to create an Android Application (also see these [instructions](setup-android.html))
 
 **Exercise Assigned**
 [Doodle](/interaction/assignments/doodle) 
 
 **Slides**
-[MVC](/interaction/slides/wk01/MVC.html)
+[Core Toolkit Abstractions](/interaction/slides/wk01/MVC.html)
 
-## 4/4 Thursday: Introduction to Android 
-**Slides**
-[Lab 01: Hello World](/interaction/slides/l01/hello.html)
+## 4/4 Thursday: Introduction to Android (active)
+**Slides** [Lab 01: Hello World](/interaction/slides/l01/hello.html)
 
-## 4/5 Friday: Drawing on the Screen
-**Required Prep (10 min)**
+**For your refence ** [Java Refresher](/interaction/slides/l01/java.html) 
+
+## 4/5 Friday: Drawing on the Screen (active)
+**Recommended Prep (10 min)**
 - Read: Chapter 2 from Drawing from [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
-- Watch: [Example perceptual visual effect involving color](https://www.youtube.com/watch?time_continue=9&v=Db4PwJ2LDVk)
 
 **Slides**
 [Drawing](/interaction/slides/wk01/Drawing.html)
 
 # Week 2: Interact With Me
 **Learning goals**
-- [M] Abstractions for layout (arranging things on the screen)
-- [W] Essential geometry and basic event handling
+- [M] Visual properties of people that can guide design
+- [W]  Abstractions for layout (arranging things on the screen)
 - [Th] Creating layouts in Android
-- [F] Common interactors and how to name them
+- [F] Basic event handling
+- [F] Interactor hierarchies vs inheritance
 
-## 4/8 Monday: Layout
-**Required Reading (10 mins)** [Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) 
-**Required Reading (10 min):** - Chapter 17 & 18: A Guide to Android Constraint Layout [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
+## 4/8 Monday: Properties of People I: Visual Perception
 
 **Slides**
-[Layout](/interaction/slides/wk02/layout.html)
+[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)
 
 **Exercise Due**
 [Doodle](/interaction/assignments/doodle) 
 
-## 4/10 Wednesday: Interaction I: Event Handling and Input Devices
+## 4/10 Wednesday: Layout
+**Required Reading (10 mins)** [Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) 
 
-**Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) 
+**Required Reading (10 min):** - Chapter 17 & 18: A Guide to Android Constraint Layout [Android Studio 3.0 Development Essentials](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)
 
 **Slides**
-[Event Handling](/interaction/slides/wk02/events.html)
+[Layout](/interaction/slides/wk02/layout.html)
 
 ## Thursday: Layout Exercise Assigned; 
 
 **Exercise Assigned**
 [Layout](/interaction/assignments/layout)
 
-** Lab Focus **
-- Peer grade Doodle exercise
-- Discuss layout assignment
-- Work on layout assignment
+**Slides**
+[Layout in Android](/interaction/slides/l02/layout.html)
 
-## 4/12 Friday: Properties of People
-**Possibly provide video**
+## 4/12 Friday:  Event Handling I: Input Devices, Events and Event Delivery
+
+**Required Reading (10 min):** - Chapter 3: Event Handling [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) pp. 43-52 (on Input Events); 59-63 (Listeners) 
+
 
 **Slides**
-[Properties of People](/interaction/slides/wk02/people.html)
+[Event Handling 1](/interaction/slides/wk02/events1.html)
 
 
 # Week 3: Building a Widget
 **Learning goals**
 - [M] Events of Interest
-- [M] Interactor hierarchies vs inheritance
 - [M] Interactor Design Guidelines
 - [W] Essential behavior and the use of finite state machines
 - [Th] Build your own Widget
 - [F] Menu Design History
 - [F] Paper Prototyping & behavior
 
-## 4/15 Monday: Interaction II: Essential Behavior
-**Reading**
-Chapter 3: 68-end of chapter (Model/View Notification; Essential Geometry and Controllers) 
+## 4/15 Monday: MVC at the Widget Level Essential Geometry and Essential Behavior
+
 **Slides**
-[07: Input Events](/interaction/slides/wk03/events.html)
+[From Events to Behavior](/interaction/slides/wk03/events.html)
 
 **Exercise Due **
 [Layout](/interaction/assignments/layout)
 
 
-## 4/17 Wednesday: Essential Behavior/Finite State Machines
-**Readings?**
-**Slides**
- [08: Essential Behavior](/interaction/slides/wk03/essentialbehavior.html)
+## 4/17 Wednesday: Finite State Machines
+** Required Reading**
+Chapter 11: Input Syntax Specification [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
 
-## 4/18 Thursday: Build your own widget exercise (simpler than color picker in lab) 
+**Slides**
+ [08: Essential Behavior: Finite State Machines](/interaction/slides/wk03/state.html)
+
+## 4/18 Thursday: Build your own widget exercise
 **Exercise Assigned**
 [Color Picker](/interaction/assignments/colorpicker)
 
 **Slides**
 [Lab 03: State Management](/interaction/slides/l03/state.html)
-**In class exercise: Designing a Widget ??**
 
+**Other Material (optional)**
+[Activity State Change Events](/interaction/slides/l03/activity-events.html)
 
-## 4/19 Friday: Menu Design History 
+## 4/19 Friday: Interactior Design Case Study: Menu Design History 
 **Readings**
 xx See dan olsen's book, there's a chapter on thi
 
@@ -132,7 +132,7 @@ xx See dan olsen's book, there's a chapter on thi
 - [Th] Data collection for user studies
 - [Th] Introduction to first big assignment
 - [F] Application Design Best Practices
-- [F] Properties of People
+- [F] Properties of People I (Visual Capabilities)
 
 
 ## 4/22 Monday: Running User studies; Color Picker exercise due
