@@ -91,7 +91,7 @@ First, create two LinearLayouts inside `part4_grid.xml`. They should equally div
 
 Then, programmatically add the ConstraintLayout to the Part4View. Iterate over every image name and create a corresponding ImageView. Determine which column to place it in using the "pinterest" property. That is, add the image to the shortest column or the leftmost column if they're equal.
 
-There should be a 30px margin between columns, photos, and the edges. *Important* Don't forget to adjust image width during orientation! A `set` method in [Android ImageView API](https://developer.android.com/reference/android/widget/ImageView) may help you to achieve this programmatically.
+There should be a 30px margin between columns, photos, and the edges. *Important* Don't forget to adjust image width during orientation! A `set` method in [Android ImageView API](https://developer.android.com/reference/android/interactor/ImageView) may help you to achieve this programmatically.
 
 If you use the resolution of drawables for each ImageView to determine column height, remember to normalize as actual photo resolution does not matter when determining displayed height as much as displayed size or image aspect ratio.
 

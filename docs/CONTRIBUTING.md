@@ -17,7 +17,7 @@ Think you found a bug? Please check [the list of open issues](https://github.com
 
 Here are a few tips for writing *great* bug reports:
 
-* Describe the specific problem (e.g., "widget doesn't turn clockwise" versus "getting an error")
+* Describe the specific problem (e.g., "interactor doesn't turn clockwise" versus "getting an error")
 * Include the steps to reproduce the bug, what you expected to happen, and what happened instead
 * Check that you are using the latest version of the project and its dependencies
 * Include what version of the project your using, as well as any relevant dependencies

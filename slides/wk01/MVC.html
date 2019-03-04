@@ -27,57 +27,64 @@ layout: false
 - Component Anatomy
 - Relate to Android
 ---
+.left-column[
+# Every system has at least 3 different models
+]
+.right-column[
+<div class="mermaid">
+graph TD
+  S[System Image: Your Implementation] --> |System Feedback| U[User Model: How the user thinks the system works] 
+  D[Design Model: How you intend the system to work]-->S
+  U -->|User Feedback| S
+</div>
 
+]
+
+???
 # Relating the Human and the Machine
 
 - Gulf of Execution and Gulf of Evaluation
-- Relation to Mental model formation
 
-???
-consider starting this discussion in german
-Talk about how the mental model builds up
-Build up a list of good UI design principals from these basics
-- Undo
-- Predictability
-- ...
-What is missing? (e.g. fun)
----
-# Causes of Gulf of Evaluation
-???
-- Hard to understand visual feedback
-- Poor use of colors
-- Bad layout, poor grouping
-- Unfamiliar display of information
-- Unfamiliar design patterns, or doesn’t follow convention
-- Forcing people to remember lots of things
-- Lack of feedback in response to inputs
-- Might not see visual updates
-- Can’t find info on screen 
-- Might look same as unimportant
-- Irrelevant info on screen / important info missing
----
-# Causes of Gulf of Execution
-???
-- Unfamiliar devices and inputs
-- Don’t know what is possible
-- Unfamiliar GUI components 
-- Solvable with experience
-- Unfamiliar interaction patterns
-- Also solvable with experience
-- Example patterns: Dialogs, Shopping Carts
+Gulf of execution is the user 'error' region (user requests
+  function the __system DOESNT HAVE__), gulf of
+  evaluation is when the user __doesn't realize the system HAS a
+functionality__.
+
 ---
 # Discussion of reading quiz
 ---
 # In class Exercise
 
-- Brainstorm a list of common widgets
+- Brainstorm a list of common interactors
 ???
 Menu, Button(types), Slider, Scrollbar, Spinner, List box, Icon, Link,
 Text box, Label,
 ---
-# Widget (Component) Model
+.left-column[
+# Most GUIs still use the same 7-10 interaction techniques
+]
+.right-column[
+significant stagnation
 
-__Encapsulate interactive components__ (widgets)
+- Basic GUI components invented 1970s
+- Windows, Icons, Menus, Pointers ( “WIMP”)
+- “Perfected” by Macintosh in 1984
+- Not much change since then (even with web)
+
+![Picture of a very old mac control panel showing typical interactors at the time,100%](img/interactors1.png)
+]
+???
+- Work well, uniform
+- Good for usability
+- GUI is victim of its own success
+- Opportunities lost by not customizing interaction techniques to tasks
+- Hard for better techniques to get traction
+- Only very recently with the iPhone (touch based) 
+have we seen lots of new techniques get a major foothold
+---
+# Interactor (Component) Model
+
+__Encapsulate interactive components__ (interactors)
 - Component library (button, slider, container)
 - Interface built as a hierarchy of components
 

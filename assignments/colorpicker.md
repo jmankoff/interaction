@@ -10,7 +10,7 @@ layout: default
 **Objective**: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
 
 **HCI Goals**:
-- Create non-rectangle widget
+- Create non-rectangle interactor
 - Propositional Production System
 - Event handlers and event bubbling
 - Callbacks

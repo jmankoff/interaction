@@ -8,7 +8,8 @@
       @import url({{'/assets/css/ubuntu-mono.css' | relative_url}});  
       @import url({{'/assets/css/yanone-kaffeesatz.css'  | relative_url}}); 
       @import url({{'/assets/css/my-remark.css' | relative_url}});
-      @import url({{'/assets/css/mermaid.css' | relative_url}});      
+      @import url({{'/assets/css/mermaid.css' | relative_url}});
+           
       @page {
         size: 1210px 681px;
         margin: 0;
@@ -40,12 +41,28 @@
 
 <script src="{{'/assets/js/remark-latest.min.js' | relative_url}}" type="text/javascript"></script>
 <script src="{{'/assets/js/remark-macros-jm.js' | relative_url}}" type="text/javascript"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async>
+<script type="text/javascript" src="{{'assets/js/mathjax-sre.js' | relative_url}}"></script>
+
 <script type="text/javascript">
   var slideshow = remark.create({
       navigation: {scroll: false},
       ratio: "16:9",
       highlightStyle: 'github',
       highlightLines: 'true'
+  });
+  MathJax.Hub.Config({
+      tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += 'jax';
+      }
   });
 </script>
 <script type="module" src="{{site.baseurl}}/assets/js/mermaid.js"></script>

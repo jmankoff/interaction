@@ -1,0 +1,535 @@
+---
+layout: presentation
+title: Properties of People II
+description: Deriving Design Principles from Physiology of Motor Control
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Properties of People II: Motor Control & Mental Models
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+layout: false
+
+.title[
+Let's try an experiment
+]
+.right-column[
+-  [Fitts' Law Experiment](http://simonwallner.at/ext/fitts/) Scroll
+   down to just below 'A word of warning'
+- Click the red circles as fast as possible
+
+![:img Image of an interface with a red dot and many grey dots on the left
+and a dialog on right to control randomization and highlight distance
+and width in a Fitts' law experiment., 80%](img/fitts.png)
+]
+---
+[//]: # (Outline Slide)
+.title[
+Today's goals
+]
+.body[
+
+Experience Fitts' Law
+
+Discuss its implications
+
+Discuss Design Guidelines for forming better Mental Models
+
+Case studies exploring Design Implications of Fitts'; Steering;
+
+Introduce Guiard's model of Bi-Manual Control
+  Bi-Manual Control 
+ - Case study of Design of Menus
+ - Case study of Design of Keyboards
+]
+---
+.left-column-half[
+# Throughput
+
+![:img Picture of graph of fitts law data collected when I did the
+experiment. Y axis is time and x is index of difficulty. It's fairly
+noisy because fitts law is designed to measure multiple
+people. However it does fit a line., 80%](img/timeoverid.png)
+]
+.right-column-half[
+.jax[$$MT = a + b*log_2({Dist \over Size} + 1)$$
+]
+where
+- *MT* is movement time
+- *ID/MT* is the *Throughput* of a device in bits/second
+- *a* and *b* are empirically derived constants 
+- ID is the *Index of Difficulty* (ID, in bits) of a movement
+.jax[$$log_2({Dist \over Size} + 1)$$]
+
+
+]
+???
+This is just a line
+
+Fitts’ law tells us about difficulty for pointing and selection tasks
+- Time to move the hand depends only on relative precision required
+- MT increases as __distance__ from target increases
+- MT decreases as __size__ of target increases
+- Diagram this
+---
+.title[
+Compare device performance & Human Performance
+]
+
+.left-column-half[
+![:img Graph of Fitts law lines for various body parts (Neck Arm Wrist
+Finger) with time on the Y axis and bits on the X axis, 100%](img/body-fitts.png)
+
+]
+
+.right-column-half[
+.font-small[
+Device/Part | Study | Throughput (bits/s) | Relative to Optimal
+-------|-------|------------ | -----------
+Finger | Langolf (1976) | 38 
+Wrist  | Langolf (1976) | 23
+EyeTracker| Ware & Mikaelian (1987) | 13.7 | 
+Hand   | Fitts (1954) | 10.6
+Arm    | Langolf (1976) | 9.5
+Xbox 360 | Zaranek (2014) | 5 | **.47** (arm)
+Mouse  | Mackenzie (2001) | 4.9 | .46 (hand)
+Neck      | Pfaff (1985) | 4.2 | 
+Trackball | Mackenzie (2001)| 3.0 | .28 (hand)
+Touchpad  | Mackenzie (2001) | 2.9 | .27 (hand)
+Head      | Hansen (2018) | 2.5 | **.51** (neck)
+Gaze      | Hansen (2018) | 2.1 | **.15** (eyetracker)
+Joystick  | Mackenzie (2001)| 1.8 | .17 (hand)
+Playstation Move | Zaranek (2014) | 1.5 | .16 (arm)
+Kinect    | Zaranek (2014) | 1 | .1 (arm)
+]
+]
+.footnote[Card, S. K., Mackinlay, J. D., & Robertson, G. G. (1991). A
+morphological analysis of the design space of input devices. ACM
+Transactions on Information Systems (TOIS), 9(2), 99-122.
+]
+???
+Useful to know if you're designing something like VR
+
+Doesn't have much impact on interface design
+
+Doesn't capture everything; e.g. error rate is higher for eye tracker
+---
+.title[Warnings]
+
+.body[
+Applies to *expert, errorless* use
+
+![:img bar chart of Average WPM for error rates of 1% to 20% in a
+study that falsely inserted typing errors is much higher for 1% than
+20%,75%](img/errors.png)
+]
+.footnote[Error rate was manipulated by faking errors.
+Ahmed Sabbir Arif and Wolfgang Stuerzlinger. CHI 2010. Predicting the cost of error correction in character-based text entry technologies. In Proceedings of the
+]
+???
+Subtle effects here – like the time to fix errors goes up as the error rate goes up… 
+
+---
+.title[That said, let's talk through implications of Fitts' law]
+.body[
+Why are some things harder than others to click on?
+
+![:img Picture of mac desktop and windows desktop. Of note is the main menu bar which is at the very top of the mac desktop but at the top of *each* window on the windows desktop, 80%](img/macvswindows.png)
+]
+???
+Constantly relevant
+
+Intuitively, things that are closer and/or bigger are faster and
+easier to hit (and vice versa)
+
+---
+.title[
+Design Tip #1: Make small targets larger
+]
+.body[
+What does this do to Fitts Law Predictions?
+]
+--
+.body[
+- Maximizes W
+]
+--
+.body[
+Why not all targets?
+]
+--
+.body[
+- Fitts' law involves log -- exponentially bigger gains for small targets
+]
+
+---
+.title[Design Tip #2:<br> Put commonly used things close together
+![:img Screenshot of the powerpoint toolbar with grouped things,150%](img/powerpoint-toolbar.png)
+]
+---
+.title[Design Tip #2:<br> Put commonly used things close together]
+.left-column50[
+![:img Image of the drag'n'pop interface which moves icons to the cursor when they are valid targets,80%](img/dragpop.png)
+]
+.right-column50[
+# ... Or bring them closer to  cursor
+
+What does this do to Fitts Law predictions?
+
+Why not all targets?
+
+How to implement?
+]
+.footnote[
+Baudisch, P., Cutrell, E., Robbins, D., Czerwinski, M., Tandler,
+P. Bederson, B., and Zierlinger, A. Drag-and-Pop and Drag-and-Pick:
+Techniques for Accessing Remote Screen Content on Touch- and
+Pen-operated Systems. In Proceedings of Interact 2003, Zurich
+Switzerland, August 2003, pp. 57-64.
+]
+???
+Reduces D
+
+Not good design to put everything close together
+
+No space to move all targets (contextual filtering helps)
+
+Could do with a fancy container... 
+
+---
+.title[What does this do to Fitts Law Predictions?
+]
+???
+- Minimizes D
+- Other usability goals matter too -- e.g. grouping related things
+
+---
+.title[
+Can we make things *Closer* and *Larger* <br> at the same time?
+]
+.body[
+![:img Image of mac with doc icons magnified,100%](img/mac-expanded.png)
+]
+---
+.title[
+What we're doing is Beating Fitts' Law!
+]
+.body[
+How else can we do this?
+]
+--
+.body[
+Just don't use a mouse! Shortcut buttons; scroll wheel
+
+Or CHEAT... manipulate the interface
+- Minimize D
+- Increase W
+]
+
+---
+.title[Does this minimize (A) D or increase (B) W?]
+.body[
+Select from a menu bar at top of screen 
+![Picture of the apple menu opened on a mac,100%](img/mac-noedge.png)
+]
+???
+Problems?
+
+- Can be tiring to reach edges of *very* large screens 
+- Not all interfaces can do this (e.g. web designers)
+---
+.title[Design Tip #3: Make use of Edges: They are Infinite]
+.right-column[
+![:img Picture of the Windows menu in Windows 95 Windows XP and Windows 8 showing progressive improvement in the relationship between look (namely a border around the icon) and feel (can click anywhere making it an infinetly large button which is easier to hit from a Fitts law perspective), 100%](img/windows-comparison.png)
+]
+
+???
+- Windows 95 bug: bottom-left corner is offset by a few pixels, can’t click on it
+- Windows XP fixes it by making Start button go all the way to the corner
+- Windows 8 uses styling to make start menu circular, but still makes entire corner clickable
+---
+.title[Does this minimize (A) D or increase (B) W?]
+.body[
+Right click in place and then select (starting at :19)
+
+![:youtube Illustration of advantages of marking menus,dtH9GdFSQaw?start=19]
+]
+.footnote[
+Kittenish, G., & Buxton, W. (1994, April). User learning and performance with marking menus. In CHI (Vol. 94, pp. 258-264).
+]
+???
+Minimizes D 
+AND 
+increases W 
+(only angle matters)
+
+
+---
+.title[Does this minimize (A) D or increase (B) W?]
+.body[
+Why is it so rare & unfamiliar?
+
+![:img Left -- A pie menu consisting of a circle broken into eight
+wedges containing menu items like copy and undo; right-- A picture of
+a standard linear menu ,100%](img/linear-pie.jpg)
+]
+.footnote[
+Left example: OneNote 2013, Right example: Firefox. Taken from [Fitts
+law and user experience](https://www.smashingmagazine.com/2012/12/fittss-law-and-user-experience/)
+by
+[https://www.smashingmagazine.com/author/anastasios-karafillis/](Anastasios Karafillis)
+]
+
+---
+.title[Design Tip #4: Use pie menus instead of context menus for
+expert tasks]
+--
+.body[
+Under some circumstances only... 
+
+- Less than 8 options (Small target areas when too many menu entries are added)
+- Expert user (willing to memorize and gain advantage of marking
+menus) 
+- Grouping not important (hard to group radially)
+- Have the implementation capacity on staff (**Shouldn't be a thing! Whorfian effects**)
+]
+---
+.title[
+Does this minimize (A) D or increase (B) W?
+]
+.body[
+![:img video of someone moving emails into folders with snapping,100%](img/gmail-snapping.gif)
+]
+???
+Snapping to a target
+
+- [A] Minimize D?
+- [B] Maximize W?
+
+minimizes D
+---
+.title[Design Tip #5: Use snapping to minimize distance<br> when likely
+targets are known
+]
+.body[
+![:img Picture showing drag snapping in gmail trello and chrome,60%](img/common-snapping-cases.png)
+
+.font-small[
+
+Gmail | Trello | Chrome
+----- | ------ | ----- 
+![:img check, 5%](img/check.png)Drag Handle | ![:img x, 5%](img/x.png)No Handle | ![:img x, 5%](img/x.png) No Handle
+![:img ,5%](img/grab-cursor.png)Grab cursor | ![:img ,5%](img/pointer-cursor.png)Pointer cursor | ![:img ,5%](img/cursor.png)Default cursor
+![:img check, 5%](img/check.png)Drop Shadow | ![:img check, 5%](img/check.png)Drop Shadow | ![:img x, 5%](img/x.png) No Drop Shadow
+![:img check, 5%](img/check.png)Drop Target | ![:img check, 5%](img/check.png)Drop Target | ![:img x, 5%](img/x.png) No Drop Target
+![:img x, 5%](img/x.png) No Natural Movement | ![:img check, 5%](img/check.png)Natural Movement | ![:img check, 5%](img/check.png) Natural Movement
+]
+
+.footnote[Examples courtesy of [Drag and Drop for Design Systems](https://uxdesign.cc/drag-and-drop-for-design-systems-8d40502eb26d)]
+]
+???
+Also common in drawing programs
+
+Most sophisticated approach: dynamic semantics: Check legality and
+consequences of each result at every move don’t catch errors, prevent them
+---
+.title[Does this (A) minimize D or (B) maximize W?]
+
+.body[
+Fan Cursor, Area Cursor and Bubble Cursor
+![:youtube Video showing a variety of schemes for making the cursor
+bigger including fan cursor; area cursor; and bubble
+cursor,bq1x5cRqgUc]
+]
+.footnote[Su, X., Au, O. K. C., & Lau, R. W. (2014, April). The
+implicit fan cursor: a velocity dependent area cursor. In Proceedings
+of the SIGCHI Conference on Human Factors in Computing Systems
+(pp. 753-762). ACM.]
+
+---
+.title[Design Tip #6: Separate Motor Size from Visible Size]
+.left-column[
+![:img Picture of two versions of a dialog box; scrollbar; and
+menu, 100%](img/hiddensize.png)
+]
+.right-column[
+- (a) Visual space appearance of buttons in a dialogue
+box. 
+- (b) Motor space version of button design in (a) with much larger
+targets for certain buttons. 
+- (c) Standard scroll-bar design. (d)
+Visual space appearance of scroll-bar redesigned to occupy smaller
+screen space. 
+- (e) Motor space version of scroll-bar design in 
+- (d) with
+larger targets for active areas. 
+- (f) Visual space appearance of
+menu. 
+- (g). Motor space version of the menu design in (f) with the
+distance m to more important items reduced by compressing the size Wm of less important items)
+]
+.footnote[Semantic pointing widget designs from Blanch et al. 2004]
+???
+How would you implement this?
+- Manipulate picking
+- Whorfian effects
+---
+.title[Would you ever make something too small virtually?]
+???
+How about a cancel button?
+
+---
+.title[How long will this take?]
+.right-column-half[
+Select 'Open New Window in Process'
+]
+.left-column[
+![:img Cascading menus. User wants to use "Open New Window" then "Open
+new window in process" -- second option-- but the most direct path takes them over "Open command prompt" which changes the displayed sub-menu causing problems, 200%](img/size.png)
+]
+--
+.right-column-half[
+Steering law ... Fitts law integrated over the path you have to folow
+]
+--
+.right-column-half[
+But it's not predictive at all. Why?
+]
+???
+Doesn't account for actual user behavior
+---
+.title[Actual User Behavior]
+.right-column[
+![:img Cascading menus. User wants to use "Open New Window" then "Open
+new window in process" -- second option -- but the most direct path takes them over "Open command prompt" which changes the displayed sub-menu causing problems, 100%](img/size1.png)
+]
+---
+.title[Actual User Behavior]
+.right-column[
+![:img Cascading menus. User wants to use "Open New Window" then "Open
+new window in process" -- second option -- but the most direct path takes them over "Open command prompt" which changes the displayed sub-menu causing problems, 100%](img/size2.png)
+]
+
+???
+Overly eager cascading menus, wrong submenu
+- Common problem w/ web menus (but not Mac or Win)
+- could brainstorm solutions (e.g. snapping? set focus somehow?)
+- whorfian effects: this is hard to implement 
+
+---
+.title[Fitts law has a huge limitation]
+.body[
+It is only predictive of **ERROR-FREE, EXPERT** behavior
+]
+---
+.title[Design Tip #7: Use *Affordances* to minimize errors
+]
+.body[
+Good Affordance| Bad Affordance
+----|----
+![:img Picture of a round doorknob, 40%](img/round-doorknob.png) | ![:img Picture of a flat doorknob, 40%](img/flat-doorknob.png) 
+
+Well-designed objects have affordances
+- Clues to their operation that are readily apparent
+- Often visual, but not always (e.g., speech)
+- Allows and promotes certain actions
+]
+???
+Opportunities to act which are readily apparent to the user ... and
+appropriate to the user’s abilities 
+
+Form “affords” certain actions and makes that apparent
+---
+.title[Examples of Affordances
+]
+.body[
+
+Action | Physical Affordance | Virtual Affordance |  Minimal Design
+----|----|----|----
+Gripping | ![:img picture of knurling on a knob,45%](img/knurling.png) | ![:img Image of lines indicating a grabbable corner by imitating knurling,50%](img/virtual-knurling.png)
+Pushing | ![:img picture of buttons on a phone,55%](img/buttons.png) | ![:img Similar buttons on a webpage,55%](img/virtual-buttons.png)|![:img picture of web buttons on a flat-style page,55%](img/web-button.png)
+Search | No Real World Equivalent || ![:img Text area for search. Uses greyed out text to suggest what should go in it, 55%](img/search.png)
+]
+???
+Knurling: increases friction/affords gripping
+
+don't kneed to know the word to get it
+---
+# When this goes wrong!
+(is this physical or virtual? Ubicomp!)
+
+
+![:img picture of faucet with IR sensor, 40%](img/sensor.jpg )| ![:img Sign explaining how to use the sensor, 48%](img/sensor-explanation.png)
+----|----
+---
+.title[Two Handed Interaction]
+.body[
+![Picture by Escher of two hands each drawing the other](img/escher.png)
+]
+???
+Used to be a norm
+
+Seems we forgotten to include it in our interfaces
+---
+.title[Guiard's model of bimanual control]
+.body[
+
+Hand | Role and Action
+---- | ----
+Non-preferred | - leads the preferred hand
+| - sets the spatial frame of reference for the preferred hand 
+| - performs coarse movements
+Preferred | - follows the non-preferred hand
+| - works within established frame of reference set by the non-preferred hand
+| - performs fine movement
+
+Aside: Guiard is assuming right-handed. Tendencies somewhat less clear for left-handers, but we typically assume this still applies
+]
+.footnote[
+Seminal work 
+Yves Guiard, “Asymmetric Division of Labor in Human Skilled Bimanual Action: The Kinematic Chain as a Model”, Journal of Motor Behavior, Vol. 19, No. 4, 1987, pp. 486-517.http://cogprints.org/625/
+]
+---
+.title[
+What else might we want to measure?
+]
+???
+- Time on Task -- How long does it take people to
+complete basic tasks? (For example, find something to
+buy, create a new account, and order the item.)
+- Accuracy -- How many mistakes did people make? (And
+were they fatal or recoverable with the right information?)
+- How strenuous (e.g. gaze has lower throughput but is less strenuous
+than head pointing Mackenzie 2018)
+...
+- Recall -- How much does the person remember
+afterwards or after periods of non-use?
+- Emotional Response -- How does the person feel about
+the tasks completed? (Confident? Stressed? Would the
+user recommend this system to a friend?) 
+
+Build up a list of good UI design principals from these basics
+- Undo
+- Predictability
+- ...
+What is missing? (e.g. fun)
+]
+
+---
+.title[# Summary Slide]
+.body[
+- Make small targets larger
+- Put commonly used things close together
+- Use edges. They are infinite in W
+- Use pie menus for expert tasks (better yet, marking menus)
+- Use snapping to reduce D when targets are known
+- Separate motor and visible size
+- Use affordances to minimize errors
+- Consistency is critical
+- Make conceptual model visible
+]

@@ -7,3 +7,12 @@
 [submodule "_submodules/he"]
 	path = _submodules/he
 	url = https://github.com/mathiasbynens/he.git
+[submodule "_submodules/MathJax-docs"]
+	path = _submodules/MathJax-docs
+	url = https://github.com/mathjax/MathJax-docs.git
+[submodule "_submodules/MathJax"]
+	path = _submodules/MathJax
+	url = https://github.com/mathjax/MathJax.git
+[submodule "_submodules/MathJax-a11y"]
+	path = _submodules/MathJax-a11y
+	url = https://github.com/mathjax/MathJax-a11y.git

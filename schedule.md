@@ -33,7 +33,7 @@ layout: default
 ## 4/4 Thursday: Introduction to Android (active)
 **Slides** [Lab 01: Hello World](/interaction/slides/l01/hello.html)
 
-**For your refence ** [Java Refresher](/interaction/slides/l01/java.html) 
+**For your refence** [Java Refresher](/interaction/slides/l01/java.html) 
 
 ## 4/5 Friday: Drawing on the Screen (active)
 **Recommended Prep (10 min)**
@@ -83,50 +83,57 @@ layout: default
 [Event Handling 1](/interaction/slides/wk02/events1.html)
 
 
-# Week 3: Building a Widget
+# Week 3: Building a Interactor
 **Learning goals**
 - [M] Events of Interest
 - [M] Interactor Design Guidelines
 - [W] Essential behavior and the use of finite state machines
-- [Th] Build your own Widget
+- [Th] Build your own Interactor
 - [F] Menu Design History
 - [F] Paper Prototyping & behavior
 
-## 4/15 Monday: MVC at the Widget Level Essential Geometry and Essential Behavior
+## 4/15 Monday: MVC at the Interactor Level Essential Geometry and Essential Behavior
 **No Reading/Assignment**
 **Slides**
 [From Events to Behavior](/interaction/slides/wk03/events.html)
 
-**Exercise Due **
+**Exercise Due**
 [Layout](/interaction/assignments/layout)
 
 
 ## 4/17 Wednesday: Finite State Machines
-** Required Reading**
+**Required Reading**
 Chapter 11: Input Syntax Specification [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
 
 **Slides**
  [08: Essential Behavior: Finite State Machines](/interaction/slides/wk03/state.html)
 
-## 4/18 Thursday: Build your own widget exercise
+## 4/18 Thursday: Build your own Interactor exercise
 **Exercise Assigned**
 [Color Picker](/interaction/assignments/colorpicker)
+
+XXTODO peer grading for layout? 
 
 **Slides**
 [Lab 03: State Management](/interaction/slides/l03/state.html)
 
-**Other Material (optional)**
+**For Your Reference**
 [Activity State Change Events](/interaction/slides/l03/activity-events.html)
 
-## 4/19 Friday: Interaction Design Case Study: Selection
-** Required Reading**
-Chapter 20: Selection [Building Interactive Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
-
-
+## 4/19 Friday: Properties of People II: Motor Control
 **Slides**
-[09: Interactor Design](/interaction/slides/wk03/menus.html)
+[Properties of People II: Motor Control](/interaction/slides/wk03/people-motor.html)
+
+**Optional Reading**
+Chapter 20: Selection [Building Interactive
+Systems](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
+
+[Motor Behavior Models for Human-Computer Interaction](Principals of
+Interactor Design), I. Scott MacKenzie **Suggest section 3 and 4.2**
 
 # Week 4: Getting Data from Users
+**Required Reading (also needed for upcoming assignment)**
+[An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b) to better understand the purpose and procedures in this user study.
 **Learning goals**
 - [M] Running User Studies
 - [W] ??

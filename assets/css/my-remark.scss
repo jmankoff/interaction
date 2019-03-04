@@ -4,6 +4,24 @@
 @import "fontawesome";
 @import "remark-base";
 
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  font-size: .5em;
+}
+
+.jax{
+    font: inherit; font-size: 100%; background: inherit; border: inherit;
+}
+
+table {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    font-size: 0.9em;
+    text-align: left;
+}
 
 .quote {
   background: #f9f9f9;
@@ -22,6 +40,26 @@
     color: #f3f3f3;
     line-height: 0.8em;
   }
+}
+
+.title {
+  color: #333;
+  float: left;
+  font-size: 2em;
+  padding-left: 1em;
+}
+
+.body {
+  width: 85%;
+  float: right;
+  font-size: 1.5em;
+  padding-left: 1em;
+}
+.body.compact {
+  width: 85%;
+  float: right;
+  font-size: 1.2em;
+  padding-left: 1em;
 }
 
 /* Slide-specific styling */
@@ -81,10 +119,9 @@
   padding-left: 1em;
 }
 
-.left-column50 {
+.left-column-half {
   color: #777;
   width: 50%;
-  height: 92%;
   float: left;
   h2:last-of-type, h3:last-child {
     color: #000;
@@ -92,8 +129,9 @@
   padding-left: 1em;
 }
 
-.right-column50 {
-  width: 50%;
+
+.right-column-half {
+  width: 48%;
   float: right;
   padding-top: 1em;
   font-size: 1.5em;
