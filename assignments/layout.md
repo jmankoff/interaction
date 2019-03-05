@@ -31,12 +31,24 @@ hci_goals:
 ***
 
 Tasks:
-- Create TextView, ImageView, and Button
+- Create `TextView`, `ImageView`, and `Button`
 - Constrain them for automatic portrait and landscape layouts
 
-Create a TextView containing `0` with black background and white 200sp text. Along with it, create a button and ImageView with `food_0` which is 150dp by 150dp.
+First, create a `Button` in `part1.xml`. It should say `BUTTON` by default. Make sure the background color matches ours, `colorPrimary`. Color abstractions in `values/colors.xml` allow us to avoid changing values in multiple places in the future.
 
-Position them as in the photo below. There should be a 20dp margin around the edges and between the textview and button/image. As the view rotates, the image and button should stay a constant size and distance from the edge while the text view expands to fill the extra space.
+Next, create a `TextView`. Set the background color to black and add a `0` as the text. The font should be white and `200sp`. There also exists a similar `values/strings.xml` which allows us to store strings in a central location. For our purposes, just hardcode the text into `part1.xml`. You may notice an IDE warning about hardcoded strings, just ignore it.
+
+Finally, create an `ImageView`. It should contain `drawables/food_0` and be `150dp` by `150dp`.
+
+All three views will have at least two sides along the perimeter of the `ConstraintLayout`. These sides should have a margin of `20dp` preventing the views from touching the edge. As the screen rotates/resizes, all views should stay `20dp` from the edge.
+
+The `ImageView` should reside in the top left. As the screen rotates/resizes, it should remain constant in size.
+
+The `Button` should reside in the bottom left. Its width should match the `ImageView` and it should be perfectly aligned with it. As the screen rotates/resizes, it should remain constant in size.
+
+The `TextView` should be `20dp` from the right edge of the `ImageView`. As the screen rotates/resizes, it should change width to maintain the `20dp` margin.
+
+<span style="color:red;">**NOTE:**</span> It is possible to position some of the views in this assignment without constraints due to the fact that unconstrained views float upwards unless prevented by another view or a margin. **The purpose of this assignment is to practice constraints so such solutions will not be accepted. Every view you add during this assignment, including the other parts, will require at least one constraint.**
 
 ![Screenshot of part 1 in portrait](layout-img/1_portrait.jpeg){:width="25%"}
 ![Screenshot of part 1 in landscape](layout-img/1_landscape.jpeg){:width="50%"}
@@ -45,25 +57,26 @@ Position them as in the photo below. There should be a 20dp margin around the ed
 ***
 
 Tasks:
-- Implement a basic scrolling view
+- Use a basic `ScrollView`
 - Add a fixed number of items with fixed constraints.
 
-Add ImageViews for `food_0` through `food_3`. Using constraints, center them vertically and position them such that `food_0` is 15dp from the top, then each `food_i` is (15*i)dp from `food_i-1`.
+In `part2.xml`, add ImageViews with drawables `food_0` through `food_3` for a total of four images. Let each photo display at its natural resolution. As all three photos are exactly `200px` wide, so we can form a perfect column from them.
 
-That is, `food_1` is 15dp below `food_0`, `food_2` is 30dp below `food_1`, and `food_3` is 45dp below `food_2`. This increasing margin layout will also be used in [Part 3](#part-3).
+Using constraints, center them in the parent `ConstraintLayout`. Then position them such that `food_0` is `15dp` from the top of the parent layout and each additional `food_i` is `(15 * i)dp` from `food_(i-1)`.
+
+That is, `food_1` is 15dp below `food_0`, `food_2` is 30dp belcow `food_1`, and `food_3` is 45dp below `food_2`. This increasing margin layout will also be used in [Part 3](#part-3). There should be **no** margin after the last photo. That is, it should be flush with the tab bar.
 
 When the layout is rotated, the images should stay the same size and remain horizontally centered.
 
-![Screenshot of part 2](layout-img/2_0.png){:width="20%"}
-![Screenshot of part 2, scrolled down](layout-img/2_1.png){:width="20%"}
-![Screenshot of part 2, landscape](layout-img/2_landscape.png){:width="50%"}
-
+![Screenshot of part 2](layout-img/2_portrait.jpeg){:width="20%"}
+![Screenshot of part 2, scrolled down](layout-img/2_portrait_scrolled.jpeg){:width="20%"}
+![Screenshot of part 2, landscape](layout-img/2_landscape.jpeg){:width="50%"}
 
 # Part 3
 ***
 
 Tasks:
-- Implement a basic scrolling view
+- Subclass a `ScrollView`
 - Add a variable number of items with programmatic constraints.
 
 This time, we'll be adding images and constraints programmatically with similar conditions as [Part 2](#part-2).
@@ -74,32 +87,31 @@ Using the similar math as part 2, position the first image `vMargin` dp from the
 
 Again, when the layout is rotated, the images should stay the same size and remain horizontally centered.
 
-![Screenshot of part 3](layout-img/3_0.png){:width="20%"}
-![Screenshot of part 3, scrolled down](layout-img/3_1.png){:width="20%"}
-![Screenshot of part 3, scrolled down more](layout-img/3_2.png){:width="20%"}
-![Screenshot of part 3, scrolled down even more](layout-img/3_3.png){:width="20%"}
+![Screenshot of part 3](layout-img/3.jpeg){:width="30%"}
+![Screenshot of part 3, scrolled down](layout-img/3_scrolled.jpeg){:width="30%"}
+
+![Screenshot of part 3, landscape](layout-img/3_landscape.jpeg){:width="45%"}
+![Screenshot of part 3, landscape, scrolled down](layout-img/3_landscape_scrolled.jpeg){:width="45%"}
 
 # Part 4
 ***
 
 Tasks:
-- Implement an advanced scrolling view.
+- Subclass a `ScrollView`
 - Add a variable number of items with programmatic constraints.
-- Maintain two columns and maintain the "pinterest" property.
+- Maintain two balanced columns with "pinterest" ordering.
 
-First, create two LinearLayouts inside `part4_grid.xml`. They should equally divide the horizontal space and fill the vertical with no margins around them. These will act as our columns. When the view is rotated, the columns should stretch to maintain 50% width.
+This will be similar to [Part 3](#part-3) but with two columns. Inside `part4_grid.xml`, add two `LinearLayout`s to be our columns. Constrain them such that they equally divide the horizontal space with no padding or margin. When the view is rotated, the columns should change width to maintain the 50% split.
 
-Then, programmatically add the ConstraintLayout to the Part4View. Iterate over every image name and create a corresponding ImageView. Determine which column to place it in using the "pinterest" property. That is, add the image to the shortest column or the leftmost column if they're equal.
+In `Part4View`, add each image to one of the two columns. By using two `LinearLayout`s instead of simply adding all images to the parent `ConstraintLayout` and using constraints to maintain the columns, we reduce the number of constraints required from `O(n)` to `O(1)` for `n` images. Each image should be `vMargin` from the previous image vertically (or the top of the column if first image). There should be a vMargin gap between the two columns, however, **the center of the gap must be in the exact center of the screen**. The bottom of the last image should be flush with the bottom of the column. Finally, each image should expand to fill the width as restricted by the margins described above and the height should be such that the aspect ratio matches the source drawable. (Hint: there's a function which will will do this for you.) When rotated, the images should change width to fit the larger comlumns.
 
-There should be a 30px margin between columns, photos, and the edges. *Important* Don't forget to adjust image width during orientation! A `set` method in [Android ImageView API](https://developer.android.com/reference/android/interactor/ImageView) may help you to achieve this programmatically.
+To determine which column a photo should go in, we will use "pinterest" ordering. You should track the height of the images in each column and add the next image to the shorter column (or the left if equal). Be careful not to track the height of the `Drawables` as opposed to the display height of the image. Two photos of the same aspect ratio should affect the column height identically regardless of resolution as they will both have the same size on-screen.
 
-If you use the resolution of drawables for each ImageView to determine column height, remember to normalize as actual photo resolution does not matter when determining displayed height as much as displayed size or image aspect ratio.
+![Screenshot of part 4](layout-img/4.jpeg){:width="30%"}
+![Screenshot of part 4, scrolled down](layout-img/4_scrolled.jpeg){:width="30%"}
 
-When rotated, the view should scale such that the images increase in size and margins remain the same.
-
-![Screenshot of part 4](layout-img/4_0.png){:width="20%"}
-![Screenshot of part 4, scrolled down](layout-img/4_1.png){:width="20%"}
-![Screenshot of part 4, landscape](layout-img/4_landscape.png){:width="50%"}
+![Screenshot of part 4, landscape](layout-img/4_landscape.jpeg){:width="45%"}
+![Screenshot of part 4, landscape, scrolled down](layout-img/4_landscape_scrolled.jpeg){:width="45%"}
 
 # Turn-in
 ## Submission Instructions
@@ -127,8 +139,7 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
   - Portrait: 1 pt
   - Landscape: 1 pt
 - Part 4
-  - (Portrait) Correct “Pinterest” column ordering: 1 pt
-  - (Landscape) Correct “Pinterest” column ordering: 1 pt
+  - Correct “Pinterest” column ordering: 2 pts
   - (Portrait and Landscape) Correct image widths: 1 pt
   - (Portrait and Landscape) Correct image margins: 1 pt
 - Turn-in and compiles: 1 pt
