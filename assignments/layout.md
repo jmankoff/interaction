@@ -139,8 +139,7 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
   - Portrait: 1 pt
   - Landscape: 1 pt
 - Part 4
-  - (Portrait) Correct “Pinterest” column ordering: 1 pt
-  - (Landscape) Correct “Pinterest” column ordering: 1 pt
+  - Correct “Pinterest” column ordering: 2 pts
   - (Portrait and Landscape) Correct image widths: 1 pt
   - (Portrait and Landscape) Correct image margins: 1 pt
 - Turn-in and compiles: 1 pt
