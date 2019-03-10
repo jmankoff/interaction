@@ -73,8 +73,6 @@ A CanvasStateManager will keep track of all CanvasState.
 - When undo/redo, it will update undoStack, redoStack, and currentCanvasState.
 
 
-
-
 ![Screenshot of step 1](undo-img/1.png){:width="200px"}
 ![Screenshot of step 2](undo-img/2.png){:width="200px"}
 ![Screenshot of step 3](undo-img/3.png){:width="200px"}
