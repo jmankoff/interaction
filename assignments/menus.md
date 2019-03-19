@@ -13,10 +13,10 @@ layout: default
 - Build an application based on specs
 - Record user study data
 - Produce plausible experiment results (within expected ranges)
-- Implement menus
 - Understand marking menus
 
 **Android Goals**:
+- Implement menus
 - Store data in file system
 
 **Assigned Date**: ???, 2019
@@ -108,13 +108,18 @@ You will recruit 3 students and conduct this user study (6 session * 5 task) wit
 
 Make sure to consent them (and turn in your consent form)
 
-After each user study, please export the recorded data. If you are using emulator, you can use this command to pull data to your computer. <span style="color:red">TODO: Update path to pull data from Android phones.</span>
+After each user study, please export the recorded data. You will be asked to turn in these recorded data. If you are using emulator, you can use this command to pull data to your computer. <span style="color:red">TODO: Update path to pull data from Android phones.</span>
 ```bash
 adb pull /storage/emulated/0/CSE340_PieMenu/Test.csv YOUR_COMPUTER_LOCAL_PATH
 ```
 
-Then, please use the equation in our excel file to analyze your recorded data.
-<span style="color:red">TODO: Create excel, add analysis instructions.</span>
+Then, please follow Results And Discussion in [An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b) to analyze your recorded data.
+- Target location (x) vs. seek time (y) in seconds
+- Target location (x) vs. number of errors (y)
+
+You will be asked to upload your plots with a paragraph of explanation to canvas.
+- Please export your plots as images (taking screenshot is fine)
+- Please explain your result and your procedure in the study.
 
 # Turnin
 ## Submission Instructions
@@ -126,7 +131,11 @@ YOUR_STUDENT_ID.zip
 ├── LinearMenuView.java
 ├── PieMenuView.java
 └── MainActivity.java
+├── MainActivity.java
+├── Result_0.csv
+└── Result_1.csv
 └── Signed consent forms
+└── Summary of results (pdf)
 ```
 
 ## Grading (10pts)
