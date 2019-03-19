@@ -36,16 +36,11 @@ Today's goals
 
 Experience Fitts' Law
 
-Discuss its implications
-
-Discuss Design Guidelines for forming better Mental Models
-
-Case studies exploring Design Implications of Fitts'; Steering;
+Discuss its implications for design
 
 Introduce Guiard's model of Bi-Manual Control
-  Bi-Manual Control 
- - Case study of Design of Menus
- - Case study of Design of Keyboards
+
+Discuss its implications for design
 ]
 ---
 .left-column-half[
@@ -59,6 +54,7 @@ people. However it does fit a line., 80%](img/timeoverid.png)
 .right-column-half[
 .jax[$$MT = a + b*log_2({Dist \over Size} + 1)$$
 ]
+
 where
 - *MT* is movement time
 - *ID/MT* is the *Throughput* of a device in bits/second
@@ -425,74 +421,8 @@ Overly eager cascading menus, wrong submenu
 .title[Fitts law has a huge limitation]
 .body[
 It is only predictive of **ERROR-FREE, EXPERT** behavior
-]
----
-.title[Design Tip #7: Use *Affordances* to minimize errors
-]
-.body[
-Good Affordance| Bad Affordance
-----|----
-![:img Picture of a round doorknob, 40%](img/round-doorknob.png) | ![:img Picture of a flat doorknob, 40%](img/flat-doorknob.png) 
 
-Well-designed objects have affordances
-- Clues to their operation that are readily apparent
-- Often visual, but not always (e.g., speech)
-- Allows and promotes certain actions
-]
-???
-Opportunities to act which are readily apparent to the user ... and
-appropriate to the user’s abilities 
-
-Form “affords” certain actions and makes that apparent
----
-.title[Examples of Affordances
-]
-.body[
-
-Action | Physical Affordance | Virtual Affordance |  Minimal Design
-----|----|----|----
-Gripping | ![:img picture of knurling on a knob,45%](img/knurling.png) | ![:img Image of lines indicating a grabbable corner by imitating knurling,50%](img/virtual-knurling.png)
-Pushing | ![:img picture of buttons on a phone,55%](img/buttons.png) | ![:img Similar buttons on a webpage,55%](img/virtual-buttons.png)|![:img picture of web buttons on a flat-style page,55%](img/web-button.png)
-Search | No Real World Equivalent || ![:img Text area for search. Uses greyed out text to suggest what should go in it, 55%](img/search.png)
-]
-???
-Knurling: increases friction/affords gripping
-
-don't kneed to know the word to get it
----
-# When this goes wrong!
-(is this physical or virtual? Ubicomp!)
-
-
-![:img picture of faucet with IR sensor, 40%](img/sensor.jpg )| ![:img Sign explaining how to use the sensor, 48%](img/sensor-explanation.png)
-----|----
----
-.title[Two Handed Interaction]
-.body[
-![Picture by Escher of two hands each drawing the other](img/escher.png)
-]
-???
-Used to be a norm
-
-Seems we forgotten to include it in our interfaces
----
-.title[Guiard's model of bimanual control]
-.body[
-
-Hand | Role and Action
----- | ----
-Non-preferred | - leads the preferred hand
-| - sets the spatial frame of reference for the preferred hand 
-| - performs coarse movements
-Preferred | - follows the non-preferred hand
-| - works within established frame of reference set by the non-preferred hand
-| - performs fine movement
-
-Aside: Guiard is assuming right-handed. Tendencies somewhat less clear for left-handers, but we typically assume this still applies
-]
-.footnote[
-Seminal work 
-Yves Guiard, “Asymmetric Division of Labor in Human Skilled Bimanual Action: The Kinematic Chain as a Model”, Journal of Motor Behavior, Vol. 19, No. 4, 1987, pp. 486-517.http://cogprints.org/625/
+We will talk about this more in our discussion of [Interaction Design](../wk04/interfaces.html)
 ]
 ---
 .title[
@@ -519,7 +449,211 @@ Build up a list of good UI design principals from these basics
 - ...
 What is missing? (e.g. fun)
 ]
+---
+.title[Case Study: Text Entry Speed on Mobile Devices]
+.left-column[
+![:img Picture of phone keypad with buttons laid out in rows of "1 2 3 - 4 5
+6 - 7 8 9 - * 0 #", 100%](img/buttons.png)
+]
+.right-column[
+Multi-tap
+```
+77 88 444 222 55 0 22 777 666 9 66 0 333 666 99
+q u i c k _ b r o w n _ f o x 
+```
 
+Slow, lot's of overhead
+]
+
+---
+.title[Case Study: Text Entry Speed on Mobile Devices]
+.left-column[
+![:img Picture of phone keypad with buttons laid out in rows of "1 2 3 - 4 5
+6 - 7 8 9 - * 0 #", 100%](img/buttons.png)
+]
+.right-column[
+Multi-tap (~ 20 WPM)
+```
+77 88 444 222 55 0 22 777 666 9 66 0 333 666 99
+q u i c k _ b r o w n _ f o x 
+```
+
+T9 - dictionary based disambiguation (~ 20 WPM)
+```
+7 8 4 2 5 0 2 7 6 9 6 0 3 6 9
+q u i c k _ b r o w n _ f o x 843 78425 27696 369 58677 6837 843 5299 364
+the quick brown fox jumps over the jazz dog
+tie stick crown lumps muds tie lazy fog
+vie vie
+```
+]
+???
+Most common word (top) not always right
+---
+.title[Case Study: Text Entry Speed on Mobile Devices]
+.left-column[
+![:img Picture of phone keypad with swype enabled and the swype for quick shown, 100%](img/swype.jpg)
+]
+.right-column[
+Method | Speed 
+----|----
+Multi-tap | ~ 20WPM
+T9 - dictionary based disambiguation | ~ 20 WPM
+Swype | ~ 55 WPM
+Keyboard | ~ 55 WPM
+Flesky | Up to 80 WPM ([Guinness World Record!](https://www.cnn.com/2014/05/15/tech/mobile/guiness-record-fastest-text/) )
+Speech | ~ 150 WPM
+
+Skeptical? Need to know % errors and time cost of error correction to truly evaluate
+]
+
+???
+Flesky is combination of gestures and automatic error correction
+
+---
+.title[Two Handed Interaction]
+.body[
+![Picture by Escher of two hands each drawing the other](img/escher.png)
+]
+???
+Used to be a norm
+
+Seems we forgotten to include it in our interfaces
+---
+.title[Guiard's model of bimanual control]
+.body[
+
+Hand | Role and Action
+---- | ----
+Non-preferred | Leads the preferred hand (in time)
+| Sets the spatial frame of reference for the preferred hand 
+| Performs coarse movements
+Preferred | Follows the non-preferred hand
+| Works within established frame of reference set by the non-preferred hand
+| Performs fine movement
+
+Aside: Guiard is assuming right-handed. Tendencies somewhat less clear for left-handers, but we typically assume this still applies
+]
+.footnote[
+Seminal work 
+Yves Guiard, “Asymmetric Division of Labor in Human Skilled Bimanual Action: The Kinematic Chain as a Model”, Journal of Motor Behavior, Vol. 19, No. 4, 1987, pp. 486-517.http://cogprints.org/625/
+]
+???
+non-preferred hand sets context for preferred
+coarser, slower movement
+tends to move first
+???
+Applications?
+
+- Mouse+keyboard
+- Lenses
+
+]
+---
+.title[What does theory say about keyboard layout?]
+.body[
+![:img Picture of right-handed user typing on keyboard with leftside
+and rightside power keys and mouse on right side (top). Picture of
+user  mousing with same set ups (bottom). Of note is the bad angle for
+the mouse in the keyboard with the right side power keys,
+50%](img/keyboard-mouse.jpg)
+]
+.footnote[From [Evoluent keyboard advertisement](https://turningpointtechnology.com/KB/EV/KB1.asp)]
+---
+.title[Analysis of alternative keyboard layout]
+.body[
+Task | Leading Movement | Trailing/Overlapping Movement
+----|----|----
+Delete | Right hand — manipulate pointer with mouse; select by double clicking/dragging | Left hand — press DELETE (probably with little finger)
+Select an option in a window (see Figure 15) | Right hand — manipulate pointer with mouse; click option | Left hand — press ENTER (Assumes OK button is default)
+Click on a link in a browser | Left hand — navigate to link via PAGE UP and/or PAGE DOWN keys | Right hand — manipulate pointer with mouse; select link by clicking
+Open file; open folder; launch program | Right  hand — manipulate pointer with mouse; single click on icon | Right hand — press ENTER (avoids error prone double-click operation)
+]
+---
+.title[Other Examples: Tool Stone for Magic Lenses]
+.body[
+![:youtube By manipulating a mouse and a cube (one in each hand) the user controls a lens and uses it on screen, V32SnUnAe2E]
+
+Inspired by [1994 CHI paper](https://dl.acm.org/citation.cfm?id=166126)
+Published in [UIST 2000](https://lab.rekimoto.org/projects/toolstone/)
+]
+---
+.title[Magnification]
+.body[
+![:img Picture of a mandelbrot fractal with a lens over part of it magnifying that part, 100%](img/magnification.png)
+]
+
+---
+.title[Font Selection]
+.body[
+![Picture of a paragraph of text with a lens containing a menu of options for bold italic regular and bold italic,80%](img/font-selection.png)
+]
+???
+Fitts' law implications?
+---
+.title[Debugging Lenses]
+.body[
+![:img Picture of a GUI application with a lens showing information about two lines including their coordinates and the option to turn on and off additional features, 80%](img/debugging.png)
+]
+.footnote[
+Hudson, S. E., Rodenstein, R., and Smith, I. 1997. Debugging lenses: a new class of transparent tools for user interface debugging. In Proceedings UIST '97, 179-187. http://doi.acm.org/10.1145/263407.263542 
+]
+---
+.title[Advantages of Lenses]
+.body[
+In context interaction
+
+Little or no shift in focus of attention and/or movement
+Alternate views in context and on demand
+]
+???
+- tool is at/near action point
+- can compare in context
+- useful for “detail + context” visualization techniques
+--
+.body[
+Structured well for 2 handed input
+- non-dominant hand does course positioning (of the lens)
+- dominant hand does fine work
+
+"Spatial modes"
+- Use “where you click through” to establish meaning
+- Typically has a clear affordance for the meaning
+]
+---
+.title[Implementing Lenses]
+.small[
+<div class="mermaid">
+  graph TD
+  Root((Root)) --> LP((Lens Parent))
+  LP --> L[Lens]
+  LP --> I((Interactor 1))
+  LP --> II((Interactor 2))
+  LP --> III((Interactor 3))
+</div>
+]
+.footnote[Edwards, Hudson, et al., “Systematic output modification in a 2D user interface toolkit”, UIST ’97. http://doi.acm.org/10.1145/263407.263537 ]
+???
+Can be implemented with special "lens parent" container & lens interactors 
+- Lens may need to change results of picking (only positional is affected) in collusion with lens parent
+- Lens parent forwards all damage to all lenses
+- Lenses typically change any damage that overlaps them into damage of whole lens area
+- Can pass a subclass of Drawable to "ambush and modify" drawing for output effects
+---
+.title[Discussion: Should scrolling be dominant or non-dominant?]
+.body[
+What tasks is scrolling used for?
+
+Which precedes/follows?
+]
+???
+Task | Characteristics
+Scrolling  | precedes/overlaps other tasks
+| sets the frame of reference
+| minimal precision needed (coarse)
+Selecting, editing, reading, drawing, etc. | follows/overlaps scrolling
+| works within frame of reference set by scrolling
+| demands precision (fine)
 ---
 .title[# Summary Slide]
 .body[

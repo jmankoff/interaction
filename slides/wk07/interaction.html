@@ -13,6 +13,7 @@ class: center, middle, inverse
 Jennifer Mankoff
 CSE 340 Spring 2019 
 ---
+layout: false
 
 [//]: # (Outline Slide)
 # Today's goals
@@ -22,7 +23,6 @@ CSE 340 Spring 2019
  - Feedback
  - Feedforward
 ---
-layout: false
 
 .title[Metaphor]
 .right-column[
@@ -30,10 +30,16 @@ Lakoff & Johnson, Metaphors We Live By
 
 .quote[“...the way we think, what we experience, and what we do every day
 is very much a matter of metaphor.” ]
+]
+---
+
+.title[Metaphor]
+.right-column[
 
 For example, until I had chickens I never noticed all the chicken
 metaphors in our language:
 
+.font-small[
 - “A hen is only an egg's way of making another egg.” - Samuel Butler
 - “The key to everything is patience. You get the chicken by hatching the egg, not by smashing it.” - unknown
 - "Regard it as just as desirable to build a chicken house as to build a cathedral." - Frank Lloyd Wright
@@ -64,9 +70,9 @@ metaphors in our language:
 - Nesting behavior- preparing a home (especially pregnant women just before a baby is due)
 - Empty nest syndrome - depression and loneliness when children leave home
 - Made from scratch - made from raw materials by hand
-]
+]]
 .left-column[
-![Picture of 4 chickens in a chicken coop](img/chickens.png)
+![:img Picture of 4 chickens in a chicken coop,100%](img/chickens.png)
 ]
 ---
 .title[Desktop Metaphor (Magic Cap)]
@@ -192,6 +198,46 @@ Gulf of Evaluation
 - Example patterns: Dialogs, Shopping Carts
 
 ---
+.title[Affordances
+]
+.body[
+Good Affordance| Bad Affordance
+----|----
+![:img Picture of a round doorknob, 40%](img/round-doorknob.png) | ![:img Picture of a flat doorknob, 40%](img/flat-doorknob.png) 
+
+Well-designed objects have affordances
+- Clues to their operation that are readily apparent
+- Often visual, but not always (e.g., speech)
+- Allows and promotes certain actions
+]
+???
+Opportunities to act which are readily apparent to the user ... and
+appropriate to the user’s abilities 
+
+Form “affords” certain actions and makes that apparent
+---
+.title[Design Tip #2: Use *Affordances* to minimize errors
+]
+.body[
+
+Action | Physical Affordance | Virtual Affordance |  Minimal Design
+----|----|----|----
+Gripping | ![:img picture of knurling on a knob,45%](img/knurling.png) | ![:img Image of lines indicating a grabbable corner by imitating knurling,50%](img/virtual-knurling.png)
+Pushing | ![:img picture of buttons on a phone,55%](img/buttons.png) | ![:img Similar buttons on a webpage,55%](img/virtual-buttons.png)|![:img picture of web buttons on a flat-style page,55%](img/web-button.png)
+Search | No Real World Equivalent || ![:img Text area for search. Uses greyed out text to suggest what should go in it, 55%](img/search.png)
+]
+???
+Knurling: increases friction/affords gripping
+
+don't kneed to know the word to get it
+---
+# When this goes wrong!
+(is this physical or virtual? Ubicomp!)
+
+
+![:img picture of faucet with IR sensor, 40%](img/sensor.jpg )| ![:img Sign explaining how to use the sensor, 48%](img/sensor-explanation.png)
+----|----
+---
 .title[Feedback]
 .body[
 Response by the system to the actions of the user – Cause and effect
@@ -205,7 +251,7 @@ Messenger Feedback | and | Gmail Feedback
 ![:img Facebook messenger showing feedback as the user clicks on the thumbs up button](img/messenger-bubble.gif)||![:img User selecting and dragging two conversations in gmail with feedback,50%](img/gmail-snapping.gif)
 ]
 ---
-.title[Design Tip #2 Make the Conceptual Model Visible]
+.title[Design Tip #3 Make the Conceptual Model Visible]
 .right-column[
 Explicitly design a conceptual model 
 
@@ -228,3 +274,4 @@ Help people predict what will happen
 ]
 .left-column[
 ![:img Picture of two icons showing additional visual feedback when the cursor hovers over them, 100%](img/feedforward.png)
+]

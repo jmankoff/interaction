@@ -104,7 +104,9 @@ Tasks:
 - Conduct user study
 - Analyze recorded data
 
-You will recruit 2 students and conduct this user study (6 session * 5 task) with each of them.
+You will recruit 3 students and conduct this user study (6 session * 5 task) with each of them.
+
+Make sure to consent them (and turn in your consent form)
 
 After each user study, please export the recorded data. If you are using emulator, you can use this command to pull data to your computer. <span style="color:red">TODO: Update path to pull data from Android phones.</span>
 ```bash
@@ -124,6 +126,7 @@ YOUR_STUDENT_ID.zip
 ├── LinearMenuView.java
 ├── PieMenuView.java
 └── MainActivity.java
+└── Signed consent forms
 ```
 
 ## Grading (10pts)

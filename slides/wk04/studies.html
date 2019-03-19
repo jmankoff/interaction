@@ -1,145 +1,606 @@
 ---
 layout: presentation
-title: Layout --Week 2, Monday-- 
-description: Description of Layout
+title: Running a Quantitative Study 
+description: Description of how to test a hypothesis in a study, all steps
 class: middle, center, inverse
 ---
 name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Advanced Interaction Design
+# Running a Quantitative Study
 
 Jennifer Mankoff
 CSE 340 Spring 2019 
 ---
-background-image: url(img/paper.png)
+layout:false
+
 [//]: # (Outline Slide)
-# Today's goals
-- Problems with lo-fi prototypes
-- Understand user testing
-- Ethical considerations in testing
-- Collection and use of evidence
----
-.left-column[## What is the point of testing? .red[*]]
-.right-column[
-
-![img: Image showing a false alarm in hawaii that led everyone to
-think there wsa a nuclear event, 100%](img/alert.png)
-
-.red[*] [Washington Post Article](https://www.washingtonpost.com/news/morning-mix/wp/2018/01/16/that-was-no-wrong-button-in-hawaii-take-a-look/?utm_term=.1848969db923)
+.title[Today's goals]
+.body[
+- Discuss steps of running a study 
+- Practice onboarding participants
+- Practice data analysis
+- Go over Assignment 1
 ]
 ---
-.left-column[## Problems with low-fi prototypes?]
+#Menu Assignment
+.left-column[
+![:img Picture of the pie menu you will implement, 50%](img/pie.png)![:img Picture of the linear menu you will implement, 50%](img/linear.png)
+]
 .right-column[
-![img: paper prototype, 20%]
+- Build an application from specs
+- Record user study data from at least 2 users
+- Produce plausible experimental results
+- Implement variety of menus
+- Implement data storage
+- Analyze the data 
+]
+---
+.title[Experiment Design]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis))
+Hypothesis -- "Study Design" --> Method((Method))
+Method -- "Run Study" --> Data((Data))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+What is the Hypothesis?
+]
+---
+.title[Method Design]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((Method))
+Method -- "Run Study" --> Data((Data))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+Method: Discussion of Quiz results
+
+Blocks
+- Randomization
+- *n* * *m* * *...*
+Tasks 
+- Within Blocks
+Study Method Considerations
+- Participants
+- Process
+]
+---
+
+.title[Run Study]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((2 menu x <br> 3 task conditions ))
+Method -- "Run Study" --> Data((Data))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+Ethical Principles for running participants. Driven by
+[Criminal/Racist/Harmful studies](https://www.nytimes.com/2017/05/22/science/social-science-research-institutional-review-boards-common-rule.html)
+ - Nazi war crimes
+ - Tuskegee Syphilis study
+ - Epilepsy studies of institutionalized children
+ - [16,000 people involuntarily included in radiation
+   studies](https://www.nytimes.com/1995/08/20/us/count-of-subjects-in-radiation-experiments-is-raised-to-16000.html?module=inline) 
+ - [Milgram's study of electric shocking](https://www.simplypsychology.org/milgram.html)
+ - [Stanford prison experiment](https://www.simplypsychology.org/zimbardo.html)
+]
+
+---
+.title[Run Study]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((2 menu x <br> 3 task conditions ))
+Method -- "Run Study" --> Data((Data))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+Basic ethics ([Belmont Report](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html))
+- Beneficence --> 
+ - Value of research higher than risks
+ - Do no harm
+- Respect for Persons --> 
+ - Fully informed of intent and purpose
+ - Informed consent
+ - May opt out at any time, for any reason
+- Justice
+ - equitable, representative selection of participants
+]
+
+---
+.title[Run Study]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((2 menu x <br> 3 task conditions ))
+Method -- "Run Study" --> Data((Data))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+Basic ethics ([Belmont Report](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html))
+- Beneficence --> 
+ - Value of research higher than risks
+ - Do no harm
+- Respect for Persons --> 
+ - **Fully informed of intent and purpose**
+ - **Informed consent**
+ - **May opt out at any time, for any reason**
+- Justice
+ - equitable, representative selection of participants
+]
+
+---
+.title[Write your consent form & consent your neighbor]
+.body[
+Purpose of study (Beneficience)
+
+Requirements for participation (Respect for Persons)
+
+Study procedures (Respect for Persons)
+
+Voluntariness (Respect for Persons)
+
+Benefits to Society (Beneficience) 
+
+Contact (of IRB typically; Me in this case)
+]
+
+???
+- Beneficence --> 
+ - Value of research higher than risks
+ - Do no harm
+- Respect for Persons --> 
+ - Fully informed of intent and purpose
+ - Informed consent
+ - May opt out at any time, for any reason
+- Justice
+ - equitable, representative selection of participants
+---
+.title[Data Collection]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((2 menu x <br> 3 task conditions ))
+Method -- "Run Study" --> Data((Data))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+Be Consistent
+Download result
+
+XX try it in class?
+
+]
+
+---
+.title[Data Collection]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((2 menu x <br> 3 task conditions ))
+Method -- "Run Study" --> Data((Data<br>Consent<br>Consistency))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+Clean data
+- Remove trials where an error occurred for speed analysis
+]
+
+---
+.title[Data Collection]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((2 menu x <br> 3 task conditions ))
+Method -- "Run Study" --> Data((Data<br>Consent<br>Consistency))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+Clean data
+
+Analyze Speed Data: Simple Statistics
+- Min, Max, Mean (Sum/#), Median (Middle #), Mode (Most Common #)
+]
+---
+.title[Analysis goal]
+.body[
+Determine **cause**
+
+Implies *interdependence*
+
+Assumes you have measured the right variables!
+]
+---
+.title[Dependence/independence]
+.body[
+Events that are independent
+- Flipping heads and then tails
+- Day of week and whether a patient had a heart attack (probably?)
+
+Events that are dependent
+- Vice presidential candidate and presidential nominee
+- Diagnostic test being positive and whether patient has a disease
+]
+---
+.title[Correlation]
+.body[
+![:img Example of correlations for heigh vs age (positively correlated) and
+height vs birth month (uncorrelated),80%](img/correlation.png)
+]
+---
+.title[Correlation != Causation]
+.body[
+![:img Correlation of number of people who drowned per year and films
+nicolas cage appeared in, 80%](img/cagelation.png)
+![:img Two people talking. Says one: I used to think correlation
+implied causation. Says the other: Then I took a statistics
+course. Now I don't. Says the other: Sounds like the class
+helped. Says the first: Well maybe, 50%](img/correlation-cartoon.png)
+]
+---
+#Analyze
+.left-column[
+![:img Histogram of fake data about speed of pie menu selection and linear
+menu selection, 100%](img/histogram.png)
+]
+.right-column[
+
+Helps you check: Do assumptions match your data?
+
+Gives a sense of the distribution
+
+]
+---
+.title[Comparing two groups]
+.body[
+![:img two distributions, 80%](img/samples1.png)
+]
+---
+.title[Comparing two groups]
+.body[
+![:img two distributions showing overlapping 95% confidence intervals,
+80%](img/samples2.png)
+]
+---
+.title[Comparing two groups]
+.body[
+![:img two distributions with less overlapping intervals (because more
+data is present), 80%](img/samples3.png)
+]
+---
+.title[Comparing two groups]
+.body[
+![:img two distributions with more data but overlapping histograms
+thus hard to differentiate, 80%](img/samples4.png)
+]
+---
+.title[Comparing two groups]
+.body[
+![:img two distributions with less overlapping intervals (because more
+data is present), 80%](img/samples5.png)
+]
+---
+.title[Comparing two groups]
+.body[
+![:img two distributions not overlapping at all, 80%](img/samples6.png)
+]
+---
+.title[Comparing two groups]
+.body[
+![:img same two distributions with difference between means marked as
+effect size, 80%](img/samples7.png)
+]
+---
+.title[Common Statistical Test: t-test]
+.body[
+Tests for difference between two samples
+
+Best used to determine what is ‘worthy of a second look’
+
+Limited in its applicability to normal, independent data
+
+Does not help to document effect size [the actual difference between groups], just effect likelihood
+]
+---
+.left-column[#Problems with t-tests
+
+The more implausible the hypothesis, the greater chance that it is a
+‘false alarm’
+]
+.right-column[
+![:img A picture of the likelihood of a positive t-test as influenced by
+priors (the expected likelihood of an outcome), 80%](img/priors.png)
+
 ]
 ???
--“Computer” inherently buggy
--Can’t get accurate time measurement
--Hard to implement some functionality: pulldowns, feedback, drag, viz …
--Won’t look like final product: sometimes hard to recognize components
--End-users can’t use by themselves: not in context of user’s work environment
--Couldn’t measure realistic I/O
--Lack of interactive feedback: e.g. button highlights
--“Computer” has to keep track of a lot of paper
--Users wouldn’t criticize UI
--Doesn’t map well to what will actual fit on the screen 
--Couldn’t hold in your hand – different ergonomics from target device
--Some things could not be simulated (highlighting)
--Writing on paper not the same as writing on target device / Hard to draw well (-recognition of elements)
--Appearance unrealistic
--Dynamic components hard to simulate (pop-ups)
--Couldn’t give proper affordance that something wasn’t selectable
--Some items had to be static!
--Dragging hard to simulate
+Top row: Prior (what's known to be true before the experiment)
+bottom row: Calculated p-value
+
+Notice the middle column, where something that is a toss-up has higher
+plausability than we would expect. This is a "Type 1 error"
+
+Alternatively, a small sample may cause a Type II error (failure to
+detect a true difference) due to random sampling bias
+
 ---
-.left-column[## High Fi testing]
+.left-column[#Problems with t-tests]
 .right-column[
-Must test & observe ideas with customers
-
- - Want to compare and contrast
- - Want to get more realistic reactions
-
-Paper mock-ups don’t go far enough
- - How would you show a drag operation?
- - Not realistic of how interface will be used
-
-Approaches
- - Can fake it -- good for early
- - Can implement it
+- Doesn’t take prior knowledge into account
+- Susceptible to ‘data dredging’ 
+ - The more tests you conduct the more likely you will find a result
+   even if one is not there
+ - Adjustments mid experiment
+- Gives a yes or no answer: Either the null hypothesis is rejected (the result would be unlikely in a world where the null hypothesis was true) or it cannot be rejected
+- Based on assumed ‘average’ sample
 ]
 ---
-.left-column[## Review: Testing Goals
-![img: Cartoon of user test, 100%](img/cartoon.png)
-]
-.right-loumn[
-Choose your focus
-
-Task design:
-- Appropriate scope
-- Predictable outcomes
-- Elicits action
-]
----
-.left-column[##Kinds of data we can collect?]
-???
-Discuss
+.title[Which problems might affect our study?]
 --
-.right-column[
-Video, Descriptions of behaviors, Notes
-Can transcribe and analyze individual users
-Can look for patterns across users
+.body[
+12 separate comparisons (2x3 conditions, 2 measures)
+
+ANOVA (**An**alysis **O**f **Va**riance): Fancy t-test that accounts for the whole group effect before
+doing pairwise comparisons
 ]
----
-.left-column[##Goal of data collection?]
 ???
-Discuss
+- Doesn’t take prior knowledge into account
+- Susceptible to ‘data dredging’ 
+ - The more tests you conduct the more likely you will find a result
+   even if one is not there
+ - Adjustments mid experiment
+- Gives a yes or no answer: Either the null hypothesis is rejected (the result would be unlikely in a world where the null hypothesis was true) or it cannot be rejected
+- Based on assumed ‘average’ sample
+---
+.title[Data Collection]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((2 menu x <br> 3 task conditions ))
+Method -- "Run Study" --> Data((Data<br>Consent<br>Consistency))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+Analyze Speed and Error Data 
+- Table of means (3x2)
+- ANOVA (analysis of variance)
+- Graph data (thoughts on how?)
+]
+
+???
+Mean time for each task type for each menu type
+
+Mean errors for same
+...
+---
+.title[Let's try it]
+
+.body[
+xx URL for sample spreadsheet
+Demonstrate what to do/practice together
+
+]
+
+---
+.title[Data Collection]
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((2 menu x <br> 3 task conditions ))
+Method -- "Run Study" --> Data((Consent<br>Consistency))
+Data -- "Clean and Prep" --> Analysis((Clean<br>Compute))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+Draw Conclusions
+- Were errors less?
+- Was time faster?
+]
+
+---
+.title[Limitations of Laboratory Studies]
 --
-.right-column[
-What went well?
-What went badly?
-What matters (severe, common)?
-]
----
-.left-column[##Qualitative data collection]
-.right-column[
-Identify Critical Incidents (can be good or bad)
-
-Critical Incidents are Situations that: 
-- Provoke silence 
-- Provoke puzzlement 
-- Provoke user comments 
-
-Capture using Critical Incident reports
-
-]
----
-.left-column[#Critical Incident Report]
-.right-column[
-Name: System doesn’t treat “1” and “one” interchangeably
-Severity:   High/Medium/Low + Good/Bad
-Frequency:  (expected within system)
-Category: 
-The user accomplishes a goal, but in a suboptimal way OR
-The user expresses some negative affect or says something is a problem.
-Evidence: Report FACTS!
-What the user (s) said: “My destination is One Market Street” “This is not right, I don't think this is what I want to do.” (on “Multiple Search Results” page).
-
-What the user (s) did: After receiving the “no exact match” error message, the user hits the Back button to return to the trip planner and enters “1” instead of “One.”
-
-What the system did: The system presented the user with a “Multiple Search Results” page, with the error message “We found some locations similar to your destination entry, but no exact match.”  After the user returns to the trip planner and enters “1,” the system returns a bus route.
-]
----
-.left-column[#Quantitative data]
-
----
-layout: false
-
-.left-column[##Other Menus]
-.right-column[
-Kurtenbach:
-![:youtube Illustration of advantages of marking menus,dtH9GdFSQaw]
+.body[
+Simulate real world environments
+- Location and equipment may be unfamiliar to participant [Coyne & Nielsen 2001]
+- Observation may effect performance - “Hawthorne Effect” [Mayo 1933] 
+- Participant may become fatigued and not take necessary rest - “Demand Effect” [Orne 1962]
+- Tasks frequently artificial and repetitive, which may bore participants and negatively effect performance
+Studying real world use removes these limitations
 ]
 
----
+
