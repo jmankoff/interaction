@@ -1,0 +1,393 @@
+---
+layout: presentation
+title: Predicting and Evaluating Interactor Efficacy
+description: Discussion of Theory and Collection of User Data for assessing Interactor Efficacy
+class: middle, center, inverse
+---
+layout:false
+
+# Why is selection (and testing) important .red[*]
+.left-column50[
+
+![:img Image showing a false alarm in hawaii that led everyone to
+think there wsa a nuclear event, 100%](img/alert1.jpg)
+]
+.right-column50[
+![:img Image showing the screen that led to this error, 100%](img/alert.jpg)
+]
+
+.footnote[.red[*] [Washington Post Article](https://www.washingtonpost.com/news/morning-mix/wp/2018/01/16/that-was-no-wrong-button-in-hawaii-take-a-look/?utm_term=.1848969db923)
+]
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Predicting and Evaluating Interaction Efficacy
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+layout: false
+
+[//]: # (Outline Slide)
+# Today's Learning goals
+- Selection Design Tradeoffs
+- Theoretical Approaches to evaluating efficacy (Steering law;
+Fitts' Law)
+- Empirical Approaches to evaluating efficacy 
+- Menu Design Assignment
+---
+.title[Which is better and Why?]
+.body[
+
+What analysis methods can we use to predict?
+
+- Fitts Law (compare distance and size; check for infinite distance)
+- Steering Law (distance and size over a path)
+- Cognitive modeling (complex multi-step model of expert behavior)
+ - Does someone have to 'check' something? More than once?
+ - Do they have to move? More than once
+- Gestalt Psychology (will they see it at all?)
+- Errors (will they be reduced)
+
+]
+---
+#Which is better and which laws explain it?
+.left-column50[
+#A Pie Menu
+![:img Pie Menu, 80%](img/pie.jpg)
+]
+.right-column50[
+#B Pull down Menu
+![:img Traditional Menu inside a web browser, 80%](img/menu.png)
+]
+???
+
+- **Fitts Law** (compare distance and size; check for infinite distance)
+- **Steering Law** (distance and size over a path)
+- Cognitive modeling (complex multi-step model of expert behavior)
+ - **Does someone have to 'check' something? More than once?**
+ - **Do they have to move? More than once**
+- Gestalt Psychology (will they see it at all?)
+- **Errors (will they be reduced)**
+
+---
+# Which is better and which law explains it?
+.left-column50[
+#A Pie Menu
+![:img Pie Menu, 80%](img/pie.jpg)
+]
+.right-column50[
+#B Marking Menu
+![:youtube Video assigned before class, 8c58bN6ajJ4?t=30]
+]
+???
+
+- Fitts Law (compare distance and size; check for infinite distance)
+- Steering Law (distance and size over a path)
+- Cognitive modeling (complex multi-step model of expert behavior)
+ - **Does someone have to 'check' something? More than once?**
+ - **Do they have to move? More than once**
+- Gestalt Psychology (will they see it at all?)
+- Errors (will they be reduced)
+---
+.title[Which is better and which laws explain it?]
+
+.body[
+A: Tapping B: Crossing
+![:youtube Video of using crossing for selection, kp2Zl4ONuik]
+]
+
+???
+
+- **Fitts Law (compare distance and size; check for infinite distance)**
+- Steering Law (distance and size over a path)
+- Cognitive modeling (complex multi-step model of expert behavior)
+ - Does someone have to 'check' something? More than once?
+ - Do they have to move? More than once
+- Gestalt Psychology (will they see it at all?)
+- Errors (will they be reduced)
+
+---
+#Which is better and which laws explain it?
+.left-column50[
+#A
+![:img Picture of the Graffiti gesture recognition alphabet from the Palm Pilot, 100%](img/Grafitti.png)
+]
+.right-column50[
+#B
+![:img Picture of the Edgewrite gesture recognition alphabet, 50%](img/Edgewrite.png)
+
+]
+???
+
+- Fitts Law (compare distance and size; check for infinite distance)
+- Steering Law (distance and size over a path)
+- Cognitive modeling (complex multi-step model of expert behavior)
+ - Does someone have to 'check' something? More than once?
+ - Do they have to move? More than once
+- Gestalt Psychology (will they see it at all?)
+- **Errors (will they be reduced)**
+
+---
+#Which is better and which laws explain it?
+
+.left-column50[
+#A
+![:img Picture of old facebook security page with icons and text mixed
+up,100%](img/facebook.png)
+]
+.right-column50[
+#B
+
+![:img Picture of March 2019 facebook security page with icons and
+text clearly aligned, 100%](img/facebook2.png)
+]
+???
+
+- Fitts Law (compare distance and size; check for infinite distance)
+- Steering Law (distance and size over a path)
+- Cognitive modeling (complex multi-step model of expert behavior)
+ - Does someone have to 'check' something? More than once?
+ - Do they have to move? More than once
+- **Gestalt Psychology (group?)**
+- **Errors (will they be reduced)**
+---
+# How do we prove our theories?
+
+--
+# Collect Data!
+---
+# How do we prove our theories?
+.left-column[##Kinds of data we can collect?]
+???
+Discuss
+--
+.right-column[
+- Video
+- Timing/Errors
+- Descriptions of behaviors
+- Notes
+- Can transcribe and analyze interviews with users
+- Can look for patterns across users
+]
+---
+.left-column[##Qualitative data collection to test theory]
+.right-column[
+Identify Critical Incidents (can be good or bad)
+
+Critical Incidents are Situations that: 
+- Provoke silence 
+- Provoke puzzlement 
+- Provoke user comments 
+
+Capture using Critical Incident reports
+
+]
+---
+.left-column[##Quantitative data collection to test theories]
+.right-column[
+Identify Hypothesis
+
+Hypothesis is 
+- Relevant
+- Testable
+
+Capture data that proves or disproves hypothesis
+
+]
+---
+# How do we prove our theories? Hypothesis
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis start
+</div>
+
+
+---
+# How do we prove our theories? Method
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis))
+Hypothesis -- "Study Design" --> Method((Method))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis start
+class Method normal
+</div>
+
+
+---
+# How do we prove our theories? Data
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis))
+Hypothesis -- "Study Design" --> Method((Method))
+Method -- "Run Study" --> Data((Data))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis start
+class Method,Data normal
+</div>
+---
+# How do we prove our theories? Analysis
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis))
+Hypothesis -- "Study Design" --> Method((Method))
+Method -- "Run Study" --> Data((Data))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis start
+class Method,Data,Analysis normal
+</div>
+
+---
+# How do we prove our theories? Conclusions
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis))
+Hypothesis -- "Study Design" --> Method((Method))
+Method -- "Run Study" --> Data((Data))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+.left-column50[
+#A
+![:img Picture of the Graffiti gesture recognition alphabet from the Palm Pilot, 100%](img/Grafitti.png)
+]
+.right-column50[
+#B
+![:img Picture of the Edgewrite gesture recognition alphabet, 50%](img/Edgewrite.png)
+
+]
+
+???
+Hypothesis: Errors (will they be reduced)
+Method:?? 
+Data:??
+Analysis??
+Conclusions??
+
+---
+# How do we prove our theories? Conclusions
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis))
+Hypothesis -- "Study Design" --> Method((Method))
+Method -- "Run Study" --> Data((Data))
+Data -- "Clean and Prep" --> Analysis((Analysis))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+.left-column50[
+#A Pie Menu
+![:img Pie Menu, 80%](img/pie.jpg)
+]
+.right-column50[
+#B Pull down Menu
+![:img Traditional Menu inside a web browser, 80%](img/menu.png)
+]
+???
+
+Hypothesis: Errors will be reduced; 
+Hypothesis: Motion will be faster due to low level motor things 
+Hypothesis: fewer cognitive checks needed
+Method:?? 
+Data:??
+Analysis??
+Conclusions??
+
+---
+---
+.title[Quantitative vs Qualitative Data Collection]
+
+.body[
+Will talk more about Qualitative Data Collection on Friday
+
+Both have an important place in HCI
+]
+???
+Discuss
