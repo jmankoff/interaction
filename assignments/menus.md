@@ -134,8 +134,8 @@ YOUR_STUDENT_ID.zip
 ├── MainActivity.java
 ├── Result_0.csv
 └── Result_1.csv
-└── Signed consent forms
-└── Summary of results (pdf)
+└── Signed consent forms (images/scans)
+└── Summary of results.pdf
 ```
 
 ## Grading (10pts)
