@@ -1,0 +1,422 @@
+---
+layout: presentation
+title: Basic Intro to 3D printing
+description: Description of how to go from a 3D model to a 3D print
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Basic Intro to 3D printing
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+layout:false
+
+[//]: # (Outline Slide)
+.title[Today's goals]
+.body[
+- Discuss different types of 3D models
+- Talk about how 3D models are converted into low level g-code
+- Practice printing something
+]
+---
+# Magic arms Video
+
+![:youtube Video of child using a 3D printed hand, WoZ2BgPVtA0]
+
+---
+# 3d Preinted car
+
+![:youtube Video of car being 3D printed, daioWlkH7ZI]
+
+
+---
+# Acoustruments
+![:youtube Printed objects whose use can be sensed, C2d1pB1qlvA]
+
+---
+.title[Many other successes]
+.body[
+
+[3D Printed Medical Device Saves Baby's Life](https://www.youtube.com/watch?v=zr0HGCZSgE4)
+
+[Prosthetic hand](http://youtu.be/CHPuMCshkLU?t=42s) (up to ~2:10)
+
+[Lots of examples quickly](https://www.youtube.com/watch?v=X5AZzOw7FwA)
+
+[3D printers print ten houses in 24 hours](https://www.youtube.com/watch?v=SObzNdyRTBs)
+
+[Printed body parts](http://youtu.be/jSjW-EgKOhk?t=1m8s)
+
+[Printed organs](https://www.youtube.com/watch?v=4nqw1yjyKEs)
+
+[3D printed pizza](http://youtu.be/dvjqmMfMU7w?t=15s)
+
+[3D printed chocolate](http://youtu.be/BIFi8but3Vw)
+
+[3D printed candy](http://youtu.be/8WWHpWgaq7I)
+
+[3D printed fashion](http://youtu.be/63Xozzh_uHM)
+
+[3D Printing a Garden Sprinkler](https://www.youtube.com/watch?v=y9XRD3P2G-E)
+]
+
+---
+.title[What do new fabrication technologies provide?]
+.body[
+New ways to create
+- Faster, easier, sometimes better
+
+New ways to customize
+- Faster iteration
+- Mass customization
+
+New materials
+
+New shapes
+]
+---
+.title[What new fabrication technologies are not]
+.body[
+
+Not the startrek replicator
+
+Not as fast as the best manufacturing solutions for bulk manufacturing
+
+Not as fast as your 2d printer
+
+Often expensive
+
+Material range is limited
+
+]
+---
+.title[Printing Steps]
+.body[
+
+<div class="mermaid">
+graph LR
+A((3D Modeling, <br> e.g. Tinkercad)) -->|Prepare for printing| B(Geometry <br> e.g. <i>.stl</i> file)
+B -->|Slice| D((Printer instructions<br>G-code file))
+D -->|Printer Controller| E((Printed Object))
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef highlighted fill:#d1e0e0,stroke:#333,stroke-width:4px;
+class A,B,D normal
+</div>
+
+
+]
+---
+.title[Modeling]
+.body[
+<div class="mermaid">
+graph LR
+A((3D Modeling, <br> e.g. Tinkercad)) -->|Prepare for printing| B(Geometry <br> e.g. <i>.stl</i> file)
+B -->|Slice| D((Printer instructions<br>G-code file))
+D -->|Printer Controller| E((Printed Object))
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef highlighted fill:#d1e0e0,stroke:#333,stroke-width:4px;
+class A highlighted
+class B,D normal
+</div>
+
+We will use Tinkercad in this class. I also highly recommend
+Fusion360. 
+
+Can also find lots of stuff on repositories, like [Thingiverse](http://www.thingiverse.com/)
+]
+---
+.title[Making a printable model]
+.body[
+Avoid overhangs greater than (about) 45 degrees
+
+![:img Picture of a simple model with a 45 and 90 degree overhang
+illustrating what is not printable, 80%](img/overhang.png)
+
+]
+???
+Why is 45° OK?
+
+That is the theoretical tipping point
+If you have square blocks sitting on each other that’s the point at which the center of gravity of the block on top goes over the edge of the block below
+--
+.body[
+Thoughts on how to avoid overhang?
+]
+
+???
+design
+
+support (we can add this later)
+
+Orientation 
+
+---
+.title[Making a printable model]
+.body[
+Avoid overhangs greater than (about) 45 degrees
+
+Avoid bridges longer than (printer dependent)
+- Speed can change max distance/success (why?)
+- Can add a thin membrane (such as tape, or even 1 layer of filament) by halting
+  print to further improve bridging & solve overhang problems)
+
+| Bridge | Example Use| Bolt |
+|--|--|
+| ![:img Picture of a simple model with a bridge, 70%](img/bridge.png) | ![:img Picture of a bridge being used to help with an overhang, 50%](img/bridge-overhang.png) | ![:img Picture of a nut and bolt inserted in a print,50%](img/nutbolt.png)
+
+]
+???
+Speed reduces droop
+
+cooling further reduces droop (shrinkage)
+
+What is the second example good for? nut and bolt! 
+
+
+---
+.title[Finishing your model]
+.body[
+May need to repair problems
+
+May need to add support 
+
+May need to add other materials (e.g. conductive filament
+
+Recommendation: Use [**Meshmixer**](http://www.123dapp.com/meshmixer) for this
+]
+---
+.title[Slicing]
+.body[
+<div class="mermaid">
+graph LR
+A((3D Modeling, <br> e.g. Tinkercad)) -->|Prepare for printing| B(Geometry <br> e.g. <i>.stl</i> file)
+B -->|Slice| D((Printer instructions<br>G-code file))
+D -->|Printer Controller| E((Printed Object))
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef highlighted fill:#d1e0e0,stroke:#333,stroke-width:4px;
+class A highlighted
+class B,D normal
+</div>
+
+![:img Picture of a partly printed model with clear layers and the print head laying down material on the top layer](img/slicing.png)
+]
+---
+.title[Running your printer]
+.body[
+Lots of help for this at the Mill
+
+Specific recommended software
+
+]
+---
+.title[Embedding]
+.body[
+![:img Picture of a model for embedding a nut and bolt in a print, 60%](img/embedding.png)
+
+[How big is that cavity?](http://www.fairburyfastener.com/xdim_page.htm)
+
+
+]
+
+???
+
+Typical geometry:
+- Hexagonal cavity for nut
+- Cylindrical hole for bolt to pass through
+- Layers printed over the top of that
+
+---
+.title[Printing issues with Embedding]
+.body[
+Can't place objects before the print head gets to a layer
+
+May not be able to print objects that are covered up
+
+Depending on design, need to pause the print at just the right point
+
+Can edit g-code to do this (add ```@pause```)
+]
+
+???
+Could just watch very carefully and hit “Pause” in Repetier-Host at just the right spot
+---
+.title[What else to embed?]
+.body[
+
+![:img Picture of fabric taped down and embedded, 60%](img/fabric.png)
+![:img Picture of fabric attached through holes, 40%](img/fabric2.png)
+
+]
+
+???
+- for our project conductive stuff
+- bearings  (e.g. fidget spinners)
+- magnets
+- fabric (create hinges! straps!)
+- attachment an issue (does it melt? holes through it? etc)
+---
+.title[What else to embed?]
+.body[
+![:img Picture of tendon that can be used to bend something, 60%](img/tendon1.png)
+![:img Picture of tendon that has been used to bend something, 60%](img/tendon2.png)
+
+]
+???
+- String or wire (like a tendon)
+
+---
+.title[What else to print?]
+.body[
+![:img Gears, 20%](img/gear.png) ![:img Timing wheel, 20%](img/wheel.png) ![:img String Drive Wheel, 20%](img/stringdrive.png)
+]
+???
+Gears
+
+Threaded nuts and bolts
+
+Pulleys
+
+Timing belt drive wheels
+
+String drive wheels
+
+Custom mounting bracket
+
+lids
+---
+.title[What not to print]
+.body[
+
+Food handling articles
+
+Safety critical strong things
+
+High heat tolerance things
+
+Things for chemically harsh environments
+]
+---
+.title[Fun mobile phone options]
+.body[
+
+[Etch a Sketch!](https://www.thingiverse.com/thing:3251892)
+
+![:youtube Mobile phone case to use the phone like an etch a sketch, dcaErURbyIA]
+]
+
+---
+.title[Fun mobile phone options]
+.body[
+[Phone trigger buttons](https://www.thingiverse.com/thing:2960274)
+![:youtube Game playing hardware --trigger buttons--,X_C1Qxjg2WI]
+]
+---
+.title[Tactile map for the blind]
+.body[
+![:img An interactive map with 6 black conductive touchpoints. The map
+is held in a case with 6 conductive buttons that houses a Samsung Note
+2 with a 5.5-inch screen., 40%](img/tactile-map.png)
+]
+---
+.title[Use your phone to control general hardware]
+.body[
+[IOIO](https://learn.sparkfun.com/tutorials/ioio-otg-hookup-guide) / 
+[IOIO wiki](https://github.com/ytai/ioio/wiki)
+
+![:img a development board specially designed to allow developers to add advanced hardware I/O capabilities to their Android or PC application. It features a PIC microcontroller,which acts like a bridge that connects an app on your PC or Android device to low-level peripherals. An app-level library helps you write control code for these low level peripherals in the same way you’d write any other Java app!](img/ioio.jpg)
+]
+
+
+---
+.left-column[
+# Phone based sensor
+[Biotoxicity
+sensing](https://www.sciencedirect.com/science/article/pii/S0925400515305992)
+
+- Dark box 
+- Phone case
+-  **Tinkercad** for  3D design
+
+]
+.right-column[
+![:img (a) 3D printed smartphone adaptor designed for the Samsung
+Galaxy Note II with a black ABS dark box comprising slots for
+droppers. (b) 3D printed cartridge composed of a white ABS piece
+comprising 4 wells and BL substrate reservoirs and a black sliding lid
+with transparent ABS windows. (c) The assembled smartphone-based
+device with running the specifically designed application for BL
+signal acquisition and analysis., 60%](img/biotoxicity.jpg)
+
+Many similar options -- e.g. [Ph
+Meter](https://ieeexplore.ieee.org/abstract/document/6916991);
+[Sensing sweat
+make-up](https://pubs.rsc.org/en/content/articlehtml/2014/an/c4an01612b);
+[Nanosensing by
+Nasa](https://www.nasa.gov/centers/ames/news/features/2009/cell_phone_sensors.html)
+[more examples](https://www.sciencedirect.com/science/article/pii/S0167779914000572)
+
+]
+
+???
+ By clicking the “start” button (b) the application runs and several
+  tabs can be selected (c). The “Procedure” box (d) provide to the
+  user the instructions to perform the assay, then the Begin button
+  allow to proceed to the “Checklist” box (e) where preset timers
+  guide the user through the correct incubation times before BL image
+  acquisition. The instructions can be also eluded by selecting “Test
+  sample” in the home page, which jumps the user directly to the
+  checklist. At the end of the countdown the smartphone camera is
+  activated and the user can simply touch the “Acquire” button to
+  capture the BL image of both the test and control wells. (f) The
+  acquired images are rapidly analyzed on the smartphone and the
+  sample toxicity result is displayed as “Cell viability” value and a
+  warning message (Safe, Harmful, Highly toxic). BL image and results
+  can be also saved for downstream application (i.e. sending results
+  to a central laboratory).
+  
+---
+.left-column50[
+# Phone control
+
+[Phone for potentiostatic
+control](https://ieeexplore.ieee.org/abstract/document/6916991)
+
+- exploits ability to play sounds
+- serves basic functions of a potentiostat in controlling an applied
+ potential to oxidise ECL-active molecules
+- resultant photonic signal is monitored using the camera in video
+ mode. 
+- combined with paper microfluidic sensors
+ ]
+.right-column50[
+![:img Arrangement used for mobile phone based ECL sensing. The audio
+jack supplies the potential to the paper microfluidic sensor while the
+resultant emission is detected by the camera in video mode. Both the
+excitation and detection processes are controlled by a software
+application which can also transmit the results via e-mail. The black
+plastic sleeve surrounding the top of the phone holds the sensor
+adjacent to the camera and blocks ambient light., 60%](img/potentiometric.jpg)
+
+]
+???
+The audio jack supplies the potential to the paper microfluidic
+sensor, while the resultant emission is detected by the camera in
+video mode. Both the excitation and detection processes are controlled
+by a software application which can also transmit the results via
+e-mail. The black plastic sleeve surrounding the top of the phone
+holds the sensor adjacent to the camera and blocks ambient light.
+
+---
+# End of Deck
+---
+# Printed Analytics
+![:youtube Printed objects whose use can be sensed, W1V2AgDbgTQ]
+
+---
+# Moon House Video
+
+![:youtube Video of a robot 3d printing a round house, 8zt_3Gs1ksg]

@@ -92,6 +92,7 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
 | **4/29** | **Monday, at the Mill Classroom**    | Introduction to 3D printing for Mobile devices|  
+||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
 || Required Tutorial before class | [Make a luggage tag](https://www.tinkercad.com/learn/overview/O0XHVHMIXGFO1D6;collectionId=O2C1PXBIQ2KHCOD) | Learn basic 3D modeling skills needed for 3D printing
 ||[3D Printing Intro](slides/wk05/3dprinting.html)|Learn basics of 3D printing, print the model you created in preparation for class |
 | **5/1**  | **Wednesday, at the Mill Classroom ** | Design your project        | Work in pairs to design an add-on to your phone that uses a combination of 3D printed and conductive elements. | Learn about designing your own model; how phones are used for physical computing such as sensing and interaction| 
