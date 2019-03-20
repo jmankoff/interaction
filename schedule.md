@@ -95,12 +95,12 @@ layout: default
 ||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
 || Required Tutorial before class | [Make a luggage tag](https://www.tinkercad.com/learn/overview/O0XHVHMIXGFO1D6;collectionId=O2C1PXBIQ2KHCOD) | Learn basic 3D modeling skills needed for 3D printing
 ||[3D Printing Intro](slides/wk05/3dprinting.html)|Learn basics of 3D printing, print the model you created in preparation for class |
-| **5/1**  | **Wednesday, at the Mill Classroom ** | Design your project        | Work in pairs to design an add-on to your phone that uses a combination of 3D printed and conductive elements. | Learn about designing your own model; how phones are used for physical computing such as sensing and interaction| 
+| **5/1**  | **Wednesday, at the Mill Classroom** | Design your project        | Work in pairs to design an add-on to your phone that uses a combination of 3D printed and conductive elements. | Learn about designing your own model; how phones are used for physical computing such as sensing and interaction| 
 | **5/2**  | **Thursday** | Work on the software interface and event handling in lab | Learn about the software behind physical interactors |
 | **5/3**  | **Friday, at the Mill Classroom**    |Finalize and print your projects | Make the end to end system work | 
 {: .small #small .schedule #schedule}
 
-# Week 6: Undo
+# Week 6: Accessibility
 
 |------|-------------|---------------------------------------------------------|
 | **5/6**|**Monday**    | **Accessibility**                                       |
