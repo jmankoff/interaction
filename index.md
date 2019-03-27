@@ -115,7 +115,9 @@ interfaces, and how to solve interesting problems with HCI. Related is
 course for the professional masters program.
 
 # Resources
-- Books: {{site.androidbook}}/{{site.hcibook}}
+- Optional textbook: (but finding a good introduction of your own is
+recommended): {{site.androidbook}}
+- Required textbook: {{site.hcibook}}
 - Programming Platforms: Android Platform/Github
 
 # Course Structure
