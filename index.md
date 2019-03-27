@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<h1> Welcome to Interaction Programming! </h1>
+ <h1> Welcome to Interaction Programming! </h1>
 Interactive technology is changing society. Some of today’s interfaces are used by a billion people at a time. Almost everything we create is created for people to use, through user interfaces. We will learn about interactive systems, including programming paradigms and design of event handling, layout, undo, accessibility and context awareness.
 
 For quick links to key things,
@@ -115,7 +115,7 @@ interfaces, and how to solve interesting problems with HCI. Related is
 course for the professional masters program.
 
 # Resources
-- Books: [Android textbook](https://www.amazon.com/dp/1977540090/ref=rdr_ext_tmb)/[UI textbook](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)
+- Books: {{site.androidbook}}/{{site.hcibook}}
 - Programming Platforms: Android Platform/Github
 
 # Course Structure
@@ -158,16 +158,16 @@ Homework takes two forms -- exercises and assignments. Exercises are assigned on
 We want you to succeed in this class, and an important way that you do
 that is by asking questions and discussing course issues with your
 peers and teaching staff. Some ways to do that include: 
-- We have a class discussion board on [Piazza](https://piazza.com/class/jrs35ogb3wa28x), where you can
+- We have a class discussion board on [Piazza]({{site.piazza}}), where you can
 make public posts that benefit the whole class, and are answered more
 quickly because your fellow students can help the course staff by
 responding also. This is the best way to ask questions about things
 like homework. Before posting, please search through the questions
 that have already been posted in case someone has already asked the
 same question. 
-- We hold office hours (see [link]). If none of those times work for
+- We hold office hours (see [Piazza Staff Page]({{site.piazza}}/staff)). If none of those times work for
 you. You can also discuss matters with us privately on
-[Piazza](https://piazza.com/class/jrs35ogb3wa28x). Using Piazza gets
+[Piazza]({{site.piazza}}). Using Piazza gets
 the whole course staff at once and is usually faster than
 email. Lastly, if none of these work for you you can send an email
 asking to set up an appointment.

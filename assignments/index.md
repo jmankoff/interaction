@@ -5,6 +5,12 @@ layout: default
 * TOC
 {:toc}
 
+Assignment stub code is [posted on
+gitlab]({{site.gitlab}}). Our bug
+tracking system is [gitlab
+issues]({{site.gitlab}}/issues) but you
+should post anything for discussion on the class [Piazza]({{site.piazza}})
+
 ## [Doodle](/interaction/assignments/doodle)
 - 4/4 Thursday: Exercise assigned
 - 4/8 Monday: [Doodle](/interaction/assignments/doodle) Exercise due
