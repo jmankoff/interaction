@@ -21,16 +21,19 @@ hci_goals:
   - Implement reusable layouts
   - Understand how scrolling works
   - Understand how sizes influence layout
+---
+
+- TOC
+  {:toc}
+
+# Part 1
 
 ---
 
-* TOC
-{:toc}
-
-# Part 1
-***
+`part1.xml` can be found in the `res/layout` directory in Android Studio once the `layout` project has been opened.
 
 Tasks:
+
 - Create `TextView`, `ImageView`, and `Button`
 - Constrain them for automatic portrait and landscape layouts
 
@@ -54,9 +57,13 @@ The `TextView` should be `20dp` from the right edge of the `ImageView`. As the s
 ![Screenshot of part 1 in landscape](layout-img/1_landscape.jpeg){:width="50%"}
 
 # Part 2
-***
+
+---
+
+`part2.xml` can be found in the `res/layout` directory in Android Studio once the `layout` project has been opened.
 
 Tasks:
+
 - Use a basic `ScrollView`
 - Add a fixed number of items with fixed constraints.
 
@@ -73,9 +80,11 @@ When the layout is rotated, the images should stay the same size and remain hori
 ![Screenshot of part 2, landscape](layout-img/2_landscape.jpeg){:width="50%"}
 
 # Part 3
-***
+
+---
 
 Tasks:
+
 - Subclass a `ScrollView`
 - Add a variable number of items with programmatic constraints.
 
@@ -94,9 +103,11 @@ Again, when the layout is rotated, the images should stay the same size and rema
 ![Screenshot of part 3, landscape, scrolled down](layout-img/3_landscape_scrolled.jpeg){:width="45%"}
 
 # Part 4
-***
+
+---
 
 Tasks:
+
 - Subclass a `ScrollView`
 - Add a variable number of items with programmatic constraints.
 - Maintain two balanced columns with "pinterest" ordering.
@@ -114,6 +125,7 @@ To determine which column a photo should go in, we will use "pinterest" ordering
 ![Screenshot of part 4, landscape, scrolled down](layout-img/4_landscape_scrolled.jpeg){:width="45%"}
 
 # Turn-in
+
 ## Submission Instructions
 
 You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
@@ -143,3 +155,14 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
   - (Portrait and Landscape) Correct image widths: 1 pt
   - (Portrait and Landscape) Correct image margins: 1 pt
 - Turn-in and compiles: 1 pt
+
+## IDE Errors/Warnings you can ignore
+
+<span style="color:red;">**NOTE:**</span> An error/warning that can be ignored for this assignment **cannot** be ignored for every assignment. Check IDE notices against specs on per assignment basis.
+
+- `Button`
+  - Hardcoded Strings
+- `TextView`
+  - Hardcoded Strings
+- `ImageView`
+  - Missing `contentDescription`
