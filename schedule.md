@@ -13,8 +13,8 @@ layout: default
 || Slides | [Introduction to course](/interaction/slides/wk01/intro.html) | Relevance of class to all of CS | 
 |**4/3**|**Wednesday** | **Basic Structure of Interaction** ||
 ||Reading <br> (10 min) | Chapter 1: Introduction from {{site.hcibook}}  | Basic structure of a user interface | 
-||Reading <br> (10 min) | Chapter 3; 9-10: Understanding Android Application and Activity Lifecycles from {{site.androidbook}} | Getting up to speed on Android | 
-||Preparation (10-20 min) | Download Android Studio and follow the directions in Chapter 3 to create an Android Application (also see these [instructions](setup-android.html)) | Getting up to speed on Android |
+||Reading <br> (10 min) | [Understanding Android Application and Activity Lifecycles](https://developer.android.com/guide/components/activities/activity-lifecycle) | Getting up to speed on Android | 
+||Preparation (10-20 min) | Download Android Studio and follow [this tutorial]( directions) to create an Android Application (also see these [instructions](setup-android.html)). Continue with the tutorial to also [run your app](https://developer.android.com/training/basics/firstapp/running-app) either on an emulator or on your phone | Getting up to speed on Android |
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 ||Exercise Assigned | [Doodle](/interaction/assignments/doodle)| Getting up to speed on Android; Basics of drawing on the screen | 
 ||Slides | [Core Toolkit Abstractions](/interaction/slides/wk01/MVC.html)|  Basic structure of a user interfaces; Common interactors|

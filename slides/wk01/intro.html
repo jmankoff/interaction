@@ -11,7 +11,7 @@ class: center, middle, inverse
 # Introduction to Interaction Programming
 Welcome to CSE 340, Spring 2019
 
-Your staff: Jen Mankoff, Ryan Rowe (Head TA/Course Developer), Adam
+Your staff: Jen Mankoff, Ryan Rowe (Head TA/Course Developer), <br>Adam
 Towers, Harshitha Akkaraju, Saidutt (Sai) Nimmagadda
 
 ---
@@ -80,19 +80,29 @@ rfrowe@cs.uw.edu, Grad TA, '19
 ajtowers@uw.edu, Undergrad TA, '21
 
 
-![:img Picture of TA, 70%](img/ajtowers.jpg)
+![:img Picture of TA, 30%](img/ajtowers.jpg)
+
+---
+
+## Saidutt (Sai) Nimmagadda
+nimmas@cs.uw.edu, Grad TA, '19
+
+
+![:img Picture of Sai, 30%](img/nimmas.jpg)
 ---
 
 [//]: # (Outline Slide)
-# Today's  goals
+.title[Today's  goals]
+.body[
 - Course staff
 - **How we will teach this course**
 - Learning goals
 - Assignments & Grading
 - Relevance of HCI to all of Computer Science
+]
 ---
-
-# Lecture Structure
+.title[Lecture Structure]
+.body[
 Reading, Discussion and Exercises in lectures
 - Emphasis on active learning
 
@@ -104,9 +114,10 @@ Class attendance
 Exams
 - Midterm: Date still TBD
 - Final Exam: June 10th. 
-
+]
 ---
-# A typical week includes
+.title[A typical week includes]
+.body[
 - **Monday/Wednesday/Friday:** <br/>Come to class ready
 for discussion and activity
 - **Tuesday/Thursday/Weekends:** <br/> Do your reading [~10 mins]
@@ -114,55 +125,58 @@ for discussion and activity
 - **Thursday:** <br/>Come to lab ready to work on your homework
 
 Stay on top of reading  to make time  for homework!
+]
 ---
-
-# Language: Java
+.title[ Language: Java]
+.body[
 Java is our primary language
 - Need 143 or equivalent
 - Comfortable in Java
 - We will use trees, state machines, etc.
+]
 ---
-
-# Platform: Android
+.title[Platform: Android]
+.body[
 Most commonly used
 interface development platform for Java
-
+]
 --
-
+.body[
   - Open source
   - Around 75% market share
   - Thousands of supported devices
-
+]
 --
-
+.body[
 - Exposes Android SDK
   - Framework for building apps on mobile devices
-
+]
 --
+.body[
   - Written in __Java__ and E__X__tensible __M__arkup __L__anguage (__XML__)
-
+]
 ---
 class: center
-
 ## Android Versioning
 
 ![:img Android Versioning and Distribution, 65%](img/android-versions-oct2018.png)
 
 .center[
-### We're going to target  .red[Nougat] :) - That's .red[__29%__] of devices, and growing]
+### We're going to target  .red[Nougat] :) - That's .red[__29%__] of devices, and growing
 ]
 --- 
-## Android Versioning
-- We encourage you to buy an android phone (no tablets) ~$50
+.title[Android Versioning]
+.body[
+- We encourage you to buy an android phone (no tablets)  ~$50
 - Need sufficient memory/disk space to run <br/>
 Android Studio & emulators<h2></h2>
 - Ask questions on Piazza if you need more guidance
 ]
+]
 ---
-
 .title[Where to find what]
 .body[
-- The class is on the [web]({{site.url}}),
+- The class is on the [web]({{site.url}}/interaction),
   but we have used iframes to connect this to
   [Canvas]({{site.canvas}}). We try to interlink
   everything as much as possible.
@@ -184,159 +198,109 @@ either in office hours or through [Piazza]({{site.piazza}})
 ![:img Picture of book cover for UI textbook, Building Interactive Systems by Dan R. Olsen, Jr.,70% ](/interaction/assets/img/ui.jpg)
 ---
 
-# Expectations
+.title[ Expectations]
+.body[
 - **Background**: Lots of programming expected
 - **Sharing**:
  - Many assignments done in pairs
  - Outside of that, documentation is key
+]
 ---
 
-# Expectations
+.title[ Expectations]
+.body[
 - **Accessibility**: This course is accessible
 - **Inclusivity**: An important value in this class, and in HCI!
 - **Language**: I am Jen, or Prof. Mankoff.
 - **Pronouns**: She/her.
 
   If you run into problems, or have preferences about these issues, please tell me!
+]
 ---
 
 [//]: # (Outline Slide)
-# Today's  goals
+.title[Today's  goals]
+.body[
 - Course staff
 - How we will teach this course
 - **Learning goals**
 - Assignments & Grading
 - Relevance of HCI to all of Computer Science
+]
 ---
-
-# This week's learning goals
+.title[This week's learning goals]
+.body[
 - What is HCI? Past, present and future
 - Get up to speed with Android basics
 - Learn about basic abstractions for UI implementation
 - Names for common interactors
+]
 ---
-
-## Course learning goals:
-Building Interfaces
+.left-column[
+# Course learning goals:
+]
+.right-column[
+# Building Interfaces
 - Deep understanding of **how to build user interfaces**
 - Basic abstractions (layout, event handling, *etc.*)
 - Implementing best practices: Undo, Accessibility, Feedback, Errors,
 *etc.*
 - Exploration of advanced UI concepts: Ubicomp, Sensing, AR, *etc.*
+]
 ---
 
+.left-column[
 # Course learning goals:
-  Iterative Design
+]
+.right-column[
+#  Iterative Design
+
 - Basic understanding of **Iterative Design**
 - Why designers are valuable
 - Iterative design process
 - How designers get data from users
+]
 ---
 
 [//]: # (Outline Slide)
-# Today's goals
+.title[Today's goals]
+.body[
 - Course staff
 - How we will teach this course
 - Learning goals
 - **Assignments & Grading**
 - Relevance of HCI to all of Computer Science
+]
 ---
 
-# Assignment Structure
+.title[ Assignment Structure]
+.body[
 Projects: Implementation of Interfaces
 - Practical help with assignments in lab
 - Code tested with unit tests
 - Applications tested through user studies you run
 - Some basics handled in code review
+]
 ---
-
-# Exercise: Your own 'Doodle' (solo)
-Learning goals
-- Demonstrate that you got android working
-- Demonstrate basic knowledge of graphics methods for drawing things
-on screen
-
-Grading
-- Exercises are Pass/Fail only
-- Exercises are auto graded
+.left-column[
+# Field Trip
+]
+.right-column[
+# [Assignments]({{site.url}}/interaction/assignments)
+]
 ---
-
-<!-- ## First Project: Your own 'Doodle' -->
-<!-- - 50% Load images/draw/write text on screen -->
-<!--  - implement 3 methods to do this -->
-<!--  - we will grade using test cases -->
-<!--  - source code required -->
-<!-- - 40% Make it look nice -->
-<!--  - Make something you're proud of -->
-<!--  - Challenge option: Add animation  -->
-<!--  - Peer graded (with APK only) -->
-<!-- - 10% Turned in on time, passes code review -->
-<!-- </section> -->
-
-# Exercise: Build a Component (solo)
-Learning goals: Create a layout to a spec
- - Reproduce three layouts we give you
- - Should position things as shown in the image
- - Should resize appropriately if phone is turned
-
----
-
-# First Project: Implement and run a user study (pair)
-Learning goals: End to end application; Interacting with users
-- Reproduce an application
-- Record data to spec
-- Produce plausible results (within expected ranges)
-<!-- - 50% Application meets specs -->
-<!--  - Running tests generates data file properly -->
-<!-- - 40% User study meets specs -->
-<!--  - Correct results handed in -->
-<!--  - Data analysis produces plausible numbers -->
-<!-- - 10% Turned in on time, passes code review -->
-
-Grading
-- Grading is based on test cases and peer review
-
----
-
-# Exercise: Make an application accessible (solo)
-Learning goals: Android Accessibility
-- Use Android accessibility features
-- Identify accessibility problems
-- Understand Android accessibility limitations
----
-
-# Exercise: Implement support for Undo (solo)
-Learning goals: Undo Abstractions
-- Command objects
-- Separation of concerns
-- Build
----
-
-# Exercise: Implement support for sensing (solo)
-Learning goals: Using android sensors
-- Using the Aware api
-- Use location
-- Data storage and loading
----
-
-# Third Project: Implement an context aware app (pair)
-[Or an AR game like pokemon go that uses location]
-Learning goals: Design context-aware application, Heuristic Eval
-- Reproduce an application
-- Collect data using Heuristic Evaluation
-- Iterate
----
-
 [//]: # (Outline Slide)
-# Today's  goals
+.title[Today's  goals]
+.body[
 - Course staff
 - How we will teach this course
 - Learning goals
 - Assignments & Grading
 - **Relevance of HCI to all of Computer Science**
+]
 ---
-
-# Human-Computer Interaction (HCI)
+.title[ Human-Computer Interaction (HCI)]
+.body[
 A science of the artificial
 - Human
  - Anyone impacted by the existence of the program
@@ -346,6 +310,7 @@ A science of the artificial
 - Interaction
  - How the artificial stuff is actually used
  - 48% of app code [Myers & Rosson, CHI'92]; probably more now!
+]
 ---
 
 
@@ -386,26 +351,48 @@ Sketchpad introduced direct manipulation, constraints, and chorded input.
 
 # Sketchpad Inspires Engelbart
 ---
+.left-column[Engelbart's *Mother of all Demos* in December 9 1968 at the
+Fall Joint Computer Conference. His presentation included
+- windows
+- hypertext
+- graphics
+- video conferencing
+- the computer mouse
+- word processing
+- dynamic file linking
+- revision control
+- collaborative real-time editing
 
+all new inventions!
+]
+.right-column[
 ![:img Two images -- a man giving a live demo of a text based
     interface; and a wooden computer mouse.,
-70%](/interaction/assets/img/engelbart.png)
-
-Engelbart's *Mother of all Demos*, in December 9, 1968 at the Fall Joint Computer Conference. His presentation included windows; hypertext; graphics; video conferencing; the computer mouse; word processing; dynamic file linking; revision control; collaborative real-time editing, all new inventions!
-
+50%](/interaction/assets/img/engelbart.png) ![:youtube Engelbart's *Mother of all Demos* in December 9 1968 at the
+Fall Joint Computer Conference. His presentation included windows;
+hypertext; graphics; video conferencing; the computer mouse; word
+processing; dynamic file linking; revision control; collaborative
+real-time editing; all new inventions!, B6rKUf9DWRI]
+]
 ---
-Engelbart inspires many things, including the Xerox Star, the first
-graphical personal computer, and Smalltalk 80 the first UI Toolkit
-
+.left-column[Engelbart inspires many things, including
+- the Xerox Star
+- the first
+graphical personal computer
+- Smalltalk 80 the first UI Toolkit
+]
+.right-column[
 ![:img A desktop personal computer showing a WYSIWYG
 word processor and graphical window system, 30%](img/smalltalk-interface.png)
 ![:img A picture of a woman interacting with the Xerox
 Alto computer, 35%](img/alto.jpg)
-
+]
 ---
 
-# HCI in the Present
+.title[ HCI in the Present]
+.body[
 Discussion: How is it changing us as individuals and a society?
+]
 
 ???
 - Social networking has been implicated in revolutions and elections.
@@ -416,13 +403,15 @@ Discussion: How is it changing us as individuals and a society?
 ![:img Sketch of Interface, 70%](img/sketch.png)
 
 ---
-# Subtle influence of tools
+.title[ Subtle influence of tools]
+.body[
 
 ![:img High Fidelity Prototype, 70%](img/prototype.png)
 
+]
 ---
-# Subtle influence of tools
-
+.title[Subtle influence of tools]
+.body[
 Whorfian Effects
 - The way in which our tools influence how we think and thus what we do. 
 
@@ -430,10 +419,10 @@ Whorfian Effects
 
 - Can even affect perception of human emotion!
 http://www.radiolab.org/story/91730-new-words-new-world/
-
+]
 ---
 # HCI Software in the present
-
+.left-column[
 <div class="mermaid">
   graph LR
   ap[Application Program]
@@ -452,10 +441,10 @@ classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px,width:300px;
 class ap,o,h,w yellow
 class hlt,t green
 </div>
-
+]
 ---
 # HCI Software in the present
-
+.left-column[
 <div class="mermaid">
   graph LR
   ap[Application Program]
@@ -469,13 +458,13 @@ classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
 classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
 classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
 classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
 
 class w,ap,o,h yellow
 class t green
 class hlt darkblue
 </div>
-
+]
 ---
 # Example High Level Tool in Android  
 
@@ -496,7 +485,8 @@ classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
 classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
 classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
 classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
+
 
 class ip,t yellow
 class w,l,a green
@@ -517,7 +507,7 @@ classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
 classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
 classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
 classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
 
 class t yellow
 class w,l,a green
@@ -545,7 +535,7 @@ classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
 classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
 classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
 classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
 
 class ip,t yellow
 class w,l,a green
@@ -587,7 +577,7 @@ classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
 classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
 classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
 classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
 
 class ip,t yellow
 class w,a green
@@ -626,7 +616,7 @@ classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
 classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
 classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
 classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
 
 class ip,t yellow
 class w,l,a green
@@ -671,7 +661,7 @@ classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
 classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
 classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
 classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
 
 class ip,t yellow
 class w,l,a green
@@ -697,7 +687,8 @@ Prefab supports pixel based enhancements: write interpretation logic that can be
 ![:youtube Prefab Demo,lju6IIteg9Q]
 
 ---
-# But we look at General Principals
+.title[ But we look at General Principals]
+.body[
 
 Particular toolkits tend to be mired in a particular platform
 
@@ -709,17 +700,104 @@ Labs are platform specific looks at lecture concepts
 If you learn the structures/concepts (and esp. rationale behind them)
 that survives change better 
 
+]
 ---
 
-# HCI in the Future
+.title[ HCI in the Future]
+.body[
 How do we invent a preferable future? an inclusive future?
 - What will the future look like?
 - Who needs to help design the future for us to achieve this?
 - Who needs to use technology in the future for us to achieve this?
+]
 ---
 
-# HCI in the Future
+.title[ HCI in the Future]
+.body[
 Watch videos and discuss
 [Victoria Belotti](https://www.youtube.com/watch?v=IK3rW1dSWoE); [Tovi Grossman](https://www.youtube.com/watch?v=DFPnwaoxSQU); [Jon Froehlich](https://www.youtube.com/watch?v=qRlIuWWdkHY) (here); [Leysia Palen](https://www.youtube.com/watch?v=jmXjaMs2tUE); [Many more](http://www.id-book.com/talkingheads.php) if you want to keep exploring.
 
+]
 ---
+---
+<!-- --- -->
+
+<!-- .title[ Exercise: Your own 'Doodle' (solo)] -->
+<!-- .body[ -->
+<!-- Learning goals -->
+<!-- - Demonstrate that you got android working -->
+<!-- - Demonstrate basic knowledge of graphics methods for drawing things -->
+<!-- on screen -->
+
+<!-- Grading -->
+<!-- - Exercises are Pass/Fail only -->
+<!-- - Exercises are auto graded -->
+<!-- ] -->
+<!-- --- -->
+
+<!-- ## First Project: Your own 'Doodle' -->
+<!-- - 50% Load images/draw/write text on screen -->
+<!--  - implement 3 methods to do this -->
+<!--  - we will grade using test cases -->
+<!--  - source code required -->
+<!-- - 40% Make it look nice -->
+<!--  - Make something you're proud of -->
+<!--  - Challenge option: Add animation  -->
+<!--  - Peer graded (with APK only) -->
+<!-- - 10% Turned in on time, passes code review -->
+<!-- </section> -->
+
+<!-- .title[Exercise: Build a Component (solo)] -->
+<!-- .body[ -->
+<!-- Learning goals: Create a layout to a spec -->
+<!--  - Reproduce three layouts we give you -->
+<!--  - Should position things as shown in the image -->
+<!--  - Should resize appropriately if phone is turned -->
+<!-- ] -->
+<!-- --- -->
+
+<!-- # First Project: Implement and run a user study (pair) -->
+<!-- Learning goals: End to end application; Interacting with users -->
+<!-- - Reproduce an application -->
+<!-- - Record data to spec -->
+<!-- - Produce plausible results (within expected ranges) -->
+<!-- <\!-- - 50% Application meets specs -\-> -->
+<!-- <\!--  - Running tests generates data file properly -\-> -->
+<!-- <\!-- - 40% User study meets specs -\-> -->
+<!-- <\!--  - Correct results handed in -\-> -->
+<!-- <\!--  - Data analysis produces plausible numbers -\-> -->
+<!-- <\!-- - 10% Turned in on time, passes code review -\-> -->
+
+<!-- Grading -->
+<!-- - Grading is based on test cases and peer review -->
+
+<!-- --- -->
+
+<!-- # Exercise: Make an application accessible (solo) -->
+<!-- Learning goals: Android Accessibility -->
+<!-- - Use Android accessibility features -->
+<!-- - Identify accessibility problems -->
+<!-- - Understand Android accessibility limitations -->
+<!-- --- -->
+
+<!-- # Exercise: Implement support for Undo (solo) -->
+<!-- Learning goals: Undo Abstractions -->
+<!-- - Command objects -->
+<!-- - Separation of concerns -->
+<!-- - Build -->
+<!-- --- -->
+
+<!-- # Exercise: Implement support for sensing (solo) -->
+<!-- Learning goals: Using android sensors -->
+<!-- - Using the Aware api -->
+<!-- - Use location -->
+<!-- - Data storage and loading -->
+<!-- --- -->
+
+<!-- # Third Project: Implement an context aware app (pair) -->
+<!-- [Or an AR game like pokemon go that uses location] -->
+<!-- Learning goals: Design context-aware application, Heuristic Eval -->
+<!-- - Reproduce an application -->
+<!-- - Collect data using Heuristic Evaluation -->
+<!-- - Iterate -->
+<!-- --- -->
