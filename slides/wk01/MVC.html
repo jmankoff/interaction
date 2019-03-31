@@ -51,27 +51,20 @@ Gulf of execution is the user 'error' region (user requests
 functionality__.
 
 ---
-# Discussion of reading quiz
----
-# In class Exercise
-
-- Brainstorm a list of common interactors
-???
-Menu, Button(types), Slider, Scrollbar, Spinner, List box, Icon, Link,
-Text box, Label,
+.title[Discussion of reading quiz]
 ---
 .left-column[
-# Most GUIs still use the same 7-10 interaction techniques
-]
-.right-column[
-significant stagnation
+# Significant Stagnation
 
 - Basic GUI components invented 1970s
-- Windows, Icons, Menus, Pointers ( “WIMP”)
+- Windows, Icons, Menus, Pointers (“WIMP”)
 - “Perfected” by Macintosh in 1984
 - Not much change since then (even with web)
+]
+.right-column[
+## Most GUIs still use the same 7-10 interaction techniques
 
-![Picture of a very old mac control panel showing typical interactors at the time,100%](img/interactors1.png)
+![:img Picture of a very old mac control panel showing typical interactors at the time,80%](img/interactors1.png)
 ]
 ???
 - Work well, uniform
@@ -79,11 +72,60 @@ significant stagnation
 - GUI is victim of its own success
 - Opportunities lost by not customizing interaction techniques to tasks
 - Hard for better techniques to get traction
-- Only very recently with the iPhone (touch based) 
-have we seen lots of new techniques get a major foothold
+- Only very recently with mobile devices (touch based) have we seen lots of new techniques get a major foothold
 ---
-# Interactor (Component) Model
+.title[In class Exercise]
+.body[
+Let's look at interactors in Android Studio
+![:img A picture of the setup for android study in which we can layout
+components,80%](img/android-components.png)
+]
+???
+Menu, Button(types), Slider, Scrollbar, Spinner, List box, Icon, Link,
+Text box, Label,
+---
+.title[In class Exercise]
+.body[
+Quick Tour | tutorial
+for [building a ui](https://developer.android.com/training/basics/firstapp/building-ui)
 
+![:img A picture of the setup for android study in which we can layout
+components,80%](img/android-components2.png)
+]
+
+---
+.title[ Environment Setup]
+.body[
+
+- Should already be done: Download [Android Studo](https://developer.android.com/studio/) and install
+]
+--
+.body[
+- Keep default installation settings
+]
+--
+.body[
+  - We'll be using Nougat as a default for this class
+  - But any version above Jellybean will work
+]
+---
+.title[What went wrong?]
+
+.body[
+Layout: Did things overlap?
+Action: Did they react?
+]
+---
+.title[MVC for a button]
+.body[
+- Diagram it with respect to reading
+ - Model
+ - View
+ - Controller
+]
+---
+.title[Interactor (Component) Model]
+.body[
 __Encapsulate interactive components__ (interactors)
 - Component library (button, slider, container)
 - Interface built as a hierarchy of components
@@ -93,17 +135,11 @@ __Components drawn by underlying graphics library__
 - Historically mouse & keyboard, now touch, ...
 
 __Bounds management & damage/redraw__
-Model geometry, redraw updated regions only
---
-# Exercise continued
-- Brainstorm a list of common components
-- Pick One (Button)
-- Diagram it with respect to reading
- - Model
- - View
- - Controller
+- Model geometry, redraw updated regions only
+]
 ---
-# What about a whole interface
+.title[What about a whole interface]
+.body[
 
 ![:img Minimalist Recipe App showing the title 'simple food', a heart
 for favoriting, a bookmark and sharing icon, the title 'boiled eggs',
@@ -111,7 +147,11 @@ a picture of an egg, and a description of what you need to boil an egg
 along with a button saying 'cook it', 30%](img/minimalist-app.png)
 minimalist-app-ui-37.png
 
-## Model View Controller
+]
+---
+.title[ Model View Controller]
+.body[
+]
 
 ???
 Sketch out key concepts 
@@ -124,102 +164,99 @@ Sketch out key concepts
 - NOTE: Be careful to write any new vocabulary words on the board and define as they come up.
 
 ---
-# Assignment 1
-
-- Running sample code for [Assignment 1: Doodle](/assignments/doodle.html)
-- Example: `addImage`
-- Understanding Grading
-- Other Questions
----
-## Environment Setup
-
-- Should already be done: Download [Android Studo](https://developer.android.com/studio/) and install
---
-
-- Keep default installation settings
-
---
-  - We'll be using Oreo as a default for this class
-  - But any version above Jellybean will work
----
-## Introduction to Android
+.title[ MVC in Android]
+.body[
 
 - Applications typically follow MVP architecture
-
+]
 --
-
+.body[
   - Model, View, Presenter
-  
+  ]
 --
-
+.body[
 ![MVP Diagram](img/mvp-design-pattern.png)
 
-
+]
 ???
 - Relationship of MVC to Android software stack
 - Discuss Whorfian effects
 
 ---
-## Running Sample Code
+.title[Assignment 1]
+.body[
+- Running sample code for [Assignment 1: Doodle](/assignments/doodle.html)
+- Example: `addImage`
+- Understanding Grading
+- Other Questions
+]
+---
+.title[Running Sample Code]
+.body[
+This repository will contain assignment and exercise stubs for CSE340
+for the Spring 2019 term. It's recommended that you [fork](https://gitlab.cs.washington.edu/cse340/19sp/forks/new) this
+repository. This will allow you to merge any upstream changes we make
+to stubs throughout the quarter. You can find instructions on setting
+up and maintaining a forked repository [here](https://help.github.com/en/articles/working-with-forks).
 
-- Open project in Android Studio
-
---
-
+![:img Picture of Gitlab for https://gitlab.cs.washington.edu/cse340/19sp with a place to download,100%](img/download-projects.png)
+]
+---
+.title[
+Open project in Android Studio]
+.body[
 - Run configurations should be automatically imported from Gradle
   - If not, `build` should trigger an import
-
---
-
 - Run with ►
-
---
-
   - Connect an android device by USB or create a new virtual device
-
---
   - If by USB, debugging must be enabled on the device
-
+]
 ---
-## Implementing  `addImage`
-
+.title[ Implementing  `addImage`]
+.body[
 ```java
 private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size);
 ```
 
 ### Params:
 - `mainCanvas`: Canvas in which to render the image.
-
---
 - `imageName`: Filename of image to draw in `res/drawable`.
-
+]
 --
+.body[
 - `x`: Horizontal distance from top-left corner of canvas to top-left of image.
 - `y`: Veritcal distance from top-left corner of canvas to top-left of image.
-
+]
 --
+.body[
 - `size`: Width and height of rendered image, in pixels.
-
---
+]
+---
+.title[ Implementing  `addImage`]
+.body[
 ### Returns:
 - An `ImageView` which has been added to the canvas.
+]
 
 ---
-## Implementing  `addImage`
-
+.title[## Implementing  `addImage`]
+.body[
 Break down into component steps, look up documentation, and implement
 
 1. Create `ImageView`
-
+]
 --
+.body[
 2. Add new view to canvas
-
+]
 --
+.body[
 3. Position and set view size
-
+]
 --
+.body[
 4. Set view contents
-
+]
 ---
 ## Implementing  `addImage`
 
@@ -304,16 +341,18 @@ private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Fl
 }
 ```
 ---
-## Grading
-
+.title[Grading]
+.body[
 Discuss
-
+]
 ---
-# Summary
+.title[Summary]
+.body[
 - Common Components of an Interface
 - Role of MVC in Components
 - Role of MVC in whole application
 - Intents; Components (Activity; Service; Broadcast Receiver; Content
 Provider)
 - Role of MVC in Android
-- Download and install Android Studio!
+- Run some code in Android Studio!
+]
