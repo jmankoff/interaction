@@ -19,13 +19,346 @@ class:
 ---
 layout: false
 
-# Today's goals
+.title[Today's goals]
+.body[
+- __Tools & Toolkit Users__
+- Gulf of Evaluation/Execution
+- Mental models
+- Common Components
+- Component Anatomy
+- Relate to Android
+]
+---
+# Subtle influence of tools
 
+![:img Sketch of Interface, 70%](img/sketch.png)
+
+---
+.title[ Subtle influence of tools]
+.body[
+
+![:img High Fidelity Prototype, 70%](img/prototype.png)
+
+]
+---
+.title[Subtle influence of tools]
+.body[
+Whorfian Effects
+- The way in which our tools influence how we think and thus what we do. 
+
+- Origins are linguistic (e.g. the way in which language about color affects what we perceive)
+
+- Can even affect perception of human emotion!
+http://www.radiolab.org/story/91730-new-words-new-world/
+]
+---
+# HCI Software in the present
+.left-column[
+<div class="mermaid">
+  graph LR
+  ap[Application Program]
+  hlt[High Level Tools]
+  t[Toolkit]
+  w[Window System]
+  o[OS]
+  h[Hardware]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px,width:300px;
+
+class ap,o,h,w yellow
+class hlt,t green
+</div>
+]
+---
+# HCI Software in the present
+.left-column[
+<div class="mermaid">
+  graph LR
+  ap[Application Program]
+  hlt[High Level Tools]
+  t[Toolkit]
+  w[Window System]
+  o[OS]
+  h[Hardware]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
+
+class w,ap,o,h yellow
+class t green
+class hlt darkblue
+</div>
+]
+---
+# Example High Level Tool in Android  
+
+![:img Screenshot of the android layout tool, 100%](img/android-editor.gif)
+
+---
+# Development Roles
+.left-column[
+<div class="mermaid">
+  graph LR
+  ip[Interface Programmer]
+  w[Component Developer]
+  l[Library Extender]
+  a[Architecture Extender]
+  t[Toolkit Builder]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
+
+
+class ip,t yellow
+class w,l,a green
+</div>
+]
+---
+# Development Roles
+.left-column[
+<div class="mermaid">
+  graph LR
+  ip[Interface Programmer]
+  w[Component Developer]
+  l[Library Extender]
+  a[Architecture Extender]
+  t[Toolkit Builder]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
+
+class t yellow
+class w,l,a green
+class ip darkblue
+</div>
+]
+.right-column[
+Combine library elements according to toolkit rules & following
+constraints of architecture. 
+
+Supported by all toolkits
+]
+---
+# Development Roles
+.left-column[
+<div class="mermaid">
+  graph LR
+  ip[Interface Programmer]
+  w[Component Developer]
+  l[Library Extender]
+  a[Architecture Extender]
+  t[Toolkit Builder]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
+
+class ip,t yellow
+class w,l,a green
+class w darkblue
+</div>
+]
+.right-column[
+Creates new, re-usable interactors (e.g. to support new forms of
+input/direct manipulation).
+
+Supported by many toolkits
+]
+---
+# Interaction Techniques
+- A method for carrying out a specific interactive task
+- Example: enter a number in a range
+ - Swiping to invoke an action
+ - Gesture based text entry
+
+.left-column[
+![img: A picture of a finger left-swiping to invoke an action on a
+list on an android phone, 30%](img/android-swipe.png)
+]
+.right-column[
+![img: A picture of gesture based text entry on an android phone, 25%](img/android-type.jpg)
+]
+---
+# Development Roles
+.left-column[
+<div class="mermaid">
+  graph LR
+  ip[Interface Programmer]
+  w[Component Developer]
+  l[Library Extender]
+  a[Architecture Extender]
+  t[Toolkit Builder]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
+
+class ip,t yellow
+class w,a green
+class l darkblue
+</div>
+]
+.right-column[
+Similar to interactor developer, but may create new forms of layout, types of input, etc.
+
+Supported by a few toolkits
+]
+---
+# Toolkit Support for Styling
+
+.left-float[
+![img: A picture of the same dialogue box styled 4 different ways, 10%](img/novellibrary.png)
+]
+.right-float[
+subArctic allowed visually rich, dynamically resizable, images to be
+provided using primarily conventional drawing tools (and with no
+programming or programming-like activities at all).  Scott E. Hudson
+and Kenichiro Tanaka. (UIST '00) 
+]
+---
+# Development Roles
+.left-column[
+<div class="mermaid">
+  graph LR
+  ip[Interface Programmer]
+  w[Component Developer]
+  l[Library Extender]
+  a[Architecture Extender]
+  t[Toolkit Builder]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
+
+class ip,t yellow
+class w,l,a green
+class a darkblue
+</div>
+]
+.right-column[
+Modifies the flow of information within a toolkit to create entirely new effects (e.g. adding support for command objects)
+
+Supported by very few toolkits
+]
+---
+# Architecture Extender: Animation
+
+.right-column50[
+![:img A picture of a phone interface using animation to show a menu, 100%](img/animation.gif)
+]
+
+Integrated into existing GUI toolkit
+
+Primary abstraction: transition
+- models movement over time
+- through arbitrary space of values (e.g., color)
+- screen space is most common 
+
+
+.footnote[Great post about [types of animation on mobile phones](https://yalantis.com/blog/-seven-types-of-animations-for-mobile-apps/), also
+source of the image]
+
+---
+# Development Roles
+.left-column[
+<div class="mermaid">
+  graph LR
+  ip[Interface Programmer]
+  w[Component Developer]
+  l[Library Extender]
+  a[Architecture Extender]
+  t[Toolkit Builder]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px,width:300px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px,width:300px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px,width:300px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px,width:300px;
+classDef darkblue fill: #ccffff,stroke:#333,stroke-width:6px,width:300px;
+
+class ip,t yellow
+class w,l,a green
+class t darkblue
+</div>
+]
+.right-column[
+Creates entirely new toolkits that enable radical new forms of interaction
+
+e.g. RapID https://make4all.org/portfolio/rapid/
+]
+---
+# Toolkit Builder: Physical Interfaces
+Creates entirely new toolkits that changes what we can do
+
+
+![:youtube Physical Interface made out of RFID tags,4k15uXpp7-g]
+
+---
+# Toolkit for Overloading Existing Interfaces
+Prefab supports pixel based enhancements: write interpretation logic that can be composed, reused, and shared to manage the multi-faceted nature of pixel-based interpretation; robustly annotate interface elements with metadata needed to enable runtime enhancements. 
+
+![:youtube Prefab Demo,lju6IIteg9Q]
+
+---
+.title[ But we look at General Principals]
+.body[
+
+Particular toolkits tend to be mired in a particular platform
+
+Along comes the next big thing  (e.g., iPhone) and you’ll need to
+learn a new one 
+
+Labs are platform specific looks at lecture concepts 
+
+If you learn the structures/concepts (and esp. rationale behind them)
+that survives change better 
+
+]
+---
+
+.title[ HCI in the Future]
+.body[
+How do we invent a preferable future? an inclusive future?
+- What will the future look like?
+- Who needs to help design the future for us to achieve this?
+- Who needs to use technology in the future for us to achieve this?
+]
+---
+
+.title[ HCI in the Future]
+.body[
+Watch videos and discuss
+[Victoria Belotti](https://www.youtube.com/watch?v=IK3rW1dSWoE); [Tovi Grossman](https://www.youtube.com/watch?v=DFPnwaoxSQU); [Jon Froehlich](https://www.youtube.com/watch?v=qRlIuWWdkHY) (here); [Leysia Palen](https://www.youtube.com/watch?v=jmXjaMs2tUE); [Many more](http://www.id-book.com/talkingheads.php) if you want to keep exploring.
+
+]
+---
+.title[Today's goals]
+.body[
+- Tools & Toolkit Users
 - __Gulf of Evaluation/Execution__
 - Mental models
 - Common Components
 - Component Anatomy
 - Relate to Android
+]
 ---
 .left-column[
 # Every system has at least 3 different models
@@ -52,6 +385,18 @@ functionality__.
 
 ---
 .title[Discussion of reading quiz]
+
+---
+.title[Today's goals]
+.body[
+- Tools & Toolkit Users
+- Gulf of Evaluation/Execution
+- Mental models
+- __Common Components__
+- Component Anatomy
+- Relate to Android
+]
+
 ---
 .left-column[
 # Significant Stagnation
