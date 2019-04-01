@@ -36,6 +36,12 @@ Tasks:
 
 This task involves implementing three functions in `Part1Activity.java`. Each function is named here but detailed doc comments can be found in the interface which `Part1Activity` extends: `Doodler`.
 
+You'll notice in `onCreate` in `Part1Activity` that we use `scaleX` and `scaleY` around our coordinates (and size for images). These allow us to ensure the doodle still looks good on smaller screen sizes.
+
+**All of the screenshots below are run on a Pixel 2 XL** and all of the coordinates specified here assume the Pixel 2 XL's screen resolution. You can scale them to your device by wrapping coordinates with `scaleX` and `scaleY`, which will scale the coordinates to your device screen size.
+
+We'd recommend that you use a Pixel 2 XL emulator to compare the finished doodle against our screenshot just to be sure you've implemented everything right.
+
 ### Specs for addImage
 ```java
 ImageView addImage(FrameLayout canvas, String imageName, float x, float y, int size);
@@ -59,35 +65,35 @@ You may find the comments and the implementation of addImage useful.
 
 If you implement it correctly, you'll see the image below if you run:
 ```java
-addText(mainCanvas, "CSE340", 550f, 200f, 60, Color.rgb(51,0,111))
+addText(canvas, "CSE340", scaleX(550), scaleY(200), 60, Color.rgb(51,0,111))
 ```
 
-![A purple text "CSE340" shows at the top right of the screenshot.](doodle-img/add_text_sample.png){:width="25%"}
+![A purple text "CSE340" shows at the top right of the screenshot.](doodle-img/add_text_sample.jpeg){:width="25%"}
 
 ### Specs for addLine
 ```java
-ImageView addLine(FrameLayout canvas, Point start, Point end, int width, int color);
+ImageView addLine(FrameLayout canvas, float startX, float startY, float endX, float endY, int width, int color);
 ```
 
 There are several ways to draw a line. [android--code](https://android--code.blogspot.com) has [a good example](https://android--code.blogspot.com/2015/11/android-how-to-draw-line-on-canvas.html)
 
 If you implement it correctly, you'll see the image below if you run:
 ```java
-addLine(mainCanvas, 100f, 250f, 700f, 1200f, 15, Color.rgb(200,0,0))
+addLine(canvas, scaleX(100), scaleY(250), scaleX(700), scaleY(1200), 15, Color.rgb(200,0,0))
 ```
 
-![A red line starts from top left to the center of the screenshot.](doodle-img/add_line_sample.png){:width="25%"}
+![A red line starts from top left to the center of the screenshot.](doodle-img/add_line_sample.jpeg){:width="25%"}
 
 ### Animating Text
 
 Read through this [basic animation](https://developer.android.com/training/animation/reposition-view) tutorial. You will need to first figure out how to animate the TextView created by `addText` then decide where in the Activity lifecycle the animation should be placed so it is triggered when the app opens.
 
-The `UW` text should translate horizontally from `(50f, 1650f)` to `(1000f, 1650f)`. Animation duration should be less than 2 seconds.
+The `UW` text should translate horizontally from `(50f, 1650f)` to `(1050f, 1650f)`. Animation duration should be less than 2 seconds.
 
 *Related APIs*:
 [ObjectAnimator](https://developer.android.com/reference/android/animation/ObjectAnimator)
 
-![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.png){:width="25%"}
+![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.jpeg){:width="25%"}
 
 # Part 2
 ***
