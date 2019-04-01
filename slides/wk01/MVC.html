@@ -11,6 +11,7 @@ class: center, middle, inverse
 # Core Toolkit Abstractions
 
 Jennifer Mankoff
+
 CSE 340 Spring 2019 
 ---
 name: normal
@@ -19,13 +20,22 @@ class:
 ---
 layout: false
 
+.body[
+| Hall of Shame | Hall of Fame|
+|---|---|
+|![:img Picture of a small sandcastle that is falling apart, 100%](img/sandcastle1.png) | ![:img Picture of a complex sandcastle with LEDs lighting it up, 100%](img/sandcastle2.jpg)
+]
+---
+.title[Impact of Tools]
+.body[
+![Simple home tools for sandcastle making such as a bucket; funnel; brush; and spackle knife, 90%](img/sandcastletools.gif)
+]
+---
 .title[Today's goals]
 .body[
 - __Tools & Toolkit Users__
-- Gulf of Evaluation/Execution
-- Mental models
 - Common Components
-- Component Anatomy
+- Model View Controller
 - Relate to Android
 ]
 ---
@@ -333,66 +343,10 @@ that survives change better
 
 ]
 ---
-
-.title[ HCI in the Future]
-.body[
-How do we invent a preferable future? an inclusive future?
-- What will the future look like?
-- Who needs to help design the future for us to achieve this?
-- Who needs to use technology in the future for us to achieve this?
-]
----
-
-.title[ HCI in the Future]
-.body[
-Watch videos and discuss
-[Victoria Belotti](https://www.youtube.com/watch?v=IK3rW1dSWoE); [Tovi Grossman](https://www.youtube.com/watch?v=DFPnwaoxSQU); [Jon Froehlich](https://www.youtube.com/watch?v=qRlIuWWdkHY) (here); [Leysia Palen](https://www.youtube.com/watch?v=jmXjaMs2tUE); [Many more](http://www.id-book.com/talkingheads.php) if you want to keep exploring.
-
-]
----
 .title[Today's goals]
 .body[
 - Tools & Toolkit Users
-- __Gulf of Evaluation/Execution__
-- Mental models
-- Common Components
-- Component Anatomy
-- Relate to Android
-]
----
-.left-column[
-# Every system has at least 3 different models
-]
-.right-column[
-<div class="mermaid">
-graph TD
-  S[System Image: Your Implementation] --> |System Feedback| U[User Model: How the user thinks the system works] 
-  D[Design Model: How you intend the system to work]-->S
-  U -->|User Feedback| S
-</div>
-
-]
-
-???
-# Relating the Human and the Machine
-
-- Gulf of Execution and Gulf of Evaluation
-
-Gulf of execution is the user 'error' region (user requests
-  function the __system DOESNT HAVE__), gulf of
-  evaluation is when the user __doesn't realize the system HAS a
-functionality__.
-
----
-.title[Discussion of reading quiz]
-
----
-.title[Today's goals]
-.body[
-- Tools & Toolkit Users
-- Gulf of Evaluation/Execution
-- Mental models
-- __Common Components__
+- **Common Components**
 - Component Anatomy
 - Relate to Android
 ]
@@ -460,6 +414,60 @@ components,80%](img/android-components2.png)
 Layout: Did things overlap?
 Action: Did they react?
 ]
+
+---
+.title[Today's goals]
+.body[
+- Tools & Toolkit Users
+- Common Components
+- __Model View Controller__
+- Relate to Android
+
+]
+---
+.left-column[
+# Every system has at least 3 different models
+]
+.right-column[
+<div class="mermaid">
+graph TD
+  S[System Image: <br>Your Implementation&nbsp;] --> |System Feedback&nbsp;| U[User Model: How the user thinks&nbsp; <br>the system works] 
+  D[Design Model: How you <br>intend the system to work&nbsp;]-->S
+  U -->|User Feedback&nbsp;| S
+</div>
+
+]
+
+???
+# Relating the Human and the Machine
+
+- Gulf of Execution and Gulf of Evaluation
+
+Gulf of execution is the user 'error' region (user requests
+  function the __system DOESNT HAVE__), gulf of
+  evaluation is when the user __doesn't realize the system HAS a
+functionality__.
+
+---
+.title[MVC]
+![:img A picture of a person saying "unlock door" (D) with a
+connection to A labeled signal lock to open; an arrow (2) to B labeled
+"Speech recognition/speaker ID"; a box C labeled "At time (1) access
+list: Jen; Ryan; Current person: Ryan; Lock state: Closed"; an arrow
+from B to C labeled (3) Change person to Jen; lock open; and an arrow
+from C to A labeled (4) Value changed., 110%](img/quiz-mvc.png)
+
+???
+Discussion of reading quiz
+
+Sketch out key concepts 
+- Input -- we need to know when people are doing things. This needs to be event driven.
+- Output -- we need to show people feedback. This cannot ‘take over’ i.e. it needs to be multi threaded
+- Back end -- we need to be able to talk to the application. 
+- State machine -- we need to keep track of state. 
+- What don’t we need? We don’t need to know about the rest of the UI, probably, etc etc
+- Model View Controller -- this works within components (draw diagram), but also represents the overall structure (ideally) of a whole user interface
+- NOTE: Be careful to write any new vocabulary words on the board and define as they come up.
 ---
 .title[MVC for a button]
 .body[
@@ -494,21 +502,6 @@ minimalist-app-ui-37.png
 
 ]
 ---
-.title[ Model View Controller]
-.body[
-]
-
-???
-Sketch out key concepts 
-- Input -- we need to know when people are doing things. This needs to be event driven.
-- Output -- we need to show people feedback. This cannot ‘take over’ i.e. it needs to be multi threaded
-- Back end -- we need to be able to talk to the application. 
-- State machine -- we need to keep track of state. 
-- What don’t we need? We don’t need to know about the rest of the UI, probably, etc etc
-- Model View Controller -- this works within components (draw diagram), but also represents the overall structure (ideally) of a whole user interface
-- NOTE: Be careful to write any new vocabulary words on the board and define as they come up.
-
----
 .title[ MVC in Android]
 .body[
 
@@ -518,9 +511,14 @@ Sketch out key concepts
 .body[
   - Model, View, Presenter
   ]
---
+---
+.title[ MVC in Android]
 .body[
-![MVP Diagram](img/mvp-design-pattern.png)
+
+- Applications typically follow MVP architecture
+- Model, View, Presenter
+
+![:img MVP Diagram, 80%](img/mvp-design-pattern.png)
 
 ]
 ???
