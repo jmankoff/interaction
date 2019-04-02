@@ -195,7 +195,8 @@ and a welcoming environment for all. Please let me know if you see
 opportunities to improve this. 
 - **Sharing and Group Projects**: Working together is encouraged, as
 long as you in the end implement your own code, and make sure to
-document any information you get from other students. You will work on
+document any information you get from other students in comments at
+the top of the relevant file. You will work on
 one of your projects in pairs.
 - **Pronouns**: I use she/her, please let me know if you have any specific pronoun preferences
 
