@@ -30,48 +30,83 @@ Tasks:
 - Support different color and thickness
 - Handle undo/redo operations
 
-You can create a basic drawing app from our code stub.
-- Handle input events (ACTION_DOWN/ACTION_MOVE/ACTION_UP) to create drawing paths.
-- Draw all paths in onDraw method.
-  - See its behavior in screenshot 1 and 2.
+## Implementing drawing
 
-You will then create Floating Action Buttons (FABs) to support changing color and thickness of drawing. After clicking FAB:
-- Create a view to support selecting color (optional but recommended: use color picker you implemented in previous exercise).
-  - See its behavior in screenshot 3 and 4.
-- Create a view to support selecting thickness.
-  - See its behavior in screenshot 5 and 6.
+First you will implement the basic drawing app from our code stubs in `DrawingView.java`.
 
-Most importantly, you should handle undo/redo operations.
-- Show undo FAB if there is any command to undo.
-  - See its behavior in screenshot 6 and 7.
-  - Click to undo the previous command.
-  - Long press to open a dialog and show recent commands (up to 10) to undo.
-    - Click a command to set canvas to that stage.
-- Show redo FAB if there is any command to redo.
-  - See its behavior in screenshot 7 and 8.
-  - Click to redo the next command.
-  - Long press to open a dialog and show recent commands (up to 10) to redo.
-    - Click a command to set canvas to that stage.
-- We would like to limit the number of commands we can undo/redo, just like most of apps do (e.g., PhotoShop). Please store up to 10 commands to undo and up to 10 commands to redo.
+```java
+public boolean onTouch(View arg0, MotionEvent event);
+```
 
-For FAB states:
-- When there is no command to undo, hide undo FAB.
-- When there is no command to redo, hide redo FAB.
-- When a color is picked, the color FAB should update its background to that color.
-- When a thickness is picked, the thickness FAB should update the thickness icon.
-- You may need update color/thickness FAB state after undo/redo.
+Notice that the above method calls different functions `onDrawStart(...)`, `onDrawMove(...)`, and `onDrawEnd()` depending on the type of input action taken. Implement these functions. They build the path that the user creates via touch input.
 
-Important: a command contains one of these information (not only path). You will use three classes extended from astract Command class.
-- Draw a path
-- Change color
-- Change thickness
+*Related API*:
+[Path](https://developer.android.com/reference/android/graphics/Path)
 
-After applying each command, a new CanvasState is created. Each CanvasState stores all commands needed to generate the current canvas.
+Then implement `onDraw(Canvas canvas)`. Think about when this function would and should be called.
 
-A CanvasStateManager will keep track of all CanvasState.
-- When a new command is applied, it will create a new CanvasState. Then it will update undoStack, redoStack, and currentCanvasState.
-- When undo/redo, it will update undoStack, redoStack, and currentCanvasState.
+For examples of how this should look, look at screenshots 1 and 2 below.
 
+## Floating Action Buttons (FABs) in the MainActivity
+
+#### Changing Color/Thickness
+Create FABs to support changing color and thickness of drawing.
+
+When you click the FAB to select color, create a view that allows
+the user to select the color. It recommended that you leverage the
+`ColorPicker` you have already implemented. For an example of how this
+can look, look at screenshots 3 and 4.
+
+When you click the FAB to select the stroke thickness, the user should be
+able to decide between three thicknesses (each with their own FAB). For
+an example of how this should look, look at screenshots 5 and 6.
+
+#### Handling Undo/Redo Operations
+Show the undo FAB if and only if there is any command to undo. See the behavior in screenshots 6 and 7 for an example of what happens when
+the undo FAB is clicked. On a long press of the undo button, a list of
+recent commands (up to 10) is displayed. Clicking a command should undo all actions up to and including the selected action.
+
+Show the redo FAB if and only if there is any command to redo. See the behavior in screenshots 7 and 8 for an example of what happens when the
+redo FAB is clicked. On a long press of the redo button, a list of recent commands (up to 10) is displayed. Clicking a command should redo all actions up to and including the selected action.
+
+There should be a limit on how many actions one can undo or redo. You should only allow up to 10 commands to undo and up to 10 commands to redo.
+
+#### FAB States
+ - When there is no command to undo, the undo FAB should not be visible.
+ - When there is no command to redo, the redo FAB should not be visible.
+ - As a color is selected and after the color is selected, the color FAB
+ should update its background to that color.
+ - When a thickness is picked, the thickness FAB should update its icon
+ to indicate the thickness selected.
+
+## Commands
+There are three types of Commands. Each of these commands are extended from the Command abstract class.
+
+- `CommandChangeColor`
+- `CommandChangeThickness`
+- `CommandDrawPath`
+
+## Designing the Canvas State
+Implement the constructor for the CanvasState. A CanvasState stores
+all the commands needed to generate the current canvas.
+
+Then implement `drawCanvas(Canvas canvas)`. This function will apply
+the commands that a CanvasState is comprised of to draw on the canvas.
+
+## Managing Different CanvasStates with a CanvasStateManager
+The CanvasStateManager will handle moving back and forth between `CanvasState`s as the user undoes, redoes, or applies actions. The
+`DrawingView` instance has a `CanvasStateManager.`
+
+`getUndoHistory()` and `getRedoHistory()` returns an array of the descriptors for the commands one can undo and redo respectively.
+
+`applyNewCommand(Command command)` will apply a new Command. This entails
+creating a new CanvasState accounting for the command and updating
+the `currentCanvasState`, `undoStack`, and `redoStack`.
+
+`undo()` and `redo` apply an undo and redo respectively to the `CanvasStateManager`. This entails
+updating the `currentCanvasState`, `undoStack`, and `redoStack`.
+
+## Screenshots of the user experience
 
 ![Screenshot of step 1](undo-img/1.png){:width="200px"}
 ![Screenshot of step 2](undo-img/2.png){:width="200px"}
