@@ -5,8 +5,8 @@ description: Lab project--Hello World--
 class: middle, center, inverse
 ---
 
-# SSUI Mobile Lab (Spring 2019)
-## Week 1: Intro, Java Refresher, Android Fundamentals
+# CSE 340 Lab 1 (Spring 2019)
+## Week 1: Getting Started With Android Development
 
 .title-slide-logo[
   ![Android Logo](img/android-logo.png)
@@ -14,60 +14,59 @@ class: middle, center, inverse
 
 ---
 
-.bold.text-align-center[
-  ## How would you make this?
-]
-
-![:img Screen shot of a phone, 25%](img/instagram-example.png)
-
----
-
 ## Course Objectives
 - Practical applications for learnings in lecture
 
---
+
 - Understand design considerations when making mobile apps
 
---
+
 - Design and implement basic Android applications
 
---
+
 - Debugging in Java and for Android
+
+---
+
+## Lab 1 Objectives
+
+- Introduce the building blocks of Android applications
+
+
+- Obtain the course repository
+
+
+- Explore an Android project folder
+
+
+- Show some basic Android debugging techniques
 
 ---
 ## Android Applications
 
+- __Components__
+
+    - Activity
+    - Service
+    - Broadcast Receiver
+    - Content Providers
+
 - __Intents__
 
---
-
   - Launch components (and provide them with data)
-
---
   - Not limited to components of the same app
     - Meaning: your components can be started by intents from other applications
 
---
-- Components
-
---
-
-  - Activity
-  - Service
-  - Broadcast Receiver
-  - Content Providers
 
 ---
 ## Activity
   - [`android.app.Activity`](https://developer.android.com/reference/android/app/Activity)
 
---
   - Represents a single interface
 
---
   - Example: Activities for Gmail App
     - Inbox, Message Compose, Spam Folder, etc.
---
+
   - Activities can be started by other applications, if desired
     - E.g., sharing a photo by email starts Gmail's Message Compose activity
 
@@ -82,15 +81,15 @@ class: middle, center, inverse
 ## Service
   - [`android.app.Service`](https://developer.android.com/reference/android/app/Service)
 
---
+
   - Entry point for background processes
 
---
+
   - Example: Spotify's player activity uses a service to play music
     - Could be done by activity alone
---
+
     - Use of a service allows music to continue when player activity is no longer in the foreground
---
+
   - Services may be killed and restarted as required by the OS
     - A persistent service such as music playback may use a persistent notification to prevent this
 
@@ -98,32 +97,43 @@ class: middle, center, inverse
 ## Broadcast Receivers
   - [`android.content.BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.html)
 
---
+
   - Entry point for events outside of regular userflow
 
---
+
   - Example: Alarms
     - Application schedules callback with OS in 10 minutes
---
+
     - In the meantime, the application can be killed
---
+
     - 10 minutes later, the OS broadcasts the callback event to the app
---
+
     - App begins playing sound; vibrating
 
 ---
 ## Content Providers
   - [`android.content.ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider)
 
---
+
   - Persistent storage of data
 
---
+
   - Supports multiple backends, depending on app permissions
     - Local filesystem, web, SQLite DB, etc.
---
+
   - Can permit access to other applications
     - Contacts can be read and written to by other apps, depending on permissions
+---
+## Obtaining the Course repository
+
+- Go to Gitlab
+
+  - If you do not have SSH set up with Gitlab, just download the zip for now
+
+      - Later: ['Set up an SSH key with Gitlab'](https://gitlab.cs.washington.edu/help/ssh/README#generating-a-new-ssh-key-pair)
+
+  - Once you have SSH set up, fork the repository
+  
 ---
 ## Android Project Structure
 
@@ -138,27 +148,27 @@ class: middle, center, inverse
 - `app/src/main/AndroidManifest.xml`
 
   - Describes application at a high level for both compilation and running
---
 
   - Includes app package, components, permissions, and hardware features
 
---
+
 
 - `app/src/main/java/com.example.myapp/MainActivity.java`
+
   - The main activity activated when application launches
 
---
 
-- `app/src/main/res/layout/activity_main.xml`
-  - Declares the views and layout of the main activity
-
---
 
 - `app/build.gradle`
+
   - Android build tool configuration file
 
---
   - Includes target and min SDK versions and dependencies
+
+
+- `app/src/main/res/layout/activity_main.xml`
+
+  - Declares the views and layout of the main activity
 
 ---
 ## Android Project Structure
@@ -166,28 +176,28 @@ class: middle, center, inverse
 - `drawable-<density>/`
 
   - Images at various pixel densities to accommodate various display resolutions
---
 
   - Keep filenames consistent between folders
 
---
+
 
 - `layout/`
+
   - Layout XML description files for application activities
---
+
 
 - `mipmap/`
 
   - Launcher icons for your application at various sizes and shapes
 
---
+
 
 - `values/`
 
   - A good place to store constants
       - Density-independent pixel values (sizes)
       - Color
---
+
   - Good for string localization as well
       - Storing strings here makes it much easier to add additional languages in the future!
 
@@ -201,4 +211,8 @@ class: middle, center, inverse
 - Android Developer
   - View Animation - https://developer.android.com/guide/topics/graphics/view-animation.html
   - Property Animation - https://developer.android.com/guide/topics/graphics/prop-animation.html
+
+- Relevant supplemental material is provided on the course website
+  - Listed in the schedule
+  - This week's supplemental material reviews Java, covers Android animation
 
