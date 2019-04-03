@@ -1,9 +1,3 @@
-5 minute intro
-   - remember to 
-20 minutes slides
-35 minutes exercise
-
-
 Introduction - 2 minutes
    - Welcome to CSE 340
    - Over the duration of this course, you will be applying your learnings from
@@ -38,7 +32,8 @@ Android Application Components - 7 minutes
 - Activities represent single screens with a user interface
    - Gmail has different activities for composing your message, looking at your inbox,
    accessing your settings, etc.
-   - Activities move through a series of states based on the transitions.
+   - <Walk through example workflow>
+      - This diagram is a toolkit architecture.
 
 - Services are components that perform operations in the background that don't provide
 a user interface.
@@ -71,6 +66,8 @@ a user interface.
 
 Obtaining the Course Repository - Give them 5 minutes to obtain and peruse
 the repository
+
+- Make it private
 
 
 
@@ -143,3 +140,7 @@ of screen sizes and shapes.
 
 
 - 22 minutes - work on Doodle
+   - Working on Doodle addImage
+
+Discussion in general:
+   - Learning a toolkit is hard - need to explore
