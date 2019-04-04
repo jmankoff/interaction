@@ -1,0 +1,183 @@
+---
+layout: presentation
+title: Lab 1 Git Tutorial
+description: GitLab Tutorial
+class: middle, center, inverse
+---
+
+# Interaction Programming Lab (Spring 2019)
+## Week 1: Git Tutorial
+
+---
+
+# Quick Git Refresher
+- (Almost) linked list of "commits" which record files over time
+  - Actually a tree
+- Git can exist locally on your computer or on a remote server
+  - Common git remotes include: GitHub, GitLab, etc.
+- Android Studio provides a convenient visual git interface
+  - More information [here](https://www.jetbrains.com/help/idea/using-git-integration.html)
+  - You can use this for most of your git needs
+
+---
+
+# Cloning
+- To clone a repo, find the cloning link on the repository page:
+  - For GitLab, it is recommended to use SSH
+  - ![:img GitLab repo cloning links, 50%](img/git_clone.png)
+- For these assignments, .red[**using Android Studio to clone the repository will not work**]
+  - There are multiple assignments in the repository and Android Studio will try to open the main directory as an Android project and will fail.
+- Instead, to clone:
+  ```bash
+  git clone git@gitlab.cs.washington.edu:cse340/19sp.git
+  ```
+
+---
+
+# Opening Projects
+- With the assignment repo cloned, open each assignment in Android studio as such
+![:img Android Studio spash screen with open existing selected, 50%](img/as_open.png)
+
+---
+
+# Opening Projects
+- Once the dialog is open, navigate to the desired project folder and open.
+![:img Android Studio spash screen with open existing selected, 50%](img/as_open_1.png)
+
+---
+
+# Branching
+- Every leaf of the git tree is given a branch name to keep track of it
+- The default branch is master
+- Git command line
+  ```bash
+  # To list branches
+  git branch
+  # To list branches (including on remote)
+  git branch -a
+  # To create and checkout a new branch
+  git branch -b new-branch
+  # To fetch new branches.
+  git fetch
+  # To fetch new branches and automatically delete local branches deleted on remote.
+  git fetch --prune
+  # To delete branch locally
+  git branch -d branch-name
+  # To push deletion to remote.
+  git push origin :branch-name
+  ```
+
+---
+
+# Branching
+- Android Studio
+  - Provides a convenient and intuitive interface for dealing with branches
+  ![:img Android Studio git branch interface, 50%](img/git_ui.png)
+
+---
+
+# Adding and Committing Files
+- New files will appear as red in Android Studio until they are tracked
+  - ![Part2Activity.java red due to not being tracked, 50%](img/git_add.png)
+  - Mupliple ways to track files:
+    - Right click on file, git -> add
+    - From commit dialog, check file in "Unversioned Files"
+- Alternatively:
+```bash
+git add app/src/main/java/cse340/doodle/Part2Activity.java
+```
+
+---
+
+# Adding and Committing Files
+- Add files to commit
+  - Specifies which changes to include in commit
+- Android Studio
+  - Open commit dialog (Command/Control-K)
+  - Add files by checkbox
+    - Can even select individual lines in files to include
+  - Enter commit message
+
+---
+
+# Adding and Committing Files
+![:img Android Studio commit dialog, 75%](img/git_commit.png)
+
+---
+
+# Adding and Committing Files
+- Git command line:
+```bash
+git add ...
+git commit -m "Add Part2Activity"
+# To commit changes on all currently tracked files
+git commit -am "Add a bunch of files"
+# To reword a commit or add new changes
+git commit --amend
+```
+
+---
+
+# Pushing
+- Your git history is stored locally
+- For safety and ease of use, push regularly to a remote such as GitLab
+  - If you cloned an existing GitLab repository, this remote is already setup
+- Git command line:
+  ```bash
+  # This pushes to the default remote, origin.
+  git push
+  # Push a new branch for the first time.
+  git push -u origin branch-name
+  # To push to a different branch.
+  git push origin local-branch:remote-branch
+  ```
+
+---
+
+# Pushing
+- In Android Studio:
+  - Command/Control-Shift-K
+  - ![:img Android Studio git push dialog, 50%](img/git_push.png)
+
+---
+
+# Pulling
+- Pulls new commits from a remote such as GitLab
+- To types of pulls: rebase and merge (default)
+  - In a merge pull, if there are conflicts you will be asked to resolve them and these changes will all be put in a new "merge commit"
+  - In a rebase merge, git attemps to interleave conflicting commits and may ask you to resolve a change multiple times
+    - In this case, you retain better commit history
+- Git command line:
+  ```bash
+  git pull # defaults to merge
+  git pull --rebase
+  ```
+- Android Studio:
+  ![:img Android Studio pull button, 30%](img/git_pull.png)
+  ![:img Android Studio pull dialog, 50%](img/git_pull_diag.png)
+
+---
+
+# Forks
+- Forking a repository allows you to start a new repository from someone else
+  - What if you want to pull changes from the repository you forked?
+- You can add the original repository (often referred to as the upstream) as a remote
+  - `git remote add upstream {url}`
+  - where url is the one used for cloning, often ssh
+- To fetch changes to upstream branches:
+  - `git fetch --all` or `git fetch upstream`
+- To pull changes from the upstream master branch into current branch:
+  - `git merge upstream/master --ff-only`
+  - `git rebase upstream/master`
+    - Use the optional `-i` argument after `rebase` for interactive mode
+    - This allows you to delete, reorder, combine, or drop commits.
+    - See here for more info [here](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
+
+---
+
+# Forks
+- Changes can be pulled from the upstream using the Android Studio git UI
+  - However, it is possible that Android Studio may not keep upstream up-to-date
+  - You can run `git fetch --all` or `git fetch upstream` to check this
+
+![:img Android Studio git UI with rebase option for upstream/master selected, 50%](img/git_fork.png)

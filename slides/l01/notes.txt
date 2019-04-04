@@ -1,4 +1,146 @@
-5 minute intro
-   - remember to 
-20 minutes slides
-35 minutes exercise
+Introduction - 2 minutes
+   - Welcome to CSE 340
+   - Over the duration of this course, you will be applying your learnings from
+   lecture in a very practical way
+      - This means
+         - not only understanding what to consider when building mobile apps
+         - but also designing and implementing your own Android apps
+   - With that goal in mind, we will use our time in lab today to start exploring
+   Android app development
+      - I will introduce you to the building blocks of Android applications
+      - After obtaining the course repository
+         - we will explore the android project folder
+         - I will show some basic Android debugging techniques
+
+
+
+
+Android Application Components - 7 minutes
+- Applications are comprised of a variety of components.
+   - These components are activities, services, broadcast receivers, and content providers
+
+- Components are activated with objects called intents
+   - These intents provide the components with data. 
+   - Intents are not limited to components of the same application,
+   so your components can actually be activated by intents from other applications.
+      - Personal example: for an internship I was kicking off a workflow
+      on an Amazon Echo where we would play a series of audio pieces, record them,
+      and then analyze them. For that, I defined the intent in the Android manifest,
+      and then supplied the intent over a command line with arguments like which audio
+      files to play, how long to record for, etc.
+
+- Activities represent single screens with a user interface
+   - Gmail has different activities for composing your message, looking at your inbox,
+   accessing your settings, etc.
+   - <Walk through example workflow>
+      - This diagram is a toolkit architecture.
+
+- Services are components that perform operations in the background that don't provide
+a user interface.
+   - For example, Spotify's player activity is where you select what music to play,
+   but its player service is what actually places the music. This is why you can
+   navigate your phone freely when you use Spotify.
+   - In my project, the Intent kicked off a service that would fetch audio from the cloud,
+   play it, and calibrate it. There was no user interface because the device was an Amazon Echo.
+   - Of course, it's the OS's prerogative to impact the life of a service instance. 
+
+- Broadcast Receivers are entry points for events outside of the regular user workflow.
+   - Registers system or application events using the publish-subscribe model.
+   - When an interesting event happens, a broadcast is sent.
+   - Individual apps can register to receive specific broadcasts.
+   - For example, an alarm app can register a callback with the OS for x time. Then,
+   when the time comes, the OS sends a broadcast to the alarm app to wake it up, and the
+   alarm starts ringing.
+   - Think of it as a messaging system between apps outside of the user workflow.
+
+- Content Providers are the interfaces for managing persistent data.
+   - For example you could have a Content Provider manage writing data to the local filesystem
+   or the cloud.
+   - You can manage other applications' interactions with your data.
+      - For example, the messenger app interacts with a content provider to look at your
+      contacts list on your phone if you give it permission. 
+
+
+
+
+
+Obtaining the Course Repository - Give them 5 minutes to obtain and peruse
+the repository
+
+- Make it private
+
+
+
+
+
+Ask two people if they noticed any files that stood out in particular
+and why those files stood out - 3 minutes
+
+
+
+
+
+
+Move through important files together - 5 minutes
+
+- The Android Manifest describes the application at a high level.
+   - Identifies the name of the application package
+   - Describes all the components of the app.
+   - Lists any permissions the application would need, as well
+   as any hardware or software the app depends on to compile and run
+      - For example, if the app needs permission to write to the disk,
+      that information would be here
+      - Notice that the Part1Activity activity is described here as accepting
+      intent for the Main action with category Launcher. This means that this
+      activity is the main activity that is activated when launching the app.
+
+- The MainActivity java file sets the behavior of the main acitivity of the
+application. For us, the Main activity is Part1Activity.java
+   - Here in Doodler we see the OnCreate method, which is run whenever an Activity
+   is launched.
+      - Our OnCreate calls other methods, like addText, addLine, and addImage, that you
+      will implement.
+
+- The build.gradle file configures the build for the application
+   - Describes the minimum SDK versions and technical dependencies the project will depend on.
+
+- The resources folder contains additional files and static content that the code will use.
+   - Things like images, static data files, and even activity layouts and global
+   constants can be described here.
+      - One interesting thing about Android development is that depending on your needs
+      you can implement functionality either in your code files or in your resources folder.
+
+- The activity_main.xml file declares the views and the layout of the main activity.
+   - Layouts in Android are in XML. 
+      - If you've ever done HTML development, this should
+      be familiar to you. 
+      - Components in your view are structured like a tree, where each
+      component is described relative its parent.
+         - In Doodle, we see that right now our outermost container is ConstraintLayout,
+         and inside that is a FrameLayout whose height and width are set to match the parent.
+
+- The drawable folders contain the images for the application.
+   - The different folders are for accomodating various display resolutions.
+
+- The layout folder holds the XML files describing the layouts of the different
+activities in the program.
+   - In our application, there's only the main activity's xml layout, but additional
+   layouts can go here as well.
+
+- The mipmap folders contain the launcher icons for the application for a variety
+of screen sizes and shapes.
+
+- The values folder is a good place to store global static constant values
+   - e.g. strings
+
+
+- Go over debugging - 5 minutes
+   - Breakpoints, the android studio debugger
+   - Logging
+
+
+- 22 minutes - work on Doodle
+   - Working on Doodle addImage
+
+Discussion in general:
+   - Learning a toolkit is hard - need to explore
