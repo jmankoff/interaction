@@ -22,6 +22,7 @@ layout: default
 ||Slides| [Hello World](/interaction/slides/l01/hello.html)| Android 
 ||For your reference |[Java Refresher](/interaction/slides/l01/java.html) |
 ||For your reference |[Animation](/interaction/slides/l01/animation.html) |
+||For your reference |[Git](/interaction/slides/l01/git.html) |
 |**4/5**|**Friday**| Drawing on the Screen (active)|
 ||Reading (10 min)| Chapter 2 from Drawing from {{site.hcibook}}| Basic drawing abstractions | 
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
