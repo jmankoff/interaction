@@ -5,32 +5,25 @@ layout: default
 * TOC
 {:toc}
 
-# Week 1: What's in an Interface
+# Week 1: What's in an Interface 
 
 | Date | Type | Details | Learning Goal|
 |------|-------|-------------------------------|----|
 |**4/1**|**Monday** | **Why take this course? What is HCI?** | |
-|| Slides | [Introduction to course](/interaction/slides/wk01/intro.html) | Relevance of class to all of CS |
+|| Slides | [Introduction to course](/interaction/slides/wk01/intro.html) | Relevance of class to all of CS | 
 |**4/3**|**Wednesday** | **Basic Structure of Interaction** ||
-<<<<<<< HEAD
 ||Reading <br> (10 min) | Chapter 1: Introduction from {{site.hcibook}}  | Structure of course; History of interface innovation | 
 ||Reading <br> (10 min) | [Understanding Android Application and Activity Lifecycles](https://developer.android.com/guide/components/activities/activity-lifecycle) | Getting up to speed on Android | 
 ||Preparation (10-20 min) | Download Android Studio and follow [this tutorial]( https://developer.android.com/training/basics/firstapp) to create an Android Application. Continue with the tutorial to also [run your app](https://developer.android.com/training/basics/firstapp/running-app) either on an emulator or on your phone. Here is [additional information on android studio setup](slides/wk01/setup-android.html) | Getting up to speed on Android |
-=======
-||Reading <br> (10 min) | Chapter 1: Introduction from {{site.hcibook}}  | Structure of course; History of interface innovation |
-||Reading <br> (10 min) | [Understanding Android Application and Activity Lifecycles](https://developer.android.com/guide/components/activities/activity-lifecycle) | Getting up to speed on Android |
-||Preparation (10-20 min) | Download Android Studio and follow [this tutorial]( https://developer.android.com/training/basics/firstapp) to create an Android Application. Continue with the tutorial to also [run your app](https://developer.android.com/training/basics/firstapp/running-app) either on an emulator or on your phone | Getting up to speed on Android |
->>>>>>> Add git slides for l01
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
-||Exercise Assigned | [Doodle](/interaction/assignments/doodle)| Getting up to speed on Android; Basics of drawing on the screen |
+||Exercise Assigned | [Doodle](/interaction/assignments/doodle)| Getting up to speed on Android; Basics of drawing on the screen | 
 ||Slides | [Core Toolkit Abstractions](/interaction/slides/wk01/MVC.html)| Toolkit User Types; Basic structure of a user interfaces; Common interactors; Model View Controller|
 |**4/4**|**Thursday** | **Introduction to Android (active)**| Android project structure; Hello World|
-||Slides| [Hello World](/interaction/slides/l01/hello.html)| Android
+||Slides| [Hello World](/interaction/slides/l01/hello.html)| Android 
 ||For your reference |[Java Refresher](/interaction/slides/l01/java.html) |
 ||For your reference |[Animation](/interaction/slides/l01/animation.html) |
-||For your reference |[Git](/interaction/slides/l01/git.html) |
 |**4/5**|**Friday**| Drawing on the Screen (active)|
-||Reading (10 min)| Chapter 2 from Drawing from {{site.hcibook}}| Basic drawing abstractions |
+||Reading (10 min)| Chapter 2 from Drawing from {{site.hcibook}}| Basic drawing abstractions | 
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 ||Slides|[Drawing](/interaction/slides/wk01/Drawing.html)| Component hierarchy and drawing; drawing abstractions; clipping and other transformations|
 {: .small #small .schedule #schedule}
@@ -40,13 +33,13 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |------|-------|-------------------------------|----|
 |**4/8**|**Monday**| **Properties of People I: Visual Perception** ||
-||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities |
+||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities | 
 ||Exercise Due|[Doodle](/interaction/assignments/doodle) |
 |**4/10**|**Wednesday**| **Layout**|
-||Required Reading (10 mins)|[Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) | Abstractions for positioning interactors on the screen and making responsive interfaces
-||Required Reading (10 min)| Chapter 17 & 18: A Guide to Android Constraint Layout {{site.androidbook}} | Android's approach to layout
+||Required Reading (10 mins)|[Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) | Abstractions for positioning interactors on the screen and making responsive interfaces 
+||Required Reading (10 min)| Chapter 17 & 18: A Guide to Android Constraint Layout {{site.androidbook}} | Android's approach to layout 
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
-||Slides|[Layout](/interaction/slides/wk02/layout.html)| Relating layout to the interactor hierarchy
+||Slides|[Layout](/interaction/slides/wk02/layout.html)| Relating layout to the interactor hierarchy 
 |**4/11**|**Thursday**|Layout Exercise Assigned|
 ||Exercise Assigned|[Layout](/interaction/assignments/layout)| Implementing layout using GUI and programmatic abstractions
 ||Slides|[Layout in Android](/interaction/slides/l02/layout.html)| Android specific layout information
@@ -63,7 +56,7 @@ layout: default
 |**4/15**|**Monday**|**MVC at the Interactor Level Essential Geometry and Essential Behavior**|
 ||Slides|[From Events to Behavior](/interaction/slides/wk03/events.html)| Toolkit abstractions for responding to events
 ||Exercise Due|[Layout](/interaction/assignments/layout)|
-|**4/17**|**Wednesday**|**Finite State Machines**|
+|**4/17**|**Wednesday**|**Finite State Machines**| 
 ||Required Reading|Chapter 11: Input Syntax Specification {{site.hcibook}}| Essential Behavior and the use of final state machines to implement it |
 ||Slides| [08: Essential Behavior: Finite State Machines](/interaction/slides/wk03/state.html)| Essential Behavior and the use of final state machines to implement it |
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
@@ -72,7 +65,7 @@ layout: default
 ||Slides|[Event Handling](/interaction/slides/l03/events.html)| Event Handling in Android and data persistence
 ||For Your Reference|[Activity State Change Events](/interaction/slides/l03/activity-events.html)|
 |**4/19**|**Friday**|**Motor Control**|
-||Slides|[Properties of People II: Motor Control](/interaction/slides/wk03/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input
+||Slides|[Properties of People II: Motor Control](/interaction/slides/wk03/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input 
 ||*Optional Reading*|[Motor Behavior Models for Human-Computer Interaction](Principals of Interactor Design), I. Scott MacKenzie <br>**Suggest section 3 and 4.2**| Introduction of Fitts law, Guiard
 {: .small #small .schedule #schedule}
 
@@ -80,7 +73,7 @@ layout: default
 
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
-|**4/22**|**Monday**|**Predicting and Evaluating Interactor Efficiency**|
+|**4/22**|**Monday**|**Predicting and Evaluating Interactor Efficiency**| 
 |      |Watch|[Video of Marking Menus](https://www.youtube.com/watch?v=8c58bN6ajJ4)|Understand design space of menus; See how interaction technique design can vastly improve interaction efficiency|
 |      |Video Watching Quiz|[On Canvas]({{site.canvas}}), due night before|
 |       |Exercise Due|[Color Picker](/interaction/assignments/colorpicker)|
@@ -102,12 +95,12 @@ layout: default
 ||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
 || Required Tutorial before class | [Make a luggage tag](https://www.tinkercad.com/learn/overview/O0XHVHMIXGFO1D6;collectionId=O2C1PXBIQ2KHCOD) | Learn basic 3D modeling skills needed for 3D printing
 ||[3D Printing Intro](slides/wk05/3dprinting.html)|Learn basics of 3D printing, print the model you created in preparation for class |
-| **5/1**  | **Wednesday, at the Mill Classroom** | Design your project        | Work in pairs to design an add-on to your phone that uses a combination of 3D printed and conductive elements. | Learn about designing your own model; how phones are used for physical computing such as sensing and interaction|
+| **5/1**  | **Wednesday, at the Mill Classroom** | Design your project        | Work in pairs to design an add-on to your phone that uses a combination of 3D printed and conductive elements. | Learn about designing your own model; how phones are used for physical computing such as sensing and interaction| 
 | **5/2**  | **Thursday** | Work on the software interface and event handling in lab | Learn about the software behind physical interactors |
-| **5/3**  | **Friday, at the Mill Classroom**    |Finalize and print your projects | Make the end to end system work |
+| **5/3**  | **Friday, at the Mill Classroom**    |Finalize and print your projects | Make the end to end system work | 
 {: .small #small .schedule #schedule}
 
-# Week 6: Accessibility
+# Week 6: Accessibility 
 
 |------|-------------|---------------------------------------------------------|
 | **5/6**|**Monday**    | **Accessibility**                                       |
