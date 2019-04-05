@@ -31,10 +31,102 @@ notes
 [//]: # (Outline Slide)
 .left-column[# Today's goals]
 .right-column[
+- Model View Controller
 - Component Hierarchy and use for drawing
 - Abstractions for drawing on the screen
 - Drawing in Android
 - Clipping and other transformations
+]
+---
+---
+.left-column[
+# Every system has at least 3 different models
+]
+.right-column[
+<div class="mermaid">
+graph TD
+  S[System Image: <br>Your Implementation&nbsp;] --> |System Feedback&nbsp;| U[User Model: How the user thinks&nbsp; <br>the system works] 
+  D[Design Model: How you <br>intend the system to work&nbsp;]-->S
+  U -->|User Feedback&nbsp;| S
+</div>
+
+]
+
+???
+# Relating the Human and the Machine
+
+- Gulf of Execution and Gulf of Evaluation
+
+Gulf of execution is the user 'error' region (user requests
+  function the __system DOESNT HAVE__), gulf of
+  evaluation is when the user __doesn't realize the system HAS a
+functionality__.
+
+---
+.title[MVC]
+![:img A picture of a person saying "unlock door" (D) with a
+connection to A labeled signal lock to open; an arrow (2) to B labeled
+"Speech recognition/speaker ID"; a box C labeled "At time (1) access
+list: Jen; Ryan; Current person: Ryan; Lock state: Closed"; an arrow
+from B to C labeled (3) Change person to Jen; lock open; and an arrow
+from C to A labeled (4) Value changed., 110%](img/quiz-mvc.png)
+
+???
+Sketch out key concepts 
+- Input -- we need to know when people are doing things. This needs to be event driven.
+- Output -- we need to show people feedback. This cannot ‘take over’ i.e. it needs to be multi threaded
+- Back end -- we need to be able to talk to the application. 
+- State machine -- we need to keep track of state. 
+- What don’t we need? We don’t need to know about the rest of the UI, probably, etc etc
+- Model View Controller -- this works within components (draw diagram), but also represents the overall structure (ideally) of a whole user interface
+- NOTE: Be careful to write any new vocabulary words on the board and define as they come up.
+---
+.title[MVC for a button]
+.body[
+- Diagram it with respect to reading
+ - Model
+ - View
+ - Controller
+]
+---
+.title[Interactor (Component) Model]
+.body[
+__Encapsulate interactive components__ (interactors)
+- Component library (button, slider, container)
+- Interface built as a hierarchy of components
+
+__Components drawn by underlying graphics library__
+- Input event generation and dispatch
+- Historically mouse & keyboard, now touch, ...
+
+__Bounds management & damage/redraw__
+- Model geometry, redraw updated regions only
+]
+---
+.title[ MVC in Android]
+.body[
+
+- Applications typically follow MVP architecture
+- Model, View, Presenter
+
+![:img MVP Diagram, 80%](img/mvp-design-pattern.png)
+
+]
+???
+- Relationship of MVC to Android software stack
+- Discuss Whorfian effects
+
+---
+---
+.title[What about a whole interface]
+.body[
+
+![:img Minimalist Recipe App showing the title 'simple food', a heart
+for favoriting, a bookmark and sharing icon, the title 'boiled eggs',
+a picture of an egg, and a description of what you need to boil an egg
+along with a button saying 'cook it', 30%](img/minimalist-app.png)
+minimalist-app-ui-37.png
+
 ]
 ---
 # Discussion of Reading quiz
@@ -536,6 +628,8 @@ step(fraction){x_now = x_start + fraction*(x_end - x_start);}
 
 # Summary & revisiting learning goals for this week
 
+- Role of MVC in Components
+- Role of MVC in whole application
 - Component Hierarchy and use for drawing
 - Pixel & stroke models
 - Rotating around an object 
