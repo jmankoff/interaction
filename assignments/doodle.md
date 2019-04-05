@@ -50,7 +50,7 @@ ImageView addImage(FrameLayout canvas, String imageName, float x, float y, int s
 Most of this method is mostly implemented for you. Please read through it to understand how it works, then set the size and location of ImageView added in this method.
 
 *Related APIs*:
-[TextView](https://developer.android.com/reference/android/interactor/ImageView.html)
+[ImageView](https://developer.android.com/reference/android/widget/ImageView.html)
 
 ### Specs for addText
 ```java
@@ -58,8 +58,8 @@ TextView addText(FrameLayout canvas, String text, float x, float y, int fontSize
 ```
 
 *Related APIs*:
-[TextView](https://developer.android.com/reference/android/interactor/TextView.html) /
-[TextView#setTextColor](https://developer.android.com/reference/android/interactor/TextView#setTextColor(int))
+[TextView](https://developer.android.com/reference/android/widget/TextView.html) /
+[TextView#setTextColor](https://developer.android.com/reference/android/widget/TextView#setTextColor(int))
 
 You may find the comments and the implementation of addImage useful.
 
