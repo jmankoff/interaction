@@ -103,7 +103,32 @@ Can use metaphors to leverage existing conceptual models
 .title[How else can we minimize errors?]
 ???
 Key concept: mental models
+---
+---
+.left-column[
+# Every system has at least 3 different models
+]
+.right-column[
+<div class="mermaid">
+graph TD
+  S[System Image: <br>Your Implementation&nbsp;] --> |System Feedback&nbsp;| U[User Model: How the user thinks&nbsp; <br>the system works] 
+  D[Design Model: How you <br>intend the system to work&nbsp;]-->S
+  U -->|User Feedback&nbsp;| S
+</div>
 
+]
+
+???
+# Relating the Human and the Machine
+
+- Gulf of Execution and Gulf of Evaluation
+
+Gulf of execution is the user 'error' region (user requests
+  function the __system DOESNT HAVE__), gulf of
+  evaluation is when the user __doesn't realize the system HAS a
+functionality__.
+
+---
 ---
 .title[# Model of Mental Models]
 .body[

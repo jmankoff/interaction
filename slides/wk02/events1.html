@@ -37,6 +37,29 @@ Discuss how Android models input
 - Picking, capture and bubble
 ]
 ---
+.title[MVC for a button]
+.body[
+- Diagram it with respect to reading
+ - Model
+ - View
+ - Controller
+]
+---
+.title[Interactor (Component) Model]
+.body[
+__Encapsulate interactive components__ (interactors)
+- Component library (button, slider, container)
+- Interface built as a hierarchy of components
+
+__Components drawn by underlying graphics library__
+- Input event generation and dispatch
+- Historically mouse & keyboard, now touch, ...
+
+__Bounds management & damage/redraw__
+- Model geometry, redraw updated regions only
+]
+
+---
 .left-column[
 # Handling Input
 ]

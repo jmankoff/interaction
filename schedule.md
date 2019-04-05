@@ -17,7 +17,7 @@ layout: default
 ||Preparation (10-20 min) | Download Android Studio and follow [this tutorial]( https://developer.android.com/training/basics/firstapp) to create an Android Application. Continue with the tutorial to also [run your app](https://developer.android.com/training/basics/firstapp/running-app) either on an emulator or on your phone. Here is [additional information on android studio setup](slides/wk01/setup-android.html) | Getting up to speed on Android |
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 ||Exercise Assigned | [Doodle](/interaction/assignments/doodle)| Getting up to speed on Android; Basics of drawing on the screen | 
-||Slides | [Core Toolkit Abstractions](/interaction/slides/wk01/MVC.html)| Toolkit User Types; Basic structure of a user interfaces; Common interactors; Model View Controller|
+||Slides | [Core Toolkit Abstractions](/interaction/slides/wk01/MVC.html)| Toolkit User Types; Basic structure of a user interfaces; Common interactors|
 |**4/4**|**Thursday** | **Introduction to Android (active)**| Android project structure; Hello World|
 ||Slides| [Hello World](/interaction/slides/l01/hello.html)| Android 
 ||For your reference |[Java Refresher](/interaction/slides/l01/java.html) |
@@ -26,66 +26,67 @@ layout: default
 |**4/5**|**Friday**| Drawing on the Screen (active)|
 ||Reading (10 min)| Chapter 2 from Drawing from {{site.hcibook}}| Basic drawing abstractions | 
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
-||Slides|[Drawing](/interaction/slides/wk01/Drawing.html)| Component hierarchy and drawing; drawing abstractions; clipping and other transformations|
+||Slides|[Drawing](/interaction/slides/wk01/Drawing.html)| drawing abstractions; clipping and other transformations|
 {: .small #small .schedule #schedule}
 
 # Week 2: Output it to me
 
 | Date | Type | Details | Learning Goal|
 |------|-------|-------------------------------|----|
-|**4/8**|**Monday**| **Properties of People I: Visual Perception** ||
-||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities | 
+|**4/8**|**Monday**| **Drawing Interfaces: MVC and Component Hierarchies** ||
+||Slides|[Drawing Interfaces](/interaction/slides/wk02/Interface-drawing.html)| What your toolkit draws when; Component hierarchies and drawing; MVC | 
 ||Exercise Due|[Doodle](/interaction/assignments/doodle) |
-|**4/10**|**Wednesday**| **Layout**|
+|**4/10**|**Wednesday**| **Layout** ||
 ||Required Reading (10 mins)|[Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) | Abstractions for positioning interactors on the screen and making responsive interfaces 
-||Required Reading (10 min)| Chapter 17 & 18: A Guide to Android Constraint Layout {{site.androidbook}} | Android's approach to layout 
+||Optional Reading (10 min)| [Layouts (Overview)](https://developer.android.com/guide/topics/ui/declaring-layout) and [Building a Responsive UI](https://developer.android.com/training/constraint-layout) | Android's approach to layout 
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 ||Slides|[Layout](/interaction/slides/wk02/layout.html)| Relating layout to the interactor hierarchy 
 |**4/11**|**Thursday**|Layout Exercise Assigned|
 ||Exercise Assigned|[Layout](/interaction/assignments/layout)| Implementing layout using GUI and programmatic abstractions
 ||Slides|[Layout in Android](/interaction/slides/l02/layout.html)| Android specific layout information
-|**4/12**|**Friday**|Event Handling I: Input Devices, Events and Event Delivery|
-||Required Reading (10 min)|Chapter 3: Event Handling {{site.hcibook}} pp. 43-52 (on Input Events); 59-63 (Listeners)| Basics of event handling including event types and listeners
-||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
-||Slides|[Event Handling 1](/interaction/slides/wk02/events1.html)| How events are dispatched to interactors|
+|**4/12**|**Friday**| **Properties of People I: Visual Perception**|
+||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities | 
 {: .small #small .schedule #schedule}
 
 # Week 3: Interact With Me
 
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
-|**4/15**|**Monday**|**MVC at the Interactor Level Essential Geometry and Essential Behavior**|
-||Slides|[From Events to Behavior](/interaction/slides/wk03/events.html)| Toolkit abstractions for responding to events
-||Exercise Due|[Layout](/interaction/assignments/layout)|
-|**4/17**|**Wednesday**|**Finite State Machines**| 
-||Required Reading|Chapter 11: Input Syntax Specification {{site.hcibook}}| Essential Behavior and the use of final state machines to implement it |
-||Slides| [08: Essential Behavior: Finite State Machines](/interaction/slides/wk03/state.html)| Essential Behavior and the use of final state machines to implement it |
+|**4/15**|**Monday**|Event Handling I: Input Devices, Events and Event Delivery|
+||Required Reading (10 min)|Chapter 3: Event Handling {{site.hcibook}} pp. 43-52 (on Input Events); 59-63 (Listeners)| Basics of event handling including event types and listeners
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
+||Slides|[Event Handling 1](/interaction/slides/wk02/events1.html)| How events are dispatched to interactors|
+||Exercise Due|[Layout](/interaction/assignments/layout)|
+|**4/17**|**Wednesday**|**MVC at the Interactor Level Essential Geometry and Essential Behavior**|
+||Slides|[From Events to Behavior](/interaction/slides/wk03/events.html)| Toolkit abstractions for responding to events
 |**4/18**|**Thursday**|**Build your own Interactor exercise**|
 ||Exercise Assigned|[Color Picker](/interaction/assignments/colorpicker)| Handle input; Create a non-rectangular interactor; Implement a finite state machine
 ||Slides|[Event Handling](/interaction/slides/l03/events.html)| Event Handling in Android and data persistence
 ||For Your Reference|[Activity State Change Events](/interaction/slides/l03/activity-events.html)|
-|**4/19**|**Friday**|**Motor Control**|
-||Slides|[Properties of People II: Motor Control](/interaction/slides/wk03/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input 
-||*Optional Reading*|[Motor Behavior Models for Human-Computer Interaction](Principals of Interactor Design), I. Scott MacKenzie <br>**Suggest section 3 and 4.2**| Introduction of Fitts law, Guiard
+|**4/19**|**Friday**|**Finite State Machines**|
+||Required Reading|Chapter 11: Input Syntax Specification {{site.hcibook}}| Essential Behavior and the use of final state machines to implement it |
+||Slides| [08: Essential Behavior: Finite State Machines](/interaction/slides/wk03/state.html)| Essential Behavior and the use of final state machines to implement it |
+||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 {: .small #small .schedule #schedule}
 
 # Week 4: Tell me all about it
 
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
-|**4/22**|**Monday**|**Predicting and Evaluating Interactor Efficiency**| 
-|      |Watch|[Video of Marking Menus](https://www.youtube.com/watch?v=8c58bN6ajJ4)|Understand design space of menus; See how interaction technique design can vastly improve interaction efficiency|
-|      |Video Watching Quiz|[On Canvas]({{site.canvas}}), due night before|
+|**4/22**|**Monday**|**Motor Control**| 
+||Slides|[Properties of People II: Motor Control](/interaction/slides/wk03/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input 
+||*Optional Reading*|[Motor Behavior Models for Human-Computer Interaction](Principals of Interactor Design), I. Scott MacKenzie <br>**Suggest section 3 and 4.2**| Introduction of Fitts law, Guiard
 |       |Exercise Due|[Color Picker](/interaction/assignments/colorpicker)|
 |       | Coe In-class assessment 11-11:20am | |
+|**4/24**|**Wednesday**|**Predicting and Evaluating Interactor Efficiency**|
+|      |Watch|[Video of Marking Menus](https://www.youtube.com/watch?v=8c58bN6ajJ4)|Understand design space of menus; See how interaction technique design can vastly improve interaction efficiency|
+|      |Video Watching Quiz|[On Canvas]({{site.canvas}}), due night before|
 |       |Slides|[Predicting and Evaluating Interactor Efficiency](slides/wk04/menus.html)| Apply design tips we've discussed to comparing the efficiency of different variations on interactors; Learn about wide variety of solutions for selection; Learn about Qualitative and Quantitative ways of testing theories|
-|**4/24**|**Wednesday**|**Running Your Quantitative User Studies**|
-||Required Reading |[An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b)| To better understand the purpose and procedures in this user study; to plan for [Menus assignment](assignments/menus.html)|
-||Slides|[Quantitative Study Design/Running](/interaction/slides/wk04/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
 |**4/25**|**Thursday**|**Implementing App for user study**|
 ||Assignment|Test which menu is better: Marking menu or Standard Menu [Menus](/interaction/assignments/menus)|
-|**4/26**|**Friday**|**Catchup**|
+|**4/26**|**Friday**|**Running Your Quantitative User Studies**|
+||Required Reading |[An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b)| To better understand the purpose and procedures in this user study; to plan for [Menus assignment](assignments/menus.html)|
+||Slides|[Quantitative Study Design/Running](/interaction/slides/wk04/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
 {: .small #small.schedule #schedule}
 
 # Week 5: Making more of your phone

@@ -1,0 +1,169 @@
+---
+layout: presentation
+title: Introduction to Doodle Assignment
+description: Introduction to Doodle Assignment
+class: middle, center, inverse
+---
+# SSUI Mobile Lab (Fall 2016)
+## Introduction to Doodle Assignment
+
+.title-slide-logo[
+  ![:img Android Logo, 100%](img/android-logo.png)
+]
+---
+layout:none
+
+.title[Running Sample Code]
+.body[
+This repository will contain assignment and exercise stubs for CSE340
+for the Spring 2019 term. It's recommended that you [fork](https://gitlab.cs.washington.edu/cse340/19sp/forks/new) this
+repository. This will allow you to merge any upstream changes we make
+to stubs throughout the quarter. You can find instructions on setting
+up and maintaining a forked repository [here](https://help.github.com/en/articles/working-with-forks).
+
+![:img Picture of Gitlab for https://gitlab.cs.washington.edu/cse340/19sp with a place to download,100%](img/download-projects.png)
+]
+---
+.title[
+Open project in Android Studio]
+.body[
+- Run configurations should be automatically imported from Gradle
+  - If not, `build` should trigger an import
+- Run with ►
+  - Connect an android device by USB or create a new virtual device
+  - If by USB, debugging must be enabled on the device
+]
+---
+.title[ Implementing  `addImage`]
+.body[
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size);
+```
+
+### Params:
+- `mainCanvas`: Canvas in which to render the image.
+- `imageName`: Filename of image to draw in `res/drawable`.
+]
+--
+.body[
+- `x`: Horizontal distance from top-left corner of canvas to top-left of image.
+- `y`: Veritcal distance from top-left corner of canvas to top-left of image.
+]
+--
+.body[
+- `size`: Width and height of rendered image, in pixels.
+]
+---
+.title[ Implementing  `addImage`]
+.body[
+### Returns:
+- An `ImageView` which has been added to the canvas.
+]
+
+---
+.title[## Implementing  `addImage`]
+.body[
+Break down into component steps, look up documentation, and implement
+
+1. Create `ImageView`
+]
+--
+.body[
+2. Add new view to canvas
+]
+--
+.body[
+3. Position and set view size
+]
+--
+.body[
+4. Set view contents
+]
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    // Add imageView to mainCanvas
+    // Set imageView size and position
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+    // Set imageView size and position
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+
+    imageView.getLayoutParams().height = size;
+    imageView.getLayoutParams().width = size;
+
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+
+    imageView.getLayoutParams().height = size;
+    imageView.getLayoutParams().width = size;
+    imageView.setX(x);
+    imageView.setY(y);
+
+    // Set imageView contents using filename
+    return imageView;
+}
+```
+
+---
+## Implementing  `addImage`
+
+```java
+private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
+    // Create ImageView and add it to mainCanvas.
+    ImageView imageView = new ImageView(this);
+    mainCanvas.addView(imageView);
+
+    imageView.getLayoutParams().height = size;
+    imageView.getLayoutParams().width = size;
+    imageView.setX(x);
+    imageView.setY(y);
+
+    int resID = getResources().getIdentifier(imageName, "drawable", getPackage());
+    imageView.setImageResource(resID);
+    return imageView;
+}
+```
+---
+.title[Grading]
+.body[
+Discuss
+]

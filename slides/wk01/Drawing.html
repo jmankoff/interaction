@@ -1,7 +1,7 @@
 ---
 layout: presentation
-title: Basic Interaction --Week 1, Wednesday-- 
-description: Discussion of basic abstractions for user interfaces
+title: Drawing On the Screen
+description: Discussion of basic information about how to draw on the screen 
 class: middle, center, inverse
 ---
 name: inverse
@@ -19,7 +19,7 @@ layout: false
 .title[Hall of Shame]
 .body[
 ![:img  picture of a dialog box with a check box that MUST be checked
-to continue on (why!?), 100%](img/bad-defaults.gif)
+to continue on (why!?), 80%](img/bad-defaults.gif)
 ]
 .footnote[Credit to [GP Design
 Partners](http://hallofshame.gp.co.at/controls.html)]
@@ -31,257 +31,23 @@ notes
 [//]: # (Outline Slide)
 .left-column[# Today's goals]
 .right-column[
-- Model View Controller
-- Component Hierarchy and use for drawing
 - Abstractions for drawing on the screen
 - Drawing in Android
 - Clipping and other transformations
 ]
----
----
-.left-column[
-# Every system has at least 3 different models
-]
-.right-column[
-<div class="mermaid">
-graph TD
-  S[System Image: <br>Your Implementation&nbsp;] --> |System Feedback&nbsp;| U[User Model: How the user thinks&nbsp; <br>the system works] 
-  D[Design Model: How you <br>intend the system to work&nbsp;]-->S
-  U -->|User Feedback&nbsp;| S
-</div>
-
-]
-
-???
-# Relating the Human and the Machine
-
-- Gulf of Execution and Gulf of Evaluation
-
-Gulf of execution is the user 'error' region (user requests
-  function the __system DOESNT HAVE__), gulf of
-  evaluation is when the user __doesn't realize the system HAS a
-functionality__.
-
----
-.title[MVC]
-![:img A picture of a person saying "unlock door" (D) with a
-connection to A labeled signal lock to open; an arrow (2) to B labeled
-"Speech recognition/speaker ID"; a box C labeled "At time (1) access
-list: Jen; Ryan; Current person: Ryan; Lock state: Closed"; an arrow
-from B to C labeled (3) Change person to Jen; lock open; and an arrow
-from C to A labeled (4) Value changed., 110%](img/quiz-mvc.png)
-
-???
-Sketch out key concepts 
-- Input -- we need to know when people are doing things. This needs to be event driven.
-- Output -- we need to show people feedback. This cannot ‘take over’ i.e. it needs to be multi threaded
-- Back end -- we need to be able to talk to the application. 
-- State machine -- we need to keep track of state. 
-- What don’t we need? We don’t need to know about the rest of the UI, probably, etc etc
-- Model View Controller -- this works within components (draw diagram), but also represents the overall structure (ideally) of a whole user interface
-- NOTE: Be careful to write any new vocabulary words on the board and define as they come up.
----
-.title[MVC for a button]
-.body[
-- Diagram it with respect to reading
- - Model
- - View
- - Controller
-]
----
-.title[Interactor (Component) Model]
-.body[
-__Encapsulate interactive components__ (interactors)
-- Component library (button, slider, container)
-- Interface built as a hierarchy of components
-
-__Components drawn by underlying graphics library__
-- Input event generation and dispatch
-- Historically mouse & keyboard, now touch, ...
-
-__Bounds management & damage/redraw__
-- Model geometry, redraw updated regions only
-]
----
-.title[ MVC in Android]
-.body[
-
-- Applications typically follow MVP architecture
-- Model, View, Presenter
-
-![:img MVP Diagram, 80%](img/mvp-design-pattern.png)
-
-]
-???
-- Relationship of MVC to Android software stack
-- Discuss Whorfian effects
-
----
----
-.title[What about a whole interface]
-.body[
-
-![:img Minimalist Recipe App showing the title 'simple food', a heart
-for favoriting, a bookmark and sharing icon, the title 'boiled eggs',
-a picture of an egg, and a description of what you need to boil an egg
-along with a button saying 'cook it', 30%](img/minimalist-app.png)
-minimalist-app-ui-37.png
-
-]
----
-# Discussion of Reading quiz
----
-# How does an application know what to draw?
-
-![:img Picture of a very simple interface showing a ringing bell at
-left and an x at right to close the window with the words Google
-Calendar reminder Christian and Anind (Jen Mankoff) is starting at
-12:30pm. Video call between them, 70%](img/interface.png)
-
-
-- Discuss
-???
-discuss with your neighbor based on the reading what does the
-toolkit need to know to draw this 
-- what to draw; where to draw it
-- what are good abstractions for this?
-- Hierarchy normally reflects spatial containment relationships
-
---
-
-- Deconstruct
-
- - Let's list all the components... and arrange them in a tree
- 
-???
-
-- deconstruct this interface into an interactor hierarchy
-
----
-![:img Picture of a very simple interface showing a ringing bell at
-left and an x at right to close the window with the words Google
-Calendar reminder Christian and Anind (Jen Mankoff) is starting at
-12:30pm. Video call between them, 60%](img/interface.png)
-
-<!-- <div class="mermaid"> -->
-<!-- graph LR -->
-<!-- W((Window)) -\-> L(LeftSide:Icon) -->
-<!-- W -\-> M(Middle:Label) -->
-<!-- W -\-> R(Right:Control) -->
-<!-- L -\-> M[Icon:Bellpic] -->
-<!-- M -\-> A[Title:Google Calendar Reminder] -->
-<!-- M -\-> B[Description:People and time] -->
-<!-- R -\-> C(Close Button) -->
-
-<!-- classDef bluegreen fill:#669999,stroke:#333,stroke-width:2px; -->
-<!-- classDef blue fill:#7887AB,stroke:#333,stroke-width:2px; -->
-<!-- classDef green fill:#88CC88,stroke:#333,stroke-width:4px; -->
-<!-- </div> -->
-
-
-<div class="mermaid">
-graph LR
-W((Window)) --> L(LeftSide:Icon)
-W --> M(Middle:Label)
-W --> R(Right:Close Button)
-
-
-classDef bluegreen fill:#669999,stroke:#333,stroke-width:2px;
-classDef blue fill:#7887AB,stroke:#333,stroke-width:2px;
-classDef green fill:#88CC88,stroke:#333,stroke-width:4px;
-</div>
-
----
-# More complex example
-
-![:img Picture of a messaging interface with two messages in it, 30%](img/messaging.png)
-
----
-.left-column[
-![:img Picture of a messaging interface with two messages in it, 80%](img/messaging.png)]
-
-.right-column[
-<div class="mermaid">
-graph LR
-W((Window)) --> T(Controls)
-W --> M(Chats)
-W --> Q(Text Entry)
-T --> A[Button:Messages]
-T --> B[Label:288-88]
-T --> C[Button:Edit]
-M --> G[Button:Call]
-M --> H[Button:Add to Contacts]
-M --> E[Chat1]
-M --> F[Chat2...]
-E --> I[Date]
-E --> J[Chat Msg]
-E --> K[Arrow]
-
-classDef bluegreen fill:#669999,stroke:#333,stroke-width:2px;
-classDef blue fill:#7887AB,stroke:#333,stroke-width:2px;
-classDef green fill:#88CC88,stroke:#333,stroke-width:4px;
-</div>
-
-<!-- <div class="mermaid"> -->
-<!-- graph LR -->
-<!-- W((Window)) -\-> T(Top:Controls) -->
-<!-- W -\-> M(Middle:Chats) -->
-<!-- W -\-> Q(Bottom:Type) -->
-<!-- T -\-> A[Button:Messages] -->
-<!-- T -\-> B[Label:288-88] -->
-<!-- T -\-> C[Button:Edit] -->
-<!-- M -\-> D[Top:Actions] -->
-<!-- M -\-> E[Next:Chat1] -->
-<!-- M -\-> F[Next:Chat2] -->
-<!-- D -\-> G[Button:Call] -->
-<!-- D -\-> H[Button:Add to Contacts] -->
-<!-- E -\-> I[Top:Date] -->
-<!-- E -\-> J[Bottom:Content] -->
-<!-- J -\-> K[Left:Chat Msg] -->
-<!-- J -\-> L[Right:Arrow] -->
-<!-- F -\-> R[...] -->
-<!-- Q -\-> S[Left: Camera] -->
-<!-- Q -\-> V[Middle: TextEntry] -->
-<!-- Q -\-> U[Right: Send] -->
-
-<!-- classDef bluegreen fill:#669999,stroke:#333,stroke-width:2px; -->
-<!-- classDef blue fill:#7887AB,stroke:#333,stroke-width:2px; -->
-<!-- classDef green fill:#88CC88,stroke:#333,stroke-width:4px; -->
-<!-- </div> -->
-]
----
-# How is the tree used for drawing?
-- Programmer:
- - Build and interface == build an interactor hierarchy
- - Change an interface == change the interactor hierarchy (or its --
- - parameters)
---
-
-- Toolkit:
- - Draw an interface == walk the tree and draw things
- - Update an interface == walk the tree, clip, translate, redraw()
- - Deliver input == walk the tree and deliver events (TBD)
---
-
-- Components:
- - Receive redraw()
- - Show feedback (how?)
- - Respond to input 
- - Send notifications of model changes
-
-???
-HTML is like this too
-
 ---
 # Drawing on the Screen
 - What is a Graphics object and how do you draw on it?
 - Importance of pixel vs stroke model
 - Making it pretty: Buffering & Anti Aliasing
 ???
-- Talk about canvas, graphics object, object for each thing, etc Efficiencies?
-- Mention redraw
-- Discuss inconsistencies across toolkits -- whorfian effects again
 - Discuss raster graphics and where coordinates are (00 at top left)
+- Discuss pixel, frame buffer, reading quiz q1: What internal data structure (abstraction) is used to represent a picture for display on a color display screen?
+
+A frame buffer (2D array)	(correct)
+A pixel (R,G,B), (Incorrect answer -- wrong level of abstraction)
+A number from 0 to 255, (wrong level of abbstraction)
+A sampling of light frequency values at R, G and B, (Incorrect answer)
 
 ---
 # Drawing in Android
@@ -311,63 +77,8 @@ HTML is like this too
 --
   - Links drawing operations to a `Bitmap` (Frame Buffer of pixels)
 
---
-
-  - Handles __clipping__ of drawing boundaries
-
-???
-Clipping is super efficient if limited to a rectangle
-Implications for GUI design
---
-
-  - Performs __transformations__ on drawn visual elements
-
 ---
-# Work through clipping example (bell)
-.left[
-- For draw
-- For redraw
-]
-.right[
-![:img Picture of a very simple interface showing a ringing bell at
-left and an x at right to close the window with the words Google
-Calendar reminder Christian and Anind (Jen Mankoff) is starting at
-12:30pm. Video call between them, 70%](img/interface.png)
-
-]
----
-Which of the following must a parent component do before passing a
-drawable region to the child? [raise your hands]
-
-- [a] Translate (child.x, child.y)
-- [b] Clip(parent.x, parent.y, parent.w, parent.h)
-- [c] Translate (-child.x, -child.y)
-- [d] Clip(0,0,child.w,child.h)
-
----
-# Coordinate Transformations in Android
-
-```java
-  Canvas c = new Canvas();
-
-  // Set the drawing boundary
-  c.setClippingRect(100, 50, 200, 100);
-
-  // Draw the shape
-  c.drawRect(0, 0, 50, 50);
-
-  // Move origin to where shape's top-left corner is
-  c.translate(100, 50);
-
-  // Draw another Rect inside the Rect just drawn
-  c.drawRect(10,10,10,10);
-
-  // Return state back to before the translation & clipping
-  c.restore();
-```
-
----
-# Coordinate Transformations
+# Advanced Canvas: Coordinate Transformations
 
 Linear (“affine”) transformation
 
@@ -395,7 +106,7 @@ itself based on its position
 ---
 # Exercise: How to rotate about the center of an object
 
-(raise your cards!)
+[raise your hands]
 
 - A: Translate, rotate, translate
 - B: Rotate, Translate, Rotate
@@ -430,7 +141,9 @@ following form:
 
 P' = T*P where P is 1x3 and T is the transform matrix (3x3) with the
 bottom row 0 0 1
+
 Thus, x' = ax + cy + t_x and y' = bx + dy + t_y
+
 *Note* Any sequence of transform, rotate and shear can be represented
 in a single matrix of this form (just multiple the matrices together)
 ---
@@ -625,14 +338,12 @@ step(fraction){x_now = x_start + fraction*(x_end - x_start);}
 ```
 - Timing and redraw managed by toolkit
 ---
-
 # Summary & revisiting learning goals for this week
 
-- Role of MVC in Components
-- Role of MVC in whole application
-- Component Hierarchy and use for drawing
 - Pixel & stroke models
 - Rotating around an object 
 - Canvas & Paint & Paths in Android
 - Text Quirks
 - Animation Implementation
+---
+
