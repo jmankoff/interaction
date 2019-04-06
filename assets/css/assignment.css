@@ -7,3 +7,15 @@ div.learning-goals {
 div.learning-goals div {
   flex: 1 1 auto;
 }
+
+#assignment-name h1 {
+  margin-bottom: 0;
+}
+
+#assignment-name span {
+  font-size: small;
+}
+
+#assignment-name {
+  margin-bottom: 2em;
+}

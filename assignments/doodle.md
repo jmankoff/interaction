@@ -5,6 +5,7 @@ code: EX1
 
 assigned: Thursday, April 4, 2019
 due: 11:59 PM Monday, April 8, 2019
+revised: 7:53 PM Friday, April 5, 2019
 
 objective: Create an Android app that draws a doodle consisting of a text, a line, and a set of images on the main canvas.
 
@@ -30,70 +31,75 @@ android_goals:
 Tasks:
 - Download and install Android development environment
 - Open our skeleton code in Android Studio
-- Implement three functions: `addImage`, `addText`, `addLine`
-- Call the functions you implemented and compare your app screen with our screenshot
+- Implement three methods: `addImage`, `addText`, `addLine`
+- Call the methods you implemented and compare your app screen with our screenshot
 - Animate `UW` so it slides from left to right when the app opens.
 
-This task involves implementing three functions in `Part1Activity.java`. Each function is named here but detailed doc comments can be found in the interface which `Part1Activity` extends: `Doodler`.
+This task involves implementing three methods in `Part1.java`. Each method is named here but detailed doc comments can be found in `Part1`'s superclass, `Doodler`, which also defines some nice helper methods. It also defines the `onCreate` behavior of the Activity which calls the method `Doodler#doodle(FrameLayout)`.
 
-You'll notice in `onCreate` in `Part1Activity` that we use `scaleX` and `scaleY` around our coordinates (and size for images). These allow us to ensure the doodle still looks good on smaller screen sizes.
+In `Part1`, you'll find missing implementations for three methods: `addImage`, `addText`, and `addLine`.
 
-**All of the screenshots below are run on a Pixel 2 XL** and all of the coordinates specified here assume the Pixel 2 XL's screen resolution. You can scale them to your device by wrapping coordinates with `scaleX` and `scaleY`, which will scale the coordinates to your device screen size.
+Subclasses of `Part1` will have access to these methods once they are implemented. Take a look at an example of this in `Part1Activity`. It extends `Part1` and uses the three methods to draw the following image on the screen:
 
-We'd recommend that you use a Pixel 2 XL emulator to compare the finished doodle against our screenshot just to be sure you've implemented everything right.
+![A screenshot with a heart on it made up of smaller pictures. There's an "I" in the upper left and a "UW" in the middle left](doodle-img/screenshot_no_animation.jpeg){:width="25%"}
+
+You'll notice in `doodle` in `Part1` that we use `scaleX` and `scaleY` around our coordinates (and size for images). These allow us to ensure the doodle still looks good on smaller screen sizes. **If you use _any_ pixel coordinates in your solutions, remember to wrap them in these scaling methods**. These will scale coordinates from the Pixel 2 XL to the dimensions of your device's screen. We'd recommend that you use a Pixel 2 XL emulator to compare the finished doodle against our screenshot to be sure you're implementing everything right.
 
 ### Specs for addImage
 ```java
-ImageView addImage(FrameLayout canvas, String imageName, float x, float y, int size);
+ImageView addImage(FrameLayout mainCanvas, String imageName, float x, float y, int size);
 ```
 
-Most of this method is mostly implemented for you. Please read through it to understand how it works, then set the size and location of ImageView added in this method.
+Most of this method is implemented for you. Please read through it to understand how it works, then try to set the size and location of ImageView added in this method. You can find the solution implementation of this method [here](/interaction/slides/l01/doodle.html).
 
 *Related APIs*:
 [ImageView](https://developer.android.com/reference/android/widget/ImageView.html)
 
 ### Specs for addText
 ```java
-TextView addText(FrameLayout canvas, String text, float x, float y, int fontSize, int color);
+TextView addText(FrameLayout mainCanvas, String text, float x, float y, int fontSize, int color);
 ```
 
 *Related APIs*:
 [TextView](https://developer.android.com/reference/android/widget/TextView.html) /
 [TextView#setTextColor](https://developer.android.com/reference/android/widget/TextView#setTextColor(int))
 
-You may find the comments and the implementation of addImage useful.
+You may find the comments and the implementation of `addImage` useful.
 
 If you implement it correctly, you'll see the image below if you run:
 ```java
-addText(canvas, "CSE340", scaleX(550), scaleY(200), 60, Color.rgb(51,0,111))
+addText(mainCanvas, "CSE340", scaleX(550), scaleY(200), 60, Color.rgb(51,0,111))
 ```
 
 ![A purple text "CSE340" shows at the top right of the screenshot.](doodle-img/add_text_sample.jpeg){:width="25%"}
 
 ### Specs for addLine
 ```java
-ImageView addLine(FrameLayout canvas, float startX, float startY, float endX, float endY, int width, int color);
+ImageView addLine(FrameLayout mainCanvas, float startX, float startY, float endX, float endY, int width, int color);
 ```
 
-There are several ways to draw a line. [android--code](https://android--code.blogspot.com) has [a good example](https://android--code.blogspot.com/2015/11/android-how-to-draw-line-on-canvas.html)
+There are several ways to draw a line. [android--code](https://android--code.blogspot.com) has [a good example](https://android--code.blogspot.com/2015/11/android-how-to-draw-line-on-canvas.html).
+
+For your `Bitmap`, you can use `Bitmap#createBitmap(int, int, Bitmap.Config)` to create a new `Bitmap` with the width and height of the current screen. **You can find the width and height of the current device screen in the `PHONE_DIMS` constant of `Doodler`**. It will be available to you in `Part1`.
+
+**You may notice that the line does not fully span the width of the screen.** This is due to the `ImageView` in which the `Bitmap` resides having a margin around it. To fix this, **set the width and height of the `ImageView` to match the dimensions you set for the `Bitmap`**. See `addImage` for how to adjust the width and height of an `ImageView`.
 
 If you implement it correctly, you'll see the image below if you run:
 ```java
-addLine(canvas, scaleX(100), scaleY(250), scaleX(700), scaleY(1200), 15, Color.rgb(200,0,0))
+addLine(mainCanvas, scaleX(100), scaleY(250), scaleX(700), scaleY(1200), 15, Color.rgb(200,0,0))
 ```
 
 ![A red line starts from top left to the center of the screenshot.](doodle-img/add_line_sample.jpeg){:width="25%"}
 
 ### Animating Text
 
-Read through this [basic animation](https://developer.android.com/training/animation/reposition-view) tutorial. You will need to first figure out how to animate the TextView created by `addText` then decide where in the Activity lifecycle the animation should be placed so it is triggered when the app opens.
-
-The `UW` text should translate horizontally from `(50f, 1650f)` to `(1050f, 1650f)`. Animation duration should be less than 2 seconds.
+Once you've animated the three methods defined above, your doodle should match. For the last part, you will need to figure out how to animate text. In `Part1#doodler(FrameLayout)`, use animations to move the `TextView` uw from `(50f, 1650f)` to `(1050f, 1650f)`. Remember to apply `scaleX` and `scaleY` to these animations.
 
 *Related APIs*:
 [ObjectAnimator](https://developer.android.com/reference/android/animation/ObjectAnimator)
 
-![A screenshot with a heart on it made up of smaller pictures.](doodle-img/screenshot.jpeg){:width="25%"}
+Once you've finished your animation, your doodle should match this screenshot:
+![A screenshot with a heart on it made up of smaller pictures. There's an "I" in the upper left and a "UW" in the middle right](doodle-img/screenshot.jpeg){:width="25%"}
 
 # Part 2
 ***
@@ -101,17 +107,19 @@ The `UW` text should translate horizontally from `(50f, 1650f)` to `(1050f, 1650
 Tasks:
 - Create a beautiful doodle of your own
 
-Create a new activity called `Part2Activity`. In here you should use all 3 functions implemented in [Part 1](#part-1) to draw your own doodle. You are welcome to implement new functions to make a creative and/or beautiful doodle.
+This is where your creativity comes into play. We've created a blank slate for you in `Part2Activity`. In here you should use all three methods implemented in [Part 1](#part-1) to draw your own doodle. You are welcome to implement new methods in `Part2Activity` to make a more creative and beautiful doodle.
 
-**Tip**: Add your new activity to `AndroidManifest.xml`. You can control which activity launches with the app by moving the existing `<intent-filter>` tag between different activities.
-
-Aim for complexity similar to [Part 1](#part-1) (images, text, and shapes) though you don't need to use as many images. Try to be creative, you work will be graded by your peers. Your may use the attractive home-cooked food images ([photo credit](https://www.XiaoyiZhang.me)) we include in `res/drawable` or use your own images. If you chose to use your own images, please be sure to turn them in exactly as specified in [Turn-in](#turn-in).
-
-If your animation is laggy, please reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
+**Tips**:
+- To control which activity launches with the app by moving the existing `<intent-filter>` tag between different activities.
+- Aim for complexity similar to [Part 1](#part-1) (images, text, and shapes) though you don't need to use as many images. Try to be creative, you work will be graded by your peers. 
+- You may use the attractive home-cooked food images ([photo credit](https://www.XiaoyiZhang.me)) we include in `res/drawable` or use your own images.
+  - **If you chose to use your own images, please be sure to turn them in exactly as specified in [Turn-in](#turn-in).**
+- If your animation is laggy, please reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
+- **Make sure that your doodle depends on _nothing_ outside of the files described in [Turn-in](#turn-in).**
 
 *For Peer Grading*
 <!-- XXX TODO(rfrowe): Will we use canvas -->
-This portion of the assignment will be peer graded. You will receive 1pt for peer grading others' doodles through Canvas. You will have a chance to nominate the most creative doodles. The winners will be shown off in class.
+This portion of the assignment will be peer graded. You will receive 1pt for peer grading others' doodles. You will have a chance to nominate the most creative doodles. The winners will be shown off in class.
 
 *Related APIs*:
 [Android Animation](https://developer.android.com/training/animation/reposition-view) /
@@ -125,18 +133,19 @@ This portion of the assignment will be peer graded. You will receive 1pt for pee
 You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
 ```
+─ Part1.java
 ─ Part1Activity.java
 ─ Part2Activity.java
 - images.zip (optional)
-  ├── abc.jpg
+  ├── abc.png
   ├── ...
   └── xyz.jpg
 - part2.csv (optional)
 ```
 
-If you use your own images in [Part 2](#part-2), please include them in images folder. The images should be compressed together into a ZIP file. Do not compress a folder called `images` containing the actual images. Ex: `zip images.zip abc.jpg ... xyz.jpg`
+If you use your own images in [Part 2](#part-2), please include them in images folder. The images should be compressed together into a ZIP file. Ex: `zip images.zip abc.jpg ... xyz.jpg`. Do not compress a folder called `images` containing the actual images. 
 
-If you're positioning a large number of images for [Part 2](#part-2), it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part2.csv` if necessary.
+If you're positioning a large number of images for [Part 2](#part-2), it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part2.csv` if necessary. Remember, the CSV coordinates are on a Pixel 2 XL and scaled to the current screen in `Doodler#addAllImagesFromData(FrameLayout)`.
 
 ## Grading (10pts)
 
@@ -147,7 +156,7 @@ If you're positioning a large number of images for [Part 2](#part-2), it may be 
   - `UW` Animation: 1 pt
 - Part 2
   - Peer Grading of Custom Doodle
-    - Using each of the three functions: 1 pt
+    - Using each of the three methods: 1 pt
     - Using an animation: 1 pt
   - Complete assigned peer grading: 1 pt
 - Turn-in and compiles: 1 pt
