@@ -20,6 +20,7 @@ layout: default
 ||Slides | [Core Toolkit Abstractions](/interaction/slides/wk01/MVC.html)| Toolkit User Types; Basic structure of a user interfaces; Common interactors|
 |**4/4**|**Thursday** | **Introduction to Android (active)**| Android project structure; Hello World|
 ||Slides| [Hello World](/interaction/slides/l01/hello.html)| Android 
+||For your reference |[Doodle](/interaction/slides/l01/doodle.html) |
 ||For your reference |[Java Refresher](/interaction/slides/l01/java.html) |
 ||For your reference |[Animation](/interaction/slides/l01/animation.html) |
 ||For your reference |[Git](/interaction/slides/l01/git.html) |
