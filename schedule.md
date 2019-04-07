@@ -34,7 +34,7 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |------|-------|-------------------------------|----|
 |**4/8**|**Monday**| **Drawing Interfaces: MVC and Component Hierarchies** ||
-||Slides|[Drawing Interfaces](/interaction/slides/wk02/Interface-drawing.html)| What your toolkit draws when; Component hierarchies and drawing; MVC | 
+||Slides|[Drawing & Animation](/interaction/slides/wk02/Android-drawing-views.html)|  Deeper understanding of Views, Bitmaps Canvas, Paths and Animation | 
 ||Exercise Due|[Doodle](/interaction/assignments/doodle) |
 |**4/10**|**Wednesday**| **Layout** ||
 ||Required Reading (10 mins)|[Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) | Abstractions for positioning interactors on the screen and making responsive interfaces 

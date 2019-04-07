@@ -4,10 +4,24 @@
 @import "fontawesome";
 @import "remark-base";
 
+.remark-code {
+    font-family: 'Ubuntu Mono';
+    font-size: 25px;
+}
+
+.remark-inline-code{
+  /* background: #F5F5F5; /* lighter */
+  font-family: 'Ubuntu Mono';
+  font-size: 25px;
+  background: #e7e8e2; /* darker */
+  border-radius: 3px;
+  padding: 4px;
+}
+
 .footnote {
   position: absolute;
   bottom: 3em;
-  font-size: .5em;
+  font-size: .8em;
 }
 
 .jax{

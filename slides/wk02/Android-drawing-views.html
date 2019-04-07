@@ -1,0 +1,561 @@
+---
+layout: presentation
+title: Drawing Interfaces & Animation
+description: Discussion of how android draws interfaces & does animation
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Introduction to Drawing Interfaces
+
+Jennifer Mankoff
+
+CSE 340 Spring 2019 
+---
+layout: false
+
+.left-column[
+## **Library** (and Inheritance Hierarchy)
+
+<div class="mermaid">
+  graph TD
+  Activity[Activity]
+  Activity -->|...| Doodler[Doodler]
+  Doodler --> Part1[Part1]
+  Part1 --> Part1Activity[Part1Activity]
+  Part1 --> Part2Activity[Part2Activity]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class Part1,Part1Activity,Part2Activity yellow
+class Activity,Doodler green
+</div>
+]
+
+.right-column[
+## Android Classes we are using in Doodle and how they relate
+
+- Doodler (which you don't edit) *extends* [Activity](https://developer.android.com/reference/android/app/Activity)
+- Part1 *extends* Doodler. It provides *helper methods* for Part2 and
+  Part3
+- Part1Activity and Part2Activity both extend Part1
+]
+---
+![:img Full activity lifecycle, 40%](img/activity_lifecycle_full.png)
+---
+.left-column[
+## Drawing on Canvas (Part1)
+]
+.right-column[
+We're not really *drawing on a canvas*, we're *adding views* to a
+*parent view*.
+
+- `addImage` / `addLine` / `addText` take a FrameLayout (a type of
+[View](https://developer.android.com/reference/android/view/View)) as input and return another
+[View](https://developer.android.com/reference/android/view/View)  as output
+- Also *add the new view* to the *parent*
+
+This is *setup* for the interface being rendered: We are constructing
+the interactor (also called component) hierarchy when we call these methods
+
+]
+---
+.left-column[
+## Drawing on Canvas (Part1)
+]
+.right-column[
+
+But some drawing operations must be drawn on a Canvas (*e.g.,* `drawLine()`). In this case we use a
+[Canvas](https://developer.android.com/reference/android/graphics/Canvas)
+which has to be constructed from a
+[Bitmap](https://developer.android.com/reference/android/graphics/Bitmap.html)
+
+```
+ImageView myView = ...
+Bitmap bitmap = (Bitmap) Bitmap.createBitmap(...)
+myView.setImageBitmap(bitmap)
+Canvas c = new Canvas(bitmap)
+
+// ... now use the canvas to draw to the bitmap
+
+```
+]
+--
+.right-column[
+	(Note: You could also implement `addImage` and `addText` to draw
+	directly on a bitmap)
+]
+---
+.left-column[
+## Drawing on Canvas (Part1)
+]
+.right-column[
+
+When you draw on a canvas, you create and use a
+[Paint](https://developer.android.com/reference/android/graphics/Paint)
+object to indicate the details of that drawing
+
+Example:
+
+```
+Paint paint = new Paint();
+paint.setColor(Color.RED);
+paint.setStrokeWidth(3);
+// now draw on the canvas with the paint object
+// for example:
+c.drawCircle(10,10,5, paint)
+```
+]
+???
+Worked example:
+```
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ImageView view = new ImageView(this);
+
+        Bitmap bitmap = Bitmap.createBitmap(100,100, Bitmap.Config.ARGB_8888);
+        view.setImageBitmap(bitmap);
+        Canvas c = new Canvas(bitmap);
+        Paint p = new Paint();
+        c.drawCircle(10,10,5,p);
+
+
+        setContentView(view);
+    }
+```
+---
+.left-column[
+## **Architecture**
+![:img Picture of the android activity lifecycle, 60%](img/activity_lifecycle.png)
+]
+.right-column[
+## How is this rendered?
+Architecture invokes the work to construct the *interactor hierarchy*
+by calling  `onCreate()` 
+
+Use *Library* to implements `onCreate()` 
+]
+---
+.title[How do we do this?]
+.body[
+*Doodler* overrides `onCreate()` (from it's grandparent *View* class)
+
+*Doodler* provides a helper method for this (`doodle()`) which you
+   override in `Part1Activity` and `Part2Activity`. 
+
+```java
+
+abstract class Doodler extends AppCompatActivity {
+    ...
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ...		
+		doodle(...)
+	}
+	
+    abstract protected void doodle(FrameLayout mainCanvas);
+```
+]
+---
+.left-column[
+## How Part1Activity Sets up the **Interactor Hierarchy**
+<br><br>
+<div class="mermaid">
+  graph TD
+  LinearLayout[LinearLayout]
+  LinearLayout -->|...| Canvas[Canvas:FrameLayout]
+  Canvas --> Image1[ImageView1]
+  Canvas --> Image2[...]
+  Canvas --> TextView[TextView]
+
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class LinearLayout,Canvas yellow
+class Image1,Image2,TextView,Image3 green
+</div>
+]
+.right-column[
+Part1Activity overrides `doodle()` (which is called from `onCreate()`)
+
+- Calls `addAllImagesFromData()` to iteratively add everything specified
+in the `assets/data.csv` file (which calls your method: `addImage()`)
+- Calls your other methods too: `addText()` and `addLine()`
+
+```java
+public class Part1Activity extends Part1 {
+
+@Override
+protected void doodle(FrameLayout mainCanvas) {
+        addAllImagesFromData(mainCanvas);
+        addText(mainCanvas,"I", scaleX(50), scaleY(50), 50,
+                Color.rgb(145,123,76));
+        TextView uw = addText(mainCanvas,"UW", scaleX(50), scaleY(1650), 50,
+                Color.rgb(51,0,111));
+        addLine(mainCanvas, 0, scaleY(1950), scaleX(1440), scaleY(1950), 5,
+                Color.rgb(145,123,76));
+    }
+
+```
+]
+
+---
+.left-column[
+## How Part1Activity Sets up the **Interactor Hierarchy**
+<br><br>
+<div class="mermaid">
+  graph TD
+  LinearLayout[LinearLayout]
+  LinearLayout -->|...| Canvas[Canvas:FrameLayout]
+  Canvas --> Image1[ImageView1]
+  Canvas --> Image2[...]
+  Canvas --> TextView[TextView]
+
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class LinearLayout,Canvas yellow
+class Image1,Image2,TextView,Image3 green
+</div>
+]
+.right-column[
+![:img Picture of the Android Studio component hierarchy for Doodle Part1 solution,80%](img/interactors.png)
+]
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Introducing Animation
+
+![:img FB Messenger Animation, 50%](img/messenger-bubble.gif)
+.footnote[Lots of interesting ways to use animations on [mobile devices](https://www.smashingmagazine.com/2013/10/smart-transitions-in-user-experience-design/)]
+---
+layout:false
+.title[Animation is Trendy!]
+.body[
+.center[*Animation is increasingly becoming an important part of the UI design experience. Google’s material design guidelines are a good illustration of this...* (Weareathlon)]
+
+![img: Android Animation Example, 20%](img/android-animate.gif)
+
+Different Animation Systems. We will use **Property Animation**
+]
+???
+Animation becoming core pillar of UX design
+Greater awareness of role for communicating UI behavior
+Guide, provide context, delight, engage
+
+Provide visual continuity 
+Enhance perception/direct attention
+Trade space for time
+
+---
+.title[Animation is Trendy!]
+.body[
+Define an animate that changes on object's property (a field on a object) over a length of time
+
+.center[
+
+  ![Animation Linear](img/animation-linear.png)
+
+]
+]
+---
+.title[How an animation is set up]
+.body[
+Need the start and end value of the properties to be
+modified. Typically use a
+[Path](https://developer.android.com/reference/android/graphics/Path)
+for this. 
+
+Need a *duration* (total time in ms for the animation)
+
+Need the *pacing function* for animation. Can explore subclasses of
+[Interpolator](https://developer.android.com/reference/android/view/animation/Interpolator)
+(or make your own!) for this
+]
+
+---
+.left-column[
+## Example pacing functions
+![:img Picture of for types of interpolation functions provided with
+android, 100%](img/interpolators.gif)
+]
+.right-column[
+<br><br><br><br>
+Slow in slow out (Accelerate/decelerate)
+
+Slow in (Accelerate)
+
+Anticipate (back up slightly, then accelerate)
+
+Anticipate Overshoot (same, then go too far and slow down)
+]
+---
+.title[Example pacing functions]
+.body[
+<br><br>
+![:youtube Video showing a mother and child lamp playing with a ball
+illustrating a range of techniques,6G3O60o5U7w]
+]
+---
+.title[Why is pacing so important?]
+.body[
+
+Need to mimic real world
+- Observing motion tells us about size, weight, rigidity
+- No abrupt changes in velocity!
+
+Gives a feeling of reality and liveness
+- “animation” = “bring to life”
+- make inanimate object animate
+
+With this can come appeal and desirability
+]
+---
+.left-column[
+## Relate to to mobile animation
+![:img Picture of for types of interpolation functions provided with
+android, 100%](img/interpolators.gif)
+]
+
+???
+- No teleportation!
+- Squash and Stretch (preserve volume; can approximate inertia (ball))
+- Follow through (i.e. cord lags behind lamp)
+- Anticipation (small amount of counter movement (lampshade motion))
+- Exaggeration (cord up and down)
+
+- (not shown) Motion blur (doesn't need to be realistic
+
+---
+.title[[ObjectAnimator](https://developer.android.com/reference/android/animation/ObjectAnimator)]
+.body[
+Directly animate a properties on an object
+
+**However**: the property that you are animating must have a setter
+function (in camel case) in the form of set<propertyName>() for this
+to work
+
+Can use a string (like `"alpha"`) or a property (like `View.X` in [View](https://developer.android.com/reference/android/view/View))
+]
+---
+.title[Useful properties for animation]
+.body[
+`translationX` /`translationY` - view location as a delta from its top/left coordinates relative to the parent
+
+`rotation` / `rotationX`/`rotationY` - control 2D rotation and 3D rotation around a pivot point
+
+`scaleX` / `scaleY` - 2D scaliong of a `View` around a pivot point
+
+`pivotX` / `pivotY` - changes location of thej pivot point (default is object's center)
+
+`x` / `y` - utility property to describe the final location of a `View` in its container as a sum of (left, top) + `translationX`, `translationY`)
+
+`alpha`
+]
+.footnote[All found in the [View](https://developer.android.com/reference/android/view/View) class]
+---
+.title[[ObjectAnimator](https://developer.android.com/reference/android/animation/ObjectAnimator)]
+.body[
+
+Example for color
+```java
+// takes a target view, a property name, and values
+ObjectAnimator anim = ObjectAnimator.ofFloat(foo, "alpha", 0f, 1f);
+anim.setDuration(1000);
+anim.start();
+```
+]
+--
+.body[
+Example for position (using a
+[Path](https://developer.android.com/reference/android/graphics/Path))
+
+```java
+// takes a target view, a property name, and values
+ObjectAnimator anim = ObjectAnimator.ofFloat(foo, View.X, View.Y, path);
+anim.setDuration(1000);
+anim.start();
+```
+]
+---
+.title[Multiple Simultaneous Animations (`AnimatorSet`)]
+.body[
+```java
+  // Create animator set
+  AnimatorSet bouncer = new AnimatorSet();
+
+  // Add the good stuff
+  bouncer.play(bounceAnim).before(squashAnim1);
+  bouncer.play(squashAnim1).with(squashAnim2);
+  bouncer.play(squashAnim1).with(stretchAnim1);
+  bouncer.play(squashAnim1).with(stretchAnim2);
+  bouncer.play(bounceBackAnim).after(stretchAnim2);
+
+  // Animate the alpha value from 1->0
+  ValueAnimator fadeAnim = ObjectAnimator.ofFloat(newBall, "alpha", 1f, 0f);
+  fadeAnim.setDuration(250);
+
+  // Build up a another level of animation sets
+  AnimatorSet animatorSet = new AnimatorSet();
+  animatorSet.play(bouncer).before(fadeAnim);
+
+  // Starts the animations
+  animatorSet.start()
+```
+]
+---
+.title[Declaring Animations in XML]
+.body[
+```
+/res/animator/object_animator_ex.xml
+```
+```xml
+<set android:ordering="sequentially">
+    <set>
+        <objectAnimator
+            android:propertyName="x"
+            android:valueTo="200"/>
+        <objectAnimator
+            android:propertyName="y"
+            android:valueTo="300"/>
+    </set>
+    <objectAnimator
+        android:propertyName="alpha"
+        android:valueTo=".5f"/>
+</set>
+```
+
+.footnote[Can do even *more* with ValueAnimator XML (will let you google this)]
+]
+---
+.title[There's more flexibility... (3/3)]
+.body[
+You can then run the animation by doing the following:
+
+```java
+  Animator anim = (Animator) AnimatorInflater.loadAnimator(this,
+      R.animator.object_animator_ex);
+  anim.setTarget(myObject);
+  anim.setDuration(2000);
+  anim.start();
+```
+
+Note that animations xml files should be in the `res/animator/` directory
+
+Make sure the animation info is inside of:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+...
+</set>
+```
+]
+
+---
+.left-column[
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+![Value Animator Process](img/valueanimator.png)
+]
+.right-column[
+##Toolkit Architecture for Animation
+
+Steamlined process for animation of each frame
+- An update function is called 
+- `invalidate()` is called
+- View is redrawn
+]
+
+---
+.title[There's more flexilbity... (1/3)]
+.body[
+- You can specify `Keyframe` objects to control the animation
+
+```java
+  // Key for start at 0
+  Keyframe kf0 = Keyframe.ofFloat(0f, 0f);
+  // Key for half way finished animation
+  Keyframe kf1 = Keyframe.ofFloat(.5f, 360f);
+  // Key for end state
+  Keyframe kf2 = Keyframe.ofFloat(1f, 0f);
+  // ValueName-to-keyframes
+  PropertyValuesHolder pvhRotation = PropertyValuesHolder.ofKeyframe(
+      "rotation",
+      kf0,
+      kf1,
+      kf2);
+  // Create the animation
+  ObjectAnimator rotationAnim = ObjectAnimator.ofPropertyValuesHolder(
+      target,
+      pvhRotation)
+  rotationAnim.setDuration(5000ms);
+
+```
+]
+---
+.left-column[
+## What to do for Activity 2?
+]
+.right-column[
+Your chance to  make something creative
+
+Will be peer graded to ensure it uses some combination of lines, text,
+and images
+
+Peers will also give you feedback on how much they liked it
+]
+
+---
+---
+## `ValueAnimator`
+
+- Keeps track of the animation's timing (how long its been running and current value of property)
+
+- Contains a `TimeInterpolator` that defines the type of interpolation for the value over time
+
+- Contains a `TypeEvaluator` that figures out how to calculate values for the property being animated
+
+```java
+ValueAnimator animation = ValueAnimator.ofFloat(0f, 1f);
+animation.setDuration(1000);
+// Starts the animation
+animation.start();
+// TODO: need to listen for updates to get the returned value
+```
+---
+.title[How do we use pacing functions for this?]
+.body[
+![:img Picture of a curve transforming motion over time to create a pacing
+effect, 40%](img/pacing.png)
+
+- Time normalized with respect to animation interval (0...1)
+- Normalized time is transformed by pacing function (0…1)
+- Paced value is then fed to curve function to get final value
+
+]
