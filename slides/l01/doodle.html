@@ -8,20 +8,53 @@ class: middle, center, inverse
 ## Introduction to Doodle Assignment
 
 .title-slide-logo[
-  ![:img Android Logo, 100%](img/android-logo.png)
+  ![:img Android Logo](img/android-logo.png)
 ]
 ---
 layout:none
 
 .title[Running Sample Code]
 .body[
-This repository will contain assignment and exercise stubs for CSE340
-for the Spring 2019 term. It's recommended that you [fork](https://gitlab.cs.washington.edu/cse340/19sp/forks/new) this
-repository. This will allow you to merge any upstream changes we make
-to stubs throughout the quarter. You can find instructions on setting
-up and maintaining a forked repository [here](https://help.github.com/en/articles/working-with-forks).
+Each student will be given access to a unique repository for each assignment.
+If you have not received access to a repository for Doodle, please contact the
+course staff via email or Piazza.
 
-![:img Picture of Gitlab for https://gitlab.cs.washington.edu/cse340/19sp with a place to download,100%](img/download-projects.png)
+Please clone and use the repository and commit and push your work regularly.
+Not only will doing so protect your code, but it will also allow course staff
+to look at your code and it will allow you to easily pull any changes we make
+to the assignment source.You can find instructions on setting up and maintaining
+a forked repository [here](https://help.github.com/en/articles/working-with-forks).
+]
+---
+.title[Cloning Doodle]
+.body[
+You can find your unique repo by the notification email or by going to [GitLab](https://gitlab.cs.washington.edu).
+
+Use Android Studio to clone the assignment code:
+![:img Android Studio splash screen, 30%](img/doodle-clone-1.png)
+![:img Android Studio clone dialog, 30%](img/doodle-clone-2.png)
+]
+---
+.title[Maintaining a Fork]
+.body[
+For more info, see [Git tutorial](git.html). This can also be done with the Android Studio UI (aside from fetching upstream).
+
+```bash
+# Add fork upstream origin (one time).
+git remote add upstream git@gitlab.cs.washington.edu:cse340/ex1-Doodle.git
+
+# To pull changes from the upstream repository:
+#   (Optional) stash your changes so there are no conflicts
+git stash
+#   Update branches for upstream.
+git fetch upstream
+#   Option 1: merge pull
+git merge upstream/master --ff-only
+#   Option 2: rebase pull
+git rebase upstream/master
+#   (Only if you stashed)
+git stash apply
+```
 ]
 ---
 .title[
@@ -34,7 +67,7 @@ Open project in Android Studio]
   - If by USB, debugging must be enabled on the device
 ]
 ---
-.title[ Implementing  `addImage`]
+.title[Implementing  `addImage`]
 .body[
 ```java
 private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size);
@@ -54,14 +87,14 @@ private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Fl
 - `size`: Width and height of rendered image, in pixels.
 ]
 ---
-.title[ Implementing  `addImage`]
+.title[Implementing  `addImage`]
 .body[
 ### Returns:
 - An `ImageView` which has been added to the canvas.
 ]
 
 ---
-.title[## Implementing  `addImage`]
+.title[Implementing  `addImage`]
 .body[
 Break down into component steps, look up documentation, and implement
 
@@ -80,8 +113,8 @@ Break down into component steps, look up documentation, and implement
 4. Set view contents
 ]
 ---
-## Implementing  `addImage`
-
+.title[Implementing  `addImage`]
+.body[
 ```java
 private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
     // Create ImageView and add it to mainCanvas.
@@ -92,10 +125,10 @@ private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Fl
     return imageView;
 }
 ```
-
+]
 ---
-## Implementing  `addImage`
-
+.title[Implementing  `addImage`]
+.body[
 ```java
 private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
     // Create ImageView and add it to mainCanvas.
@@ -106,10 +139,10 @@ private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Fl
     return imageView;
 }
 ```
-
+]
 ---
-## Implementing  `addImage`
-
+.title[Implementing  `addImage`]
+.body[
 ```java
 private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
     // Create ImageView and add it to mainCanvas.
@@ -123,10 +156,10 @@ private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Fl
     return imageView;
 }
 ```
-
+]
 ---
-## Implementing  `addImage`
-
+.title[Implementing  `addImage`]
+.body[
 ```java
 private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
     // Create ImageView and add it to mainCanvas.
@@ -142,10 +175,10 @@ private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Fl
     return imageView;
 }
 ```
-
+]
 ---
-## Implementing  `addImage`
-
+.title[Implementing  `addImage`]
+.body[
 ```java
 private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Float y, int size) {
     // Create ImageView and add it to mainCanvas.
@@ -162,3 +195,10 @@ private ImageView addImage(FrameLayout mainCanvas, String imageName, Float x, Fl
     return imageView;
 }
 ```
+
+---
+.title[Grading]
+.body[
+Discuss
+]
+
