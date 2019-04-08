@@ -579,3 +579,47 @@ effect, 40%](img/pacing.png)
 - Paced value is then fed to curve function to get final value
 
 ]
+---
+.title[XML shown in class]
+.body[
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+<objectAnimator
+    android:propertyName="x"
+    android:valueTo="100"/>
+</set>
+```
+]
+---
+```java
+package com.example.myapplication;
+//imports...
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ImageView view = new ImageView(this);
+        setContentView(view);
+
+        Bitmap bitmap = Bitmap.createBitmap(100,100, Bitmap.Config.ARGB_8888);
+        view.setImageBitmap(bitmap);
+        Canvas c = new Canvas(bitmap);
+        Paint p = new Paint();
+        c.drawCircle(10,10,5,p);
+
+        ObjectAnimator anim = ObjectAnimator.ofFloat(view, "alpha", 1f, 0f);
+        anim.setDuration(2000);
+        anim.start();
+
+        Animator anim2 = (Animator) AnimatorInflater.loadAnimator(this,
+                R.animator.sample);
+        anim2.setTarget(view);
+        anim2.setDuration(2000);
+        anim2.start();
+    }
+}
+```
+
+---
