@@ -469,7 +469,27 @@ Make sure the animation info is inside of:
 </set>
 ```
 ]
+---
+.title[An Aside: What is an Inflater?]
+.body[
+You will use these often! They give you access to XML data (part of
+the *model* of your application). Just saw an 
+[AnimatorInflater](https://developer.android.com/reference/android/animation/AnimatorInflater)
+in the previous code.
 
+```java
+[Type] [name] = ([Cast to Type]) [Inflator].load...([arguments])
+```
+Will need the *path* to the part of the XML you care about, typically
+something like:
+```
+R.[dirname].[filename]
+```
+Specifics vary from situation to situation (*e.g.,* [LayoutInflater](https://developer.android.com/reference/android/view/LayoutInflater)
+works slightly differently), so you'll need to read the documentation.
+]
+???
+Discuss model/view/controller
 ---
 .left-column[
 <br>
