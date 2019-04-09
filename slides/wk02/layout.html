@@ -59,18 +59,14 @@ layout: false
 ]
 .right-column[
 - Review of tree construction
-- Review of quiz on layout pros and cons
 - Using tree for layout
 - Container components
 - Layout Implementation in General
-- Draw and Redraw 
-- Constraint based layout
 ]
 ---
 # Review of tree construction
 
 .left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
-
 
 
 ---
@@ -95,53 +91,251 @@ class W bluegreen
 class M,A,C,I,T,La blue
 </div>
 ]
----
-# Review of quiz on layout pros and cons
-
-???
-- boxes and springs
-- floats
-- constraints ('reactive programming')
-- others?
 
 ---
 .left-column[
-# Using Glue to control placement
+# Why do we need layout?
 ]
 .right-column[
 How can you center something?
 
 How can you lock it to an edge?
+
+How can you design layout that reacts well to turning your phone?
 ]
 ---
-# Let's redraw this layout using containers and glue
+.left-column[
+## Layout Assignment
 
-.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+- Part 1 is about basic reactive layout using the GUI/XML
+- Part 2 adds scrolling using XML
+- Part 3 reproduces Part 2 in code
+- Part 4 implements your own Pinterest layout container in code
+]
+.right-column[
+|![:img Part1: picture of food a button and a big textbox in a phone held vertically, 100%](img/simplevert.jpeg)|![:img Part4: Fancy Pinterest style layout, 100%](img/pinterest.jpeg)|![:img Part4: Pinterest picture with phone horizontally, 100%](img/pinteresthoriz.jpeg)<br>![:img Part1: Simple picture with phone horizontally,
+	100%](img/simplehoriz.jpeg)|
+|---|---|---|
+
+]
 ---
-# Let's redraw this layout using containers and glue
+.left-column[
+## Strategies for Layout
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+...
+<TextView
+  ...
+<LinearLayout
+   ...
+   <Button
+      android:id="@+id/button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/Save" />
+      ...
+</LinearLayout>
+```
+]
+
+.right-column[
+![:img A simple layout on an android watch with a textview and two buttons (save and discard),100%](img/layout-demo.png)
+]
+???
+What examples do we have here?
+- Layout container (linearlayout)
+- Spacer 
+- springiness
+- struts
+- constraints
+---
+.title[Two ways to declare Interactors]
+.body[
+Declare elements in WYSIWYG editor, which will automatically create and initialize the objects
+
+Instantiate UI classes at runtime. For example:
+```java
+Button okButton = new Button(this); 
+okButton("OK"); 
+
+LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout);
+LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, 	LayoutParams.WRAP_CONTENT); 
+layout.addView(okButton,lp);
+```
+]
+---
+.left-column[
+## Three important layout concepts in our example
+![:img A simple layout on an android watch with a textview and two
+buttons (save and discard) and the linearlayout highlighted ,110%](img/watch.png)
+]
+.right-column[
+1. Layout containers 
+
+`LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout);`
+ - automate a lot of the layout tasks
+ - make it much simpler to ensure reliable results
+ - use these whenever they do the jo
+ - you will implement one for your assignment!
+]
+---
+.left-column[
+## Three important layout concepts in our example
+![:img A simple layout on an android watch with a textview and two
+buttons (save and discard) and the spacer between the buttons highlighted ,110%](img/watch2.png)
+]
+.right-column[
+1. Layout containers 
+2. Spacers
+```xml
+<Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+```
+- can be solid ('Strut')
+- or stretchy ('Spring')
+- really important when paired with layout containers
+]
+---
+# Let's try to recreate this layout using containers and spacers
 
 .left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+--
+
 .right-column[
 <div class="mermaid">
 graph TD
 W((Window)) --> L(LeftSide:DisplayVert)
 W --> R(RightSide:SettingsVert)
-L --> Z[Glue:Fixed]
+L --> Z[Space:Fixed]
 L --> M[Icon:Mag Window]
 L --> A[Slider:Aperture Size]
-L --> Y[Glue:Stretchy]
+L --> Y[Space:Stretchy]
 L --> C[Menu:Choice]
 R --> D(RGB DisplayHor)
-D --> V[Glue:Fixed]
+D --> V[Space:Fixed]
 D --> I[Icon:Color]
 D --> T[Text:RGB]
-D --> U[Glue:Flexible]
+D --> U[Space:Flexible]
 R --> Q[Text:Label]
 
 classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
 classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
 classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
 classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class W bluegreen
+class L,R,D green
+class Z,Y,V,U yellow
+class M,A,C,I,T,Q blue
+</div>
+]
+
+---
+# Vertical Container Components
+
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+.right-column[
+<div class="mermaid">
+graph TD
+W((Window)) --> L(LeftSide:DisplayVert)
+W --> R(RightSide:SettingsVert)
+L --> Z[Space:Fixed]
+L --> M[Icon:Mag Window]
+L --> A[Slider:Aperture Size]
+L --> Y[Space:Stretchy]
+L --> C[Menu:Choice]
+R --> D(RGB DisplayHor)
+D --> V[Space:Fixed]
+D --> I[Icon:Color]
+D --> T[Text:RGB]
+D --> U[Space:Flexible]
+R --> Q[Text:Label]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class L,R,D darkblue
+class W bluegreen
+class D green
+class Z,Y,V,U yellow
+class M,A,C,I,T,Q blue
+</div>
+]
+
+---
+# Horizontal Container Components
+
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+.right-column[
+<div class="mermaid">
+graph TD
+W((Window)) --> L(LeftSide:DisplayVert)
+W --> R(RightSide:SettingsVert)
+L --> Z[Space:Fixed]
+L --> M[Icon:Mag Window]
+L --> A[Slider:Aperture Size]
+L --> Y[Space:Stretchy]
+L --> C[Menu:Choice]
+R --> D(RGB DisplayHor)
+D --> V[Space:Fixed]
+D --> I[Icon:Color]
+D --> T[Text:RGB]
+D --> U[Space:Flexible]
+R --> Q[Text:Label]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class D darkblue
+class W bluegreen
+class L,R,D green
+class Z,Y,V,U yellow
+class M,A,C,I,T,Q blue
+</div>
+]
+
+---
+# Spacers
+
+.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+
+.right-column[
+<div class="mermaid">
+graph TD
+W((Window)) --> L(LeftSide:DisplayVert)
+W --> R(RightSide:SettingsVert)
+L --> Z[Space:Fixed]
+L --> M[Icon:Mag Window]
+L --> A[Slider:Aperture Size]
+L --> Y[Space:Stretchy]
+L --> C[Menu:Choice]
+R --> D(RGB DisplayHor)
+D --> V[Space:Fixed]
+D --> I[Icon:Color]
+D --> T[Text:RGB]
+D --> U[Space:Flexible]
+R --> Q[Text:Label]
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
+classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
+
+class Y,Z,V,U darkblue
 class W bluegreen
 class L,R,D green
 class Z,Y,V,U yellow
@@ -151,21 +345,193 @@ class M,A,C,I,T,Q blue
 
 ---
 .left-column[
-# Remember the Component abstraction?
+## Three important layout concepts in our example
+![:img A simple layout on an android watch with a textview and two buttons (save and discard),110%](img/watch2.png)
 ]
 .right-column[
-Each component knows how to draw itself
-
-Doesn't have to worry about position, clipping, etc
-
-... So how is position defined?
+1. Layout containers 
+2. Spacers
+3. Constraints
+- Very general
+- Can reproduce most other things
+- Can operate on multiple axes
+- Can enhance other layout options
 ]
 ---
 .left-column[
-# Container Components
+## Three important layout concepts in our example
+![:img A simple layout on an android watch with a textview and two
+buttons (save and discard) and the constraints highlighted,110%](img/watch3.png)]
+.right-column[
+1. Layout containers
+2. Spacers
+3. Constraints
+
+```java
+<TextView
+android:id="@+id/textView"
+android:layout_width="0dp"
+android:layout_height="0dp"
+android:layout_marginStart="8dp"
+android:layout_marginTop="8dp"
+android:layout_marginEnd="8dp"
+android:layout_marginBottom="8dp"
+android:text="@string/sample_text"
+app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+
+lp.setMargins((int)(1*density),0,0,0);
+```
+]
+---
+.left-column[
+## Constraints in Android
+
+![:img picture of attributes window showing controls for
+constraint-based layout including five types of elements, 100%](img/constraints.png)]
+
+.right-column[
+[Docs](https://developer.android.com/training/constraint-layout/): limited set of constraints
+- 1 Size ration
+- 2 Delete constraint
+- 3 Height/width mode (3 main types):
+- Wrap constraint ![:img wrap symbol >>>, 5%](img/wrap.png)
+- Fixed size ![:img fixed symbol I--I, 5%](img/fixed.png)
+- Match Constraint ![:img match symbol IvvvI, 5%](img/match.png)
+- 4 Margins
+- 5 Constraint bias
+
+Range of attachment options (e.g. button sides, corners)
+
+Worth getting to know additional abstractions (groups; guidelines;
+barriers; chains)
+]
+---
+.left-column[
+## Example: Linear Layout of Email
+[Linear Layout Tutorial](https://developer.android.com/guide/topics/ui/layout/linear)
+
+![:img Linear layout of an email message with to line subject
+line and message arranged vertically, 100%](img/linearlayout.png)]
+
+.right-column[
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/to" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/subject" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="@string/message" />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/send" />
+</LinearLayout>
+```
+]
+
+???
+Can implement all of the things we discussed earlier using constraints
+
+note that they can be hard to debug?
+
+Discussion of specific inheritance hierarchy for constraints
+
+- Only have to write once when we use classes properly
+- can mix and match things
+
+---
+.left-column[
+# Powerful option
 ]
 .right-column[
-Help with layout
+Declare relationships (.red[what] should be true)
+
+System automatically maintains relationships under change (.red[how])
+]
+---
+.left-column[
+# Powerful option
+]
+.right-column[
+Declare relationships (what should be true)
+
+- This should be centered in that
+
+- This should be 12 pixels to the right of that
+
+- Parent should be 5 pixels larger than child
+
+System automatically maintains relationships under change (how)
+]
+--
+.right-column[
+Too good to be true?
+- Unsolvable for arbitrary things
+- Works really well for a limited set
+]
+???
+a good set for ui programming
+xx need to make sure I know why it is hard for arbitrary things
+
+---
+.left-column[
+# Note that these are one-way constraints
+]
+.right-column[
+You can change the right side, and it will update the left side (not
+the reverse)
+
+Can be very inefficient -- O(2^n)
+
+But highly efficient incremental update algorithms exist
+]
+???
+
+Only have to update things that might change
+
+Hudson's work on this was seminal
+
+can have a DAG but not a cycle (thus, a tree)
+hard to guard against cycles
+---
+layout: false
+[//]: # (Outline Slide)
+
+.left-column[
+# Today's goals
+]
+.right-column[
+- Review of tree construction
+- Using tree for layout
+- Container components
+__Layout Implementation in General__
+]
+---
+.left-column[
+# How is position calculated by the toolkit architecture?
+]
+.right-column[
+Toolkit architecture invokes layout
+
+Containers do the work (why Doodle worked: FrameLayout doesn't)
 
 Manage size and position of children
 - Enforce component abstraction
@@ -221,166 +587,10 @@ Ideally:
 And they get to ignore all of that, but usually try not to.
 ]
 ---
-# Using Container Components 
-.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
+# Simplest possible layout implementation
 
-.right-column[
-<div class="mermaid">
-graph TD
-W((Window)) --> L(LeftSide:DisplayVert)
-W --> R(RightSide:SettingsVert)
-L --> Z[Glue:Fixed]
-L --> M[Icon:Mag Window]
-L --> A[Slider:Aperture Size]
-L --> Y[Glue:Stretchy]
-L --> C[Menu:Choice]
-R --> D(RGB DisplayHor)
-D --> V[Glue:Fixed]
-D --> I[Icon:Color]
-D --> T[Text:RGB]
-D --> U[Glue:Flexible]
-R --> Q[Text:Label]
-
-classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
-classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
-classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
-classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
-
-class W bluegreen
-class L,R,D green
-class Z,Y,V,U yellow
-class M,A,C,I,T,Q blue
-</div>
-]
-
----
-# Vertical Container Components
-
-.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
-
-.right-column[
-<div class="mermaid">
-graph TD
-W((Window)) --> L(LeftSide:DisplayVert)
-W --> R(RightSide:SettingsVert)
-L --> Z[Glue:Fixed]
-L --> M[Icon:Mag Window]
-L --> A[Slider:Aperture Size]
-L --> Y[Glue:Stretchy]
-L --> C[Menu:Choice]
-R --> D(RGB DisplayHor)
-D --> V[Glue:Fixed]
-D --> I[Icon:Color]
-D --> T[Text:RGB]
-D --> U[Glue:Flexible]
-R --> Q[Text:Label]
-
-classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
-classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
-classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
-classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
-
-class L.R darkblue
-class W bluegreen
-class D green
-class Z,Y,V,U yellow
-class M,A,C,I,T,Q blue
-</div>
-]
-
----
-# Horizontal Container Components
-
-.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
-
-.right-column[
-<div class="mermaid">
-graph TD
-W((Window)) --> L(LeftSide:DisplayVert)
-W --> R(RightSide:SettingsVert)
-L --> Z[Glue:Fixed]
-L --> M[Icon:Mag Window]
-L --> A[Slider:Aperture Size]
-L --> Y[Glue:Stretchy]
-L --> C[Menu:Choice]
-R --> D(RGB DisplayHor)
-D --> V[Glue:Fixed]
-D --> I[Icon:Color]
-D --> T[Text:RGB]
-D --> U[Glue:Flexible]
-R --> Q[Text:Label]
-
-classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
-classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
-classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
-classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
-
-class D darkblue
-class W bluegreen
-class L,R,D green
-class Z,Y,V,U yellow
-class M,A,C,I,T,Q blue
-</div>
-]
-
----
-# Glue
-
-.left-column[![:img Color Meter Mac App -- shows the RGB values for whatever pixel the cursor is over, 150%](img/colormeter.png)]
-
-.right-column[
-<div class="mermaid">
-graph TD
-W((Window)) --> L(LeftSide:DisplayVert)
-W --> R(RightSide:SettingsVert)
-L --> Z[Glue:Fixed]
-L --> M[Icon:Mag Window]
-L --> A[Slider:Aperture Size]
-L --> Y[Glue:Stretchy]
-L --> C[Menu:Choice]
-R --> D(RGB DisplayHor)
-D --> V[Glue:Fixed]
-D --> I[Icon:Color]
-D --> T[Text:RGB]
-D --> U[Glue:Flexible]
-R --> Q[Text:Label]
-
-classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
-classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
-classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
-classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
-classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
-
-class Y,Z,V,U darkblue
-class W bluegreen
-class L,R,D green
-class Z,Y,V,U yellow
-class M,A,C,I,T,Q blue
-</div>
-]
----
-[//]: # (Outline Slide)
-
-.left-column[
-# Today's goals
-]
-.right-column[
-- Review of tree construction
-- Review of quiz on layout pros and cons
-- Using tree for layout
-- Container components
-- __Layout Implementation in General__
-- Draw and Redraw 
-- Constraint based layout
-]
-
----
-# Absolute layout -- actual implementation (slightly simplified)
-
-This is a simple depth first tree traversal
+Depth first tree traversal
+No consideration of child size or position in doing layout
 
 ```java
 protected void onLayout(boolean changed, int l, int t, int r, int b) {
@@ -394,27 +604,88 @@ protected void onLayout(boolean changed, int l, int t, int r, int b) {
     }
 }
 ```
+---
+# Frame layout -- actual implementation (slightly simplified)
 
+Simplified from
+FrameLayout 
+[source
+code](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/widget/FrameLayout.java),
+[View](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/View.java)
+and [ViewGroup](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/ViewGroup.java)
+```java
+// this is implemented in view
+public void layout(int l, int t, int r, int b) {
+	 // first make sure everything has a size (recursively)
+	 onMeasure()
+	 // then do layout
+	 onLayout(changed, left, top, right, bottom)
+}
+
+// a layout class should override onLayout. In FrameLayout
+protected void onLayout(boolean changed, int l, int t, int r, int b) {
+   // recursively calls layout on each child
+   foreach child {
+       LayoutParams lp = child.getLayoutParams();
+       int width = child.getMeasuredWidth();
+       int height = child.getMeasuredHeight();
+       int childLeft = parentLeft + lp.leftMargin; // add padding
+	   int childTop = parentTop + lp.topMargin; // add padding
+       child.layout(childLeft, childTop, childLeft + width, childTop + height);
+   }
+}
+```
+???
+Traverses the hierarchy many times over as implemented
+Can try to be more efficient or give more control... tradeoffs
 
 ---
-# Relative layout implementation
+# Frame layout -- actual implementation (slightly simplified)
+
+```java
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec {
+   // recursively calculate size of children
+   foreach child  {
+	   // ... calculate max child width and max child height
+	   maxWidth = Math.max(maxWidth, child.getMeasuredWidth() // +  margins);
+	   maxHeight = ...
+   }
+   // ... add in padding
+   setMeasuredDimension(... based on what was found)
+   // now recursively set dimensions for all children 
+
+   foreach child { 
+       final View child = getChildAt(i);
+	   child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
+   }
+}
+```
+???
+there's a bunch of other code to do with gravity I'm not covering
+
+---
+# Generalized explanation of layout
 Simplified, basic structure for any Android layout, including your own custom one! 
 
 ```java
 // Two pass traversal of component hierarchy
 // First: Measure everything
 protected void onMeasure(int widthspec, int heightspec) {
-  sortChildren()
-  // loop through children
-  foreach child component c {
+  // loop through children in order they were added
+  foreach child {
     // get child's layout params
     // apply appropriate rules to them
   }
   // based on all that, update our dimensions
   setMeasuredDimension(this)
 }
+```
+---
+# Generalized explanation of layout
+Simplified, basic structure for any Android layout, including your own custom one! 
+```java
 // Second: do the actual updating 
-public void doLayout(Rectangle newBounds)
+public void onLayout(Rectangle newBounds)
 {
    // loop through the kids (this is depth first)
    foreach child {
@@ -423,102 +694,10 @@ public void doLayout(Rectangle newBounds)
         Rectangle l = child.getLayoutParams();
         child.layout(l.mLeft, l.mTop, l.mRight, l.mBottom);
       }
-   }			    }
+   }			    
+}
 ```
----
-layout: false
-[//]: # (Outline Slide)
 
-.left-column[
-# Today's goals
-]
-.right-column[
-- Review of tree construction
-- Review of quiz on layout pros and cons
-- Using tree for layout
-- Container components
-- Layout Implementation in General
-- Draw and Redraw 
-- Layout Implementation in Android
-- __Constraint based layout__
-- Constraints in Android
-]
----
-.left-column[
-# Powerful option: Constraints
-]
-.right-column[
-Declare relationships (.red[what] should be true)
-
-System automatically maintains relationships under change (.red[how])
-]
----
-.left-column[
-# Powerful option: Constraints
-]
-.right-column[
-Declare relationships (what should be true)
-
-- This should be centered in that
-
-- This should be 12 pixels to the right of that
-
-- Parent should be 5 pixels larger than child
-
-System automatically maintains relationships under change (how)
-]
---
-.right-column[
-Too good to be true?
-- Unsolvable for arbitrary things
-- Works really well for a limited set
-]
-???
-a good set for ui programming
-xx need to make sure I know why it is hard for arbitrary things
-
----
-.left-column[
-# Note that these are one-way constraints
-]
-.right-column[
-You can change the right side, and it will update the left side (not
-the reverse)
-
-Can be very inefficient -- O(2^n)
-
-But highly efficient incremental update algorithms exist
-]
-???
-
-Only have to update things that might change
-
-Hudson's work on this was seminal
-
-can have a DAG but not a cycle (thus, a tree)
-hard to guard against cycles
----
-# How is this done in Android?
-.left-column[![:img picture of attributes window showing controls for
-constraint-based layout including five types of elements, 100%](img/constraints.png)]
-
-.small-font.right-column[
-Limited set of constraints
-https://developer.android.com/training/constraint-layout/
-
-
-- 1 Size ration
-- 2 Delete constraint
-- 3 Height/width mode (3 main types):
- - Wrap constraint ![:img wrap symbol >>>, 5%](img/wrap.png)
- - Fixed size ![:img fixed symbol I--I, 5%](img/fixed.png)
- - Match Constraint ![:img match symbol IvvvI, 5%](img/match.png)
-- 4 Margins
-- 5 Constraint bias
-]
-
---
-.right-column[Range of attachment options (e.g. button sides, corners)]
 
 ---
 .left-column[
@@ -530,66 +709,10 @@ component
 
 [javadocs for constraint package](https://developer.android.com/reference/android/support/constraint/package-summary)
 
- - Specified in the GUI (Chapter 18 & 19)
+ - Specified in the GUI (Chapter 18 & 19 of optional android book)
 
- - Can also be specified or viewed in XML (Chapter 21 describes)
-
-
-]
---
-.right-column[
-
-Additional abstractions <br>
-(e.g., groups; guidelines &amp; barriers; chains)
-]
----
-# Example: Linear Layout of Email
-[https://developer.android.com/guide/topics/ui/layout/linear](Linear
-Layout Tutorial)
-
-
-.pull-left[![:img Linear layout of an email message with to line subject
-line and message arranged vertically, 50%](img/linearlayout.png)]
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:orientation="vertical" >
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/to" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/subject" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="top"
-        android:hint="@string/message" />
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="@string/send" />
-</LinearLayout>
-```
-
-???
-Can implement all of the things we discussed earlier using constraints
-
-note that they can be hard to debug?
-
-Discussion of specific inheritance hierarchy for constraints
-
-- Only have to write once when we use classes properly
-- can mix and match things
+ - Can also be specified or viewed in XML (Chapter 21 of optional
+   android book)
 
 ---
 # Try it yourself
