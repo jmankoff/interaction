@@ -1,30 +1,28 @@
 ---
-layout: default
+layout: assignment
+title: Color Picker
+code: EX3
+
+assigned: Thursday, April 18, 2019
+due: 11:59 PM Monday, April 22, 2019
+revised: 1:50 PM Wednesday, April 10, 2019
+
+objective: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
+
+android_goals:
+  - Save app state in Bundle
+  - Understand Android event handling APIs
+  - Handle touch input properly
+  - Understand app lifecycle
+hci_goals:
+  - Create non-rectangle interactor
+  - Propositional Production System
+  - Event handlers and event bubbling
+  - Callbacks
 ---
 
-* TOC
+- TOC
 {:toc}
-
-# Color Picker Exercise
-
-**Objective**: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
-
-**HCI Goals**:
-- Create non-rectangle interactor
-- Propositional Production System
-- Event handlers and event bubbling
-- Callbacks
-
-**Android Goals**:
-- Save app state in Bundle
-- Understand Android event handling APIs
-- Handle touch input properly
-- Understand app lifecycle
-
-
-**Assigned Date**: ???, 2019
-
-**Due Date**: ???, 2019
 
 Tasks:
 - Handle different input events in `onTouchEvent`
@@ -32,7 +30,7 @@ Tasks:
 - Register callbacks
 - Save activity state in bundle
 
-### Touch Input Events
+# Touch Input Events
 
 We'll handle touch input by implementing `onTouchReceived`. This is the event handler that will be called when a touch is registered in this view. First, we need to reject any touches that are outside of the circle. Colors may only be selected by tapping on or inside the color wheel.
 
@@ -76,6 +74,7 @@ Finally, you'll need to update the UI to reflect the new selected color. This in
 *Related APIs*:
 [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)
 
+# Callbacks and Listeners
 ### First Layout
 
 On the first layout, we want our color picker to be nicely initialized. To do this, set the handle to the top middle of the circle and adjust the color accordingly. This should also trigger `onColorSelected` for any listeners.
@@ -89,24 +88,23 @@ Finally, we need to connect the color picker to a view to display our newly chos
 *Related APIs*:
 [OnGlobalLayoutListener](https://developer.android.com/reference/android/view/ViewTreeObserver.OnGlobalLayoutListener) / [OnTouchListener](https://developer.android.com/reference/android/view/View.OnTouchListener)
 
-### Save State in Bundle
+# Save State in Bundle
 
 Please save color picker states in savedInstanceState bundle. When user goes off to some other app, and Android kills our Activity. We need to get the saved state back. Please refer to lecture slides for detail.
 
 One way to save state is to save selected angle on color wheel, and call a touch event with saved angle to restore color picker state.
 
-<span style="color:red">We will kill the activity to test if the state is saved. Use adb or set emulator Developer Options - Don't keep activity</span>
+<span style="color:red">We will kill the activity to test if the state is saved. Use adb to text killing it or in developer options set Apps -> Don't keep activity.</span>
 
+# Turn-in
 
-# Turnin
 ## Submission Instructions
 
-Please turn in your files in the following zip structure:
+You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
-```bash
-YOUR_STUDENT_ID.zip
-├── ColorPickerView.java
-└── MainActivity.java
+```
+─ ColorPickerView.java
+- MainActivity.java
 ```
 
 ## Grading (10pts)

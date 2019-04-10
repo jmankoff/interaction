@@ -5,8 +5,8 @@ code: EX1
 
 published: true
 assigned: Thursday, April 4, 2019
-due: 11:59 PM Monday, April 8, 2019
-revised: 7:53 PM Friday, April 5, 2019
+due: 11:59 PM Monday, April 10, 2019
+revised: 1:44 PM Wednesday, April 10, 2019
 
 objective: Create an Android app that draws a doodle consisting of a text, a line, and a set of images on the main canvas.
 

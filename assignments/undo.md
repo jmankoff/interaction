@@ -1,36 +1,34 @@
 ---
-layout: default
+layout: assignment
+title: Undo
+code: A2
+
+assigned: Thursday, May 16, 2019
+due: 11:59 PM Wednesday, May 27, 2019
+revised: 1:46 PM Wednesday, April 10, 2019
+
+objective: Understand Undo Abstractions.
+
+android_goals:
+  - Build an application based on specs
+  - Create Command objects
+  - Separation of concerns
+  - Event handlers
+hci_goals:
+  - Make an accessible app
+  - Use heuristic evaluation to assess an app
+  - Build an app that does not have severe usability issues
 ---
 
-* TOC
+- TOC
 {:toc}
-
-# Undo Assignment
-
-**Objective**: Understand Undo Abstractions.
-
-**HCI Goals**:
-- Make an accessible app
-- Use heuristic evaluation to assess an app
-- Build an app that does not have severe usability issues
-
-**Android Goals**:
-- Build an application based on specs
-- Create Command objects
-- Separation of concerns
-- Event handlers
-
-
-**Assigned Date**: ???, 2019
-
-**Due Date**: ???, 2019
 
 Tasks:
 - Create a basic drawing app
 - Support different color and thickness
 - Handle undo/redo operations
 
-## Implementing drawing
+# Implementing drawing
 
 First you will implement the basic drawing app from our code stubs in `DrawingView.java`.
 
@@ -47,9 +45,8 @@ Then implement `onDraw(Canvas canvas)`. Think about when this function would and
 
 For examples of how this should look, look at screenshots 1 and 2 below.
 
-## Floating Action Buttons (FABs) in the MainActivity
-
-#### Changing Color/Thickness
+# Undo/Redo Operations
+## Changing Color/Thickness Floating Action Buttons (FABs)
 Create FABs to support changing color and thickness of drawing.
 
 When you click the FAB to select color, create a view that allows
@@ -61,7 +58,7 @@ When you click the FAB to select the stroke thickness, the user should be
 able to decide between three thicknesses (each with their own FAB). For
 an example of how this should look, look at screenshots 5 and 6.
 
-#### Handling Undo/Redo Operations
+## Expected Behavior
 Show the undo FAB if and only if there is any command to undo. See the behavior in screenshots 6 and 7 for an example of what happens when
 the undo FAB is clicked. On a long press of the undo button, a list of
 recent commands (up to 10) is displayed. Clicking a command should undo all actions up to and including the selected action.
@@ -71,7 +68,7 @@ redo FAB is clicked. On a long press of the redo button, a list of recent comman
 
 There should be a limit on how many actions one can undo or redo. You should only allow up to 10 commands to undo and up to 10 commands to redo.
 
-#### FAB States
+### FAB States
  - When there is no command to undo, the undo FAB should not be visible.
  - When there is no command to redo, the redo FAB should not be visible.
  - As a color is selected and after the color is selected, the color FAB
@@ -79,6 +76,7 @@ There should be a limit on how many actions one can undo or redo. You should onl
  - When a thickness is picked, the thickness FAB should update its icon
  to indicate the thickness selected.
 
+# Canvas State
 ## Commands
 There are three types of Commands. Each of these commands are extended from the Command abstract class.
 
@@ -140,19 +138,18 @@ Feedback of their customized command
 The current menu icon sizes are too small, already an usability issue. Just keep it.
 
 
-# Turnin
+# Turn-in
+
 ## Submission Instructions
 
-Please turn in your files in the following zip structure:
+You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
-```bash
-YOUR_STUDENT_ID.zip
-├── CanvasState.java
-├── CanvasStateManager.java
-├── DrawingView.java
-└── MainActivity.java
 ```
-
+- CanvasState.java
+- CanvasStateManager.java
+- DrawingView.java
+- MainActivity.java
+```
 
 ## Grading (10pts)
 
@@ -162,7 +159,6 @@ YOUR_STUDENT_ID.zip
   - Edge cases in undo/redo works: 1pt
   - Changing color works: 1pt
   - Changing thickness works: 1pt
-
 - Part 2: Peer grading
   - Support one additional command: 1pt
   - Complete heuristic evaluation for other students: 2pt
