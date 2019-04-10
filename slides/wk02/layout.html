@@ -30,27 +30,6 @@ layout: true
 class: 
 
 ---
-# What went wrong?
-.left-column50[![:img File browser with toolbar, 90%](img/goodLayout.png)]
-.right-column50[![:img File browser with only half of same toolbar, 80%](img/badLayout.png)]
-
-???
-- Changing available space e.g., window resized by user
-- Changing sizes, fonts, etc.
-- Adding and removing components
-- Layout mechanism has to deal with all cases
----
-# What went wrong?
-![:img File browser with only half of same toolbar, 80%](img/worseLayout.png)
-
-???
-- No scroll bar for text boxes that are too narrow
-- No way to redistribute space between directory & file list
-- Important controls (e.g., Open) get hidden
-- Min size is much too small
-- No way to send the dialog away (buttons gone)
-
----
 layout: false
 [//]: # (Outline Slide)
 
@@ -108,14 +87,51 @@ How can you design layout that reacts well to turning your phone?
 ## Layout Assignment
 
 - Part 1 is about basic reactive layout using the GUI/XML
+]
+.right-column[
+|![:img Part1: picture of food a button and a big textbox in a phone held vertically, 100%](img/simplevert.jpeg)|![:img Part1: Simple picture with phone horizontally,
+	100%](img/simplehoriz.jpeg)|
+|---|---|
+
+]
+---
+.left-column[
+## Layout Assignment
+
+- Part 1 is about basic reactive layout using the GUI/XML
+- Part 2 adds scrolling using XML
+]
+.right-column[
+|![:img Part1: picture of food a button and a big textbox in a phone held vertically, 100%](img/simplevert.jpeg)|![:img Part1: Simple picture with phone horizontally,
+	100%](img/simplehoriz.jpeg)|
+|---|---|
+
+]
+---
+.left-column[
+## Layout Assignment
+
+- Part 1 is about basic reactive layout using the GUI/XML
+- Part 2 adds scrolling using XML
+- Part 3 reproduces Part 2 in code
+]
+.right-column[
+|![:img Part1: picture of food a button and a big textbox in a phone held vertically, 100%](img/simplevert.jpeg)|![:img Part1: Simple picture with phone horizontally,	100%](img/simplehoriz.jpeg)<br>|
+|---|---|
+
+]
+---
+.left-column[
+## Layout Assignment
+
+- Part 1 is about basic reactive layout using the GUI/XML
 - Part 2 adds scrolling using XML
 - Part 3 reproduces Part 2 in code
 - Part 4 implements your own Pinterest layout container in code
 ]
 .right-column[
-|![:img Part1: picture of food a button and a big textbox in a phone held vertically, 100%](img/simplevert.jpeg)|![:img Part4: Fancy Pinterest style layout, 100%](img/pinterest.jpeg)|![:img Part4: Pinterest picture with phone horizontally, 100%](img/pinteresthoriz.jpeg)<br>![:img Part1: Simple picture with phone horizontally,
-	100%](img/simplehoriz.jpeg)|
-|---|---|---|
+|![:img Part4: Fancy Pinterest style layout, 100%](img/pinterest.jpeg)|![:img Part4: Pinterest picture with phone horizontally, 100%](img/pinteresthoriz.jpeg)|
+|---|---|
 
 ]
 ---
@@ -143,6 +159,16 @@ How can you design layout that reacts well to turning your phone?
 ![:img A simple layout on an android watch with a textview and two buttons (save and discard),100%](img/layout-demo.png)
 ]
 ???
+Demonstration:
+PRINT THIS LIST
+- Show dragging things to create layout
+- Show different size and orientation phones
+- Show editing attributes
+- Show clicking on things in box to change type
+- Show simple interface hierarchy
+- Show simplifying xml
+- Show changing button names/ids
+
 What examples do we have here?
 - Layout container (linearlayout)
 - Spacer 
@@ -156,12 +182,27 @@ Declare elements in WYSIWYG editor, which will automatically create and initiali
 
 Instantiate UI classes at runtime. For example:
 ```java
+import android.view.ViewGroup.LayoutParams;
+
 Button okButton = new Button(this); 
-okButton("OK"); 
+okButton.setText("OK"); 
 
 LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout);
 LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, 	LayoutParams.WRAP_CONTENT); 
 layout.addView(okButton,lp);
+```
+
+???
+fix both to wrap_content
+
+add this if time
+
+```java
+// you can change the ID ... in XML or in code
+        for (int i = 0; i<layout.getChildCount(); i++){
+            view = layout.getChildAt(i);
+            view.setBackgroundColor(Color.RED);
+        }
 ```
 ]
 ---
@@ -263,7 +304,7 @@ classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
 classDef yellow fill:#ffffe6,stroke:#333,stroke-width:4px;
 classDef darkblue fill:#7887AB,stroke:#333,stroke-width:6px;
 
-class L,R,D darkblue
+class L,R darkblue
 class W bluegreen
 class D green
 class Z,Y,V,U yellow
@@ -394,69 +435,25 @@ constraint-based layout including five types of elements, 100%](img/constraints.
 
 .right-column[
 [Docs](https://developer.android.com/training/constraint-layout/): limited set of constraints
-- 1 Size ration
+- 1 Size ratio
 - 2 Delete constraint
 - 3 Height/width mode (3 main types):
 - Wrap constraint ![:img wrap symbol >>>, 5%](img/wrap.png)
 - Fixed size ![:img fixed symbol I--I, 5%](img/fixed.png)
 - Match Constraint ![:img match symbol IvvvI, 5%](img/match.png)
 - 4 Margins
-- 5 Constraint bias
+- 5 Constraint bias (essentially weights on competing constraints)
 
 Range of attachment options (e.g. button sides, corners)
 
 Worth getting to know additional abstractions (groups; guidelines;
 barriers; chains)
 ]
----
-.left-column[
-## Example: Linear Layout of Email
-[Linear Layout Tutorial](https://developer.android.com/guide/topics/ui/layout/linear)
-
-![:img Linear layout of an email message with to line subject
-line and message arranged vertically, 100%](img/linearlayout.png)]
-
-.right-column[
-```xml
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:orientation="vertical" >
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/to" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/subject" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="top"
-        android:hint="@string/message" />
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="@string/send" />
-</LinearLayout>
-```
-]
-
 ???
-Can implement all of the things we discussed earlier using constraints
+bias lets us create something that is 2-3 of the way over rather than
+centered 
 
-note that they can be hard to debug?
-
-Discussion of specific inheritance hierarchy for constraints
-
-- Only have to write once when we use classes properly
-- can mix and match things
-
+go back to android to demo againn
 ---
 .left-column[
 # Powerful option
@@ -522,7 +519,7 @@ layout: false
 - Review of tree construction
 - Using tree for layout
 - Container components
-__Layout Implementation in General__
+- __Layout Implementation in General__
 ]
 ---
 .left-column[
@@ -533,7 +530,7 @@ Toolkit architecture invokes layout
 
 Containers do the work (why Doodle worked: FrameLayout doesn't)
 
-Manage size and position of children
+- Manage size and position of children
 - Enforce component abstraction
 
 - Simple loop through child components --> Recursive tree traversal 
@@ -543,6 +540,7 @@ Manage size and position of children
  - Clip child after drawing is complete
 
 Know how to handle resizing (reactive)
+
 ]
 ???
 - Parent knows how to setup for drawing of children, invoke their
@@ -552,6 +550,7 @@ what the parent is and its internal state
 - Whorfian effects (things not in the library are hard)
 
 - Nesting not well defined
+
 
 ---
 .left-column[
@@ -571,6 +570,9 @@ How to react to changes
 - size of window
 
 ]
+???
+Who should get to decide kids' size? parents or kids?
+- top down vs bottom up approach
 
 ---
 .left-column[
@@ -578,24 +580,31 @@ How to react to changes
 ]
 .right-column[
 Ideally:
-- component's preferred size
+- child's preferred size
 
-- component's minimum size
+- child's minimum size
 
-- component's maximum size
+- child's maximum size
 
 And they get to ignore all of that, but usually try not to.
 ]
 ---
-# Simplest possible layout implementation
+# Simplest possible layout implementation (similar to what is in Frame layout)
 
 Depth first tree traversal
 No consideration of child size or position in doing layout
 
+Simplified from
+FrameLayout 
+[source
+code](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/widget/FrameLayout.java),
+[View](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/View.java)
+and [ViewGroup](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/ViewGroup.java)
+
 ```java
 protected void onLayout(boolean changed, int l, int t, int r, int b) {
     foreach child c {
-        if (child.isVisible()) {
+        if (child.isVisible()) {n
              Rectangle r = child.getLayoutParams();
              childLeft = padding + r.x;
              childTop = padding + r.y;
@@ -604,6 +613,178 @@ protected void onLayout(boolean changed, int l, int t, int r, int b) {
     }
 }
 ```
+???
+we're ignoring the implementation of gravity here
+
+---
+# Generalized explanation of layout
+Simplified, basic structure for any Android layout, including your own
+custom one! 
+
+Details of most else, and two-pass process, handled in [View](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/View.java)
+and [ViewGroup](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/ViewGroup.java)
+
+
+```java
+// Two pass traversal of component hierarchy
+// First: Measure everything
+protected void onMeasure(int widthspec, int heightspec) {
+  // loop through children in order they were added
+  foreach child {
+    // get child's layout params
+    // apply appropriate rules to them
+  }
+  // based on all that, update our dimensions
+  setMeasuredDimension(this)
+}
+```
+---
+# Generalized explanation of layout
+Simplified, basic structure for any Android layout, including your own custom one! 
+```java
+// Second: do the actual updating 
+public void onLayout(Rectangle newBounds)
+{
+   // loop through the kids (this is depth first)
+   foreach child {
+      if (child.isVisible()) {
+        // get the saved parameters
+        Rectangle l = child.getLayoutParams();
+        child.layout(l.mLeft, l.mTop, l.mRight, l.mBottom);
+      }
+   }			    
+}
+```
+---
+.left-column[
+# How is this done in Android?
+]
+.right-column[
+Handled with a set of abstractions associated with a container
+component
+
+[javadocs for constraint package](https://developer.android.com/reference/android/support/constraint/package-summary)
+
+ - Specified in the GUI (Chapter 18 & 19 of optional android book)
+
+ - Can also be specified or viewed in XML (Chapter 21 of optional
+   android book)
+]
+---
+.left-column[
+# Review
+]
+.right-column[
+The importance of the Component Hierarchy in just about everything
+- Draw and redraw
+- Layout
+
+A More Flexible Model of Interactor Size
+
+- Natural size (preferred size)
+- Min size
+- Max size
+
+Models for doing layout
+]
+---
+.left-column[
+# General & Powerful Approach: Constraints
+]
+.right-column[
+General mechanism for establishing and maintaining relationships between things
+- Layout is one use
+- Several other uses in UI
+ - Connection of application to UI, e.g. deriving appearance from data
+ - Multiple views of same data
+ - Automated semantic feedback
+ - Automatic arrangement of lines (powerpoint snapping!)
+]
+
+---
+# End of deck
+---
+#Conceptual form of UI constraints
+
+``` java
+// this is 5 pixels to the right of that
+this.x = that.x + that.w + 5
+// this is centered
+this.x = that.x + that.w/2 - this.w/2
+// this is 10 larger than children
+this.w = 10 + max_child().x + max_child().w
+```
+
+---
+# What went wrong?
+.left-column50[![:img File browser with toolbar, 90%](img/goodLayout.png)]
+.right-column50[![:img File browser with only half of same toolbar, 80%](img/badLayout.png)]
+
+???
+- Changing available space e.g., window resized by user
+- Changing sizes, fonts, etc.
+- Adding and removing components
+- Layout mechanism has to deal with all cases
+---
+# What went wrong?
+![:img File browser with only half of same toolbar, 80%](img/worseLayout.png)
+
+???
+- No scroll bar for text boxes that are too narrow
+- No way to redistribute space between directory & file list
+- Important controls (e.g., Open) get hidden
+- Min size is much too small
+- No way to send the dialog away (buttons gone)
+
+---
+.left-column[
+## Example: Linear Layout of Email
+[Linear Layout Tutorial](https://developer.android.com/guide/topics/ui/layout/linear)
+
+![:img Linear layout of an email message with to line subject
+line and message arranged vertically, 100%](img/linearlayout.png)]
+
+.right-column[
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/to" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/subject" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="@string/message" />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/send" />
+</LinearLayout>
+```
+]
+
+???
+Can implement all of the things we discussed earlier using constraints
+
+note that they can be hard to debug?
+
+Discussion of specific inheritance hierarchy for constraints
+
+- Only have to write once when we use classes properly
+- can mix and match things
+
 ---
 # Frame layout -- actual implementation (slightly simplified)
 
@@ -664,57 +845,6 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec {
 there's a bunch of other code to do with gravity I'm not covering
 
 ---
-# Generalized explanation of layout
-Simplified, basic structure for any Android layout, including your own custom one! 
-
-```java
-// Two pass traversal of component hierarchy
-// First: Measure everything
-protected void onMeasure(int widthspec, int heightspec) {
-  // loop through children in order they were added
-  foreach child {
-    // get child's layout params
-    // apply appropriate rules to them
-  }
-  // based on all that, update our dimensions
-  setMeasuredDimension(this)
-}
-```
----
-# Generalized explanation of layout
-Simplified, basic structure for any Android layout, including your own custom one! 
-```java
-// Second: do the actual updating 
-public void onLayout(Rectangle newBounds)
-{
-   // loop through the kids (this is depth first)
-   foreach child {
-      if (child.isVisible()) {
-        // get the saved parameters
-        Rectangle l = child.getLayoutParams();
-        child.layout(l.mLeft, l.mTop, l.mRight, l.mBottom);
-      }
-   }			    
-}
-```
-
-
----
-.left-column[
-# How is this done in Android?
-]
-.right-column[
-Handled with a set of abstractions associated with a container
-component
-
-[javadocs for constraint package](https://developer.android.com/reference/android/support/constraint/package-summary)
-
- - Specified in the GUI (Chapter 18 & 19 of optional android book)
-
- - Can also be specified or viewed in XML (Chapter 21 of optional
-   android book)
-
----
 # Try it yourself
 ![:img 2d scroll view with labels or buttons at top spread over the
 width of the container and a horizontal  scrollbar that
@@ -722,49 +852,3 @@ cannot be squeezed or stretched vertically but can be horizontally and
 the opposite for a vertical scrollbar and a small corner element that
 cannot be squeezed or stretched in either direction, 100%](img/trylayout.png)]
 
----
-.left-column[
-# Review
-]
-.right-column[
-The importance of the Component Hierarchy in just about everything
-- Draw and redraw
-- Layout
-
-A More Flexible Model of Interactor Size
-
-- Natural size (preferred size)
-- Min size
-- Max size
-
-Declarative implementation of layout containers
-
-Constraints
-]
----
-.left-column[
-# General & Powerful Approach: Constraints
-]
-.right-column[
-General mechanism for establishing and maintaining relationships between things
-- Layout is one use
-- Several other uses in UI
- - Connection of application to UI, e.g. deriving appearance from data
- - Multiple views of same data
- - Automated semantic feedback
- - Automatic arrangement of lines (powerpoint snapping!)
-]
-
----
-# End of deck
----
-#Conceptual form of UI constraints
-
-``` java
-// this is 5 pixels to the right of that
-this.x = that.x + that.w + 5
-// this is centered
-this.x = that.x + that.w/2 - this.w/2
-// this is 10 larger than children
-this.w = 10 + max_child().x + max_child().w
-```
