@@ -8,7 +8,9 @@ layout: false
 
 ![:img Windows tablet screen with a grid of interactive squares...
 icons along the side for invoking menus... and a colorful background
-picture,90%](img/windowsLayout.png)]
+picture,90%](img/windowsLayout.png)
+
+
 ???
 Key Issues
 - where do components get placed?
@@ -102,9 +104,6 @@ How can you design layout that reacts well to turning your phone?
 - Part 2 adds scrolling using XML
 ]
 .right-column[
-|![:img Part1: picture of food a button and a big textbox in a phone held vertically, 100%](img/simplevert.jpeg)|![:img Part1: Simple picture with phone horizontally,
-	100%](img/simplehoriz.jpeg)|
-|---|---|
 
 ]
 ---
@@ -116,9 +115,6 @@ How can you design layout that reacts well to turning your phone?
 - Part 3 reproduces Part 2 in code
 ]
 .right-column[
-|![:img Part1: picture of food a button and a big textbox in a phone held vertically, 100%](img/simplevert.jpeg)|![:img Part1: Simple picture with phone horizontally,	100%](img/simplehoriz.jpeg)<br>|
-|---|---|
-
 ]
 ---
 .left-column[
@@ -159,6 +155,7 @@ How can you design layout that reacts well to turning your phone?
 ![:img A simple layout on an android watch with a textview and two buttons (save and discard),100%](img/layout-demo.png)
 ]
 ???
+NOTE: This is model view controller...
 Demonstration:
 PRINT THIS LIST
 - Show dragging things to create layout
@@ -191,8 +188,9 @@ LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout);
 LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, 	LayoutParams.WRAP_CONTENT); 
 layout.addView(okButton,lp);
 ```
-
+]
 ???
+
 fix both to wrap_content
 
 add this if time
@@ -204,7 +202,7 @@ add this if time
             view.setBackgroundColor(Color.RED);
         }
 ```
-]
+
 ---
 .left-column[
 ## Three important layout concepts in our example
@@ -217,7 +215,7 @@ buttons (save and discard) and the linearlayout highlighted ,110%](img/watch.png
 `LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout);`
  - automate a lot of the layout tasks
  - make it much simpler to ensure reliable results
- - use these whenever they do the jo
+ - use these whenever they do the job
  - you will implement one for your assignment!
 ]
 ---
@@ -436,11 +434,11 @@ constraint-based layout including five types of elements, 100%](img/constraints.
 .right-column[
 [Docs](https://developer.android.com/training/constraint-layout/): limited set of constraints
 - 1 Size ratio
-- 2 Delete constraint
+- 2 Delete constraint (not a constraint, just removes them)
 - 3 Height/width mode (3 main types):
-- Wrap constraint ![:img wrap symbol >>>, 5%](img/wrap.png)
-- Fixed size ![:img fixed symbol I--I, 5%](img/fixed.png)
-- Match Constraint ![:img match symbol IvvvI, 5%](img/match.png)
+ - Wrap constraint ![:img wrap symbol >>>, 5%](img/wrap.png)
+ - Fixed size ![:img fixed symbol I--I, 5%](img/fixed.png)
+ - Match Constraint ![:img match symbol IvvvI, 5%](img/match.png)
 - 4 Margins
 - 5 Constraint bias (essentially weights on competing constraints)
 
@@ -450,10 +448,11 @@ Worth getting to know additional abstractions (groups; guidelines;
 barriers; chains)
 ]
 ???
-bias lets us create something that is 2-3 of the way over rather than
+
+-bias lets us create something that is 2-3 of the way over rather than
 centered 
 
-go back to android to demo againn
+go back to android to demo again
 ---
 .left-column[
 # Powerful option
@@ -592,6 +591,7 @@ And they get to ignore all of that, but usually try not to.
 # Simplest possible layout implementation (similar to what is in Frame layout)
 
 Depth first tree traversal
+
 No consideration of child size or position in doing layout
 
 Simplified from

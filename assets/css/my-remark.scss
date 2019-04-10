@@ -37,6 +37,12 @@ th, td {
     text-align: left;
 }
 
+@media print {
+ .remark-container.remark-presenter-mode .remark-slide-notes {
+  margin-top:700px;
+ }
+}
+
 .quote {
   background: #f9f9f9;
   border-left: 10px solid #ccc;
