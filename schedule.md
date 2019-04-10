@@ -111,6 +111,7 @@ layout: default
 || Exercise Assigned | [Accessibility](/interaction/assignments/accessibility) |
 | **5/10**|**Friday**   |                                                         |
 ||Required Reading|[Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)|
+||Midterm|In-class|
 ||Slides|[06: Paper Prototyping](/interaction/slides/wk02/paper.html)|
 {: .small #small .schedule #schedule}
 
