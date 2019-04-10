@@ -8,138 +8,133 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-template: inverse
+layout: false
 
-# Interactivity Lab (Fall 2018)
-## Week 2: Activities, Layout
-
-Instructor: TBD
-_{email}_  
-
-Slides online: xxx url
+# Lab 2: Layout in Android
 
 ---
 layout: false
 
-# Goals for Today
-- Peer grade Doodle exercise
-- Drawing an Interface in Android
-- __Layouts__ - constraints on Android
-- Discuss layout assignment
-- Work on layout assignment
-
----
-template: inverse
-
-## Peer Grading
----
-template: none
----
-# Peer Grading Doodle
-- XX describe rubric and how to do it.
-
----
-template: inverse
-
-## Android UI Output
+# Goals for today
+- Peer grade Doodle exercise 
+- Layouts in Android
+  - Examples
+  - How do you create layouts?
+- ConstraintLayout in Android 
+- Code along a simple ConstraintLayout
 ---
 layout: false
 
-## User Interfaces on Android
+# Peer Grading
+- Chance to externalize your work
+- You should have been assigned to peer grade __ assignments
+- Instructions
+  - Download the APK files
+  - Open the APK file in Android Sudio
+  - Fill out this google form: https://bit.ly/2KfaMD0 (for each APK file)
+- Also fill out your feedback on the exercise
+
+---
+layout: false
+
+# User Interfaces on Android
+
 - Views
-
   - Base class for __all__ UI elements
 
 --
-
   - Controls (switches, sliders, etc)
---
 
+--
   - UI Components - typical display elements mentioned in SSUI lecture (e.g buttons, labels, image views, etc)
+
 --
 
-
-- View Groups
-
+- ViewGroups
   - Encapsulates one or more views (e.g. Android Components, Layouts)
-
+  - Can define specific **layout** properties
 --
 
-  - *Note*: Android Components are self-contained, home-screen-specific display items for apps (e.g. clock/time, weather, email-at-a-glance)
+- Layout
+  - Defines the structure for the user interface (UI) of your app
+  - View and ViewGroup objects live within Layouts
+
 ---
 
-.right[# Sample Hierarchy]
-.left[
-<div class="mermaid">
-graph TD
-A(ViewGroup) -->  B(ViewGroup)
-A --> C(View)
-A --> D(View)
-B --> E(View)
-B --> F(View)
-B --> G(View)
+layout: false
 
-classDef blue fill:#7887AB,stroke:#333,stroke-width:6px;
+# Layout Types in Android
 
-class A,B blue
+- [FrameLayout](https://developer.android.com/reference/android/component/FrameLayout.html) - good for position views on
+top of each other, or encapsulating a bunch of views
+
+- [__LinearLayout__](https://developer.android.com/reference/android/component/LinearLayout.html) - places views one after
+the other in order according to the orientation (Horizontal or Vertical)
+
+- [__TableLayout__](https://developer.android.com/reference/android/component/TableLayout.html) - Rows and columns style
+way of declaring a layout 
+
+- [GridLayout](https://developer.android.com/reference/android/component/GridLayout.html) - Uses
+an [*adapter*](https://developer.android.com/reference/android/interactor/Adapter.html) that provides items to display in
+a grid
+
+- [ListView](https://developer.android.com/guide/topics/ui/layout/listview.html) - Uses an [*adapter*](https://developer.android.com/reference/android/component/Adapter.html)
+class that provides items to display in a list
+
+- [__RelativeLayout__](https://developer.android.com/reference/android/component/RelativeLayout.html) - positions views with
+respect to on another
+
+- [WebView](https://developer.android.com/reference/android/webkit/WebView.html) - uses html/css to layout a page, but requires
+`INTERNET` permission in your manifest 
+
+- More on https://developer.android.com/guide/topics/ui/declaring-layout.html
+
+---
+layout: false
+
+# Layouts in Play
+
+<div style="display: flex; justify-content: space-evenly">
+  <div style="margin: 3%">
+    <img src="img/pinterest-android.png" style="width: 80%; height: 90%;"/>
+  </div>
+
+  <div style="margin: 3%">
+    <img src="img/android-linear.png"/>
+  </div>
 </div>
-]
 
 ---
-## UI Component Toolbox
-- Most Common:
-  - __TextView__ - read-only text label
+layout: false
 
-  - __ImageView__ - displays an image
+# Declaring Layouts
 
-  - __Button__ - push button
+- Declare UI elements in XML: Android provides XML vocabulary that corresponds to specific views / layouts
+  - Alternatively, you could also use Android's Layout Editor tool
 
-  - __RadioButton__ - single-selection button
+- Instantiate layout elements at run time
 
-  - __EditText__ - editable text box
+- Programmatic v. XML
+    - Depends on the developer
+    - Starting with XML is considered to be better style
+---
+layout: false
 
-  - And __layouts__...
+## ConstraintLayout in Android
 
+- ConstraintLayout is a ViewGroup that allows you to position widgets in a flexible way
+  - Useful for building **responsive** interfaces in Android.
+
+- Will be using ConstraintLayout for the Layout exercise
+
+- Short exercise using ConstraintLayout for the remaining time.
+
+- https://developer.android.com/reference/android/support/constraint/ConstraintLayout
 ---
 template: inverse
 
-## Android Layout
-
----
-
-## ViewGroups - Layout Types
-- [FrameLayout](https://developer.android.com/reference/android/component/FrameLayout.html) - good for position views on top of each other, or encapsulating a bunch of views
-
-- [__LinearLayout__](https://developer.android.com/reference/android/component/LinearLayout.html) - places views one after the other in order according to the orientation (Horizontal or Vertical)
-
-- [__TableLayout__](https://developer.android.com/reference/android/component/TableLayout.html) - Rows and columns style way of declaring a layout
-
-- [GridLayout](https://developer.android.com/reference/android/component/GridLayout.html) - Uses an [*adapter*](https://developer.android.com/reference/android/interactor/Adapter.html) that provides items to display in a grid
-
-- [ListView](https://developer.android.com/guide/topics/ui/layout/listview.html) - Uses an [*adapter*](https://developer.android.com/reference/android/component/Adapter.html) class that provides items to display in a list
-
-- [__RelativeLayout__](https://developer.android.com/reference/android/component/RelativeLayout.html) - positions views with respect to on another
-
-- [WebView](https://developer.android.com/reference/android/webkit/WebView.html) - uses html/css to layout a page, but requires `INTERNET` permission in your manifest
-
-- More on https://developer.android.com/guide/topics/ui/declaring-layout.html
-???
-XX TODO GO OVER THESE? or stick to constraints only?
----
-template:inverse
-
-## Layout Exercise
-
-XXX TODO decide whether to use [activityFun](https://github.com/mriveralee/ssui-mobile-exercises-2016/tree/master/exercises/lab02/ActivityFun) or something else
-
----
 .center[
-  ## Spot the layouts + views
-
-  .four-tenths-width-img[
-    ![AnyDo Calendar](img/anydo-example.png)
-  ]
-
+  [Code Along!](https://github.com/harshitha-akkaraju/layoutlab)
 ]
 
 ---
