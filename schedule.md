@@ -43,7 +43,7 @@ layout: default
 ||Exercise Assigned|[Layout](/interaction/assignments/layout)| Implementing layout using GUI and programmatic abstractions
 ||Slides|[Layout in Android](/interaction/slides/l02/layout.html)| Android specific layout information
 |**4/12**|**Friday**| **Properties of People I: Visual Perception**|
-||Required Reading (10 mins)|[Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) | Abstractions for positioning interactors on the screen and making responsive interfaces 
+||Required Reading (10 mins)|[Chapter 5 through p. 128: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) | Abstractions for positioning interactors on the screen and making responsive interfaces 
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 ||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities | 
 {: .small #small .schedule #schedule}
