@@ -19,3 +19,13 @@ div.learning-goals div {
 #assignment-name {
   margin-bottom: 2em;
 }
+
+#unpublished-warning {
+   background-color: pink;
+   border: 0.15em solid red;
+   border-radius: 0.5em;
+   color: red;
+   font-size: large;
+   padding: 0.25em 0.5em;
+   margin-bottom: 1em;
+}
