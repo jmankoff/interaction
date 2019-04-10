@@ -143,7 +143,7 @@ You will turn in the following files [here](https://gradeit.cs.washington.edu/uw
 - part2.csv (optional)
 ```
 
-If you use your own images in [Part 2](#part-2), please include them in images folder. The images should be compressed together into a ZIP file. Ex: `zip images.zip abc.jpg ... xyz.jpg`. Do not compress a folder called `images` containing the actual images. 
+If you use your own images in [Part 2](#part-2), please include them in a ZIP archive. The images should be compressed together without an enclosing folder. Ex: `zip images.zip abc.jpg ... xyz.jpg`. Do not place the files in a folder called `images` and compress that.
 
 If you're positioning a large number of images for [Part 2](#part-2), it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part2.csv` if necessary. Remember, the CSV coordinates are on a Pixel 2 XL and scaled to the current screen in `Doodler#addAllImagesFromData(FrameLayout)`.
 
