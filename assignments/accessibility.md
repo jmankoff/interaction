@@ -79,4 +79,4 @@ Please also submit accessibility issues report in *Google Form link placeholder*
   - ???
 - Part 2
   - ???
-- Turn-in and compiles: 1pt
+- Code Organization and Style: 1 pt

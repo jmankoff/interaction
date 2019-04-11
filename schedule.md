@@ -46,6 +46,7 @@ layout: default
 ||Required Reading (10 mins)|[Chapter 5 through p. 128: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) | Abstractions for positioning interactors on the screen and making responsive interfaces 
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 ||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities | 
+||Peer-Grading Due| Peer grading assignments for Doodle are due at 11:59 PM |
 {: .small #small .schedule #schedule}
 
 # Week 3: Interact With Me

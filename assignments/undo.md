@@ -163,4 +163,4 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
   - Support one additional command: 1pt
   - Complete heuristic evaluation for other students: 2pt
   - No severe usability issues: 1pt
-- Turn-in and compiles: 1pt
+- Code Organization and Style: 1 pt

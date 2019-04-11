@@ -102,4 +102,4 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 - Activity: 1pt
 - Location Fence: 2pt
 - Activity Fence: 2pt
-- Turn-in and compiles: 1pt
+- Code Organization and Style: 1 pt
