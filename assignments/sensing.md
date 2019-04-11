@@ -1,22 +1,24 @@
 ---
-layout: default
+layout: assignment
+title: Sensing
+code: EX5
+
+assigned: Monday, May 28, 2019
+due: 11:59 PM Friday, June 3, 2019
+revised: 2:01 PM Wednesday, April 10, 2019
+
+objective: Access Android sensors as the preparation to build context aware application.
+
+android_goals:
+  - Learn Android Awareness APIs
+  - Load sensor data
+  - Understand how and when to use Snapshot or Fence
+hci_goals:
+  - TDB
 ---
 
-* TOC
+- TOC
 {:toc}
-
-# Sensing Exercise
-
-**Objective**: Access Android sensors as the preparation to build context aware application.
-
-**Android Goals**:
-- Learn Android Awareness APIs
-- Load sensor data
-- Understand how and when to use Snapshot or Fence
-
-**Assigned Date**: ???, 2019
-
-**Due Date**: ???, 2019
 
 Tasks:
 - Load data from sensor snapshot
@@ -48,8 +50,7 @@ Here are sample screenshots for sensor results:
 
 Get your own API keys!
 
-
-```bash0
+<!--
 Notes for TA:
 
 This key is necessary for Awareness API. You may apply a new one, or use this one.
@@ -75,28 +76,22 @@ Must restart Google Play Services to refresh sensing:
 adb shell ps -A | grep com.google.android.gms.persistent | awk '{print $2}' | xargs adb shell kill
 
 May have delay, but acceptable (30s)
-```
+-->
 
+# Turn-in
 
-# Turnin
 ## Submission Instructions
 
-Please turn in your files in the following zip structure:
+You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
-```bash0
-YOUR_STUDENT_ID.zip
-├── DetectedActivityActivity.java
-├── LocationActivity.java
-├── PlacesActivity.java
-├── WeatherActivity.java
-├── DetectedActivityFenceActivity.java
-└── LocationFenceActivity.java
 ```
-
-- Learn Android Awareness APIs
-- Load sensor data
-- Understand how and when to use Snapshot or Fence
-
+- DetectedActivityActivity.java
+- LocationActivity.java
+- PlacesActivity.java
+- WeatherActivity.java
+- DetectedActivityFenceActivity.java
+- LocationFenceActivity.java
+```
 
 ## Grading (10pts)
 
@@ -107,4 +102,4 @@ YOUR_STUDENT_ID.zip
 - Activity: 1pt
 - Location Fence: 2pt
 - Activity Fence: 2pt
-- Turn-in and compiles: 1pt
+- Code Organization and Style: 1 pt

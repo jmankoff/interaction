@@ -5,6 +5,7 @@ code: EX2
 
 assigned: Thursday, April 11, 2019
 due: 11:59 PM Monday, April 15, 2019
+revised: 1:46 PM Wednesday, April 10, 2019
 
 objective: Use XML and programmatic constraints to replicate three layouts.
 
@@ -24,7 +25,7 @@ hci_goals:
 ---
 
 - TOC
-  {:toc}
+{:toc}
 
 # Part 1
 
@@ -154,7 +155,7 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
   - Correct “Pinterest” column ordering: 2 pts
   - (Portrait and Landscape) Correct image widths: 1 pt
   - (Portrait and Landscape) Correct image margins: 1 pt
-- Turn-in and compiles: 1 pt
+- Code Organization and Style: 1 pt
 
 ## IDE Errors/Warnings you can ignore
 

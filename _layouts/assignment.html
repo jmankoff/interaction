@@ -5,6 +5,12 @@
     {% include header.html %}
 
     <main id="content" class="main-content" role="main">
+      {% if page.published != true %}
+      <div id="unpublished-warning">
+        This assignment has not yet been released. Its requirements and code base are subject to change.
+      </div>
+      {% endif %}
+
       <div id="assignment-name">
         <h1>{{ page.code }}: {{ page.title }}</h1>
         <span>Last revised: {{ page.revised }}</span>

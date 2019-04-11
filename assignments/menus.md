@@ -1,27 +1,26 @@
 ---
-layout: default
+layout: assignment
+title: Menus
+code: A1
+
+assigned: Thursday, April 25, 2019
+due: 11:59 PM Wednesday, May 6, 2019
+revised: 1:46 PM Wednesday, April 10, 2019
+
+objective: Build an end-to-end application. Interact with users.
+
+android_goals:
+  - Implement menus
+  - Store data in file system
+hci_goals:
+  - Build an application based on specs
+  - Record user study data
+  - Produce plausible experiment results (within expected ranges)
+  - Understand marking menus
 ---
 
-* TOC
+- TOC
 {:toc}
-
-# Menu Experiment Assignment
-
-**Objective**: Build an end-to-end application. Interact with users.
-
-**HCI Goals**:
-- Build an application based on specs
-- Record user study data
-- Produce plausible experiment results (within expected ranges)
-- Understand marking menus
-
-**Android Goals**:
-- Implement menus
-- Store data in file system
-
-**Assigned Date**: ???, 2019
-
-**Due Date**: ???, 2019
 
 # Part 1
 
@@ -121,21 +120,20 @@ You will be asked to upload your plots with a paragraph of explanation to canvas
 - Please export your plots as images (taking screenshot is fine)
 - Please explain your result and your procedure in the study.
 
-# Turnin
+# Turn-in
+
 ## Submission Instructions
 
-Please turn in your files in the following zip structure:
+You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
-```bash
-YOUR_STUDENT_ID.zip
-├── LinearMenuView.java
-├── PieMenuView.java
-└── MainActivity.java
-├── MainActivity.java
-├── Result_0.csv
-└── Result_1.csv
-└── Signed consent forms (images/scans)
-└── Summary of results.pdf
+```
+─ LinearMenuView.xml
+─ PieMenuView.xml
+- MainActivity.java
+- result_0.csv
+- result_1.csv
+- consent_forms.zip
+- summary.pdf
 ```
 
 ## Grading (10pts)
@@ -150,4 +148,4 @@ YOUR_STUDENT_ID.zip
     - Description of study process: 1pt
     - Demonstrate understanding of chart results: 1pt
     - Draw appropriate conclusions about linear vs. pie menu: 1pt
-- Turn-in and compiles: 1pt
+- Code Organization and Style: 1 pt

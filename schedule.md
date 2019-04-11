@@ -22,7 +22,6 @@ layout: default
 ||Slides| [Hello World](/interaction/slides/l01/hello.html)| Android 
 ||For your reference |[Doodle](/interaction/slides/l01/doodle.html) |
 ||For your reference |[Java Refresher](/interaction/slides/l01/java.html) |
-||For your reference |[Animation](/interaction/slides/l01/animation.html) |
 ||For your reference |[Git](/interaction/slides/l01/git.html) |
 |**4/5**|**Friday**| Drawing on the Screen (active)|
 ||Reading (10 min)| Chapter 2 from Drawing from {{site.hcibook}}| Basic drawing abstractions | 
@@ -35,19 +34,19 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |------|-------|-------------------------------|----|
 |**4/8**|**Monday**| **Drawing Interfaces: MVC and Component Hierarchies** ||
-||Slides|[Drawing Interfaces](/interaction/slides/wk02/Interface-drawing.html)| What your toolkit draws when; Component hierarchies and drawing; MVC | 
-||Exercise Due|[Doodle](/interaction/assignments/doodle) |
+||Slides|[Drawing & Animation](/interaction/slides/wk02/Android-drawing-views.html)|  Deeper understanding of Views, Bitmaps Canvas, Paths and Animation | 
 |**4/10**|**Wednesday**| **Layout** ||
-||Required Reading (10 mins)|[Chapter 5: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) | Abstractions for positioning interactors on the screen and making responsive interfaces 
 ||Optional Reading (10 min)| [Layouts (Overview)](https://developer.android.com/guide/topics/ui/declaring-layout) and [Building a Responsive UI](https://developer.android.com/training/constraint-layout) | Android's approach to layout 
-||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 ||Slides|[Layout](/interaction/slides/wk02/layout.html)| Relating layout to the interactor hierarchy 
+||Exercise Due|[Doodle](/interaction/assignments/doodle) |
 |**4/11**|**Thursday**|Layout Exercise Assigned|
 ||Exercise Assigned|[Layout](/interaction/assignments/layout)| Implementing layout using GUI and programmatic abstractions
 ||Slides|[Layout in Android](/interaction/slides/l02/layout.html)| Android specific layout information
 |**4/12**|**Friday**| **Properties of People I: Visual Perception**|
-||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities |
-||Peer-Grading Due| Peer grading assignments for Doodle are due at 11:59 PM | 
+||Required Reading (10 mins)|[Chapter 5 through p. 128: Layout and Constraints](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1) | Abstractions for positioning interactors on the screen and making responsive interfaces 
+||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
+||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities | 
+||Peer-Grading Due| Peer grading assignments for Doodle are due at 11:59 PM |
 {: .small #small .schedule #schedule}
 
 # Week 3: Interact With Me
@@ -113,6 +112,7 @@ layout: default
 || Exercise Assigned | [Accessibility](/interaction/assignments/accessibility) |
 | **5/10**|**Friday**   |                                                         |
 ||Required Reading|[Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)|
+||Midterm|In-class|
 ||Slides|[06: Paper Prototyping](/interaction/slides/wk02/paper.html)|
 {: .small #small .schedule #schedule}
 

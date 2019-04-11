@@ -1,23 +1,24 @@
 ---
-layout: default
+layout: assignment
+title: Accessibility
+code: EX4
+
+assigned: Thursday, May 9, 2019
+due: 11:59 PM Monday, May 13, 2019
+revised: 1:59 PM Wednesday, April 10, 2019
+
+objective: Identify and repair app accessibility issues.
+
+android_goals:
+  - Basics of Android assistive tools
+hci_goals:
+  - App accessibility
+  - Understanding of different accessibility issues
+  - Simple repairs to accessibility issues
 ---
 
-* TOC
+- TOC
 {:toc}
-
-# Accessibility Exercise
-
-**Objective**: Identify and repair app accessibility issues.
-
-**Learning Goals**:
-- App accessibility
-- Basics of Android assistive tools
-- Understanding of different accessibility issues
-- Simple repairs to accessibility issues
-
-**Assigned Date**: ???, 2019
-
-**Due Date**: ???, 2019
 
 # Part 1
 
@@ -59,15 +60,15 @@ For example: To repair "Item Label" error above, we can either
 - In layout editor, add "broccoli in a black bowl" as contentDescription property
 - In code, call method imageView.setContentDescription("broccoli in a black bowl")
 
-# Turnin
+# Turn-in
+
 ## Submission Instructions
 
-Please turn in your files in the following zip structure:
+You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
-```bash
-YOUR_STUDENT_ID.zip
-├── MainActivity.java
-└── content_main.xml
+```
+- MainActivity.java
+- content_main.xml
 ```
 
 Please also submit accessibility issues report in *Google Form link placeholder*.
@@ -78,4 +79,4 @@ Please also submit accessibility issues report in *Google Form link placeholder*
   - ???
 - Part 2
   - ???
-- Turn-in and compiles: 1pt
+- Code Organization and Style: 1 pt

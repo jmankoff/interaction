@@ -1,25 +1,24 @@
 ---
-layout: default
+layout: assignment
+title: Context Awareness
+code: A3
+
+assigned: Friday, May 28, 2019
+due: 11:59 PM Friday, June 10, 2019
+revised: 2:04 PM Wednesday, April 10, 2019
+
+objective: Access Android sensors as the preparation to build context aware application.
+
+android_goals:
+  - Use location and another sensor
+  - Understand when to use Snapshot or Fence
+hci_goals:
+  - Make an enjoyable app
+  - Use context effectively
 ---
 
-* TOC
+- TOC
 {:toc}
-
-# Context Aware Assignment
-
-**Objective**: Access Android sensors as the preparation to build context aware application.
-
-**HCI Goals**:
-- Make an enjoyable app
-- Use context effectively
-
-**Android Goals**:
-- Use location and another sensor
-- Understand when to use Snapshot or Fence
-
-**Assigned Date**: ???, 2019
-
-**Due Date**: ???, 2019
 
 Task:
 - After sensing exercise, students will be ready to create a context-aware app. Please use your creativity :)
@@ -40,16 +39,15 @@ In peer grading survey,
 - Ask if the app is enjoyable, in a Likert scale
 - Prompt to write a paragraph feedback
 
+# Turn-in
 
-# Turnin
 ## Submission Instructions
 
-Please turn in your files in the following zip structure:
+You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
-```bash
-YOUR_STUDENT_ID.zip
-├── src/
-└── res/
+```
+─ src.zip
+- res.zip
 ```
 
 ## Grading (10pts)
@@ -62,5 +60,5 @@ YOUR_STUDENT_ID.zip
   - Complete peer grading: 1pt
   - Make an enjoyable app: 1pt
   - Peer and you agree with context type: 1pt
-- Turn-in and compiles: 1pt
+- Code Organization and Style: 1 pt
 - Group participation: 1pt
