@@ -46,7 +46,8 @@ layout: default
 ||Exercise Assigned|[Layout](/interaction/assignments/layout)| Implementing layout using GUI and programmatic abstractions
 ||Slides|[Layout in Android](/interaction/slides/l02/layout.html)| Android specific layout information
 |**4/12**|**Friday**| **Properties of People I: Visual Perception**|
-||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities | 
+||Slides|[Properties of People I: Vision](/interaction/slides/wk02/people-vision.html)| Design implications of people's visual capabilities |
+||Peer-Grading Due| Peer grading assignments for Doodle are due at 11:59 PM | 
 {: .small #small .schedule #schedule}
 
 # Week 3: Interact With Me
