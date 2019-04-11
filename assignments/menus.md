@@ -148,4 +148,4 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
     - Description of study process: 1pt
     - Demonstrate understanding of chart results: 1pt
     - Draw appropriate conclusions about linear vs. pie menu: 1pt
-- Code quality: 1 pt
+- Code Organization and Style: 1 pt
