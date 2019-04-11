@@ -60,5 +60,5 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
   - Complete peer grading: 1pt
   - Make an enjoyable app: 1pt
   - Peer and you agree with context type: 1pt
-- Turn-in and compiles: 1pt
+- Code Organization and Style: 1 pt
 - Group participation: 1pt
