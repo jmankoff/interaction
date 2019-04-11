@@ -3,9 +3,10 @@ layout: assignment
 title: Layout
 code: EX2
 
+published: true
 assigned: Thursday, April 11, 2019
 due: 11:59 PM Monday, April 15, 2019
-revised: 1:46 PM Wednesday, April 10, 2019
+revised: 2:56 PM Thursday, April 11, 2019
 
 objective: Use XML and programmatic constraints to replicate three layouts.
 
@@ -40,7 +41,7 @@ Tasks:
 
 First, create a `Button` in `part1.xml`. It should say `BUTTON` by default. Make sure the background color matches ours, `colorPrimary`. Color abstractions in `values/colors.xml` allow us to avoid changing values in multiple places in the future.
 
-Next, create a `TextView`. Set the background color to black and add a `0` as the text. The font should be white and `200sp`. There also exists a similar `values/strings.xml` which allows us to store strings in a central location. For our purposes, just hardcode the text into `part1.xml`. You may notice an IDE warning about hardcoded strings, just ignore it.
+Next, create a `TextView`. Set the background color to black and add a `0` as the text. The font should be white and `200sp`. There also exists a similar `values/strings.xml` which allows us to store strings in a central location. For our purposes, you can hardcode the text into `part1.xml`. You may notice an IDE warning about hardcoded strings, just ignore it.
 
 Finally, create an `ImageView`. It should contain `drawables/food_0` and be `150dp` by `150dp`.
 
@@ -65,14 +66,16 @@ The `TextView` should be `20dp` from the right edge of the `ImageView`. As the s
 
 Tasks:
 
-- Use a basic `ScrollView`
+- Working with a basic `ScrollView`
 - Add a fixed number of items with fixed constraints.
 
-In `part2.xml`, add ImageViews with drawables `food_0` through `food_3` for a total of four images. Let each photo display at its natural resolution. As all three photos are exactly `200px` wide, so we can form a perfect column from them.
+In `part2.xml` we've created a basic `ScrollView` for you wrapped around a `ConstraintLayout` which will allow its contents to scroll.
+Add ImageViews with drawables `food_0` through `food_3` for a total of four images to the `ConstraintLayout`.
+Let each photo display at its natural resolution. As all three photos are exactly `200px` wide, so we can form a perfect column from them.
 
-Using constraints, center them in the parent `ConstraintLayout`. Then position them such that `food_0` is `15dp` from the top of the parent layout and each additional `food_i` is `(15 * i)dp` from `food_(i-1)`.
+Using constraints, center them in the parent `ConstraintLayout`. Then position them such that `food_0` is `16dp` from the top of the parent layout and each additional `food_i` is `(16 * i)dp` from `food_(i-1)`.
 
-That is, `food_1` is 15dp below `food_0`, `food_2` is 30dp belcow `food_1`, and `food_3` is 45dp below `food_2`. This increasing margin layout will also be used in [Part 3](#part-3). There should be **no** margin after the last photo. That is, it should be flush with the tab bar.
+That is, `food_1` is 16dp below `food_0`, `food_2` is 32dp below `food_1`, and `food_3` is 48dp below `food_2`. This increasing margin layout will also be used in [Part 3](#part-3). There should be **no** margin after the last photo. That is, it should be flush with the tab bar.
 
 When the layout is rotated, the images should stay the same size and remain horizontally centered.
 
@@ -93,7 +96,7 @@ This time, we'll be adding images and constraints programmatically with similar 
 
 First, add a ConstraintLayout then create ImageViews for each image to add to the ScrollView.
 
-Using the similar math as part 2, position the first image `vMargin` dp from the top (`vMargin` is a parameter in Part3View constructor), then the top of each image i afterward `vMargin * i` dp from the bottom of the previous image.
+Using the similar math as part 2, position the first image `vMargin` px from the top (`vMargin` is a parameter in Part3View constructor), then the top of each image i afterward `vMargin * i` px from the bottom of the previous image. Note here we're working in `px`. At runtime, all `dp` values are represented as `px` which is dependent on the current device resolution. We've done this conversion for you. You can see how we convert `dp` to `px` in `MainActivity#L38`.
 
 Again, when the layout is rotated, the images should stay the same size and remain horizontally centered.
 
@@ -137,6 +140,7 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 - Part3View.java
 - Part4View.java
 - part4_grid.xml
+- strings.xml
 ```
 
 <span style="color:red;">We will test layout on emulators with different screen sizes. Please use constraint correctly. Don't just try to match pixels in our sample screenshots.</span>
