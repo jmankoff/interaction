@@ -19,12 +19,24 @@ class:
 ---
 
 [//]: # (Outline Slide)
+.right-column[
 # Today's goals
+
 - Discuss visual properties of people
 - Discuss memory
 
-# Future Goals
+## Future Goals
 - Discuss motion
+]
+---
+.title[First, some logistics & review]
+.body[
+Status of layout/reading qs for Wed
+
+Review of quiz questions/last class
+
+![:img Quiz question: Layout can be handled in a top-down fashion by the designer --absolute layout--; or a bottom-up fashion by the layout handler. In bottom-up; the children typically determine the size of the parent. Which situation requires a top down approach? correct answer is dialogue box; some answered Menu, 50%](img/q1.png)
+]
 ---
 .title[Visual Properties of People]
 .body[
@@ -41,6 +53,9 @@ Good design is generally more accessible design
 <sup>1</sup>[colourblindawareness.org](www.colourblindawareness.org/colour-blindness/)<br>
 <sup>2</sup>[WHO](https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment)<br>
 ]
+???
+talk about my own disability
+
 --
 .body[
 *Bad psychology is good enough to support good design (I hope! :)*
@@ -96,7 +111,7 @@ http://insight.med.utah.edu/Webvision/index.html]
 - Receptor cells for grayscale (rods)
 ]
 .float-right[
-![:img Picture of Rod & Cone cells, 30%](img/rods_cones.png)
+![:img Picture of Rod & Cone cells, 45%](img/rods_cones.png)
 ]
 ---
 .title[Retina covered with light-sensitive receptors]
@@ -195,7 +210,8 @@ order), saturation from center to edge, value is top to bottom
 ---
 .title[Compare the following colors using HSV]
 .right-column[
-Vote:
+Which is correct?
+
 - A: Top color has different *hue* than bottom color
 - B: Top color has higher *saturation* than bottom color
 - C: Top color has higher *value* than bottom color
@@ -203,19 +219,19 @@ Vote:
 .left-column[
 ![:img Darker and lighter red boxes, 100%](img/redcomp.png)
 ]
+???
+B: Saturation
+
 ---
-.title[Demonstrate your Understanding of HSV]
-
+.title[Value vs saturation]
 .body[
-You have been asked to create a digital-paper compatible interface. As
-a result, you need to pick colors that will be easily distinguishable
-in black and white. Which of 'H' 'S' and 'V' should you vary to
-support black and white display?
-
-Vote: Which is correct?
-- A: Hue
-- B: Saturation
-- C: Value
+![Red with varying saturation (to white) and value (to black)](img/value-sat.png)
+]
+---
+.title[old quiz question]
+.body[
+![:img You have been asked to create a digital-paper compatible interface. As a result; you need to pick colors that will be easily distinguishable in black and white. Which of 'H' 'S' and 'V' should you vary to support black and white display?, 75%
+](img/q3.png)
 ]
 ---
 .title[Aside: Color Gamuts<sup>1</sup>]
@@ -228,6 +244,7 @@ See the [Wikipedia page on color
 gamuts](http://en.wikipedia.org/wiki/Gamut) for more information]
 
 ???
+- no time to play video
 - Outside is wavelengths (hues)
 - Triangle shows primary colors for this gamut
 ---
@@ -516,29 +533,6 @@ How might we do grayscale?
 - minimum of 10 FPS
 - 24-40 smoother
 ]
----
-.title[Chang & Ungar, UIST '93]
-.body[
-.quote[ Despite the differences between user interfaces and cartoons
--- cartoons are frivolous, passive entertainment and user interfaces 
-are serious, interactive tools -- cartoon animation has much to lend 
-user interfaces to realize both affective and cognitive benefits]
-.small[Principals of animation borrowed from Johnston & Thomas ‘81,
-Lasseter ‘87]
-]
----
-.title[Chang & Ungar, UIST '93]
-.body[
-
-![:youtube Pixar short film about an alien abduction,oqhgg6swliE]
-]
-???
-- Squash-and-Stretch
-- Staging, Overlapping Action
-- Anticipation
-- Follow-Through
-- Slow In Slow Out
-
 ---
 .title[How fast can people see things?]
 .body.compact[
@@ -910,3 +904,49 @@ Good design is accessible design
 - There is tons to know about good use of color and other visual
 design elements. For not, the simplest thing to do is to look for existing color palettes, and just those. That should account for the vast majority of your needs for colors. There is also red-green color blindness too. Simplest thing to do is to turn your screens into greyscale, and see if you can see differences. 
 ]
+
+---
+# End of deck (unused slides past here)
+---
+.title[Demonstrate your Understanding of HSV]
+
+.body[
+You have been asked to create a digital-paper compatible interface. As
+a result, you need to pick colors that will be easily distinguishable
+in black and white. Which of 'H' 'S' and 'V' should you vary to
+support black and white display?
+
+Which is correct?
+- A: Hue
+- B: Saturation
+- C: Value
+]
+???
+C Value
+
+---
+.title[Chang & Ungar, UIST '93]
+.body[
+.quote[ Despite the differences between user interfaces and cartoons
+-- cartoons are frivolous, passive entertainment and user interfaces 
+are serious, interactive tools -- cartoon animation has much to lend 
+user interfaces to realize both affective and cognitive benefits]
+.small[Principals of animation borrowed from Johnston & Thomas ‘81,
+Lasseter ‘87]
+]
+---
+.title[Chang & Ungar, UIST '93]
+.body[
+
+![:youtube Pixar short film about an alien abduction,oqhgg6swliE]
+]
+???
+- Squash-and-Stretch
+- Staging, Overlapping Action
+- Anticipation
+- Follow-Through
+- Slow In Slow Out
+
+---
+![:img Which of the following widgets is likely to have a minimum; desired; and maximum height that are all the same? Correct answer is scrollbar; some answered text area, 50%](img/q2.png)
+
