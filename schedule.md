@@ -54,11 +54,11 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
 |**4/15**|**Monday**|Event Handling I: Input Devices, Events and Event Delivery|
-||Required Reading (10 min)|Chapter 3: Event Handling {{site.hcibook}} pp. 43-52 (on Input Events); 59-63 (Listeners)| Basics of event handling including event types and listeners
-||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 ||Slides|[Event Handling 1](/interaction/slides/wk02/events1.html)| How events are dispatched to interactors|
 ||Exercise Due|[Layout](/interaction/assignments/layout)|
 |**4/17**|**Wednesday**|**MVC at the Interactor Level Essential Geometry and Essential Behavior**|
+||Required Reading (10 min)|Chapter 3: Event Handling {{site.hcibook}} pp. 43-52 (on Input Events); 59-63 (Listeners)| Basics of event handling including event types and listeners
+||Reading Quiz|[On Canvas]({{site.canvas}}), due tuesday night|
 ||Slides|[From Events to Behavior](/interaction/slides/wk03/events.html)| Toolkit abstractions for responding to events
 |**4/18**|**Thursday**|**Build your own Interactor exercise**|
 ||Exercise Assigned|[Color Picker](/interaction/assignments/colorpicker)| Handle input; Create a non-rectangular interactor; Implement a finite state machine
