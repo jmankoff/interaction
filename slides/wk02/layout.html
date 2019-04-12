@@ -702,7 +702,78 @@ General mechanism for establishing and maintaining relationships between things
 ]
 
 ---
+# code written in lecture (MainActivity.java)
+```java
+       super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button okButton = new Button(this);
+        okButton.setText("OK");
+        LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
+        LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        layout.addView(okButton,lp);
+
+        for (int i=0; i<layout.getChildCount(); i++) {
+            View view = layout.getChildAt(i);
+            view.setBackgroundColor(Color.RED);
+        }
+```
+---
+.title[XML used in lecture]
+.body[
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="8dp">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="478dp" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
+```
+]
+---
 # End of deck
+
 ---
 #Conceptual form of UI constraints
 
