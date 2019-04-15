@@ -318,18 +318,31 @@ Dispatch thread:
 Input Thread
 
 Dispatch thread:
-  - Worked example of mouse input
+  - Worked example of touch input
+  
+Example:
+```java
+@Override
+    public boolean onTouchEvent(MotionEvent event) {
+	...
+	}
+```
 ]
 ???
 
 (focus) Discuss Quiz on Input Events
 (positional) Determine proper component 
  - recursive pick() to identify objects of interest (or just focus())
- - ‘capture()’ (most things don’t) top to bottom deliver to target object (bottom)
- - ‘bubble()’ (bottom to top)
-- Invoke callback (wait until complete)
+   (`buildTouchDispatchChildList()` in android; happens only after capture!)
+ - `capture()` (most things don’t) top to bottom deliver to target
+   object (bottom) (example: `onInterceptTouchEvent()` in android
+ - `bubble()` (bottom to top) (example: `onTouchEvent()` in android)
+- Invoke callback (wait until complete) (we do this by creating a
+  custom listener in android)
 
-
+.footnote[fascinating to look at [implementation in
+ViewGroup](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/ViewGroup.java)
+-- not very general!]
 ---
 .left-column[
 # Input __Dispatch__ Process
@@ -346,7 +359,6 @@ Components:
 ???
 - remind them that component/view/interactor are interchangeable in
   this class
-  
 - Update application state if appropriate
 - Request repaint if needed
 
