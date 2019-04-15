@@ -109,14 +109,17 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 
 ## Grading (10pts)
 
-- State Machine
+- Event Handling // onTouchEvent, etc
   - Creat working basic functionalities: 2pts
   - Handle Edge Cases in State Machine: 1pt
-- Event handling and bubbling
-  - Map Angle to Color (also correctly compute angle): 1pt
-  - Place Handle in Correct Location: 1pt
   - Reject Events outside Color Wheel: 1pt
-- Save State: 1pt
-- Callback: 1pt
-- OnFirstLayout: 1pt
+- Feedback //onDraw
+  - *remove* Map Angle to Color (also correctly compute angle): 1pt
+  - Place Handle in Correct Location: 1pt
+  - Correctly trigger redraw: 1pt 
+- Model Management // 
+ - Save Application State using bundler: 1pt
+ - Communicate to application properly
+   - Implement custom layout handler for Callback (*onColorXXXX*): 1pt
+   - Properly decide when to trigger callback
 - Code Organization and Style: 1 pt
