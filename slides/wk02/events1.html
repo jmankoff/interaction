@@ -239,6 +239,9 @@ appropriately
 ]
 
 ---
+# Demo
+
+---
 .left-column[## Android Events]
 .right-column[
 Each kind of event has its own class but they all implement the event interface
@@ -246,33 +249,17 @@ Each kind of event has its own class but they all implement the event interface
 - Harder to deal with uniformly
 - But easily extensible for new event types
 
-Each kind of event has its own class
-
 .red[Artificial] events are a thing (e.g. window events)
 ]
 
 ---
-.left-column[
-# Aside: Multiple Hierarchies discussed so far in class
-]
-.right-column[
-Can you think of them?
-]
-???
-Inheritance hierarchy for interactors
-Inheritance hierarchy for layout
-Inheritance hierarchy for events
-Component hierarchy
----
-.left-column[## Android [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)]
-.right-column[
+.title[Android [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)]
+.body[
 ```java
 java.lang.Object
    ↳	android.view.InputEvent
  	   ↳	android.view.MotionEvent
-```
 
-```java
 public final class MotionEvent 
 extends InputEvent implements Parcelable {
 
@@ -289,6 +276,18 @@ float getSize()      // fingers aren't pixel sized
 }
 ```
 ]
+---
+.left-column[
+# Aside: Multiple Hierarchies discussed so far in class
+]
+.right-column[
+Can you think of them?
+]
+???
+Inheritance hierarchy for interactors
+Inheritance hierarchy for layout
+Inheritance hierarchy for events
+Component hierarchy
 ---
 .left-column[
 # Input __Dispatch__ Process
@@ -320,7 +319,6 @@ Input Thread
 Dispatch thread:
   - Worked example of touch input
   
-Example:
 ```java
 @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -332,17 +330,7 @@ Example:
 
 (focus) Discuss Quiz on Input Events
 (positional) Determine proper component 
- - recursive pick() to identify objects of interest (or just focus())
-   (`buildTouchDispatchChildList()` in android; happens only after capture!)
- - `capture()` (most things don’t) top to bottom deliver to target
-   object (bottom) (example: `onInterceptTouchEvent()` in android
- - `bubble()` (bottom to top) (example: `onTouchEvent()` in android)
-- Invoke callback (wait until complete) (we do this by creating a
-  custom listener in android)
 
-.footnote[fascinating to look at [implementation in
-ViewGroup](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/ViewGroup.java)
--- not very general!]
 ---
 .left-column[
 # Input __Dispatch__ Process
@@ -442,9 +430,46 @@ class V1,V4,V3,V6 bluegreen
 ]
 
 ---
+.left-column[
+# How does *Android* decide where to send events?]
+.right-column[
+- **capture** (most things don’t) top to bottom deliver to target
+   object (bottom) (example: `onInterceptTouchEvent()` in android
+- **pick** to identify objects of interest (or just focus())
+   (`buildTouchDispatchChildList()` in android; happens only after capture!)
+- **bubble** (bottom to top) (example: `onTouchEvent()` in android)
+- Invoke callback (wait until complete) (we do this by creating a
+  custom listener in android)
+  ]
+.footnote[fascinating to look at [implementation in
+ViewGroup](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/ViewGroup.java)
+-- not very general!]
+---
+.title[Creating a new type of callback]
+.body[
+```java
+protected MyView.MyListener mListener;
+
+    public void setMyListener(MyListener mListener) {
+        this.mListener = mListener;
+    }
+
+    // Creates a new named inner interface for listening to color selection events
+    public interface MyListener {
+        void onInterestingEvent(); // can include a parameter
+    }
+	
+	// somewhere else in your code, when callback time happens
+    public void someMethod() {
+		mListener.onInterestingEvent();
+	}
+```
+]
+---
 # What is focus useful for?
 
-
+---
+# End of Deck
 ---
 # Implementing Drag and Drop
 
