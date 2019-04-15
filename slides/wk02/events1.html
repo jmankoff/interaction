@@ -17,7 +17,20 @@ name: normal
 layout: true
 class: 
 ---
+| Command Line | Windows |
+|---|---|
+|![:img Picture of a Command Line Interface, 100%](img/commandline.png)|![:img Picture of a windows desktop, 100%](img/windows.png)|
+???
+- Command Line (Unix shell, DOS prompt)
+- Interaction driven by system
+- User prompted for input when needed
+- Text-based input and output
 
+- Event-Driven Interfaces (GUIs)
+- Interaction driven by user
+- UI constantly waiting for input events
+- Pointing & text input, graphical output
+---
 [//]: # (Outline Slide)
 .left-column[
 # Today's goals
@@ -37,31 +50,34 @@ Discuss how Android models input
 - Picking, capture and bubble
 ]
 ---
-.title[MVC for a button]
+|Procedural | Event Driven |
+|---|---|
+|Code is executed in sequential order | Code is executed based upon events|
+|![:img Code printout saying Statement 1; Statement 2; Statement 3, 100%](img/procedural.png)|<br><br><br><br>![:img Code printout saying Method 1; Method 2; Method 3 with mouse and keyboard icons causing events pointed at different methods, 100%](img/eventdriven.png)|
+---
+.title[How does the Toolkit Architecture accomplish this?]
 .body[
-- Diagram it with respect to reading
- - Model
- - View
- - Controller
+Application’s UI Thread (This is the main thread of your program)
+```
+while(true){
+ // Gets event from the application message queue. 
+ // If the queue is empty, we just wait here.
+ Event e = GetEventFromMessageQueue();
+ 
+ // Dispatches the event to the appropriate application window 
+ // (the destination address is in the event data).
+ DispatchEventToMessageDestination(e);
+}
+```
+]
+--
+.body[
+Don’t worry, this code is automatically setup and managed by the UI framework you are using (e.g., .NET, WPF, Android, Swift). You don’t really need to worry about it (but you should know it’s there and how it functions!)
 ]
 ---
-.title[Interactor (Component) Model]
-.body[
-__Encapsulate interactive components__ (interactors)
-- Component library (button, slider, container)
-- Interface built as a hierarchy of components
 
-__Components drawn by underlying graphics library__
-- Input event generation and dispatch
-- Historically mouse & keyboard, now touch, ...
-
-__Bounds management & damage/redraw__
-- Model geometry, redraw updated regions only
-]
-
----
 .left-column[
-# Handling Input
+# But what is an Event? Where does it come from?
 ]
 .right-column[
 Generally, input is harder than output
@@ -171,7 +187,7 @@ Logical Device Approach:
 ]
 
 .right-column[
-Doesn't capture device diversity
+Doesn't capture full device diversity
 
 Event based devices
 - Time of input determined by user
@@ -183,21 +199,11 @@ Sampled devices
 - Value is continuously changing
 - e.g. mouse
 ]
-
----
-.left-column[
-# Doesn't capture device diversity
-]
-.right-column[
-
-Event based devices
-
-Sampled devices
-
+???
 Capability differences
  - Discussion of mouse vs pen
  - what are some differences?
-]
+
 ---
 .left-column[
 # Contents of Event Record
@@ -207,18 +213,44 @@ What do we need to know about each event?
 ]
 --
 .right-column[
-__What__: Event Type (mouse moved, key down, etc)
+**What**: Event Type (mouse moved, key down, etc)
 
-__Where__: Event Target (the input component)
+**Where**: Event Target (the input component)
 
-__When__: Timestamp (when did event occur)
+**When**: Timestamp (when did event occur)
 
-__Value__: Mouse coordinates; which key; etc.
+**Value**: Mouse coordinates; which key; etc.
 
-__Context__: Modifiers (Ctrl, Shift, Alt, etc); Number of clicks; etc.
+**Context**: Modifiers (Ctrl, Shift, Alt, etc); Number of clicks; etc.
 ]
 ???
 Discuss each with examples
+---
+.left-column[
+# Responding to Users
+]
+.right-column[
+When a user interacts with our apps, Android creates **events**
+]
+--
+.right-column[
+As app developers, we react "listening" for events and responding
+appropriately
+]
+
+---
+.left-column[## Android Events]
+.right-column[
+Each kind of event has its own class but they all implement the event interface
+- A little hard to find all the parts defined in one place
+- Harder to deal with uniformly
+- But easily extensible for new event types
+
+Each kind of event has its own class
+
+.red[Artificial] events are a thing (e.g. window events)
+]
+
 ---
 .left-column[
 # Aside: Multiple Hierarchies discussed so far in class
@@ -232,33 +264,7 @@ Inheritance hierarchy for layout
 Inheritance hierarchy for events
 Component hierarchy
 ---
-.left-column[
-# Responding to Users
-]
-.right-column[
-When a user interacts with our apps, Android creates __events__
-]
---
-.right-column[
-As app developers, we react "listening" for events and responding
-appropriately
-]
-
----
-.left-column[## Case study: Android Events]
-.right-column[
-Each kind of event has its own class but they all implement the event interface
-- A little hard to find all the parts defined in one place
-- Harder to deal with uniformly
-- But easily extensible for new event types
-
-Each kind of event has its own class
-
-.red[Artificial] events are a thing (e.g. window events)
-]
-
----
-.left-column[## Case study: Android [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)]
+.left-column[## Android [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)]
 .right-column[
 ```java
 java.lang.Object
@@ -288,7 +294,6 @@ float getSize()      // fingers aren't pixel sized
 # Input __Dispatch__ Process
 ]
 .right-column[
-## Threaded
 Input thread: 
 - When a user interacts,  __events__ are created
 - Events go into a queue
@@ -302,7 +307,7 @@ Input Thread
 
 Dispatch thread:
 - Front event comes off queue
-- How do we decide where to send events?
+- How does a toolkit decide where to send events?
 ]
 
 ---
@@ -339,6 +344,9 @@ Components:
 - How do components respond? 
 ]
 ???
+- remind them that component/view/interactor are interchangeable in
+  this class
+  
 - Update application state if appropriate
 - Request repaint if needed
 
@@ -366,8 +374,8 @@ class V1,V4,V3,V6 bluegreen
 
 --
 
-- What `View` objects does dispatch "pick"?
-
+- What `View` objects does dispatch "pick"? 
+  
 --
 
 - Picked Views = { `V1`, `V3`, `V4`, `V6`}
@@ -440,9 +448,8 @@ Focus? Or Positional?
 ---
 # How would you handle input in a circular component?
 ???
-Picking is based on the bounding box...
+Consumption is based on the bounding box...
 ---
-# Summary XXX fill in
 ---
 # End of Deck
 ---
@@ -457,3 +464,28 @@ Sampled devices
 Device differences
   - Handled implicitly by only generating events they can generate
 ]
+
+---
+
+.title[MVC for a button]
+.body[
+- Diagram it with respect to reading
+ - Model
+ - View
+ - Controller
+]
+---
+.title[Interactor (Component) Model]
+.body[
+__Encapsulate interactive components__ (interactors)
+- Component library (button, slider, container)
+- Interface built as a hierarchy of components
+
+__Components drawn by underlying graphics library__
+- Input event generation and dispatch
+- Historically mouse & keyboard, now touch, ...
+
+__Bounds management & damage/redraw__
+- Model geometry, redraw updated regions only
+]
+
