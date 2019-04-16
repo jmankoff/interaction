@@ -499,6 +499,49 @@ Focus? Or Positional?
 ???
 Consumption is based on the bounding box...
 ---
+# Code shown in class
+```java
+public class Counter extends ImageView {
+    private int count = 0; // model
+
+    public Counter(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    protected void onDraw(Canvas canvas) {
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(60);
+        canvas.drawText("Click count" + count, 100,100, paint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            Log.i("debug", "onTouch: down");
+            count++;
+            invalidate();
+            return true;
+        }
+        return false;
+    }
+}
+```
+---
+# XML shown in class
+```xml
+    <com.example.myapplicationeventdemo.Counter
+        android:layout_width="358dp"
+        android:layout_height="231dp"
+        android:background="@android:color/black"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+```
+
 ---
 # End of Deck
 ---
