@@ -5,7 +5,7 @@ code: EX2
 
 published: true
 assigned: Thursday, April 11, 2019
-due: 11:59 PM Thursday, April 17, 2019
+due: 11:59 PM Thursday, April 18, 2019
 revised: 11:16 AM Thursday, April 13, 2019
 
 objective: Use XML and programmatic constraints to replicate three layouts.
