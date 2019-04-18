@@ -1,0 +1,371 @@
+---
+layout: presentation
+title: Event Handling II--Essential Geometry and View Updates
+description: 
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Input Events
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+
+[//]: # (Outline Slide)
+# Today's goals
+
+---
+
+layout: false
+
+.left-column[
+#Input Event Goals
+]
+.right-column[
+Device Independence
+- Want / need device independence
+- Need a uniform and higher level abstraction for input
+
+Component Independence
+- Given a model for representing input, how do we get inputs delivered
+to the right component?
+]
+???
+
+---
+.left-column[
+# Review: Logical Device Approach
+]
+.right-column[
+- Valuator → returns a scalar value
+
+- Button → returns integer value
+
+- Locator → returns position on a logical view surface
+
+- Keyboard → returns character string
+
+- Stroke → obtain sequence of points
+
+- Pick → select an object
+]
+---
+.left-column[
+# Review: Dispatch
+]
+.right-column[
+Picking
+
+Bubbling
+
+Capture
+]
+
+---
+layout: false
+
+.left-column[
+#Input Event Goals
+]
+.right-column[
+Device Independence
+- Want / need device independence
+- Need a uniform and higher level abstraction for input
+
+Component Independence
+- Given a model for representing input, how do we get inputs delivered
+to the right component?
+
+Model View Control for Components
+- How do components 
+- How do components deal with events (Essential Behavior)
+]
+???
+
+---
+
+.left-column[
+## View Update: .red[Based on Essential Geometry]
+]
+
+.right-column[
+- Supports feedback to user
+
+![:img google doc with scrollbar, 50%](img/window.png)
+]
+
+???
+Examples?
+
+---
+
+.left-column[
+## View Update: .red[Based on Essential Geometry]
+]
+
+.right-column[
+- Supports feedback to user
+
+![:img google doc with scrollbar, 50%](img/window-with-menu.png)
+]
+
+---
+
+.left-column[
+## View Update: .red[Based on Essential Geometry]
+]
+
+.right-column[
+- Supports feedback to user
+
+![:img google doc with scrollbar, 50%](img/window-with-menu-highlight.png)
+]
+
+---
+
+.left-column[
+## View Update: .red[Based on Essential Geometry]
+]
+
+.right-column[
+- Supports feedback to user
+
+![:img google doc with scrollbar, 50%](img/window-with-menu-highlight2.png)
+]
+
+???
+What is the essential geometry of this menu?
+---
+
+
+.left-column[
+## View Update: .red[Based on Essential Geometry]
+]
+
+.right-column[
+- Supports feedback to user
+
+- Requires redraw on toolkit side
+]
+
+???
+why? 
+
+---
+.left-column[
+## View Update: .red[Based on Essential Geometry]
+]
+
+.right-column[
+- What should be redrawn?
+
+![:img google doc with scrollbar, 50%](img/window.png)
+]
+
+---
+
+.left-column[
+## View Update: .red[Based on Essential Geometry]
+]
+
+.right-column[
+- What should be redrawn?
+
+![:img google doc with scrollbar, 50%](img/window-with-menu.png)
+]
+---
+
+.left-column[
+## View Update: .red[Based on Essential Geometry]
+]
+
+.right-column[
+- What should be redrawn?
+
+![:img google doc with scrollbar, 50%](img/combined.png)
+]
+
+---
+.left-column[
+## View Update: .red[Damage Mechanism]
+]
+.right-column[
+- How does the toolkit know what to redraw?
+
+ - Let the component report
+
+ - Aggregate
+
+ - Usually calculate bounding box
+]
+---
+.left-column[
+## View Update: .red[Draw/Redraw Mechanism]
+]
+.right-column[
+- Virtual device abstraction provided by windowing system
+]
+
+???
+
+Allows each program to (mostly) pretend that it has the screen (frame
+buffer) to itself
+
+---
+.left-column[
+## View Update: .red[Draw/Redraw Mechanism]
+]
+.right-column[
+- Virtual device abstraction provided by windowing system
+
+- Component abstraction provided by toolkit
+]
+
+???
+
+Allows each component to (mostly) pretend that it has the screen to
+itself
+
+---
+.left-column[
+## View Update: .red[Draw/Redraw Mechanism]
+]
+.right-column[
+- Virtual device abstraction provided by windowing system
+
+- Component abstraction provided by toolkit
+ - Enforced using clipping
+ - Supported using coordinate system transformations
+]
+
+---
+.left-column[
+## View Update: .red[Value of component abstraction]
+]
+.right-column[
+Each component knows how to draw itself
+
+Based on what it is and its internal state
+
+Includes some common properties (inherited from a base class for all components), E.g.
+
+- position (x,y relative to parent)
+
+- size (w,h)
+
+- visible
+
+- Enabled
+
+Typically includes some specialized properties (declared in
+subclass)
+]
+
+---
+.left-column[
+## View Update: .red[Redraw Mechanism]
+]
+.right-column[
+Damage caused by drawing (or other things)
+]
+???
+Can you think about other things?
+- Window hidden and re-exposed
+- Resizing
+- redrawing
+
+---
+.left-column[
+## View Update: .red[Redraw Mechanism]
+]
+
+.right-column[
+Damage caused by drawing (or other things)
+
+Naive approach to redraw -- problems?
+]
+---
+
+.left-column[
+## View Update: .red[Redraw Mechanism]
+]
+.right-column[
+Damage caused by drawing (or other things)
+
+Naive approach to redraw -- problems?
+]
+![:img pic of original screen and changed screen, 72%](img/original-new.png)
+
+
+???
+XXX TODO ADD pic like this using divs?
+
+- Can be slow (redrawing everything unecessary)
+- Can cause flickering
+ - double buffering is better,
+ - hence the 'Canvas' abstraction or equivalent
+ - can then switch which FB is displayed (very fast)
+
+---
+.left-column[
+## View Update: .red[Redraw Mechanism]
+]
+
+.right-column[
+Damage caused by drawing (or other things)
+
+Naive approach to redraw -- problems?
+]
+![:img pic of original screen and changed screen, 72%](img/original-new.png)
+![:img pic with double buffering included, 70%](img/full-solution-buffering.png)
+
+---
+.left-column[
+## View Update: .red[Redraw Mechanism]
+]
+
+.right-column[
+Damage caused by drawing (or other things)
+
+Naive approach to redraw -- problems?
+]
+![:img pic of original screen and changed screen, 72%](img/original-new.png)
+![:img pic with double buffering included, 70%](img/full-solution-buffering.png)
+
+.right-column[
+- **Never** just draw
+ - Why not? 
+]
+
+???
+- Update *state*
+- Report *damage* (by calling 'repaint())
+- Wait for *toolkit to request redraw*
+ (also works if damage comes from elsewhere)
+- How does it generalize to any cause of damage (always need state!!)
+
+---
+.left-column[
+## View Update: .red[Propagating Damage]
+]
+
+.right-column[
+How do you decide what is damaged?
+
+Class exercise... Trivial reject test
+]
+
+
+???
+Integer arithmetic
+
+trivial reject test
+ - compare diagonal of damage region (bounding box)
+ - to bounding box of
+
+each component
+---
+# Summary

@@ -54,7 +54,7 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
 |**4/15**|**Monday**|Event Handling I: Input Devices, Events and Event Delivery|
-||Slides|[Event Handling 1](/interaction/slides/wk02/events1.html)| How events are dispatched to interactors|
+||Slides|[Event Handling](/interaction/slides/wk03/events.html)| How events are dispatched to interactors|
 ||Exercise Due|[Layout](/interaction/assignments/layout)|
 |**4/17**|**Wednesday**|**MVC at the Interactor Level Essential Geometry and Essential Behavior**|
 ||Required Reading (10 min)|Chapter 3: Event Handling {{site.hcibook}} pp. 43-52 (on Input Events); 59-63 (Listeners)| Basics of event handling including event types and listeners
@@ -62,13 +62,12 @@ layout: default
 ||Slides| [Essential Behavior: Finite State Machines](/interaction/slides/wk03/state.html)| Essential Behavior and the use of final state machines to implement it |
 |**4/18**|**Thursday**|**Build your own Interactor exercise**|
 ||Exercise Assigned|[Color Picker](/interaction/assignments/colorpicker)| Handle input; Create a non-rectangular interactor; Implement a finite state machine
-||Slides|[Event Handling](/interaction/slides/l03/events.html)| Event Handling in Android and data persistence
 ||For Your Reference|[Activity State Change Events](/interaction/slides/l03/activity-events.html)|
 |**4/19**|**Friday**|**Finite State Machines**|
 ||Required Reading|Chapter 11: Input Syntax Specification {{site.hcibook}}| Essential Behavior and the use of final state machines to implement it |
 ||Optional Reading|[Custom View Components](https://developer.android.com/guide/topics/ui/custom-components)|
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
-||Slides|[From Events to Behavior](/interaction/slides/wk03/events.html)| Toolkit abstractions for responding to events
+||Slides|[Essential Geometry and View Update](/interaction/slides/wk03/viewupdate.html)| Toolkit abstractions for responding to events
 {: .small #small .schedule #schedule}
 
 # Week 4: Tell me all about it

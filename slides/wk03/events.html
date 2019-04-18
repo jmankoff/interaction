@@ -1,371 +1,583 @@
 ---
 layout: presentation
-title: Event Handling II--Essential Geometry and View Updates
-description: 
+title: Event Handling I -- Input Devices, Events and Event Delivery
+description: Describes input devices, abstractions around events, Listeners, Event Delivery
 class: middle, center, inverse
 ---
 name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Input Events
+# Event Types and Event Dispatch
 
 Jennifer Mankoff
 CSE 340 Spring 2019 
 ---
+name: normal
+layout: true
+class: 
+---
+| Command Line | Windows |
+|---|---|
+|![:img Picture of a Command Line Interface, 100%](img/commandline.png)|![:img Picture of a windows desktop, 100%](img/windows.png)|
+???
+- Command Line (Unix shell, DOS prompt)
+- Interaction driven by system
+- User prompted for input when needed
+- Text-based input and output
 
+- Event-Driven Interfaces (GUIs)
+- Interaction driven by user
+- UI constantly waiting for input events
+- Pointing & text input, graphical output
+---
 [//]: # (Outline Slide)
+.left-column[
 # Today's goals
-
----
-
-layout: false
-
-.left-column[
-#Input Event Goals
 ]
 .right-column[
-Device Independence
-- Want / need device independence
-- Need a uniform and higher level abstraction for input
+Discuss how input is handled
+- Difference between hardware and interaction techniques / Components
+- Logical device abstraction and types of devices
+- Sensor based input 
+- Event vs sampled devices
+- Events as an abstraction
 
-Component Independence
-- Given a model for representing input, how do we get inputs delivered
-to the right component?
+Discuss how Android models input
+- Event hierarchy
+- Input dispatch process
+- Listeners
+- Picking, capture and bubble
+]
+---
+|Procedural | Event Driven |
+|---|---|
+|Code is executed in sequential order | Code is executed based upon events|
+|![:img Code printout saying Statement 1; Statement 2; Statement 3, 100%](img/procedural.png)|<br><br><br><br>![:img Code printout saying Method 1; Method 2; Method 3 with mouse and keyboard icons causing events pointed at different methods, 100%](img/eventdriven.png)|
+---
+.title[How does the Toolkit Architecture accomplish this?]
+.body[
+Application’s UI Thread (This is the main thread of your program)
+```
+while(true){
+ // Gets event from the application message queue. 
+ // If the queue is empty, we just wait here.
+ Event e = GetEventFromMessageQueue();
+ 
+ // Dispatches the event to the appropriate application window 
+ // (the destination address is in the event data).
+ DispatchEventToMessageDestination(e);
+}
+```
+]
+--
+.body[
+Don’t worry, this code is automatically setup and managed by the UI framework you are using (e.g., .NET, WPF, Android, Swift). You don’t really need to worry about it (but you should know it’s there and how it functions!)
+]
+---
+
+.left-column[
+# But what is an Event? Where does it come from?
+]
+.right-column[
+Generally, input is harder than output
+
+- More diversity, less uniformity
+
+- More affected by human properties
+]
+---
+.left-column[
+# Is this an input device?
+]
+.right-column[
+![:img Picture of swipe keyboard showing text entry of satisfying, 50%](img/swipe.png)
+]
+--
+.right-column[
+No … it’s an interaction technique. Over 50 WPM!
 ]
 ???
+Who/what/where/etc
+Dimensionality – how many dimensions can a device sense?
+Range – is a device bounded or unbounded?
+Mapping – is a device absolute or relative?
 
 ---
 .left-column[
-# Review: Logical Device Approach
+# Interaction techniques / Components make input devices effective
 ]
 .right-column[
-- Valuator → returns a scalar value
-
-- Button → returns integer value
-
-- Locator → returns position on a logical view surface
-
-- Keyboard → returns character string
-
-- Stroke → obtain sequence of points
-
-- Pick → select an object
+For example, consider text entry: 
+- 60-80 (keyboards; twiddler)
+- ~20 (soft keyboards)
+- ~50? Swype – but is it an input device?
 ]
 ---
 .left-column[
-# Review: Dispatch
-]
-.right-column[
-Picking
-
-Bubbling
-
-Capture
+# Modern hardware and software starting to muddy the waters around this
 ]
 
----
-layout: false
-
-.left-column[
-#Input Event Goals
-]
-.right-column[
-Device Independence
-- Want / need device independence
-- Need a uniform and higher level abstraction for input
-
-Component Independence
-- Given a model for representing input, how do we get inputs delivered
-to the right component?
-
-Model View Control for Components
-- How do components 
-- How do components deal with events (Essential Behavior)
-]
-???
-
----
-
-.left-column[
-## View Update: .red[Based on Essential Geometry]
-]
-
-.right-column[
-- Supports feedback to user
-
-![:img google doc with scrollbar, 50%](img/window.png)
-]
+![:img Picture of OLED keyboard with labels on keys for gaming instead
+of typing, 50%](img/oled.png)
 
 ???
-Examples?
+Add OLEDs to keys -> reconfigurable label displays
 
 ---
-
 .left-column[
-## View Update: .red[Based on Essential Geometry]
+# Can never ignore hardware completely
 ]
-
 .right-column[
-- Supports feedback to user
+Consider Location
 
-![:img google doc with scrollbar, 50%](img/window-with-menu.png)
+What is different about a joystick, a touch screen, and a mouse?
 ]
-
----
-
-.left-column[
-## View Update: .red[Based on Essential Geometry]
-]
-
-.right-column[
-- Supports feedback to user
-
-![:img google doc with scrollbar, 50%](img/window-with-menu-highlight.png)
-]
-
----
-
-.left-column[
-## View Update: .red[Based on Essential Geometry]
-]
-
-.right-column[
-- Supports feedback to user
-
-![:img google doc with scrollbar, 50%](img/window-with-menu-highlight2.png)
-]
-
 ???
-What is the essential geometry of this menu?
----
+Mouse was originally just a 1:1 mapping in 2 dimensions == absolute
+location; bounded
 
+Joystick is relative (maps movement into rate of change in location); unbounded
 
-.left-column[
-## View Update: .red[Based on Essential Geometry]
-]
+Touch screen is absolute; bounded
 
-.right-column[
-- Supports feedback to user
-
-- Requires redraw on toolkit side
-]
-
-???
-why? 
-
----
-.left-column[
-## View Update: .red[Based on Essential Geometry]
-]
-
-.right-column[
-- What should be redrawn?
-
-![:img google doc with scrollbar, 50%](img/window.png)
-]
+What about today's mouse? Lifting?
 
 ---
 
 .left-column[
-## View Update: .red[Based on Essential Geometry]
+# Is there a higher level abstraction here?
 ]
 
+--
 .right-column[
-- What should be redrawn?
+Logical Device Approach:
 
-![:img google doc with scrollbar, 50%](img/window-with-menu.png)
-]
----
+- Valuator -> returns a scalar value
 
-.left-column[
-## View Update: .red[Based on Essential Geometry]
-]
+- Button -> returns integer value
 
-.right-column[
-- What should be redrawn?
+- Locator -> returns position on a logical view surface
 
-![:img google doc with scrollbar, 50%](img/combined.png)
-]
+- Keyboard -> returns character string
 
----
-.left-column[
-## View Update: .red[Damage Mechanism]
-]
-.right-column[
-- How does the toolkit know what to redraw?
+- Stroke -> obtain sequence of points
 
- - Let the component report
-
- - Aggregate
-
- - Usually calculate bounding box
-]
----
-.left-column[
-## View Update: .red[Draw/Redraw Mechanism]
-]
-.right-column[
-- Virtual device abstraction provided by windowing system
+- Pick -> select an object
 ]
 
 ???
 
-Allows each program to (mostly) pretend that it has the screen (frame
-buffer) to itself
+- Can obscure important differences -- hence use inheritance
 
----
-.left-column[
-## View Update: .red[Draw/Redraw Mechanism]
-]
-.right-column[
-- Virtual device abstraction provided by windowing system
-
-- Component abstraction provided by toolkit
-]
-
-???
-
-Allows each component to (mostly) pretend that it has the screen to
-itself
-
----
-.left-column[
-## View Update: .red[Draw/Redraw Mechanism]
-]
-.right-column[
-- Virtual device abstraction provided by windowing system
-
-- Component abstraction provided by toolkit
- - Enforced using clipping
- - Supported using coordinate system transformations
-]
-
----
-.left-column[
-## View Update: .red[Value of component abstraction]
-]
-.right-column[
-Each component knows how to draw itself
-
-Based on what it is and its internal state
-
-Includes some common properties (inherited from a base class for all components), E.g.
-
-- position (x,y relative to parent)
-
-- size (w,h)
-
-- visible
-
-- Enabled
-
-Typically includes some specialized properties (declared in
-subclass)
-]
-
----
-.left-column[
-## View Update: .red[Redraw Mechanism]
-]
-.right-column[
-Damage caused by drawing (or other things)
-]
-???
-Can you think about other things?
-- Window hidden and re-exposed
-- Resizing
-- redrawing
-
----
-.left-column[
-## View Update: .red[Redraw Mechanism]
-]
-
-.right-column[
-Damage caused by drawing (or other things)
-
-Naive approach to redraw -- problems?
-]
----
-
-.left-column[
-## View Update: .red[Redraw Mechanism]
-]
-.right-column[
-Damage caused by drawing (or other things)
-
-Naive approach to redraw -- problems?
-]
-![:img pic of original screen and changed screen, 72%](img/original-new.png)
+- Discussion of mouse vs pen -- what are some differences?
 
 
 ???
-XXX TODO ADD pic like this using divs?
 
-- Can be slow (redrawing everything unecessary)
-- Can cause flickering
- - double buffering is better,
- - hence the 'Canvas' abstraction or equivalent
- - can then switch which FB is displayed (very fast)
+- Helps us deal with a diversity of devices
 
----
-.left-column[
-## View Update: .red[Redraw Mechanism]
-]
+- Make sure everyone understands types of events
 
-.right-column[
-Damage caused by drawing (or other things)
-
-Naive approach to redraw -- problems?
-]
-![:img pic of original screen and changed screen, 72%](img/original-new.png)
-![:img pic with double buffering included, 70%](img/full-solution-buffering.png)
+- Make sure everyone has a basic concept of how one registers listeners
 
 ---
 .left-column[
-## View Update: .red[Redraw Mechanism]
+# Not really satisfactory...
 ]
 
 .right-column[
-Damage caused by drawing (or other things)
+Doesn't capture full device diversity
 
-Naive approach to redraw -- problems?
+Event based devices
+- Time of input determined by user
+- Value changes only when activated
+- e.g. button
+
+Sampled devices
+- Time of input determined by program
+- Value is continuously changing
+- e.g. mouse
 ]
-![:img pic of original screen and changed screen, 72%](img/original-new.png)
-![:img pic with double buffering included, 70%](img/full-solution-buffering.png)
-
-.right-column[
-- **Never** just draw
- - Why not? 
-]
-
 ???
-- Update *state*
-- Report *damage* (by calling 'repaint())
-- Wait for *toolkit to request redraw*
- (also works if damage comes from elsewhere)
-- How does it generalize to any cause of damage (always need state!!)
+Capability differences
+ - Discussion of mouse vs pen
+ - what are some differences?
 
 ---
 .left-column[
-## View Update: .red[Propagating Damage]
+# Contents of Event Record
 ]
+.right-column[
+What do we need to know about each event? 
+]
+--
+.right-column[
+**What**: Event Type (mouse moved, key down, etc)
+
+**Where**: Event Target (the input component)
+
+**When**: Timestamp (when did event occur)
+
+**Value**: Mouse coordinates; which key; etc.
+
+**Context**: Modifiers (Ctrl, Shift, Alt, etc); Number of clicks; etc.
+]
+???
+Discuss each with examples
+---
+.left-column[
+# Responding to Users
+]
+.right-column[
+When a user interacts with our apps, Android creates **events**
+]
+--
+.right-column[
+As app developers, we react "listening" for events and responding
+appropriately
+]
+
+---
+# Demo
+
+---
+.left-column[## Android Events]
+.right-column[
+Each kind of event has its own class but they all implement the event interface
+- A little hard to find all the parts defined in one place
+- Harder to deal with uniformly
+- But easily extensible for new event types
+
+.red[Artificial] events are a thing (e.g. window events)
+]
+
+---
+.title[Android [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)]
+.body[
+```java
+java.lang.Object
+   ↳	android.view.InputEvent
+ 	   ↳	android.view.MotionEvent
+
+public final class MotionEvent 
+extends InputEvent implements Parcelable {
+
+int getAction()      // up, down etc
+int getActionIndex() // multi touch support -- which pointer
+float getX()         // position
+float getY()         // position
+int getButtonState() // pressed or not, for example
+long getDownTime()
+float getOrientation(int pointerIndex)
+float getPressure()
+float getSize()      // fingers aren't pixel sized
+                     // and many more...
+}
+```
+]
+---
+.left-column[
+# Aside: Multiple Hierarchies discussed so far in class
+]
+.right-column[
+Can you think of them?
+]
+???
+Inheritance hierarchy for interactors
+Inheritance hierarchy for layout
+Inheritance hierarchy for events
+Component hierarchy
+---
+.left-column[
+# Input __Dispatch__ Process
+]
+.right-column[
+Input thread: 
+- When a user interacts,  __events__ are created
+- Events go into a queue
+]
+---
+.left-column[
+# Input __Dispatch__ Process
+]
+.right-column[
+Input Thread
+
+Dispatch thread:
+- Front event comes off queue
+- How does a toolkit decide where to send events?
+]
+
+---
+.left-column[
+# How do we decide where to send events?]
 
 .right-column[
-How do you decide what is damaged?
+Input Thread
 
-Class exercise... Trivial reject test
+Dispatch thread:
+  - Worked example of touch input
+  
+```java
+@Override
+    public boolean onTouchEvent(MotionEvent event) {
+	...
+	}
+```
+]
+???
+
+(focus) Discuss Quiz on Input Events
+(positional) Determine proper component 
+
+---
+.left-column[
+# Input __Dispatch__ Process
+]
+.right-column[
+Input Thread
+
+Dispatch thread
+
+Components:
+- Components have to listen for events
+- How do components respond? 
+]
+???
+- remind them that component/view/interactor are interchangeable in
+  this class
+- Update application state if appropriate
+- Request repaint if needed
+
+
+---
+# Input Process - Picking
+
+<div class="mermaid">
+graph TD
+V0((V0)) --> V1((V1*))
+V0 --> V4((V4*))
+V1 --> V2((V2))
+V1 --> V3((V3*))
+V4 --> V5((V5))
+V4 --> V6((V6*))
+
+classDef bluegreen fill: #d1e0e0,stroke:#333,stroke-width:2px;
+classDef blue fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef green fill:#dbf0db,stroke:#333,stroke-width:4px;
+class V0,V2,V5 blue
+class V1,V4,V3,V6 bluegreen
+</div>
+
+.footnote[*: denotes the element responds to the event]
+
+--
+
+- What `View` objects does dispatch "pick"? 
+  
+--
+
+- Picked Views = { `V1`, `V3`, `V4`, `V6`}
+
+--
+
+- Order matters!
+---
+# Input Example - Capture
+
+- Picked Views = { `V1`, `V3`, `V4`, `V6`}
+
+- What happens next?
+--
+
+- Dispatch starts at the front of the picked `View` object list
+
+--
+
+- In order, dispatch asks: will you consume this event?
+--
+
+  - If `true`: the event is consumed and the event propagation __stops__
+
+  - If `false`: Move to the next element in the `View` list
+
+--
+
+- What happens when we reach the last `View` in the list and no one has consumed the event?
+
+---
+# Input Example - Bubbling
+
+- Picked Views = { `V1`, `V3`, `V4`, `V6`}
+
+--
+
+- Android backtracks through the list, asking if they want to consume the event
+
+--
+
+- Who gets asked first ?
+
+---
+# Input Example - Recap
+.three-quarters-width[
+|State           |Ordering         |
+|:---------------|:----------------|
+|*Picking*       | V1| V3 | V4 | V6|
+|*Capture Order* | 1 | 2  | 3  | 4 |
+|*Bubbling Order*| 4 | 3  | 2  | 1 |
 ]
 
-
-???
-Integer arithmetic
-
-trivial reject test
- - compare diagonal of damage region (bounding box)
- - to bounding box of
-
-each component
 ---
-# Summary
+.left-column[
+# How does *Android* decide where to send events?]
+.right-column[
+- **capture** (most things don’t) top to bottom deliver to target
+   object (bottom) (example: `onInterceptTouchEvent()` in android
+- **pick** to identify objects of interest (or just focus())
+   (`buildTouchDispatchChildList()` in android; happens only after capture!)
+- **bubble** (bottom to top) (example: `onTouchEvent()` in android)
+- Invoke callback (wait until complete) (we do this by creating a
+  custom listener in android)
+  ]
+.footnote[fascinating to look at [implementation in
+ViewGroup](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/view/ViewGroup.java)
+-- not very general!]
+---
+.title[Creating a new type of callback]
+.body[
+```java
+protected MyView.MyListener mListener;
+
+    public void setMyListener(MyListener mListener) {
+        this.mListener = mListener;
+    }
+
+    // Creates a new named inner interface for listening to color selection events
+    public interface MyListener {
+        void onInterestingEvent(); // can include a parameter
+    }
+	
+	// somewhere else in your code, when callback time happens
+    public void someMethod() {
+		mListener.onInterestingEvent();
+	}
+```
+]
+---
+# What is focus useful for?
+
+---
+.title[Summary]
+.body[
+- Events: logical input device abstraction
+- Event driven code: very different from procedural
+- Input dispatching process (toolkit architecture)
+ - Picking (alternative: Focus)
+ - Capture
+ - Bubble
+- Listeners are notified about events
+- Application callbacks can be implemented as custom listeners
+]
+---
+# End of Deck
+---
+# Implementing Drag and Drop
+
+Focus? Or Positional?
+???
+[Android's tutorial is positional](https://developer.android.com/training/gestures/scale#java)
+---
+.left-column[##Summary]
+.right-column[
+
+]
+???
+---
+# How would you handle input in a circular component?
+???
+Consumption is based on the bounding box...
+---
+# Code shown in class
+```java
+public class Counter extends ImageView {
+    private int count = 0; // model
+
+    public Counter(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    protected void onDraw(Canvas canvas) {
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(60);
+        canvas.drawText("Click count" + count, 100,100, paint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            Log.i("debug", "onTouch: down");
+            count++;
+            invalidate();
+            return true;
+        }
+        return false;
+    }
+}
+```
+---
+# XML shown in class
+```xml
+    <com.example.myapplicationeventdemo.Counter
+        android:layout_width="358dp"
+        android:layout_height="231dp"
+        android:background="@android:color/black"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+```
+
+---
+# End of Deck
+---
+---
+.left-column[
+# We model everything as events
+]
+.right-column[
+Sampled devices
+  - Handled as “incremental change” events
+  - Each measurable change: a new event with new value
+Device differences
+  - Handled implicitly by only generating events they can generate
+]
+
+---
+
+.title[MVC for a button]
+.body[
+- Diagram it with respect to reading
+ - Model
+ - View
+ - Controller
+]
+---
+.title[Interactor (Component) Model]
+.body[
+__Encapsulate interactive components__ (interactors)
+- Component library (button, slider, container)
+- Interface built as a hierarchy of components
+
+__Components drawn by underlying graphics library__
+- Input event generation and dispatch
+- Historically mouse & keyboard, now touch, ...
+
+__Bounds management & damage/redraw__
+- Model geometry, redraw updated regions only
+]
+
