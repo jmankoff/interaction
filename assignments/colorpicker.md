@@ -85,9 +85,9 @@ _Related APIs_:
 
 ## Callbacks and Listeners
 
-### First Layout
+### Layout
 
-On the first layout, we want our color picker to be nicely initialized. To do this, the default state of the color picker should be as if someone selected `Color.RED`. This should also trigger `onColorSelected` for any listeners.
+On layout, we want our color picker to be nicely initialized. To do this, the default state of the color picker should be as if someone selected `Color.RED`. This should also trigger `onColorSelected` for any listeners.
 
 ### Register Callbacks and Listeners
 
