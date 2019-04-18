@@ -123,7 +123,7 @@ S((.)) --> A((Start))
 A -- "Press?insideCircle:updateColor();updateThumb();setAlpha(.5f)" --> I((Inside))
 I -- "Release:setAlpha(1.00f),onColorSelected()" --> E[End]
 I -- "Drag?insideCircle:updateColor();updateThumb()" --> I
-I -- "Drag?outsideCircle:updateThumb()" --> I
+I -- "Drag?outsideCircle:doNothing()" --> I
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
