@@ -6,7 +6,7 @@ code: EX3
 published: true
 assigned: Thursday, April 18, 2019
 due: 11:59 PM Wednesday, April 24, 2019
-revised: 12:30 AM Thursday, April 18, 2019
+revised: 8:15 AM Thursday, April 18, 2019
 
 objective: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
 
@@ -88,7 +88,7 @@ _Related APIs_:
 
 In the screenshots there is a visible thumb that marks the selected color on the dial. The thumb is drawn in `onDraw()` and should move around as a user interacts with the color picker, not just jumping to its final location when they release the finger/mouse.
 
-Visually, the thumb is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). This value is provided to you as a constant. Intuitively, positioning the thumb is similar to `ColorPicker#getTouchAngle(..)` but in reverse, additionally constraining the thumb to stay within the color band.
+Visually, the thumb's radius is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). This value is provided to you as a constant. Intuitively, positioning the thumb is similar to `ColorPicker#getTouchAngle(..)` but in reverse, additionally constraining the thumb to stay within the color band.
 
 ### Center Circle
 
