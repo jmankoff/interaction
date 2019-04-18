@@ -118,6 +118,8 @@ Notice from the documentation that `onRestoreInstanceState` is called after `onC
 
 <span style="color:red">We will kill the activity to test if the state is saved. Use adb to test killing it or in developer options set Apps -> Don't keep activity.</span>
 
+The best way to test this functionality is to enable the setting referenced above, and then press home, and return to the app. The selected color should still be the same. Quitting the app from multitasking will destroy the bundle.
+
 _Related APIs_:
 [Saving and Restoring State](https://developer.android.com/guide/components/activities/activity-lifecycle.html#saras)
 
