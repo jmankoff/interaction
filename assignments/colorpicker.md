@@ -85,12 +85,6 @@ _Related APIs_:
 
 ## Callbacks and Listeners
 
-### Layout
-
-On layout, we want our color picker to be nicely initialized. To do this, the default state of the color picker should be as if someone selected `Color.RED`. This should also trigger `onColorSelected` for any listeners.
-
-### Register Callbacks and Listeners
-
 We need to connect the color picker to a view to display our newly chosen color. In `MainActivity`, add a `ColorPicker#ColorListener` to `colorPicker` so that `colorView`'s color and `colorTextView`'s text are changed whenever `onColorSelected` is called.
 
 _Related APIs_:
@@ -100,11 +94,11 @@ _Related APIs_:
 
 In the screenshots there is a visible handle that marks the selected color on the dial. The thumb should move around as a user interacts with the color picker, not just jumping to its final location when they release the finger/mouse.
 
-Visually, the thumb is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). This value is provided to you as a constant. There is an intuitive way to position it within the track of the color without any other arbitrary values.
+Visually, the thumb is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). This value is provided to you as a constant. Intuitively, positioning the thumb is similar to `ColorPicker#getTouchAngle(..)` but in reverse, constraining the thumb to stay within the color band.
 
 ## Center Circle
 
-Inside the multi-color dial should be a circle that's color is the same as the live selected color. The color of the circle should update while you drag the thumb, different from the colored box and text which update only when the mouse is released. The radius of this circle should be computed using the the radius of the thumb.
+Inside the multi-color dial should be a circle that's color is the same as the live selected color. The color of the inner circle, which represents the color picker’s model, should update while you drag the thumb. In contrast, the colored box and text, which represent the application’s model, should update only when the mouse is released.
 
 # ColorPickerActivity.java
 
@@ -112,11 +106,15 @@ Inside the multi-color dial should be a circle that's color is the same as the l
 
 The application layer of this problem should recieve information about the latest color selected by the color picker only through the listener you create. This means you are **prohibited** from leveraging a publicly accessibly field/function on the color picker to observe its state when necessary.
 
+The application layer should set the default color of `colorPicker` using `ColorPickerActivity#setStartingColor`, we provide this default as `ColorPicker.DEFAULT_VALUE` (it's red). It is also neccessary that `ColorPickerActivity#setStartingColor` triggers `onColorSelected`.
+
 ## Save Application Model using Bundle
 
-Please save application model in savedInstanceState bundle. When user goes off to some other app, Android kills our Activity. We need to get the saved state back.
+Please save application model in `onSaveInstanceState` bundle. When user goes off to some other app, Android kills our Activity. We need to get the saved state back.
 
 We want to manage the state at the application level (`MainActivity.java`) versus at the interactor level, this means you will need to find a way to set the state of the color picker from its parent.
+
+Notice from the documentation that `onRestoreInstanceState` is called after `onCreate` if a bundle exists, we want you to handle the bundle in `ColorPickerActivity#setStartingColor` so you should not implement `onRestoreInstanceState`.
 
 <span style="color:red">We will kill the activity to test if the state is saved. Use adb to test killing it or in developer options set Apps -> Don't keep activity.</span>
 
@@ -142,19 +140,20 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 
 ## Grading (10pts)
 
-- Event Handling // onTouchEvent, etc
-  - Creat working basic functionalities: 2pts
-  - Handle Edge Cases in PPS: 1pt
-  - Reject Events outside Color Wheel: 1pt
-- Feedback //onDraw
-  - _remove_ Map Angle to Color (also correctly compute angle): 1pt
-  - Place Handle in Correct Location: 1pt
+- Event Handling (onTouchEvent, etc)
+  - Interaction functionality is correct: 1pts
+  - Implement PPS properly: 2pt
+  - Reject press events that occur outside the wheel: 1pt
+- Feedback (onDraw)
+  - Place thumb in correct location: 1pt
   - Correctly trigger redraw: 1pt
-- Model Management //
-- Save Application State using bundler: 1pt
+- Model Management
+  - Correctly update ColorView model 1pt
+  - Correctly update application model 1pt
+- Application Resiliency
+  - Save Application State using bundler: 1pt
 - Communicate to application properly
-  - Implement custom layout handler for Callback (_onColorXXXX_): 1pt
-  - Properly decide when to trigger callback
+  - Implement custom handler for onColorChanged callback 1 pt
 - Code Organization and Style: 1 pt
 
 ## IDE Errors/Warnings you can ignore
