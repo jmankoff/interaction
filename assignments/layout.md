@@ -26,7 +26,7 @@ hci_goals:
 ---
 
 - TOC
-{:toc}
+  {:toc}
 
 # Part 1
 
@@ -118,7 +118,7 @@ Tasks:
 
 This will be similar to [Part 3](#part-3) but with two columns. Inside `part4_grid.xml`, add two `LinearLayout`s to be our columns. Constrain them such that they equally divide the horizontal space with no padding or margin. When the view is rotated, the columns should change width to maintain the 50% split.
 
-In `Part4View`, add each image to one of the two columns. By using two `LinearLayout`s instead of simply adding all images to the parent `ConstraintLayout` and using constraints to maintain the columns, we reduce the number of constraints required from `O(n)` to `O(1)` for `n` images. Each image should be `vMargin` from the previous image vertically (or the top of the column if first image). There should be a vMargin gap between the two columns, however, **the center of the gap must be in the exact center of the screen**. The bottom of the last image should be flush with the bottom of the column. Finally, each image should expand to fill the width as restricted by the margins described above and the height should be such that the aspect ratio matches the source drawable. (Hint: there's a function which will will do this for you.) When rotated, the images should change width to fit the larger comlumns.
+In `Part4View`, add each image to one of the two columns. By using two `LinearLayout`s instead of simply adding all images to the parent `ConstraintLayout` and using constraints to maintain the columns, we reduce the number of constraints required from `O(n)` to `O(1)` for `n` images. Each image should be `vMargin` from the previous image vertically (or the top of the column if first image). There should be a vMargin gap between the two columns, however, **the center of the gap must be in the exact center of the screen**. The bottom of the last image should be flush with the bottom of the column. Finally, each image should expand to fill the width as restricted by the margins described above and the height should be such that the aspect ratio matches the source drawable. (Hint: there's a function which will will do this for you.) When rotated, the images should change width to fit the larger columns.
 
 To determine which column a photo should go in, we will use "pinterest" ordering. You should track the height of the images in each column and add the next image to the shorter column (or the left if equal). Be careful not to track the height of the `Drawables` as opposed to the display height of the image. Two photos of the same aspect ratio should affect the column height identically regardless of resolution as they will both have the same size on-screen.
 

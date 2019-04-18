@@ -4,5 +4,6 @@
 - Talk through stub/spec (7min)
   - Reminder of api references
   - Radian math quick refresh
-- Start on handling touch event to draw thumb and drag it around, unconstrained (10min)
-- Let people work on Color Picker and answer questions
+- Convert unconstrained xy coords to a color (10min)
+- Work in small groups over examples of possible interaction flows, ask about potential outputs (2 + 5)
+- work on state machine implementation (23min)

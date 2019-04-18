@@ -4,7 +4,7 @@ title: Color Picker
 code: EX3
 
 assigned: Thursday, April 18, 2019
-due: 11:59 PM Tuesday, April 23, 2019
+due: 11:59 PM Wednesday, April 24, 2019
 revised: 3:30 PM Wednesday, April 17, 2019 # TODO: update this
 
 objective: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
@@ -39,9 +39,10 @@ We'll handle touch input by implementing `onTouchEvent`. This is the event handl
 <div class="mermaid">
 graph LR
 S((.)) --> A((Start))
-A -- "Press?insideCircle:setAlpha(.75f)" --> I((Inside))
-I -- "Release:setAlpha(1.00f), onColorSelected()" --> E[End]
-I -- "Drag:setAlpha(.5f),updateHandle(),updateColor()" --> I
+A -- "Press?insideCircle:updateColor(),setAlpha(.5f)" --> I((Inside))
+I -- "Release:setAlpha(1.00f),onColorSelected()" --> E[End]
+I -- "Drag?insideCircle:updateColor()" --> I
+I -- "Drag?outsideCircle" --> I
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
@@ -55,10 +56,11 @@ class I normal
 
 </div>
 
-Then we should update handle transparency based on touch events:
+Then we should update the model based on touch events:
 
-- When a finger touch down, it will show the handle (in 75% alpha).
-- When a finger drags on screen, it will always show the handle (in 50% alpha).
+- When a finger touch down, it will show the handle (in 50% alpha).
+- When a finger drags on screen inside the circle, the handle will follow the angle the finger is at.
+- When a finger drags on screen outside the circle, the handle will stay at the most recent angle within the circle.
 - When a finger leaves screen, it will show the handle (in 100% alpha) at the last touch point on the screen.
 
 ![Screenshot of color picker, original](colorpicker-img/1.png){:width="150px"}
@@ -86,9 +88,9 @@ We need to connect the color picker to a view to display our newly chosen color.
 _Related APIs_:
 [View#onLayout](https://developer.android.com/reference/android/view/View)
 
-# Save State in Bundle
+# Save Application Model using Bundle
 
-Please save color picker states in savedInstanceState bundle. When user goes off to some other app, and Android kills our Activity. We need to get the saved state back. Please refer to lecture slides for detail.
+Please save application model in savedInstanceState bundle. When user goes off to some other app, and Android kills our Activity. We need to get the saved state back. Please refer to lecture slides for detail.
 
 We want to manage the state at the application level (`MainActivity.java`) versus at the interactor level, this means you will need to find a way to set the state of the color picker from its parent.
 
@@ -128,7 +130,7 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 
 - Event Handling // onTouchEvent, etc
   - Creat working basic functionalities: 2pts
-  - Handle Edge Cases in State Machine: 1pt
+  - Handle Edge Cases in PPS: 1pt
   - Reject Events outside Color Wheel: 1pt
 - Feedback //onDraw
   - _remove_ Map Angle to Color (also correctly compute angle): 1pt
