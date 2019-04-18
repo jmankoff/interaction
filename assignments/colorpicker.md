@@ -148,8 +148,8 @@ _Related APIs_:
 You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
 ```
-─ ColorPickerView.java
-- ColorPickerActivity.java
+ ─ ColorPickerView.java
+ - ColorPickerActivity.java
 ```
 
 ## Grading (10pts)
