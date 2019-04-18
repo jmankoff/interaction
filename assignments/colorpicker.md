@@ -5,7 +5,7 @@ code: EX3
 
 assigned: Thursday, April 18, 2019
 due: 11:59 PM Wednesday, April 24, 2019
-revised: 3:30 PM Wednesday, April 17, 2019 # TODO: update this
+revised: 8:30 PM Wednesday, April 17, 2019
 
 objective: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
 
@@ -30,11 +30,13 @@ Tasks:
 - Register callbacks
 - Save activity state in bundle
 
-# Touch Input Events
+# Getting Started
 
-We'll handle touch input by implementing `onTouchEvent`. This is the event handler that will be called when a touch is registered in this view. First, we need to reject any touches that are outside of the circle. Colors may only be selected by tapping on or inside the color wheel.
+Over the course of this assignment you will be editing `ColorPickerView.java` and `ColorPickerActivity.java`, it is important to understand the inheritance chains of these two files, as you will be using **lots** of variables and functions defined in parent classes. Read the classes these classes extend!
 
-<!-- <span style="color:red"> XXX TODO: Check edge case: e.g., drag and move outside wheel, the handle stays in 50% alpha (should be 100% alpha). I added examples in test to check alpha of handle to check state.</span> -->
+Consider `ColorPickerView` as a library exposing a component which is being used by the application `ColorPickerActivity`.
+
+# ColorPickerView.java
 
 <div class="mermaid">
 graph LR
@@ -56,6 +58,12 @@ class I normal
 
 </div>
 
+## Touch Input Events
+
+We'll handle touch input by implementing `onTouchEvent`. This is the event handler that will be called when a touch is registered in this view. First, we need to reject any touches that are outside of the circle. Colors may only be selected by tapping on or inside the color wheel.
+
+<!-- <span style="color:red"> XXX TODO: Check edge case: e.g., drag and move outside wheel, the handle stays in 50% alpha (should be 100% alpha). I added examples in test to check alpha of handle to check state.</span> -->
+
 Then we should update the model based on touch events:
 
 - When a finger touch down, it will show the handle (in 50% alpha).
@@ -66,20 +74,20 @@ Then we should update the model based on touch events:
 ![Screenshot of color picker, original](colorpicker-img/1.png){:width="150px"}
 ![Screenshot of color picker, after moving to a new color](colorpicker-img/2.png){:width="150px"}
 
-If accepted, use the x and y coordinates of the touch event to calculate the angle (in radians) of the touch on the color circle by implementing `getTouchAngle`.
+Use the x and y coordinates of the touch event to calculate the angle (in radians) of the touch on the color circle with `ColorPicker#getTouchAngle(float, float)`.
 
-The angle needs to be mapped to a color on the color wheel. It is difficult to do this mapping in tranditional RGB color space. The HSV color space discussed during class fits this task well. You can read more about the HSV color space [here](https://en.wikipedia.org/wiki/HSL_and_HSV). Since we're just adjusting color, we only want to modify hue while leaving saturation and value constant. You may see detailed instruction in code comments under `#getColorFromAngle`.
+The angle needs to be mapped to a color on the color wheel. It is difficult to do this mapping in tranditional RGB color space. The HSV color space discussed during class fits this task well. You can read more about the HSV color space [here](https://en.wikipedia.org/wiki/HSL_and_HSV). Since we're just adjusting color, we only want to modify hue while leaving saturation and value constant. You may see detailed instruction in code comments under `ColorPicker#getColorFromAngle`, which we provide you. Use this implementation to guide your work on `ColorPickerView#GetAngleFromColor`, which does the opposite operation.
 
 Finally, you'll need to update the UI to reflect the new selected color. This includes moving the handle to the position on the circle for the selected color and calling `onColorSelected` on any `ColorListeners` with our newly selected color.
 
 _Related APIs_:
 [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent) / [Color](https://developer.android.com/reference/android/graphics/Color) / [ColorUtils](https://developer.android.com/reference/android/support/v4/graphics/ColorUtils) / [View#onTouchEvent](https://developer.android.com/reference/android/view/View)
 
-# Callbacks and Listeners
+## Callbacks and Listeners
 
 ### First Layout
 
-On the first layout, we want our color picker to be nicely initialized. To do this, set the handle to the top middle of the circle and adjust the color accordingly. This should also trigger `onColorSelected` for any listeners.
+On the first layout, we want our color picker to be nicely initialized. To do this, the default state of the color picker should be as if someone selected `Color.RED`. This should also trigger `onColorSelected` for any listeners.
 
 ### Register Callbacks and Listeners
 
@@ -88,9 +96,25 @@ We need to connect the color picker to a view to display our newly chosen color.
 _Related APIs_:
 [View#onLayout](https://developer.android.com/reference/android/view/View)
 
-# Save Application Model using Bundle
+## The Thumb
 
-Please save application model in savedInstanceState bundle. When user goes off to some other app, and Android kills our Activity. We need to get the saved state back. Please refer to lecture slides for detail.
+In the screenshots there is a visible handle that marks the selected color on the dial. The thumb should move around as a user interacts with the color picker, not just jumping to its final location when they release the finger/mouse.
+
+Visually, the thumb is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). This value is provided to you as a constant. There is an intuitive way to position it within the track of the color without any other arbitrary values.
+
+## Center Circle
+
+Inside the multi-color dial should be a circle that's color is the same as the live selected color. The color of the circle should update while you drag the thumb, different from the colored box and text which update only when the mouse is released. The radius of this circle should be computed using the the radius of the thumb.
+
+# ColorPickerActivity.java
+
+## Managing Application State
+
+The application layer of this problem should recieve information about the latest color selected by the color picker only through the listener you create. This means you are **prohibited** from leveraging a publicly accessibly field/function on the color picker to observe its state when necessary.
+
+## Save Application Model using Bundle
+
+Please save application model in savedInstanceState bundle. When user goes off to some other app, Android kills our Activity. We need to get the saved state back.
 
 We want to manage the state at the application level (`MainActivity.java`) versus at the interactor level, this means you will need to find a way to set the state of the color picker from its parent.
 
@@ -98,16 +122,6 @@ We want to manage the state at the application level (`MainActivity.java`) versu
 
 _Related APIs_:
 [Saving and Restoring State](https://developer.android.com/guide/components/activities/activity-lifecycle.html#saras)
-
-# The Thumb
-
-In the screenshots there is a visible handle handle that marks the selected color on the dial. The thumb should move around as a user interacts with the color picker, not just jumping to its final location when they release the finger/mouse.
-
-Visually, the thumb is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). There is an intuitive way to position it within the track of the color without any other arbitrary values.
-
-# Center Circle
-
-Inside the multi-color dial should be a circle that's color is the same as the live selected color. The color of the circle should update while you drag the thumb, different from the colored box and text which update only when the mouse is released. The radius of this circle should be computed using the the radius of the thumb, which as given above is `0.085` \* the outer-radius of the dial.
 
 # Misc.
 
@@ -123,7 +137,7 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 
 ```
 ─ ColorPickerView.java
-- MainActivity.java
+- ColorPickerActivity.java
 ```
 
 ## Grading (10pts)
