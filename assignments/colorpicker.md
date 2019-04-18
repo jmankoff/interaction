@@ -84,7 +84,7 @@ view you are drawing in. Calculate `mRadius`, `mCenterX`, and
 _Related APIs_:
 [View#onLayout](<https://developer.android.com/reference/android/view/View.html#onLayout(boolean,%20int,%20int,%20int,%20int)>)
 
-### Thumb (also referred to as Handle)
+### Thumb 
 
 In the screenshots there is a visible thumb that marks the selected color on the dial. The thumb is drawn in `onDraw()` and should move around as a user interacts with the color picker, not just jumping to its final location when they release the finger/mouse.
 
@@ -138,7 +138,7 @@ Use the `x` and `y` coordinates of the touch event to calculate the angle (in ra
 
 ### Transition to the end state.
 
-When the user finishes interacting, you'll need to update the UI to reflect the new selected color, by calling `onColorSelected` on the possible `ColorListener` with our newly selected color. In addition, the handle transparency should be reset to `1f`.
+When the user finishes interacting, you'll need to update the UI to reflect the new selected color, by calling `onColorSelected` on the possible `ColorListener` with our newly selected color. In addition, the thumb transparency should be reset to `1f`.
 
 _Related APIs_:
 [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent) / [Color](https://developer.android.com/reference/android/graphics/Color) / [ColorUtils](https://developer.android.com/reference/android/support/v4/graphics/ColorUtils) / [View#onTouchEvent](<https://developer.android.com/reference/android/view/View.html#onTouchEvent(android.view.MotionEvent)>)
