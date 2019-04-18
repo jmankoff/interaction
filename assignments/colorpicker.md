@@ -6,7 +6,7 @@ code: EX3
 published: true
 assigned: Thursday, April 18, 2019
 due: 11:59 PM Wednesday, April 24, 2019
-revised: 9:30 PM Wednesday, April 17, 2019
+revised: 12:30 AM Thursday, April 18, 2019
 
 objective: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
 
@@ -38,9 +38,9 @@ Tasks:
 
 # Getting Started
 
-Over the course of this assignment you will be editing `ColorPickerView.java` and `ColorPickerActivity.java`, it is important to understand the inheritance chains of these two files, as you will be using **lots** of variables and functions defined in parent classes. Read the classes these classes extend!
+Over the course of this assignment you will be editing `ColorPickerView.java` and `MainActivity.java`, it is important to understand the inheritance chains of these two files, as you will be using **lots** of variables and functions defined in parent classes. Read the classes these classes extend!
 
-Consider `ColorPickerView` as a library exposing a component which is being used by the application `ColorPickerActivity`.
+Consider `ColorPickerView` as a library exposing a component which is being used by the application `MainActivity`.
 
 It may be wortwhile to read [Android/Custom-Drawing](https://developer.android.com/training/custom-views/custom-drawing) and [Android/UI-Events](https://developer.android.com/guide/topics/ui/ui-events) to understand parts of the assignment that seem tricky.
 
@@ -112,13 +112,13 @@ Visually, the thumb is `0.085` times the outer-radius of the dial (center of cir
 
 Inside the multi-color dial should be a circle that's color is the same as the live selected color. The color of the inner circle, which represents the color picker’s model, should update while you drag the thumb. In contrast, the colored box and text, which represent the application’s model, should update only when the mouse is released.
 
-# ColorPickerActivity.java
+# MainActivity.java
 
 ## Managing Application State
 
 The application layer of this problem should recieve information about the latest color selected by the color picker only through the listener you create. This means you are **prohibited** from leveraging a publicly accessibly field/function on the color picker to observe its state when necessary.
 
-The application layer should set the default color of `colorPicker` using `ColorPickerActivity#setStartingColor`, we provide this default as `ColorPicker.DEFAULT_VALUE` (it's red). It is also neccessary that `ColorPickerActivity#setStartingColor` triggers `onColorSelected`.
+The application layer should set the default color of `colorPicker` using `MainActivity#setStartingColor`, we provide this default as `ColorPicker.DEFAULT_VALUE` (it's red). It is also neccessary that `MainActivity#setStartingColor` triggers `onColorSelected`.
 
 ## Save Application Model using Bundle
 
@@ -126,7 +126,7 @@ Please save application model in `onSaveInstanceState` bundle. When user goes of
 
 We want to manage the state at the application level (`MainActivity.java`) versus at the interactor level, this means you will need to find a way to set the state of the color picker from its parent.
 
-Notice from the documentation that `onRestoreInstanceState` is called after `onCreate` if a bundle exists, we want you to handle the bundle in `ColorPickerActivity#setStartingColor` so you should not implement `onRestoreInstanceState`.
+Notice from the documentation that `onRestoreInstanceState` is called after `onCreate` if a bundle exists, we want you to handle the bundle in `MainActivity#setStartingColor` so you should not implement `onRestoreInstanceState`.
 
 <span style="color:red">We will kill the activity to test if the state is saved. Use adb to test killing it or in developer options set Apps -> Don't keep activity.</span>
 
@@ -149,7 +149,7 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 
 ```
  ─ ColorPickerView.java
- - ColorPickerActivity.java
+ - MainActivity.java
 ```
 
 ## Grading (10pts)
