@@ -8,35 +8,46 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# From Events to Behavior
+layout: false
 
+.title[# Hall of Fame/Shame]
+.body[
+![:img Picture of the course website with the mouse clicking on an unresponsive hamburger menu,80%](img/noresponse.png)
+]
+
+---
+class: inverse, center, middle
+
+.title[# From Events to Behavior]
+.body[
 Jennifer Mankoff
 CSE 340 Spring 2019 
+]
 ---
 
 [//]: # (Outline Slide)
-# Today's goals
+.title[# Today's goals]
+.body[
+Review / Quiz 
 
+Introduce interaction techniques
+
+Discuss use of Propositional Production Systems in implementing them
+
+Try creating a PPS 
+]
 ---
-layout: false
-
-# Exercise: Build your own color picker
-Learning goals: 
-- Create non-rectangle interactor
-- Use a state machine to manage feedback
-- Event handlers and event bubbling
-- CallbacksReact to events
-- Should handle error cases appropriately
-
-Android learning goals:
-- Save app state
-- Handle touch input properly
-- Understand app lifecycle
-???
-
+.title[What is part of an event?]
+.body[
+![:img Picture of quiz results for the question about events. The question is "Which of these is not an event?" and the most popular answer is "CTRL (key pressed)" but many people also chose "WindowOpen" and "4"., 80%](img/notevent.png)
+]
+---
+.title[When is focus used?]
+.body[![:img Picture of quiz results for the question about focus. The question is "In which of the following situations is focused used during event handling?" and many people correctly chose "When a mouse moves off a scrollbar" but others chose things like "When selecting a word in a text area" and "When clicking on a button", 80%](img/focus.png)
+]
 ---
 .left-column[
-# Interaction Technique]
+## Interaction Technique]
 .right-column[
 A method for carrying out a specific interactive task
 
@@ -56,7 +67,7 @@ Each is a different interaction technique
 ]
 ---
 .left-column[
-# Example: Specify the end points for a line
+## Example: Specify the end points for a line
 ]
 .right-column[
 Could just specify two endpoints – click, click
@@ -70,9 +81,10 @@ Better feedback is to use “rubber banding”
 Importance of feedback vs application callback
 ---
 .left-column[
-# Implementing rubber banding]
+## Implementing rubber banding]
 
-.large.right-column[```
+.large.right-column[
+```
 Accept the press for endpoint P1; P2 = P1;
 Draw line P1-P2;
 Repeat
@@ -89,7 +101,7 @@ Not in the basic event/redraw loop
 Potentially locks up the system
 ---
 .left-column[
-# Implementing rubber banding]
+## Implementing rubber banding]
 .right-column[
 Need to get around this loop <br> absolute min of 5 times / sec
 
@@ -111,7 +123,7 @@ Needs to maintain state between events
 
 ---
 .left-column[
-# Solution: Deterministic Finite State Machines]
+# Solution: Propositional Production Systems]
 .right-column[
 
 <div class="mermaid">
@@ -142,8 +154,6 @@ Special circle for 'final state' <br> (really means 'reset to start')
 
 Transitions represent actions (callbacks).
 
-Can expand this with __Queries__ to become a Propositional Production
-System (PPS)
 ]
 ???
 
@@ -228,8 +238,44 @@ class B normal
 
 ---
 
+.left-column[##Summary]
+.right-column[
+State machines are very good (for this job) but do have limits
+
+State machines don't handle independent actions very well (state explosion)
+
+Mostly useful for smaller things
+
+- Great for individual components
+- Not so great for whole dialogs
+
+Path of least resistance is rigid sequencing
+ Ask: is this good for what I am doing?
+
+]
+???
+xxx TODO decide whether to keep
+xxx TODO decide how to end this deck and/or what other material needs
+to be covered
+---
+.left-column[## Guards on transitions]
+.right-column[
+Sometimes also use “guards” --> **Propositional Production System**
+
+- predicate (Boolean expr) before event
+
+- adds extra conditions required to fire
+
+- typical notation: pred : event / action
+
+- e.g. button.enabled: press-inside / A
+
+Note: FSM augmented with guards is Turing complete 
+]
+---
+
 .left-column[
-# PPS for Button?
+## PPS for Button?
 
 ![:img FB Messenger Animation, 100%](img/messenger-bubble.gif)
 
@@ -255,7 +301,7 @@ What is missing? Query fields
 
 ---
 .left-column[
-# Facebook Button Solution
+## Facebook Button Solution
 ![:img FB Messenger Animation, 100%](img/messenger-bubble.gif)
 ]
 --
@@ -299,8 +345,11 @@ class B normal
 
 ]
 
-???
-#When to use PPSs
+---
+.left-column[
+## When to use PPSs
+]
+.right-column[
 
 - You're probably already using them, just not intentionally (and maybe
 less well as a result)
@@ -310,11 +359,15 @@ Can do (formal or informal) analysis
 - are all possible inputs (e.g. errors) handled from each state
 - what are next legal inputs: can use to enable / disable
 Can be automated based on higher level specification
+]
 
 ---
-# Implementation of PPS
+.left-column[
+## Implementation of PPS
+]
 
 ???
+```
 fsm_transition(state, evt) switch (state)
 
 ..case 0: // case for each state
@@ -329,17 +382,81 @@ fsm_transition(state, evt) switch (state)
 ..case 1: // case for next state switch (evt.kind) ...
 
 return state;
+```
 
 ---
-# Color Picker PPS 
+layout: false
 
-Work in pairs on this
+.title[Exercise: Build your own color picker]
+.body[
+Learning goals: 
+- Create non-rectangle interactor
+- Use a state machine to manage feedback
+- Callbacks: React to events
+- Should handle error cases appropriately
+
+Android learning goals:
+- Save app state
+- Handle touch input properly
+- Understand app lifecycle
+]
+???
 
 ---
-# Summary
+.title[Color Picker PPS ]
+
+.body[Work in pairs on this]
 
 ---
-# End of Slides / Old material below here
+.left-column[![:img Picture of a menu with two items pulled down, 105%](img/menu.png)]
+
+.right-column[
+## Another example: Pull-down Menu
+
+How do we manage the drop-down behavior?
+
+FSM controller?
+
+]
+
+--
+.right-column[
+Behavior:
+
+- Body pulls down on press (in arrow)
+
+- Body stays down until release
+
+- Items highlighted while cursor is over them
+]
+---
+![:img Picture of a menu with two items pulled down, 25%](img/menu.png)
+
+<div class="mermaid">
+  graph LR
+  A((Start)) -- "Dn-inside-Top/Drop()" --> N((NotIn))
+  N -- "Enter-Item1/Highlight(1)" --> I((In1))
+  I -- "Enter-Item2/Highlight(2)" --> II
+  N -- "Enter-Item2/Highlight(2)" --> II((In2))  
+  I -- "Exit-Item1/Highlight(none)" --> N
+  II -- "Enter-Item1/Highlight(1)" --> I
+  I -- "Up/Fire-Item(1)" -->E((End))
+  II -- "Up/Fire-Item(2)"-->E((End))
+  II -- "Exit-Item2/Highlight(none)" --> N
+  N -- "Up/UnDrop()" --> F((End))
+</div>
+
+---
+.title[ Summary]
+.body[
+- Interaction technique: involves input AND feedback
+- Propositional Production Systems let us implement feedback
+  - event driven
+  - actions on **transitions**
+  - guards (conditionals) on **transitions**
+]
+---
+#End of Slides / Old material below here
 ---
 .left-column[# Discussion of state explosion]
 .right-column[
@@ -384,79 +501,3 @@ Now add another independent machine (shift key?)
 ]
 ???
 Totally out of hand -- combinatorical explosion!
-
----
-
-.left-column[##Summary]
-.right-column[
-State machines are very good (for this job) but do have limits
-
-State machines don't handle independent actions very well (state explosion)
-
-Mostly useful for smaller things
-
-- Great for individual components
-- Not so great for whole dialogs
-
-Path of least resistance is rigid sequencing
- Ask: is this good for what I am doing?
-
-]
-???
-xxx TODO decide whether to keep
-xxx TODO decide how to end this deck and/or what other material needs
-to be covered
----
-.left-column[## Guards on transitions]
-.right-column[
-Sometimes also use “guards”
-
-- predicate (Boolean expr) before event
-
-- adds extra conditions required to fire
-
-- typical notation: pred : event / action
-
-- e.g. button.enabled: press-inside / A
-
-Note: FSM augmented with guards is Turing complete
-]
----
-
-.left-column[![:img Picture of a menu with two items pulled down, 105%](img/menu.png)]
-
-.right-column[
-## Another example: Pull-down Menu
-
-How do we manage the drop-down behavior?
-
-FSM controller?
-
-]
---
-.right-column[
-Behavior:
-
-- Body pulls down on press (in arrow)
-
-- Body stays down until release
-
-- Items highlighted while cursor is over them
-]
----
-![:img Picture of a menu with two items pulled down, 25%](img/menu.png)
-
-<div class="mermaid">
-  graph LR
-  A((Start)) -- "Dn-inside-Top/Drop()" --> N((NotIn))
-  N -- "Enter-Item1/Highlight(1)" --> I((In1))
-  I -- "Enter-Item2/Highlight(2)" --> II
-  N -- "Enter-Item2/Highlight(2)" --> II((In2))  
-  I -- "Exit-Item1/Highlight(none)" --> N
-  II -- "Enter-Item1/Highlight(1)" --> I
-  I -- "Up/Fire-Item(1)" -->E((End))
-  II -- "Up/Fire-Item(2)"-->E((End))
-  II -- "Exit-Item2/Highlight(none)" --> N
-  N -- "Up/UnDrop()" --> F((End))
-</div>
-
