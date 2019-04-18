@@ -3,9 +3,10 @@ layout: assignment
 title: Color Picker
 code: EX3
 
+published: true
 assigned: Thursday, April 18, 2019
 due: 11:59 PM Wednesday, April 24, 2019
-revised: 8:30 PM Wednesday, April 17, 2019
+revised: 9:30 PM Wednesday, April 17, 2019
 
 objective: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
 
@@ -23,18 +24,25 @@ hci_goals:
 
 {:toc}
 
+# Goal
+
+Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
+
 Tasks:
 
 - Handle different input events in `onTouchEvent`
 - Initialize properties during `onLayout` (register the first measure before initializing all views)
 - Register callbacks
 - Save activity state in bundle
+- Restore activity state from bundle
 
 # Getting Started
 
 Over the course of this assignment you will be editing `ColorPickerView.java` and `ColorPickerActivity.java`, it is important to understand the inheritance chains of these two files, as you will be using **lots** of variables and functions defined in parent classes. Read the classes these classes extend!
 
 Consider `ColorPickerView` as a library exposing a component which is being used by the application `ColorPickerActivity`.
+
+It may be wortwhile to read [Android/Custom-Drawing](https://developer.android.com/training/custom-views/custom-drawing) and [Android/UI-Events](https://developer.android.com/guide/topics/ui/ui-events) to understand parts of the assignment that seem tricky.
 
 # ColorPickerView.java
 
@@ -57,6 +65,13 @@ class E finish
 class I normal
 
 </div>
+
+## Drawing
+
+To do some parts of your drawing you will need to know the size of the view you are drawing in. Calculate `mRadius`, `mCenterX`, and `mCenterY` of the color picker inside `onLayout`
+
+_Related APIs_:
+[View#onLayout](<https://developer.android.com/reference/android/view/View.html#onLayout(boolean,%20int,%20int,%20int,%20int)>)
 
 ## Touch Input Events
 
@@ -81,14 +96,11 @@ The angle needs to be mapped to a color on the color wheel. It is difficult to d
 Finally, you'll need to update the UI to reflect the new selected color. This includes moving the handle to the position on the circle for the selected color and calling `onColorSelected` on any `ColorListeners` with our newly selected color.
 
 _Related APIs_:
-[MotionEvent](https://developer.android.com/reference/android/view/MotionEvent) / [Color](https://developer.android.com/reference/android/graphics/Color) / [ColorUtils](https://developer.android.com/reference/android/support/v4/graphics/ColorUtils) / [View#onTouchEvent](https://developer.android.com/reference/android/view/View)
+[MotionEvent](https://developer.android.com/reference/android/view/MotionEvent) / [Color](https://developer.android.com/reference/android/graphics/Color) / [ColorUtils](https://developer.android.com/reference/android/support/v4/graphics/ColorUtils) / [View#onTouchEvent](<https://developer.android.com/reference/android/view/View.html#onTouchEvent(android.view.MotionEvent)>)
 
 ## Callbacks and Listeners
 
 We need to connect the color picker to a view to display our newly chosen color. In `MainActivity`, add a `ColorPicker#ColorListener` to `colorPicker` so that `colorView`'s color and `colorTextView`'s text are changed whenever `onColorSelected` is called.
-
-_Related APIs_:
-[View#onLayout](https://developer.android.com/reference/android/view/View)
 
 ## The Thumb
 
