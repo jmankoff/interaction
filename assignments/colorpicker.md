@@ -58,6 +58,13 @@ Over the course of this assignment you will be editing `ColorPickerView.java` an
 
 It is important to understand the inheritance chains of these two files, as you will be using **lots** of variables and functions defined in parent classes. Read the parent classes!
 
+Potential Order for Tackling this Assignment
+
+- implement the state machine and touch events, log the color
+- implement the callback to application, and application UI updates
+- implement the feedback for custom interactor: thumb and center circle
+- implement the state bundle saving and restoring functionality
+
 It may be wortwhile to read
 [Android/Custom-Drawing](https://developer.android.com/training/custom-views/custom-drawing)
 and
@@ -70,7 +77,9 @@ Your colorpicker view will require you to support drawing (of feedback on the sc
 
 ## Drawing
 
-Drawing is implemented in `onDraw()`. You will need to draw the thumb and the feedback in the center of the circle. This can be done using things you learned in Doodle, since `ColorPickerView` inherits from `ImageView`. We provide a color wheel in drawable, it should be drawn be the stub itself from `ColorPicker`.
+Drawing is implemented in `onDraw()`. You will need to draw the thumb and the feedback in the center of the circle. This can be done using things you learned in Doodle, since `ColorPickerView` inherits from `ImageView`. We provide a color dial in drawable, it should be drawn be the stub itself from `ColorPicker`.
+
+The term `wheel` used throughout the spec refers to the dial and inner circle, it is the larger circle that contains all interface you will be drawing.
 
 ![Screenshot of color picker, original](colorpicker-img/1.png){:width="150px"}
 ![Screenshot of color picker, after moving to a new color](colorpicker-img/2.png){:width="150px"}
@@ -88,11 +97,13 @@ _Related APIs_:
 
 In the screenshots there is a visible thumb that marks the selected color on the dial. The thumb is drawn in `onDraw()` and should move around as a user interacts with the color picker, not just jumping to its final location when they release the finger/mouse.
 
+The thumb should be constrained to moving along a circular track that places it within the dial. It should move along that track even when responding to valid events within the wheel but not within the dial.
+
 Visually, the thumb's radius is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). This value is provided to you as a constant. Intuitively, positioning the thumb is similar to `ColorPicker#getTouchAngle(..)` but in reverse, additionally constraining the thumb to stay within the color band.
 
 ### Center Circle
 
-Inside the multi-color dial should be a circle that's color is the same as the live selected color. The color of the inner circle, which represents the color picker’s model, should update while you drag the thumb. In contrast, the colored box and text, which represent the application’s model, should update only when the mouse is released.
+Inside the multi-color dial should be a circle that's color is the same as the live selected color. It should be centered on the center of the wheel, and use up all available space up to the dial. The color of the inner circle, which represents the color picker’s model, should update while you drag the thumb. In contrast, the colored box and text, which represent the application’s model, should update only when the mouse is released.
 
 ## Touch Input Events
 
@@ -101,8 +112,8 @@ graph LR
 S((.)) --> A((Start))
 A -- "Press?insideCircle:updateColor();updateThumb();setAlpha(.5f)" --> I((Inside))
 I -- "Release:setAlpha(1.00f),onColorSelected()" --> E[End]
-I -- "Drag?insideCircle:updateColor();updateThumb()" --> I
-I -- "Drag?outsideCircle:doNothing()" --> I
+I -- "Drag?insideWheel:updateColor();updateThumb()" --> I
+I -- "Drag?outsideWheel:doNothing()" --> I
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
