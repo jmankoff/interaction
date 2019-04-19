@@ -181,6 +181,8 @@ Act on line input;
 - Determine the States
 
 - Determine the Actions
+
+- Determine the Queries
 ]
 ---
 .left-column[
@@ -203,9 +205,9 @@ Act on line input;
 <div class="mermaid">
 graph LR
 S((.)) --> A((Start))
-A -- "Mouse Down/Start_Line()" --> B((Drawing))
-B -- "Mouse_Move/Update()" --> B
-B -- "Mouse_Release/Finish_Line()" --> C[Finished]
+A -- "Mouse Down:?inView/Start_Line()" --> B((Drawing))
+B -- "Mouse_Move:?inView/Update()" --> B
+B -- "Mouse_Release:?inView/Finish_Line()" --> C[Finished]
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
