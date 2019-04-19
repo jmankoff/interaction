@@ -6,7 +6,7 @@ code: EX3
 published: true
 assigned: Thursday, April 18, 2019
 due: 11:59 PM Wednesday, April 24, 2019
-revised: 8:15 AM Thursday, April 18, 2019
+revised: 9:15 AM Friday, April 19, 2019
 
 objective: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
 
