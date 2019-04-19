@@ -93,7 +93,7 @@ view you are drawing in. Calculate `mRadius`, `mCenterX`, and
 _Related APIs_:
 [View#onLayout](<https://developer.android.com/reference/android/view/View.html#onLayout(boolean,%20int,%20int,%20int,%20int)>)
 
-### Thumb 
+### Thumb
 
 In the screenshots there is a visible thumb that marks the selected color on the dial. The thumb is drawn in `onDraw()` and should move around as a user interacts with the color picker, not just jumping to its final location when they release the finger/mouse.
 
@@ -110,7 +110,7 @@ Inside the multi-color dial should be a circle that's color is the same as the l
 <div class="mermaid">
 graph LR
 S((.)) --> A((Start))
-A -- "Press?insideCircle:updateColor();updateThumb();setAlpha(.5f)" --> I((Inside))
+A -- "Press?insideWheel:updateColor();updateThumb();setAlpha(.5f)" --> I((Inside))
 I -- "Release:setAlpha(1.00f),onColorSelected()" --> E[End]
 I -- "Drag?insideWheel:updateColor();updateThumb()" --> I
 I -- "Drag?outsideWheel:doNothing()" --> I
