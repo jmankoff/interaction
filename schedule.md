@@ -62,7 +62,6 @@ layout: default
 ||Slides| [Essential Behavior: Finite State Machines](/interaction/slides/wk03/state.html)| Essential Behavior and the use of final state machines to implement it |
 |**4/18**|**Thursday**|**Build your own Interactor exercise**|
 ||Exercise Assigned|[Color Picker](/interaction/assignments/colorpicker)| Handle input; Create a non-rectangular interactor; Implement a finite state machine
-||For Your Reference|[Activity State Change Events](/interaction/slides/l03/activity-events.html)|
 |**4/19**|**Friday**|**Finite State Machines**|
 ||Required Reading|Chapter 11: Input Syntax Specification {{site.hcibook}}| Essential Behavior and the use of final state machines to implement it |
 ||Optional Reading|[Custom View Components](https://developer.android.com/guide/topics/ui/custom-components)|

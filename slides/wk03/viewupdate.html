@@ -15,6 +15,38 @@ CSE 340 Spring 2019
 ---
 layout: false
 
+.title[Getting Help]
+.body[
+Before asking for help (even on Piazza), there are some key things you need to do: 
+
+1. Read the spec code through 
+2. Specify the error that is occuring including the text of the error
+3. Explain what you have done to isolate and debug
+4. If it has to do with things not showing up visually, have already
+used the live inspector; and include a screen shot; and have tried
+printouts (logs)
+5. If it has to do with the app crashing, include the (relevant) error
+ message and at least one thing you've logged to try to debug the
+ error
+]
+---
+.title[Getting Help]
+.body[
+Office hours (virtual or in person) can be requested any time, but
+24 hours warning will be needed to schedule. We will post a link on
+Piazza when these are scheduled.
+
+Captain obvious is a really helpful thing. You can do this for each
+other. 
+
+If you don't know anyone in the class, email us, and we will
+assign ‘buddies’ who can play ‘captain obvious’ to each other 
+
+Piazza monitoring times will be made more explicit
+
+Other suggestions from the class?
+]
+---
 .left-column[
 #Input Event Handling Review
 ]
@@ -28,12 +60,23 @@ Component Independence
 to the right component?
 
 Model View Control for Components
-- How do components 
 - How do components deal with events (Essential Behavior)
 ]
 ???
 ---
-
+.left-column[
+## Essential Behavior Quiz question
+PPS Parts?
+- Action	
+- Input modifier
+- Input Event
+- Query field (Condition)
+- State
+]
+.right-column[
+![:img Picture of first quiz question asking "What sort of interaction does this PPS support?" and showing a state machine for drawing a line with updates to the line on every move event. Most people correctly understood a line with rubber banding., 100%](img/quizqs.png)
+]
+---
 [//]: # (Outline Slide)
 .title[Today's goals]
 .body[
@@ -667,6 +710,7 @@ Naive approach to redraw -- problems?
 ![:img pic of original screen and changed screen, 72%](img/original-new.png)
 ![:img pic with double buffering included, 70%](img/full-solution-buffering.png)
 
+--
 .right-column[
 - **Never** just draw
  - Why not? 
