@@ -77,12 +77,12 @@ layout: default
 |**4/22**|**Monday**|**Motor Control**| 
 ||Slides|[Properties of People II: Motor Control](/interaction/slides/wk03/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input 
 ||*Optional Reading*|[Motor Behavior Models for Human-Computer Interaction](Principals of Interactor Design), I. Scott MacKenzie <br>**Suggest section 3 and 4.2**| Introduction of Fitts law, Guiard
-|       |Exercise Due|[Color Picker](/interaction/assignments/colorpicker)|
 |       | Coe In-class assessment 11-11:20am | |
 |**4/24**|**Wednesday**|**Predicting and Evaluating Interactor Efficiency**|
-|      |Watch|[Video of Marking Menus](https://www.youtube.com/watch?v=8c58bN6ajJ4)|Understand design space of menus; See how interaction technique design can vastly improve interaction efficiency|
+|      |Watch|[Video of Marking Menus](https://www.youtube.com/watch?v=8c58bN6ajJ4)|Understand design space of menus; See how interaction technique design can vastly improve interaction efficiency| |
 |      |Video Watching Quiz|[On Canvas]({{site.canvas}}), due night before|
-|       |Slides|[Predicting and Evaluating Interactor Efficiency](slides/wk04/menus.html)| Apply design tips we've discussed to comparing the efficiency of different variations on interactors; Learn about wide variety of solutions for selection; Learn about Qualitative and Quantitative ways of testing theories|
+|      |Slides|[Predicting and Evaluating Interactor Efficiency](slides/wk04/menus.html)| Apply design tips we've discussed to comparing the efficiency of different variations on interactors; Learn about wide variety of solutions for selection; Learn about Qualitative and Quantitative ways of testing theories|
+|      |Exercise Due|[Color Picker](/interaction/assignments/colorpicker)|
 |**4/25**|**Thursday**|**Implementing App for user study**|
 ||Assignment|Test which menu is better: Marking menu or Standard Menu [Menus](/interaction/assignments/menus)|
 |**4/26**|**Friday**|**Running Your Quantitative User Studies**|
