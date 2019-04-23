@@ -224,7 +224,7 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 - Application Resiliency
   - Save Application State using bundler: 1pt
 - Communicate to application properly
-  - Implement custom handler for onColorChanged callback 1 pt
+  - Implement custom handler for onColorSelected callback 1 pt
 - Code Organization and Style: 1 pt
 
 ## IDE Errors/Warnings you can ignore

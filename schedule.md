@@ -75,6 +75,7 @@ layout: default
 |-----|--------|-------------------------------|
 |**4/22**|**Monday**|**Motor Control**| 
 ||Slides|[Properties of People II: Motor Control](/interaction/slides/wk04/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input 
+<<<<<<< HEAD
 |       | Coe In-class assessment 11-11:20am | | Give us feedback about the class!
 |**4/24**|**Wednesday**|**Predicting and Evaluating Interactor Efficiency**|
 ||Required Reading|[Chapter 20: Selection Theory (Fitts law & Steering law sections; STANDARD MENUS section; IMPROVING MENUS section; MARKING MENUS section)](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)| Introduction of Fitts law; Introduction to Pie and Marking Menus

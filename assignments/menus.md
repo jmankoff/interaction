@@ -5,7 +5,7 @@ code: A1
 
 assigned: Thursday, April 25, 2019
 due: 11:59 PM Wednesday, May 6, 2019
-revised: 1:46 PM Wednesday, April 10, 2019
+revised: 9:07 PM Monday, April 22, 2019
 
 objective: Build an end-to-end application. Interact with users.
 
@@ -17,20 +17,24 @@ hci_goals:
   - Record user study data
   - Produce plausible experiment results (within expected ranges)
   - Understand marking menus
+
 ---
 
-- TOC
+* TOC
 {:toc}
 
-# Part 1
+# Stub Code
+* ExperimentSetup.java
+  * Class that sets up all the conditions for the experiment and creates an iterator with all the trials.
+* ExperimentTrial.java
+  * Class that stores all the data for a single trial.
+* MainActivity.java
+  * Activity that displays the option to navigate between sessions. Also adds the corresponding menu view to the view hierarchy.
 
-Tasks:
-- Read the paper of this user study
-- Understand sample code to set up condition of experiments
-
+# Part 0
 Please read [An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b) to better understand the purpose and procedures in this user study.
 
-In `MainActivity.java`, please understand `createExperimentSetupList()` method which sets up conditions for whole experiment.
+In ExmerimentSetup.java, please understand `createExperimentSetupList()` method which sets up conditions for whole experiment.
 
 An experiment has 6 sessions (2 menu types * 3 task types), and each session has 5 tasks.
 
@@ -38,6 +42,7 @@ For each session:
 - Create one type of menu (linear/pie) based on current experiment condition.
 - Create 5 tasks in the same type based on current experiment condition.
   - We already provide 5 sets of options for each task type (linear/pie/unclass).
+
 For each task:
 - Show 8 options in the menu based on the task type (linear/pie/unclass)
 - Record the selected option
@@ -65,49 +70,87 @@ In addition, for each task, you already have these info in an `ExperimentSetupOb
 - `promptedOptionIndex`: The index of prompted option
 - `optionList`: A list of 8 options' text
 
-In part 3, you will analyze these recorded data.
+In part `TODO`, you will analyze these recorded data.
+`3`.
 
+# Part 1
+**Tasks**
+
+- Implement `onDraw` in MenuExperimentView.java
+- Implement `onTouchEvent` MenuExperimentView.java
+
+For this part, you will be working in `MenuExperimentView.java`. This class includes several fields that you will need to implement
+`NormalMenu.java` and `PieMenu.java`. You will implement the state machine logic in `onTouchEvent` (similar to what you've done in ColorPicker) and the logic to draw the menu in `onDraw`.
+
+Note that `MenuExperimentView.java` has a `drawMenu` function that you are required to override in `NormalMenu.java` and `PieMenu.java`. Therefore, your `onDraw` implementation in `MenuExperimentView.java` will be pretty short. 
+
+**Handling Touch Events**
+
+You will handle touch input by implementing the `onTouchEvent` method. This is the event handler that is invoked when a touch occurs in this view. When the UI displays visual feedback to input events, you have to ensure that the view is *redrawn*.
+
+You need to keep track of two main states `START` and `SELECTING`. When in the `SELECTING` state you need to distinguish between the event type to determine if the user has selected an option or if they are still in the middle of making a choice.
+
+Relevant mouse events include `ACTION_DOWN`, `ACTION_MOVE`, and `ACTION_UP`; think about how these mouse events relate to the change in State and how the UI should respond to these events.
+
+<div class="mermaid">
+graph LR
+S((.)) --> A((Start))
+A -- "Press?drawMenu" --> I((Inside))
+I -- "Release:recordData(),clearScreen()" --> E[End]
+I -- "Drag?insideMenu:updateCurrentIndex();highlightSelected()" --> I
+I -- "Drag?outsideMenu:doNothing()" --> I
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+class S invisible
+class A start
+class E finish
+class I normal
+
+</div>
+
+**Related APIS**
+
+* [View](https://developer.android.com/reference/android/view/View#drawing): See documentation on Drawing
+* [MouseEvent Constants](https://developer.android.com/reference/android/view/MotionEvent#constants_2)
 
 # Part 2
 
-Tasks:
-- Extend class LinearMenuView and class PieMenuView from the abstract class CustomMenuView
-- Handle input events on menus
-- Update visual output of menus
-- Record user study data
+**Tasks**
 
-Please read the abstract class CustomMenuView we provide in code stub. You will extend this class to create your linear menu and pie menu.
+- PieMenuView.java: Implement `essentialGeometry` and `drawMenu`
+- NormalMenuView.java: Implement `essentialGeometry` and `drawMenu`
 
-For both menus, you should handle input events in `onTouchEvent()` method. In specific:
-- ACTION_DOWN: Draw the menu view and record start information.
-- ACTION_MOVE: Highlight the option closest to finger.
-- ACTION_UP: Clear the menu view and record end information.
+Both PieMenuView and NormalMenuView extend MenuExperimentView. You will implement `essentialGeometry` and determine what menu item the touch event maps to. You'll have to come up with the math logic to map from touch event to an item index.
 
-For both menus, you should update visual output (menu layout) in `onDraw()` method, based on the input events above. In specific:
-- ACTION_DOWN:
-  - Draw cell for each option.
-  - Draw text on cell of linear menu.
-- ACTION_MOVE:
-  - Draw cell for each option.
-  - Draw text on cell of linear menu.
-  - Highlight the cell that finger moves in.
-- ACTION_UP:
-  - Clear canvas.
+You will also implement `drawMenu` which draws the menus as shown in the screenshots. But note that there is some flexibility in how you draw them. You may override the paint properties defined in MenuExperimentView; for the pie menu, you may choose to position text differently.
 
-![Screenshot of a pie menu](menus-img/pie.png){:width="250px"}
-![Screenshot of a linear menu](menus-img/linear.png){:width="250px"}
+**Related APIs**
+
+* [Canvas](https://developer.android.com/reference/android/graphics/Canvas): See documentation on drawCircle and drawText.
+* [Path](https://developer.android.com/reference/android/graphics/Path): For adding text along a curve
 
 # Part 3
 
-Tasks:
-- Conduct user study
-- Analyze recorded data
+**Tasks**
+- Conduct user study (Enable app to record data on emulator)
+- Analyze recorded data (Download adb)
+
+**Setup**
+
+Before you run user studies, navigate to settings/apps/PieMenu/permissions/storage and enable storage. You also need to install the Android Debug Bridge (adb) a command-line tool that lets you communicate with a device. Follow the instructions [here](https://developer.android.com/studio/releases/platform-tools.html) and install the adb for your computer.
+
+**Running the study**
 
 You will recruit 3 students and conduct this user study (6 session * 5 task) with each of them.
 
 Make sure to consent them (and turn in your consent form)
 
 After each user study, please export the recorded data. You will be asked to turn in these recorded data. If you are using emulator, you can use this command to pull data to your computer. <span style="color:red">TODO: Update path to pull data from Android phones.</span>
+
 ```bash
 adb pull /storage/emulated/0/CSE340_PieMenu/Test.csv YOUR_COMPUTER_LOCAL_PATH
 ```
@@ -120,32 +163,36 @@ You will be asked to upload your plots with a paragraph of explanation to canvas
 - Please export your plots as images (taking screenshot is fine)
 - Please explain your result and your procedure in the study.
 
-# Turn-in
+# Submission Instructions
 
-## Submission Instructions
+Please [turn in]() your files in the following zip structure:
 
-You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
-
-```
-─ LinearMenuView.xml
-─ PieMenuView.xml
-- MainActivity.java
-- result_0.csv
-- result_1.csv
-- consent_forms.zip
-- summary.pdf
+```bash
+YOUR_STUDENT_ID.zip
+├── NormalMenuView.java
+├── PieMenuView.java
+└── MainActivity.java
+└── MenuExperimentView.java
+├── Result_0.csv
+└── Result_1.csv
+└── Result_2.csv
+└── Signed consent forms (images/scans)
+└── Summary of results.pdf
 ```
 
 ## Grading (10pts)
 
+- Part 1
+  - State machine implementation works: __
+  - Correctly records user data: __
 - Part 2
-  - Linear menu works: 2pt
-  - Pie menu works: 2pt
-  - Correctly record data: 1pt
-- Part 1 and 3
+  - Correctly implements essentialGeometry in NormalMenu and PieMenu
+  - Correctly implements drawMenu in NormalMenu and PieMenu
+  - Register MenuListener in MainActivity
+- Part 3
   - Have reasonable CSV output and charts: 1pt
   - Explanation:
     - Description of study process: 1pt
     - Demonstrate understanding of chart results: 1pt
     - Draw appropriate conclusions about linear vs. pie menu: 1pt
-- Code Organization and Style: 1 pt
+- Turn-in and compiles: 1pt
