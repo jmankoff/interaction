@@ -6,7 +6,7 @@ code: EX3
 published: true
 assigned: Thursday, April 18, 2019
 due: 11:59 PM Wednesday, April 24, 2019
-revised: 9:15 AM Friday, April 19, 2019
+revised: 2:15 PM Tuesday, April 23, 2019
 
 objective: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
 
@@ -81,6 +81,8 @@ Drawing is implemented in `onDraw()`. You will need to draw the thumb and the fe
 
 The term `wheel` used throughout the spec refers to the dial and inner circle, it is the larger circle that contains all interface you will be drawing.
 
+The height of the dial is the height of `ColorPickerView`, this is not true for the width.
+
 ![Screenshot of color picker, original](colorpicker-img/1.png){:width="150px"}
 ![Screenshot of color picker, after moving to a new color](colorpicker-img/2.png){:width="150px"}
 
@@ -100,6 +102,8 @@ In the screenshots there is a visible thumb that marks the selected color on the
 The thumb should be constrained to moving along a circular track that places it within the dial. It should move along that track even when responding to valid events within the wheel but not within the dial.
 
 Visually, the thumb's radius is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). This value is provided to you as a constant. Intuitively, positioning the thumb is similar to `ColorPicker#getTouchAngle(..)` but in reverse, additionally constraining the thumb to stay within the color band.
+
+To calculate the alpha (which is an `int` [0, 255]) multiply the floats provided in the PPS by 255, then cast to `int`.
 
 ### Center Circle
 
@@ -134,18 +138,18 @@ _Related APIs_
 
 ### Transitioning out of the Start State
 
-As shown in the state diagram, when in the start state (before interaction begins), we ignore any touches that are outside of the circle. These events should be _rejected_ by your ColorPickerView so that other interactors can use them if they want. Interaction only begins when the user presses on or inside the color wheel. At this point, color is updated, the thumb transparency is changed (to `0.5f`) and its position is updated.
+As shown in the state diagram, when in the start state (before interaction begins), we ignore any touches that are outside of the wheel. These events should be _rejected_ by your ColorPickerView so that other interactors can use them if they want. Interaction only begins when the user presses on or inside the color wheel. At this point, color is updated, the thumb transparency is changed (to `0.5f`) and its position is updated.
 
 <!-- <span style="color:red"> XXX TODO: Check edge case: e.g., drag and move outside wheel, the handle stays in 50% alpha (should be 100% alpha). I added examples in test to check alpha of handle to check state.</span> -->
 
 ### Transitions within the Inside State
 
-Once interaction begins, we should update the ColorPickerView's local model only when the user is dragging their finger inside the circle. Similarly, we should show feedback only if the finger is in the circle. In all of these cases, we remain in the _Inside_ state.
+Once interaction begins, we should update the ColorPickerView's local model only when the user is dragging their finger inside the wheel. Similarly, we should show feedback only if the finger is in the wheel. In all of these cases, we remain in the _Inside_ state.
 
-- When a finger drags on screen inside the circle, the thumb will follow the angle the finger is at, and the color of the inner circle will update to reflect the change in the local model for the ColorPicker
-- When a finger drags on screen outside the circle, the thumb will stay at the most recent angle within the circle.
+- When a finger drags on screen inside the wheel, the thumb will follow the angle the finger is at, and the color of the center circle will update to reflect the change in the local model for the ColorPicker
+- When a finger drags on screen outside the wheel, the thumb will stay at the most recent angle within the wheel.
 
-Use the `x` and `y` coordinates of the touch event to calculate the angle (in radians) of the touch on the color circle with `ColorPicker#getTouchAngle(float, float)`. It is difficult to do this mapping in tranditional RGB color space. The HSV color space discussed during class fits this task well. You can read more about the HSV color space [here](https://en.wikipedia.org/wiki/HSL_and_HSV). Since we're just adjusting color, we only want to modify hue while leaving saturation and value constant. You may see detailed instruction in code comments under `ColorPicker#getColorFromAngle`, which we provide you. Use this implementation to guide your work on `ColorPickerView#getAngleFromColor`, which does the opposite operation.
+Use the `x` and `y` coordinates of the touch event to calculate the angle (in radians) of the touch on the wheel with `ColorPicker#getTouchAngle(float, float)`. It is difficult to do this mapping in tranditional RGB color space. The HSV color space discussed during class fits this task well. You can read more about the HSV color space [here](https://en.wikipedia.org/wiki/HSL_and_HSV). Since we're just adjusting color, we only want to modify hue while leaving saturation and value constant. You may see detailed instruction in code comments under `ColorPicker#getColorFromAngle`, which we provide you. Use this implementation to guide your work on `ColorPickerView#getAngleFromColor`, which does the opposite operation.
 
 ### Transition to the end state.
 
@@ -172,7 +176,7 @@ application correctly got a color from `colorPickerView`. This means
 you are **prohibited** from leveraging publicly accessibly
 field/function on the color picker to observethe ColorPickerView
 state. For more on custom listeners, see [CodePath's guide to creating
-custom listeners](https://guides.codepath.com/android/Creating-Custom-Listeners)
+custom listeners](https://guides.codepath.com/android/Creating-Custom-Listeners).
 
 ## Save Application Model using Bundle
 
@@ -184,7 +188,7 @@ Notice from the documentation that `onRestoreInstanceState` is called after `onC
 
 <span style="color:red">We will kill the activity to test if the state
 is saved. Use adb to test killing it or in developer options set Apps
--> Don't keep activity.</span> 
+-> Don't keep activity.</span>
 
 The best way to test this functionality is to enable the setting referenced above, and then press home, and return to the app. The selected color should still be the same. Quitting the app from multitasking will destroy the bundle.
 
@@ -233,3 +237,5 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 
 - `onTouchEvent`
   - Custom view ColorPickerViewSolution overrides onTouchEvent but not performClick
+- Anonymous Class Replaced with Lambda
+  - "anonymous new `ColorPicker.ColorListener()` can be replaced with lambda"
