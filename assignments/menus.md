@@ -92,7 +92,25 @@ You need to keep track of two main states `START` and `SELECTING`. When in the `
 
 Relevant mouse events include `ACTION_DOWN`, `ACTION_MOVE`, and `ACTION_UP`; think about how these mouse events relate to the change in State and how the UI should respond to these events.
 
-`TODO: Include a state machine diagram?`
+<div class="mermaid">
+graph LR
+S((.)) --> A((Start))
+A -- "Press?drawMenu" --> I((Inside))
+I -- "Release:recordData(),clearScreen()" --> E[End]
+I -- "Drag?insideMenu:updateCurrentIndex();highlightSelected()" --> I
+I -- "Drag?outsideMenu:doNothing()" --> I
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+class S invisible
+class A start
+class E finish
+class I normal
+
+</div>
 
 **Related APIS**
 
