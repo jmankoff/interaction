@@ -55,12 +55,12 @@ layout: default
 |-----|--------|-------------------------------|
 |**4/15**|**Monday**|Event Handling I: Input Devices, Events and Event Delivery|
 ||Slides|[Event Handling](/interaction/slides/wk03/events.html)| How events are dispatched to interactors|
-||Exercise Due|[Layout](/interaction/assignments/layout)|
 |**4/17**|**Wednesday**|**MVC at the Interactor Level Essential Geometry and Essential Behavior**|
 ||Required Reading (10 min)|Chapter 3: Event Handling {{site.hcibook}} pp. 43-52 (on Input Events); 59-63 (Listeners)| Basics of event handling including event types and listeners
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due tuesday night|
 ||Slides| [Essential Behavior: Finite State Machines](/interaction/slides/wk03/state.html)| Essential Behavior and the use of final state machines to implement it |
 |**4/18**|**Thursday**|**Build your own Interactor exercise**|
+||Exercise Due|[Layout](/interaction/assignments/layout)|
 ||Exercise Assigned|[Color Picker](/interaction/assignments/colorpicker)| Handle input; Create a non-rectangular interactor; Implement a finite state machine
 |**4/19**|**Friday**|**Finite State Machines**|
 ||Required Reading|Chapter 11: Input Syntax Specification {{site.hcibook}}| Essential Behavior and the use of final state machines to implement it |
@@ -74,30 +74,32 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
 |**4/22**|**Monday**|**Motor Control**| 
-||Slides|[Properties of People II: Motor Control](/interaction/slides/wk03/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input 
-||*Optional Reading*|[Motor Behavior Models for Human-Computer Interaction](Principals of Interactor Design), I. Scott MacKenzie <br>**Suggest section 3 and 4.2**| Introduction of Fitts law, Guiard
-|       |Exercise Due|[Color Picker](/interaction/assignments/colorpicker)|
-|       | Coe In-class assessment 11-11:20am | |
+||Slides|[Properties of People II: Motor Control](/interaction/slides/wk04/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input 
+|       | Coe In-class assessment 11-11:20am | | Give us feedback about the class!
 |**4/24**|**Wednesday**|**Predicting and Evaluating Interactor Efficiency**|
+||Required Reading|[Chapter 20: Selection Theory (Fitts law & Steering law sections; STANDARD MENUS section; IMPROVING MENUS section; MARKING MENUS section)](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)| Introduction of Fitts law; Introduction to Pie and Marking Menus
+|       |Exercise Due|[Color Picker](/interaction/assignments/colorpicker)|
+|| Slides | Finish Motor Control/Introduce Assignment | Generalizing PPS machines |
+|**4/25**|**Thursday**|**Implementing App for user study**|
+||Assignment| [Menus](/interaction/assignments/menus)| Test which menu is better: Marking menu or Standard Menu|
+|**4/26**|**Friday**|**Running Your Quantitative User Studies**|
 |      |Watch|[Video of Marking Menus](https://www.youtube.com/watch?v=8c58bN6ajJ4)|Understand design space of menus; See how interaction technique design can vastly improve interaction efficiency|
 |      |Video Watching Quiz|[On Canvas]({{site.canvas}}), due night before|
 |       |Slides|[Predicting and Evaluating Interactor Efficiency](slides/wk04/menus.html)| Apply design tips we've discussed to comparing the efficiency of different variations on interactors; Learn about wide variety of solutions for selection; Learn about Qualitative and Quantitative ways of testing theories|
-|**4/25**|**Thursday**|**Implementing App for user study**|
-||Assignment|Test which menu is better: Marking menu or Standard Menu [Menus](/interaction/assignments/menus)|
-|**4/26**|**Friday**|**Running Your Quantitative User Studies**|
-||Required Reading |[An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b)| To better understand the purpose and procedures in this user study; to plan for [Menus assignment](assignments/menus.html)|
-||Slides|[Quantitative Study Design/Running](/interaction/slides/wk04/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
 {: .small #small.schedule #schedule}
 
 # Week 5: Making more of your phone
 
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
-| **4/29** | **Monday, at the Mill Classroom**    | Introduction to 3D printing for Mobile devices|  
+| **4/29** | **Monday** |Studies   | Introduction / Requirements for running participants |  
+||Required Reading |[An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b)| To better understand the purpose and procedures in this user study; to plan for [Menus assignment](assignments/menus.html)|
+||Slides|[Quantitative Study Design/Running](/interaction/slides/wk04/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
+
+| **5/1**  | **Wednesday, at the Mill Classroom** | Design your project        | Work in pairs to design an add-on to your phone that uses a combination of 3D printed and conductive elements. | Learn about designing your own model; how phones are used for physical computing such as sensing and interaction| 
 ||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
 || Required Tutorial before class | [Make a luggage tag](https://www.tinkercad.com/learn/overview/O0XHVHMIXGFO1D6;collectionId=O2C1PXBIQ2KHCOD) | Learn basic 3D modeling skills needed for 3D printing
 ||[3D Printing Intro](slides/wk05/3dprinting.html)|Learn basics of 3D printing, print the model you created in preparation for class |
-| **5/1**  | **Wednesday, at the Mill Classroom** | Design your project        | Work in pairs to design an add-on to your phone that uses a combination of 3D printed and conductive elements. | Learn about designing your own model; how phones are used for physical computing such as sensing and interaction| 
 | **5/2**  | **Thursday** | Work on the software interface and event handling in lab | Learn about the software behind physical interactors |
 | **5/3**  | **Friday, at the Mill Classroom**    |Finalize and print your projects | Make the end to end system work | 
 {: .small #small .schedule #schedule}

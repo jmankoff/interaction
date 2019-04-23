@@ -164,7 +164,15 @@ The application layer should set the default color of `colorPicker` using `MainA
 
 ## Managing Application State with Listeners
 
-To find out about color changes, the application needs to register a callback by calling `colorPicker.setColorListener()`. This callback should update the application's `colorView` and `colorTextView` whenever `onColorSelected` is called to demonstrate that the application correctly got a color from `colorPickerView`. This means you are **prohibited** from leveraging publicly accessibly field/function on the color picker to observethe ColorPickerView state.
+To find out about color changes, the application needs to register a
+callback by calling `colorPicker.setColorListener()`. This callback
+should update the application's `colorView` and `colorTextView`
+whenever `onColorSelected` is called to demonstrate that the
+application correctly got a color from `colorPickerView`. This means
+you are **prohibited** from leveraging publicly accessibly
+field/function on the color picker to observethe ColorPickerView
+state. For more on custom listeners, see [CodePath's guide to creating
+custom listeners](https://guides.codepath.com/android/Creating-Custom-Listeners)
 
 ## Save Application Model using Bundle
 
@@ -174,12 +182,15 @@ We want to manage the state at the application level (`MainActivity.java`) versu
 
 Notice from the documentation that `onRestoreInstanceState` is called after `onCreate` if a bundle exists. However, to make grading easier, we want you to handle the bundle in `ColorPickerActivity#setStartingColor` so you **should not implement `onRestoreInstanceState`.**
 
-<span style="color:red">We will kill the activity to test if the state is saved. Use adb to test killing it or in developer options set Apps -> Don't keep activity.</span>
+<span style="color:red">We will kill the activity to test if the state
+is saved. Use adb to test killing it or in developer options set Apps
+-> Don't keep activity.</span> 
 
 The best way to test this functionality is to enable the setting referenced above, and then press home, and return to the app. The selected color should still be the same. Quitting the app from multitasking will destroy the bundle.
 
 _Related APIs_:
 [Saving and Restoring State](https://developer.android.com/guide/components/activities/activity-lifecycle.html#saras)
+| [Android Developer Options](https://developer.android.com/studio/debug/dev-options)
 
 # Misc.
 
