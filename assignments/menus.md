@@ -1,27 +1,27 @@
 ---
-layout: default
+layout: assignment
+title: Menus
+code: A1
+
+assigned: Thursday, April 25, 2019
+due: 11:59 PM Wednesday, May 6, 2019
+revised: 1:46 PM Wednesday, April 10, 2019
+
+objective: Build an end-to-end application. Interact with users.
+
+android_goals:
+  - Implement menus
+  - Store data in file system
+hci_goals:
+  - Build an application based on specs
+  - Record user study data
+  - Produce plausible experiment results (within expected ranges)
+  - Understand marking menus
+
 ---
 
 * TOC
 {:toc}
-
-# Menu Experiment Assignment
-
-**Objective**: Build an end-to-end application. Interact with users.
-
-**HCI Goals**:
-- Build an application based on specs
-- Record user study data
-- Produce plausible experiment results (within expected ranges)
-- Understand marking menus
-
-**Android Goals**:
-- Implement menus
-- Store data in file system
-
-**Assigned Date**: ???, 2019
-
-**Due Date**: ???, 2019
 
 # Stub Code
 * ExperimentSetup.java
@@ -29,7 +29,7 @@ layout: default
 * ExperimentTrial.java
   * Class that stores all the data for a single trial.
 * MainActivity.java
-  * `TODO: Describe what's happening here`
+  * Activity that displays the option to navigate between sessions. Also adds the corresponding menu view to the view hierarchy.
 
 # Part 0
 Please read [An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b) to better understand the purpose and procedures in this user study.
@@ -71,8 +71,7 @@ In addition, for each task, you already have these info in an `ExperimentSetupOb
 - `optionList`: A list of 8 options' text
 
 In part `TODO`, you will analyze these recorded data.
-`TODO: Change part number`
-
+`3`.
 
 # Part 1
 **Tasks**
@@ -171,7 +170,7 @@ YOUR_STUDENT_ID.zip
 - Part 2
   - Correctly implements essentialGeometry in NormalMenu and PieMenu
   - Correctly implements drawMenu in NormalMenu and PieMenu
-  - `TODO: Have them implement register the listener in MainActivity?`
+  - Register MenuListener in MainActivity
 - Part 3
   - Have reasonable CSV output and charts: 1pt
   - Explanation:
