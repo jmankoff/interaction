@@ -79,13 +79,12 @@ layout: default
 |**4/24**|**Wednesday**|**Predicting and Evaluating Interactor Efficiency**|
 ||Required Reading|[Chapter 20: Selection Theory (Fitts law & Steering law sections; STANDARD MENUS section; IMPROVING MENUS section; MARKING MENUS section)](https://www.amazon.com/dp/1423902483/ref=rdr_ext_sb_ti_hist_1)| Introduction of Fitts law; Introduction to Pie and Marking Menus
 |       |Exercise Due|[Color Picker](/interaction/assignments/colorpicker)|
-|| Slides | Finish Motor Control/Introduce Assignment | Generalizing PPS machines |
+|       |Slides|[Predicting and Evaluating Interactor Efficiency](slides/wk04/menus.html)| Apply design tips we've discussed to comparing the efficiency of different variations on interactors; Learn about wide variety of solutions for selection; Learn about Qualitative and Quantitative ways of testing theories|
 |**4/25**|**Thursday**|**Implementing App for user study**|
 ||Assignment| [Menus](/interaction/assignments/menus)| Test which menu is better: Marking menu or Standard Menu|
 |**4/26**|**Friday**|**Running Your Quantitative User Studies**|
 |      |Watch|[Video of Marking Menus](https://www.youtube.com/watch?v=8c58bN6ajJ4)|Understand design space of menus; See how interaction technique design can vastly improve interaction efficiency|
 |      |Video Watching Quiz|[On Canvas]({{site.canvas}}), due night before|
-|       |Slides|[Predicting and Evaluating Interactor Efficiency](slides/wk04/menus.html)| Apply design tips we've discussed to comparing the efficiency of different variations on interactors; Learn about wide variety of solutions for selection; Learn about Qualitative and Quantitative ways of testing theories|
 {: .small #small.schedule #schedule}
 
 # Week 5: Making more of your phone

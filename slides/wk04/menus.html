@@ -381,13 +381,183 @@ Analysis??
 Conclusions??
 
 ---
+.title[Menus Assignment]
+.body[
+Will compare pie menus to linear menus
+Demo
+]
+
 ---
-.title[Quantitative vs Qualitative Data Collection]
+.left-column50[
+## Interface  Structure
+
+<div class="mermaid">
+graph LR
+FrameLayout --> ActionBar[ActionBar]
+ActionBar --> TextView[TextView:Pie/Menu]
+ActionBar --> Hamburger[Hamburger:Next Session/ClearCSV]
+FrameLayout --> MainLayout[MainLayout]
+MainLayout --> MenuExperimentView[MenuExperimentView]
+MainLayout --> InstructionText[InstructionTextView]
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+class FrameLayout,ActionBar,MainLayout,TextView,Hamburger,MenuExperimentView,InstructionText normal
+</div>
+]
+
+.right-column50[
+## Inheritance Structure
+
+<div class="mermaid">
+graph LR
+MenuExperimentView[MenuExperimentView] --> PieMenuView[PieMenuView]
+MenuExperimentView --> NormalMenuView[NormalMenuView]
+</div>
+
+]
+ 
+---
+.title[PPS for assignment]
+.body[
+Implemented in MenuExperimentView
+
+<div class="mermaid">
+graph LR
+S((.)) --> A((Start))
+A -- "Press?drawMenu;startTrial;startPoint=p" --> I((Inside))
+I -- "Release:endTrial;reset();onOptionSelected(trial)" --> E[End]
+I -- "Drag:currentIndex=menuItem" --> I
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+class S invisible
+class A start
+class E finish
+class I normal
+</div>
+
+
+Works in both Menus!
+]
+
+---
+.title[Enums]
+.body[
+
+Group of named constants
+
+- Used for PPS in colorPicker (PPS States; Essential Geometry)
+
+- Used for PPS in Menu assignment *and* for experimental conditions
+
+- Easy to inspect if you want to (we do this in ExperimentSession
+
+[Documentation](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)
+]
+
+---
+.title[Custom Listeners]
+.body[
+- Used in ColorPicker and Menus. You'll use them lots
+- Why create custom listeners?
+]
+--
+.body[
+ - Let you execute code when your view's model has changed
+ - No other way to know that has happened
+
+]
+
+---
+.title[How to implement]
+.body[
+
+Custom View needs
+- To define the custom interface 
+- To keep track of listeners
+]
+--
+.body[
+Anything using the view needs
+- To implement the interface (specifically, the method that will be called)
+- To register itself as a listener
+]
+---
+.title[Example Custom View -- ColorPicker: We setup the Custom View side for you]
+.body[
+```java
+    /** Currently registered ColorListener instance or null. */
+    protected ColorListener mColorListener;
+
+    /**
+     * Class which defines a listener to be called when a new color is selected.
+     */
+    public interface ColorListener {
+        void onColorSelected(@ColorInt int color);
+    }
+
+    /**
+     * Registers a new listener for the color of this ColorPicker, or replaces
+     * any existing listener.
+     *
+     * @param colorListener New listener or null.
+     */
+    public final void setColorListener(@Nullable ColorListener colorListener) {
+        mColorListener = colorListener;
+    }
+```
+]
+---
+.title[You need to do this yourself in Menus]
 
 .body[
-Will talk more about Qualitative Data Collection on Friday
 
-Both have an important place in HCI
+```java
+ /**
+     * You need to create a listener interface so the application
+     * can be notified when a selection is made. This will trigger
+     * the move to the next trial.
+     */
+    protected MenuExperimentViewSolution.MenuListener menuListener;
+```
 ]
-???
-Discuss
+---
+.title[Example Custom Listener -- ColorPicker: You need to implement
+this]
+
+.body[
+`// TODO: Register callback to update {color,label} View when color changed.`
+
+What method do we call to register the callback?  setColorListener
+
+What method is called when? Draw a time based diagram 
+
+What do we usually do in a callback? update our
+]
+---
+.title[Listener in Menus]
+.body[
+`setMenuListener` needs to be implemented, should
+
+- record the result of that trial
+- Update the experiment to show the next menu (or nothing if the
+session is over)
+- Update the instructions to the user
+]
+---
+.title[OnDraw changes to Canvas]
+.body[
+Views `MATCH_PARENT`
+
+Makes drawing tricky
+
+Translate (like a parent view does for kids)
+
+]
