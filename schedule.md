@@ -74,7 +74,7 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
 |**4/22**|**Monday**|**Motor Control**| 
-||Slides|[Properties of People II: Motor Control](/interaction/slides/wk03/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input 
+||Slides|[Properties of People II: Motor Control](/interaction/slides/wk04/people-motor.html)| Motor behavior basics and implications for design including Fitts' law and Guiard's theory of bimanual input 
 ||*Optional Reading*|[Motor Behavior Models for Human-Computer Interaction](Principals of Interactor Design), I. Scott MacKenzie <br>**Suggest section 3 and 4.2**| Introduction of Fitts law, Guiard
 |       | Coe In-class assessment 11-11:20am | |
 |**4/24**|**Wednesday**|**Predicting and Evaluating Interactor Efficiency**|
