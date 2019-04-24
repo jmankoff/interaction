@@ -155,7 +155,7 @@ and how the UI should respond to these events.
 graph LR
 S((.)) --> A((Start))
 A -- "Press?drawMenu;startTrial;startPoint=p" --> I((Inside))
-I -- "Release:endTrial;reset();onOptionSelected(trial)" --> E[End]
+I -- "Release:endTrial;reset();onTrialCompleted(trial)" --> E[End]
 I -- "Drag:currentIndex=menuItem" --> I
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
