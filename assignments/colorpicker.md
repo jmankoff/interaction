@@ -206,7 +206,7 @@ _Related APIs_:
 
 ## Submission Instructions
 
-You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
+You will turn in the following files [here](https://gradeit.cs.washington.edu/uwcse/turnin/code/turnin_page_view.php?course=340&quarter=19sp&assignment=ex3):
 
 ```
  ─ ColorPickerView.java
