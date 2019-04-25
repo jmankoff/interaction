@@ -3,8 +3,9 @@ layout: assignment
 title: Menus
 code: A1
 
+published: true
 assigned: Thursday, April 25, 2019
-due: Your working, implemented code is due 11:59 PM Wednesday, May 1, 2019. Your experiment writeup and data are due 11:59 PM Wednesday, May 6, 2019
+due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Wednesday, May 6, 2019
 revised: 10:28 AM Tuesday, April 23, 2019
 
 objective: Build an end-to-end application. Interact with users.
@@ -298,24 +299,18 @@ provide a template (TBD).
 
 # Submission Instructions
 
-Please [turn in]() your files in the following zip structure:
+You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
 Part 1: 
-
-```bash
-YOUR_STUDENT_ID.zip
-├── NormalMenuView.java
-├── PieMenuView.java
-└── MainActivity.java
-└── MenuExperimentView.java
-```
+- MainActivity.java
+- MenuExperimentView.java
+- NormalMenuView.java
+- PieMenuView.java
 
 Part 2: 
-```
-├── Results.csv
-└── Signed consent forms (images/scans)
-└── Report.pdf
-```
+- TestResult.csv
+- Signed consent forms (images/scans)
+- Report.pdf
 
 ## Grading (10 pts)
 
