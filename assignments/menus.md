@@ -23,6 +23,20 @@ hci_goals:
 * TOC
 {:toc}
 
+# Overview of assignment
+
+This is a two part assignment. The coding should take about 5 hours,
+and re-uses many concepts from [ColorPicker](colorpicker.html). Please
+start early, and reach out if you find you are spending more than 10
+hours. 
+
+The user study will take about the same. Your time will include the following:
+Write your consent form using our template and print out (1 hr)
+recruit, consent and run 4 participants (1-2 hours); Download your
+data and importing it into the spreadsheet we provide (30 mins);
+Analyze the data (1 hr) and write the report (1-2 hours). Again, reach
+out if spending more than double the expected time. 
+
 # Key Files to look at 
 
 * ExperimentSetup.java
