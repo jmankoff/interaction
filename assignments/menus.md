@@ -42,7 +42,10 @@ hci_goals:
 ![:img Screenshot of a pie menu](menus-img/pie.png){:width="250px",:float="right"}
 ![:img Screenshot of a normal menu](menus-img/linear.png){:width="250px",:float="left"}
 
-Here's a link to the [screen recording](https://drive.google.com/open?id=1pPl91NaUceKXKPX1GCqxgNjFVpXy3uqp) of the app. 
+
+Here's a link to the [screen recording](https://drive.google.com/open?id=1pPl91NaUceKXKPX1GCqxgNjFVpXy3uqp) of the app.
+
+**NOTE**: You need to be logged into your UW account to be able to view the link.
 
 # Part 0: Overview
 Read this spec and take a look at the classes listed above.
