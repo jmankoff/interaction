@@ -56,7 +56,10 @@ out if spending more than double the expected time.
 ![:img Screenshot of a pie menu](menus-img/pie.png){:width="250px",:float="right"}
 ![:img Screenshot of a normal menu](menus-img/linear.png){:width="250px",:float="left"}
 
-Here's a link to the [screen recording](https://drive.google.com/open?id=1pPl91NaUceKXKPX1GCqxgNjFVpXy3uqp) of the app. 
+
+Here's a link to the [screen recording](https://drive.google.com/open?id=1pPl91NaUceKXKPX1GCqxgNjFVpXy3uqp) of the app.
+
+**NOTE**: You need to be logged into your UW account to be able to view the link.
 
 # Part 0: Overview
 Read this spec and take a look at the classes listed above.
@@ -227,7 +230,11 @@ Finally, since this is an abstract class, we need to call the *real*
 drawing method, which our children will implement. This is called
 `drawMenu()` and should be overridden by `PieMenuView` and
 `NormalMenuView`.  Therefore, your `onDraw` implementation in
-`MenuExperimentView.java` will be pretty short.  
+`MenuExperimentView.java` will be pretty short.
+
+The starter code contains several useful fields that are 
+useful for drawing the menus on screen. For PieMenu, the given `RADIUS`
+corresponds to the outer radius. The inner radius is defined by `RADIUS - TEXT_SIZE * 2`.
 
 **MainActivity**
 
