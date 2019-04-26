@@ -6,7 +6,7 @@ code: A1
 published: true
 assigned: Thursday, April 25, 2019
 due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Wednesday, May 6, 2019
-revised: 10:28 AM Tuesday, April 23, 2019
+revised: 8:51 PM Thursday, April 25, 2019
 
 objective: Build an end-to-end application. Interact with users.
 
