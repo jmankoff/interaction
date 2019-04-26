@@ -174,7 +174,7 @@ and how the UI should respond to these events.
 <div class="mermaid">
 graph LR
 S((.)) --> A((Start))
-A -- "Press?startTrial()" --> I((Inside))
+A -- "Press?startTrial()" --> I((Selecting))
 I -- "Release:endTrial()" --> E[End]
 I -- "Drag:dragResult()" --> I
 
