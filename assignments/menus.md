@@ -189,7 +189,11 @@ Finally, since this is an abstract class, we need to call the *real*
 drawing method, which our children will implement. This is called
 `drawMenu()` and should be overridden by `PieMenuView` and
 `NormalMenuView`.  Therefore, your `onDraw` implementation in
-`MenuExperimentView.java` will be pretty short.  
+`MenuExperimentView.java` will be pretty short.
+
+The starter code contains several useful fields that are 
+useful for drawing the menus on screen. For PieMenu, the given `RADIUS`
+corresponds to the outer radius. The inner radius is defined by `RADIUS - TEXT_SIZE * 2`.
 
 **MainActivity**
 
