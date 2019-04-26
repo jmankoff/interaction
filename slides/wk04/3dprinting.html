@@ -6,20 +6,7 @@ class: middle, center, inverse
 ---
 name: inverse
 layout: true
-class: center, middle, inverse
----
-# Response to feedback
-Evening office hours
- - Thursday evening office hours (5:30-7:30) INSTEAD of Wed 1-2
- - Tuesday evening office hours (5-6) INSTEAD of Tuesday 12-1
- 
-SPECS: Trying to point you at more documentation; Update spec when new
-info of consequence on Piazza
-
-Expected time (get help if you haven't after N hours): We need color
-picker times
-
-Other things for future.
+class: center, middle, inverse-
 ---
 # Basic Intro to 3D printing
 
@@ -36,22 +23,40 @@ layout:false
 - Talk about how 3D models are converted into low level g-code
 ]
 ---
+# Response to feedback
+Evening office hours
+ - Thursday evening office hours (5:30-7:30) INSTEAD of Wed 1-2
+ - Tuesday evening office hours (5-6) INSTEAD of Tuesday 12-1
+ 
+SPECS: Trying to point you at more documentation; Update spec when new
+info of consequence on Piazza
+
+Will try to add expected time. 
+
+Calibration is an issue for all of us
+
+![:img a chart of the mean time to complete ex1 and ex2 and ex3 with standard deviation shown on top of that,30%](img/meanchart.png)|![:img a histogram of ex1 scores,30%](img/ex1.png)|![:img a histogram of ex2 scores,30%](img/ex2.png)|
+
+
+???
+Note: this is somewhat higher than we expected
+But the bigger concern is spread
+
+---
 # Magic arms Video
 
 ![:youtube Video of child using a 3D printed hand, WoZ2BgPVtA0]
 
 ---
+# What is 3D printing?
+
 ![:youtube Time lapse video explaining 3D printing, m_QhY1aABsE]
 
 ---
-# 3d Printed car
+# More reasons to learn about it! 
+3d Printed car
 
 ![:youtube Video of car being 3D printed, daioWlkH7ZI]
-
-
----
-# Acoustruments
-![:youtube Printed objects whose use can be sensed, C2d1pB1qlvA]
 
 ---
 .title[Many other successes]
@@ -115,7 +120,7 @@ Material range is limited
 
 <div class="mermaid">
 graph LR
-A((3D Modeling, <br> e.g. Tinkercad)) -->|Prepare for printing| B(Geometry <br> e.g. <i>.stl</i> file)
+A((3D Modeling, <br> e.g. OpenSCAD)) -->|Prepare for printing| B(Geometry <br> e.g. <i>.stl</i> file)
 B -->|Slice| D((Printer instructions<br>G-code file))
 D -->|Printer Controller| E((Printed Object))
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
@@ -130,7 +135,7 @@ class A,B,D normal
 .body[
 <div class="mermaid">
 graph LR
-A((3D Modeling, <br> e.g. Tinkercad)) -->|Prepare for printing| B(Geometry <br> e.g. <i>.stl</i> file)
+A((3D Modeling, <br> e.g. OpenSCAD)) -->|Prepare for printing| B(Geometry <br> e.g. <i>.stl</i> file)
 B -->|Slice| D((Printer instructions<br>G-code file))
 D -->|Printer Controller| E((Printed Object))
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
@@ -139,7 +144,7 @@ class A highlighted
 class B,D normal
 </div>
 
-We will use Tinkercad in this class. I also highly recommend
+We will use OpenSCAD in this class. I also highly recommend
 Fusion360. 
 
 Can also find lots of stuff on repositories, like [Thingiverse](http://www.thingiverse.com/)
@@ -209,7 +214,7 @@ Recommendation: Use [**Meshmixer**](http://www.123dapp.com/meshmixer) for this
 .body[
 <div class="mermaid">
 graph LR
-A((3D Modeling, <br> e.g. Tinkercad)) -->|Prepare for printing| B(Geometry <br> e.g. <i>.stl</i> file)
+A((3D Modeling, <br> e.g. OpenSCAD)) -->|Prepare for printing| B(Geometry <br> e.g. <i>.stl</i> file)
 B -->|Slice| D((Printer instructions<br>G-code file))
 D -->|Printer Controller| E((Printed Object))
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
@@ -369,7 +374,7 @@ sensing](https://www.sciencedirect.com/science/article/pii/S0925400515305992)
 
 - Dark box 
 - Phone case
--  **Tinkercad** for  3D design
+-  **OpenSCAD** for  3D design
 
 ]
 .right-column[
@@ -440,6 +445,12 @@ by a software application which can also transmit the results via
 e-mail. The black plastic sleeve surrounding the top of the phone
 holds the sensor adjacent to the camera and blocks ambient light.
 
+---
+.title[Fun mobile phone options]
+.body[
+# Acoustruments
+![:youtube Printed objects whose use can be sensed, C2d1pB1qlvA]
+]
 ---
 # End of Deck
 ---
