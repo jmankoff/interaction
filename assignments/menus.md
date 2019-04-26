@@ -6,7 +6,7 @@ code: A1
 published: true
 assigned: Thursday, April 25, 2019
 due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Wednesday, May 6, 2019
-revised: 8:51 PM Thursday, April 25, 2019
+revised: 6:45 AM Friday, April 26, 2019
 
 objective: Build an end-to-end application. Interact with users.
 
@@ -192,12 +192,13 @@ class I normal
 where the actions should be as follows:
 
 ```java
-startTrial() {
+startSelection() {
+// 0) record starting point
 // 1) call trial.startTrial(), passing it the 
 // pointer position
 // 2) invalidate
 }
-endTrial() {
+endSelection() {
 // 1) call trial.endTrial(), passing it the pointer 
 // position and the currently selected item
 // 2) call onTrialCompleted(trial)
