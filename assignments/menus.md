@@ -154,9 +154,9 @@ and how the UI should respond to these events.
 <div class="mermaid">
 graph LR
 S((.)) --> A((Start))
-A -- "Press?drawMenu;startTrial;startPoint=p" --> I((Inside))
-I -- "Release:endTrial;reset();onTrialCompleted(trial)" --> E[End]
-I -- "Drag:currentIndex=menuItem" --> I
+A -- "Press?startTrial()" --> I((Inside))
+I -- "Release:endTrial()" --> E[End]
+I -- "Drag:dragResult()" --> I
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
@@ -168,6 +168,29 @@ class A start
 class E finish
 class I normal
 </div>
+
+where the actions should be as follows:
+
+```java
+startTrial() {
+// 1) call trial.startTrial(), passing it the 
+// pointer position
+// 2) invalidate
+}
+endTrial() {
+// 1) call trial.endTrial(), passing it the pointer 
+// position and the currently selected item
+// 2) call onTrialCompleted(trial)
+}
+dragResult(){
+// check if the item selected has changed. If so
+// 1) update your menu's model
+// 2) invalidate
+}
+```
+
+Note that you do not need to check whether the user clicked on the
+correct menu item when you call endTrial(). 
 
 **Implement onDraw**
 
@@ -228,6 +251,10 @@ long as the size and position of each menu item does not change. For
 example, you can  override the paint properties defined in
 `MenuExperimentView`, position the text differently, or draw more
 decorations on the menus. 
+
+The radius of the circle in the pie menu is `RADIUS - TEXT_SIZE * 2`.
+The width of each item in the normal menu is `CELL_WIDTH` and the height is
+`CELL_HEIGHT`.
  
 **Related APIs**
 * [Canvas](https://developer.android.com/reference/android/graphics/Canvas): See documentation on drawCircle and drawText.
