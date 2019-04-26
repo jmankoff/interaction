@@ -6,7 +6,7 @@ code: A1
 published: true
 assigned: Thursday, April 25, 2019
 due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Wednesday, May 6, 2019
-revised: 10:28 AM Tuesday, April 23, 2019
+revised: 8:51 PM Thursday, April 25, 2019
 
 objective: Build an end-to-end application. Interact with users.
 
@@ -22,6 +22,20 @@ hci_goals:
 
 * TOC
 {:toc}
+
+# Overview of assignment
+
+This is a two part assignment. The coding should take about 5 hours,
+and re-uses many concepts from [ColorPicker](colorpicker.html). Please
+start early, and reach out if you find you are spending more than 10
+hours. 
+
+The user study will take about the same. Your time will include the following:
+Write your consent form using our template and print out (1 hr)
+recruit, consent and run 4 participants (1-2 hours); Download your
+data and importing it into the spreadsheet we provide (30 mins);
+Analyze the data (1 hr) and write the report (1-2 hours). Again, reach
+out if spending more than double the expected time. 
 
 # Key Files to look at 
 
@@ -160,9 +174,9 @@ and how the UI should respond to these events.
 <div class="mermaid">
 graph LR
 S((.)) --> A((Start))
-A -- "Press?drawMenu;startTrial;startPoint=p" --> I((Inside))
-I -- "Release:endTrial;reset();onTrialCompleted(trial)" --> E[End]
-I -- "Drag:currentIndex=menuItem" --> I
+A -- "Press?startTrial()" --> I((Inside))
+I -- "Release:endTrial()" --> E[End]
+I -- "Drag:dragResult()" --> I
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
 classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
@@ -174,6 +188,29 @@ class A start
 class E finish
 class I normal
 </div>
+
+where the actions should be as follows:
+
+```java
+startTrial() {
+// 1) call trial.startTrial(), passing it the 
+// pointer position
+// 2) invalidate
+}
+endTrial() {
+// 1) call trial.endTrial(), passing it the pointer 
+// position and the currently selected item
+// 2) call onTrialCompleted(trial)
+}
+dragResult(){
+// check if the item selected has changed. If so
+// 1) update your menu's model
+// 2) invalidate
+}
+```
+
+Note that you do not need to check whether the user clicked on the
+correct menu item when you call endTrial(). 
 
 **Implement onDraw**
 
@@ -238,6 +275,10 @@ long as the size and position of each menu item does not change. For
 example, you can  override the paint properties defined in
 `MenuExperimentView`, position the text differently, or draw more
 decorations on the menus. 
+
+The radius of the circle in the pie menu is `RADIUS - TEXT_SIZE * 2`.
+The width of each item in the normal menu is `CELL_WIDTH` and the height is
+`CELL_HEIGHT`.
  
 **Related APIs**
 * [Canvas](https://developer.android.com/reference/android/graphics/Canvas): See documentation on drawCircle and drawText.

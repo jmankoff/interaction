@@ -81,24 +81,26 @@ layout: default
 |       |Exercise Due|[Color Picker](/interaction/assignments/colorpicker)|
 |       |Slides|[Predicting and Evaluating Interactor Efficiency](slides/wk04/menus.html)| Apply design tips we've discussed to comparing the efficiency of different variations on interactors; Learn about wide variety of solutions for selection; Learn about Qualitative and Quantitative ways of testing theories|
 |**4/25**|**Thursday**|**Implementing App for user study**|
-||Assignment| [Menus](/interaction/assignments/menus)| Test which menu is better: Marking menu or Standard Menu|
-|**4/26**|**Friday**|**Running User Studies**|
+||Assignment| [Menus](/interaction/assignments/menus)| Test which menu is better: Marking menu or Standard Menu
+|**4/26**|**Friday**|**Introduction to 3D printing|
+||[3D Printing Intro](slides/wk04/3dprinting.html)|Learn basics of 3D printing, print the model you created in preparation for class |
 {: .small #small.schedule #schedule}
-||Slides|[Quantitative Study Design/Running](/interaction/slides/wk04/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
 
 # Week 5: Making more of your phone
 
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------|--------|
-| **4/29** | **Monday** |Studies   | Introduction / Requirements for running participants |  
+| **4/29** | **Monday** |    | Introduction / Requirements for running participants |  
+||Slides|[Quantitative Study Design/Running](/interaction/slides/wk04/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
+| **5/1**  | **Wednesday** | 
+||Preparation|[Install OpenScad]()|Prepare to 3D model using code!
+||Preparation|[Try customizing a nametag](https://www.thingiverse.com/thing:2089058/)|Download a 3D model|
+||Slides|Introduction to OpenScad/3D modeling |
+| **5/2**  | **Thursday** | Finalize and print your projects | | 
+||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
+| **5/3**  | **Friday**    |Finalize and print your projects | Make the end to end system work | 
 |      |Experiment Design Quiz|[On Canvas]({{site.canvas}}), due night before||
 ||Required Reading |[An Empirical Comparison of Pie vs. Linear Menus](https://medium.com/@donhopkins/an-empirical-comparison-of-pie-vs-linear-menus-466c6fdbba4b)| To better understand the purpose and procedures in this user study; to plan for [Menus assignment](assignments/menus.html)|
-| **5/1**  | **Wednesday, at the Mill Classroom** | Design your project        | Work in pairs to design an add-on to your phone that uses a combination of 3D printed and conductive elements. | Learn about designing your own model; how phones are used for physical computing such as sensing and interaction| 
-||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
-|| Required Tutorial before class | [Make a luggage tag](https://www.tinkercad.com/learn/overview/O0XHVHMIXGFO1D6;collectionId=O2C1PXBIQ2KHCOD) | Learn basic 3D modeling skills needed for 3D printing
-||[3D Printing Intro](slides/wk05/3dprinting.html)|Learn basics of 3D printing, print the model you created in preparation for class |
-| **5/2**  | **Thursday** | Work on the software interface and event handling in lab | Learn about the software behind physical interactors |
-| **5/3**  | **Friday, at the Mill Classroom**    |Finalize and print your projects | Make the end to end system work | 
 {: .small #small .schedule #schedule}
 
 # Week 6: Accessibility 
