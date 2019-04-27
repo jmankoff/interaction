@@ -39,7 +39,7 @@ out if spending more than double the expected time.
 
 # Key Files to look at 
 
-* ExperimentSetup.java
+* ExperimentSession.java
   * Class that sets up all the conditions for the experiment and creates an iterator with all the trials.
 * ExperimentTrial.java
   * Class that stores all the data for a single trial.
@@ -114,11 +114,11 @@ this assignment. You will analyze the data from this experiment in
 part 2 of this project. 
 
 
-We have implemented in `ExperimentSetup` the code for you to generate
+We have implemented in `ExperimentSession` the code for you to generate
 all of the trials from a setup file called `menuContents.csv` found in
-the assets directory. Look at ExperimentSetup.java, please understand
-`createExperimentSetupList` method which sets up conditions for
-whole experiment.  `ExperimentSetup` is an iterator, so to run the
+the assets directory. Look at ExperimentSession.java, please understand
+`createTrials` method which sets up conditions for
+whole experiment.  `ExperimentSession` is an iterator, so to run the
 trials for a give session you just use `session.next` as long as
 `session.getNext` is true.
 
@@ -174,8 +174,8 @@ and how the UI should respond to these events.
 <div class="mermaid">
 graph LR
 S((.)) --> A((Start))
-A -- "Press?startSelection()" --> I((Inside))
-I -- "Release:endSelection()" --> E[End]
+A -- "Press?startTrial()" --> I((Selecting))
+I -- "Release:endTrial()" --> E[End]
 I -- "Drag:dragResult()" --> I
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
