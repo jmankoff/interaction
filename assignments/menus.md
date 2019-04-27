@@ -6,7 +6,7 @@ code: A1
 published: true
 assigned: Thursday, April 25, 2019
 due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Wednesday, May 6, 2019
-revised: 6:45 AM Friday, April 26, 2019
+revised: 7:10 AM Saturday, April 27, 2019
 
 objective: Build an end-to-end application. Interact with users.
 
@@ -280,6 +280,17 @@ decorations on the menus.
 The radius of the circle in the pie menu is `RADIUS - TEXT_SIZE * 2`.
 The width of each item in the normal menu is `CELL_WIDTH` and the height is
 `CELL_HEIGHT`.
+
+## Some hints for the pie menu
+
+- `drawArc` will draw a pizza-pie shaped arc, so you can do things
+  like highlight a menu item with a single method call. 
+- You will need a rotational offset to ensure the top menu item is at
+  the top of the pie (both when drawing and in essential geometry)
+  because angle is traditionally measured from cardinal east. You can
+  add this in radians before converting from angle to index. 
+
+
  
 **Related APIs**
 * [Canvas](https://developer.android.com/reference/android/graphics/Canvas): See documentation on drawCircle and drawText.
