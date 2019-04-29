@@ -96,6 +96,7 @@ layout: default
 ||Slides|[Introduction to OpenSCAD/3D modeling](slides/wk05/3dmodeling.html) | Learn about how to create a custom 3D model in OpenSCAD|
 | **5/1**  | **Wednesday** | **Running Human Subjects Experiments** | Requirements for running experiments with participants |
 ||Slides|[Quantitative Study Design/Running](/interaction/slides/wk05/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
+||Assignment Parts 1 and 2 Due|[Menus](/interaction/assignments/menus)|
 | **5/2**  | **Thursday** | Finalize and print your projects | | 
 ||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
 | **5/3**  | **Friday**    | |  | 
