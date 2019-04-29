@@ -24,7 +24,7 @@ CSE 340 is taught by <a href="make4all.org">Jennifer Mankoff</a>. Ryan Rowe is H
 | Ryan Rowe          | Head TA    | Fridays 1:30-3pm, Gates 150          |
 | Saidutt Nimmagadda | TA         | Mondays 12-1pm, Allen Center 021     |
 | Adam Towers        | TA         | Tuesdays 12pm-1pm, Gates 153         |
-| Harshitha Akkaraju | TA         | Wednesdays 1pm-2pm, Gates 150        |
+| Harshitha Akkaraju | TA         | Wednesday 12:00 - 1:00 pm (Gates 150), Thursdays 5:30 - 7:30pm (varies)   |
 
 # Should I take this class?
 
