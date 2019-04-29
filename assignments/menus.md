@@ -353,7 +353,7 @@ significant difference between various conditions. It will also
 include summary information that you can use to visualize your data if
 you want for your report.
 
-** Write a Report**
+**Write a Report**
 
 You will need to write up a brief report about your study. We will
 provide a template (TBD). 
