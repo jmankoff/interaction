@@ -341,7 +341,7 @@ report.
 
 *Collect data* Have each participant complete a session. Once *all*
 participants are done, you and download your final data file. It
-should have 288*4 data points in it. You can use the emulator or your
+should have 72*4 (288) data points in it. You can use the emulator or your
 phone for this, and any mouse you want. You will need to turn in your
 final data file with your report. 
 
@@ -353,7 +353,7 @@ significant difference between various conditions. It will also
 include summary information that you can use to visualize your data if
 you want for your report.
 
-*** Write a Report**
+** Write a Report**
 
 You will need to write up a brief report about your study. We will
 provide a template (TBD). 
