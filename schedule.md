@@ -93,7 +93,7 @@ layout: default
 | **4/29** | **Monday** |    | |  
 ||Preparation|[Install OpenScad]()|Prepare to 3D model using code!
 ||Preparation|[Try customizing a nametag](https://www.thingiverse.com/thing:2089058/)|Download a 3D model|
-||Slides|Introduction to OpenScad/3D modeling |
+||Slides|[Introduction to OpenScad/3D modeling](slides/wk05/3dmodeling.html) |
 | **5/1**  | **Wednesday** | Introduction / Requirements for running participants |
 ||Slides|[Quantitative Study Design/Running](/interaction/slides/wk04/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
 | **5/2**  | **Thursday** | Finalize and print your projects | | 

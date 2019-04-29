@@ -1,0 +1,148 @@
+---
+layout: presentation
+title: Basic Intro to 3D modeling
+description: Description of how to create a 3D model in OpenSCAD
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse-
+---
+# Basic Intro to 3D modeling
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+layout:false
+
+[//]: # (Outline Slide)
+.title[Today's goals]
+.body[
+- Introduce OpenSCAD
+- Talk about elements of 3D modeling
+]
+
+---
+.title[OpenSCAD: A language for 3D modeling]
+.body[
+[Beginner's
+tutorial](http://edutechwiki.unige.ch/en/OpenScad_beginners_tutorial)
+
+Comments and variables similar to what you are used to
+
+```
+//Name Tag - Customizable
+Name = "Jen Mankoff";
+Length = 90 ;
+c = 20;
+```
+]
+---
+.title[OpenSCAD concepts: solids]
+.body[
+Primitive Solids such as `cube([2,3,4]);` make up your designs
+
+Also `sphere` `cylinder` `polyhedron` 
+]
+---
+.title[OpenSCAD concepts: transformations]
+.body[
+Same as 2D transformations
+
+- `rotate([x,y,z]) [solid]`
+- `translate([x,y,z]) [solid]`
+- `mirror([x,y,z]) [solid]`
+- ...
+]
+---
+.title[OpenSCAD concepts: CSG modeling]
+.body[
+- Union: `union() { [transformations/solids/etc] }` combines children
+- Difference: `difference() {}` subtracts everything from first child
+- Hull: `hull() {}` combines all the children within a convex hull 
+
+]
+
+---
+.title[OpenSCAD concepts: 2G geometry + linear extrusion]
+.body[
+- `linear_extrude (height=XX)` and then define a polygon to extrude,
+  e.g., `polygon(points=[[0,0],[100,0],[0,100],[15,15],[65,15],[15,65]], paths=[[0,1,2],[3,4,5]]);`
+
+makes what? 
+]
+--
+.body[
+![:img Picture of a triangle extruded to a depth of 16,30%](img/modeling/extruded-polygon.png)
+
+]
+---
+.title[Other things to extrude]
+.body[
+
+- Can import a DXF file and extrude, just put this after `linear_extrude`: `import (file = "file.dxf");`
+
+- text: 
+
+```
+content = "Text rocks";
+font = "Liberation Sans";
+
+translate ([-30,0,0]) {
+   linear_extrude(height = 3) {
+       text(content, font = font, size = 10);
+     }
+ }
+```
+]
+---
+.title[Other features]
+.body[
+[Cheat sheet](http://www.openscad.org/cheatsheet/index.html)
+
+- `%` shows something transparently so you can find out what would
+  happen
+- `$fn` sets resolution (can speed things up by making this low during design)
+- Can create functions (`module name() {}` )
+- Can use for loops 
+- Can use [other peoples' libraries](https://github.com/mtu-most/most-scad-libraries)
+]
+---
+.title[Let's try it]
+.body[
+- Open OpenSCAD
+- Before you begin modeling, go to View>>Show Axes. This will make it
+  easier to see where the parts of your model are being placed.
+- Click and drag to change viewing angle
+- Right click and drag to move origin
+
+
+]
+---
+.title[sample program]
+.body[
+
+```
+//Name Tag
+Name = "Jen Mankoff";
+Length = 90 ;
+c = 20;
+
+linear_extrude(height = 5)
+translate([0, 5, 0])
+text(Name);
+
+difference(){
+    hull(){
+        cylinder(h=2,d=40);
+        translate([Length,0,0])
+        cylinder(h=2,d=40);
+    }
+    translate([Length,0,0])
+    cylinder(h=2,d=14);
+
+}
+```
+]
+---
+# End of Deck
