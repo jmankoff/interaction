@@ -24,20 +24,6 @@ layout:false
 - Go over Assignment 1
 ]
 ---
-#Menu Assignment
-.left-column[
-![:img Picture of the pie menu you will implement, 50%](img/pie.png)![:img Picture of the linear menu you will implement, 50%](img/linear.png)
-]
-.right-column[
-- Build an application from specs
-- Record user study data from at least 2 users
-- Produce plausible experimental results
-- Implement variety of menus
-- Implement data storage
-- Analyze the data 
-]
-
----
 .title[Experiment Design]
 .body[
 
@@ -66,10 +52,10 @@ class Hypothesis,Conclusions start
 class Method,Data,Analysis normal
 </div>
 
-What is the Hypothesis?
+What is the Hypothesis for the Menus assignment?
 ]
 ---
-.title[Method Design]
+.title[Method]
 .body[
 
 <div class="mermaid">
@@ -97,22 +83,37 @@ class Hypothesis,Conclusions start
 class Method,Data,Analysis normal
 </div>
 
-Method: Discussion of Quiz results
+3 tasks x 2 menu types = 6 *conditions*:
 
-Blocks
-- Randomization
-- *n* * *m* * *...*
-Tasks 
-- Within Blocks
-Study Method Considerations
-- Participants
-- Process
+| | Normal | Pie |
+|--|--|--|
+| **Linear** |  |  |
+| **Relational** |  |   |
+| **Unclassified** |  |  |
+
+- In each *condition* we test  `ITEM_MAX` different menu items
+- For each menu item, we repeat `NUM_REPEATS` times
 ]
 ---
+.title[Other Method considerations]
+.body[
+An experimental *session* consists of 3 tasks x 2 menu types x
+`ITEM_MAX` items x `NUM_REPEATS` repetitions = 72 *trials* in your homework
 
+You have to run four participants through a complete session = 72 * 4
+or 288 data points.
+
+]
+
+--
+.body[
+Participants do *all* trials (some designs participants only do some conditions)
+
+Order of presentation of conditions and items is randomized (why?)
+]
+---
 .title[Run Study]
 .body[
-
 <div class="mermaid">
 graph LR
 S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
@@ -232,7 +233,7 @@ Basic ethics ([Belmont Report](https://www.hhs.gov/ohrp/regulations-and-policy/b
 ]
 
 ---
-.title[Write your consent form & consent your neighbor]
+.title[Write your consent form & consent your participants]
 .body[
 Purpose of study (Beneficience)
 

@@ -301,7 +301,7 @@ The width of each item in the normal menu is `CELL_WIDTH` and the height is
 **Tasks**
 - Conduct user study 
  - Run a trial on yourself
- - Create a final consent form from this sample (TBD)
+ - Create a final consent form from [this sample](consent.html)
  - Recruit 4 participants
  - Have them sign your consent form
  - Have them complete a session with `MAX_ITEMS` set to at least 4 and
@@ -312,7 +312,7 @@ The width of each item in the normal menu is `CELL_WIDTH` and the height is
 
 **Conduct User Study**
 
-To finalize the consent form, you will need to copy over the text from
+To finalize the [consent form](consent.html), you will need to copy over the text from
 our sample consent and modify it in all of the places marked as
 such. You should print out two copies of the consent form for each
 participant -- one for them and one for you.
