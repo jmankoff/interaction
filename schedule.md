@@ -90,12 +90,12 @@ layout: default
 
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------|--------|
-| **4/29** | **Monday** |    | Introduction / Requirements for running participants |  
-||Slides|[Quantitative Study Design/Running](/interaction/slides/wk04/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
-| **5/1**  | **Wednesday** | 
+| **4/29** | **Monday** |    | |  
 ||Preparation|[Install OpenScad]()|Prepare to 3D model using code!
 ||Preparation|[Try customizing a nametag](https://www.thingiverse.com/thing:2089058/)|Download a 3D model|
 ||Slides|Introduction to OpenScad/3D modeling |
+| **5/1**  | **Wednesday** | Introduction / Requirements for running participants |
+||Slides|[Quantitative Study Design/Running](/interaction/slides/wk04/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
 | **5/2**  | **Thursday** | Finalize and print your projects | | 
 ||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
 | **5/3**  | **Friday**    |Finalize and print your projects | Make the end to end system work | 
