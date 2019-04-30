@@ -322,24 +322,46 @@ the consent form (since you'll need to know how long it takes. This is
 also a good time to double check that your data is not lost by
 downloading it. 
 
-*Downloading your data* (TBD) On mac OS X, 
-`adb pull /storage/emulated/0/CSE340_PieMenu/TestResult.csv` will
-download your data to the current directory you are in (or you can
-specify a location). We are also looking into other approaches. You
-will need to look at this data fill to fill in the consent form, you
-should also check that it works properly. 
+*Downloading your data*
 
-*Create a clean CSV* You should use the
-hamburger menu in the app you just implemented to `Clear Result CSV`
+On mac OS X, `adb pull /storage/emulated/0/CSE340_PieMenu/TestResult.csv` will
+download your data to the current directory you are in (or you can
+specify a location).
+
+On all platforms, if you have Android Studio installed you can use
+a tool window called `Device File Manager`. This allows you to directly
+access the files on your Android device (emulated or physical) through a
+GUI window. If you aren't comfortable with using adb over the the command line,
+this is a great option.
+
+1) Connect your Android device. If you use an emulator just start the emulator like
+you usually would. If you use a physical device connect it to your computer over
+USB like you usually would when loading your Android apps.
+
+2) In the top menu, press View -> Tool Windows -> Device File Explorer. This will
+open a window that details the contents of your Android device's file system.
+
+![:img Screenshot of a normal menu](menus-img/device-file-explorer.png){:float="left"}
+
+3) Navigate to `/storage/emulated/0/CSE340_PieMenu/TestResult.csv`. You should be able
+to open the file and even save it elsewhere on your computer's file system. 
+
+*Create a clean CSV* 
+
+You should use the hamburger menu in the app you just implemented to `Clear Result CSV`
 before starting your study so that your data does not contaminate your results.
 
-*Recruit participants and have them sign your consent form* You can ask friends or classmates for help. Do
+*Recruit participants and have them sign your consent form* 
+
+You can ask friends or classmates for help. Do
 not *coerce* anyone into participating in your study. Make sure they
 know they have a choice, and have read and signed the consent
 form. You will be required to *turn in signed consent forms* with your
 report.
 
-*Collect data* Have each participant complete a session. Once *all*
+*Collect data* 
+
+Have each participant complete a session. Once *all*
 participants are done, you and download your final data file. It
 should have 72*4 (288) data points in it. You can use the emulator or your
 phone for this, and any mouse you want. You will need to turn in your
