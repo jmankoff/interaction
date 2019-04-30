@@ -345,19 +345,10 @@ should have 72*4 (288) data points in it. You can use the emulator or your
 phone for this, and any mouse you want. You will need to turn in your
 final data file with your report. 
 
-**Analyze Data**
-
-To analyze your data, you should paste it into a spreadsheet we have
-created for you. This spreadsheet will let you see if there is a
-significant difference between various conditions. It will also
-include summary information that you can use to visualize your data if
-you want for your report.
-
 **Write a Report**
 
-You will need to write up a brief report about your study. We will
-provide a template (TBD). 
-
+You will need to write up a brief report about your study. We 
+provide a [template](menu-report).
 
 # Submission Instructions
 
