@@ -17,7 +17,8 @@ should be at most one paragraph*
 experiment take place?*
 
 **Participants:** *Describe your participants (without identifying
-them). How were they recruited? How many were there? You can also add
+them). How were they recruited? How many were there? Were
+they consented? You can also add
 some optional information such as: What was there average age? What
 genders were present? How experienced were they with android?* 
 
@@ -30,18 +31,16 @@ etc)*
 [Google Sheet](https://docs.google.com/spreadsheets/d/1ANFrhla6JEZuKXNWjY6ccPAd5ZeZu7SF1rJd3Awu4_s/edit)
 and paste your data into the `Raw Data` subsheet, replacing the
 contents/data that we placed there. To use this spreadsheet look at
-the `For Charting` sheet to see a chart of your data (you can click on
-the hamburger menu in the chart to download it as an image). You can
-click on 
-`Processed Data` and look at F3-H8 to see what if anything is
-significant.  You can also create your own charts if you are
+the `Example Chart` sheet to see a chart of your data (you can click on
+the hamburger menu in the chart to download it as an image).  You can
+also create your own charts if you are 
 comfortable working in a spreadsheet.*
 
 The results will be broken into two parts. The first will describe the
 overall data, including how many erroneous selections took place, and
 how fast the user was in each condition.
 
-### Overview
+## Speed Results
 
 *Describe your thoughts about overall speed in different
 conditions. Use at least one chart to illustrate what you say. Here is
@@ -51,16 +50,19 @@ into the spreadsheet you'll see that it updates to reflect your data*
 ![Picture of bar chart showing relative performance of each condition
 with invalid data ](menus-img/time-chart.png)
 
-### Statistical Significance
+### Statistical Significance of Time
 
-| ANOVA             | SS     | DF | MS    | F      | P value (.05) | P value (.01) | P value (.001) |   
+*You can click on `Speed Analysis` in your spreadsheet and look at F3-H8 to see what if anything is
+significant. That is also where I copied this table from*
+
+| ANOVA             | SS     | DF | MS    | F      | P value (.05) | P value (.01) | P value (.001) |
 |-------------------|--------|----|-------|--------|---------------|---------------|----------------|
-| SS Menu           | 1.554  | 1  | 1.554 | 39.906 | TRUE          | FALSE         | FALSE          |
-| SSTask            | 0.985  | 2  | 0.492 | 12.648 | FALSE         | FALSE         | FALSE          |
-| Menu Task Between | 1.364  | 5  | 0.273 | 7.006  | TRUE          | FALSE         | FALSE          |
-| SSMenu*Task       | 2.0865 | 1  | 2.087 | 53.594 | FALSE         | FALSE         | FALSE          |
-| SSwithin          | 3.192  | 82 | 0.039 | 0.000  |               |               |                |
-| Total             | 7.817  | 87 |       |        |               |               |                |
+| SS Menu           | 0.777  | 1  | 0.777 | 295.891 | TRUE          | FALSE         | FALSE          |
+| SSTask            | 0.492  | 2  | 0.246 | 93.778 | TRUE          | FALSE         | FALSE          |
+| Menu Task Between | 0.682  | 5  | 0.136 | 51.945  | TRUE          | TRUE          | TRUE           |
+| SSMenu*Task       | 0.261 | 1  | 0.261 | 99.346 | FALSE         | FALSE         | FALSE          |
+| SSwithin          | 0.100  | 38 | 0.003  | 0.000  |               |               |                |
+| Total             | 1.630  | 43 |       |        |               |               |                |
 {: .small #small .schedule #schedule}
 
 *Include your own table instead*
@@ -75,15 +77,28 @@ statistically significant:
 
 *look at F G and H to find p value for rows 4 through 9. Averages for
 different conditions can be found in column G (rows 13-18) for
-interaction effects and column H and I rows 12-27 for main effects. In
+interaction effects and column H and I rows 21-35 for main effects. In
 my data, shown above, I'd say:*
 
 *Pie menus were twice as fast as normal menus (M=.48s vs M=.83s),
-F(1,82)=39.906, p<.05. We did not find a main effect for task. 
-However, we found an interaction effect between menu and task (as
-illustrated in the chart above), F(5, 82) = 7, p<.05.*
+F(1,43)=295.891, p<.05. Unclassified menu items were harder to find
+than linear and relative ones (M=.84s, .59s, and .59s respectively),
+F(2,43)=93.778, p<0.5. We also found an interaction effect between menu and task (as
+illustrated in the chart above), F(5, 43) = 51.945, p<.001.*
 
+*All of the numbers are copied over from my spreadsheet and can be
+seen in the sample you are copying from. Note that my DF (degrees of
+freedom) numbers are different than yours will be because I only ran 3
+participants.*
 
+## Error Results
+
+*Describe what happened in terms of errors -- provide at least one chart showing
+what you learned about errors in different conditions* 
+
+### Statistical Significance of Error
+
+*Repeat what was done for time*
 
 # Conclusions
 

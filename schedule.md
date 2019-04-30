@@ -100,7 +100,7 @@ layout: default
 | **5/2**  | **Thursday** | Finalize and print your projects | | 
 ||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
 | **5/3**  | **Friday**    | |  | 
-|          | TBD |||
+||Slides| [Midterm Review](slides/wk05/midterm-review) | | 
 {: .small #small .schedule #schedule}
 
 # Week 6: Accessibility 
@@ -113,7 +113,6 @@ layout: default
 || Exercise Assigned | [Accessibility](/interaction/assignments/accessibility) |
 |**5/9**|**Thursday** | **Accessibility Exercise**||
 || |In-class demo of accessibility | Learning about how to check accessibility and use a screen reader on your phone|
-||Slides| Midterm Review | | 
 | **5/10**|**Friday**   |                                                         |
 ||Midterm|In-class|
 {: .small #small .schedule #schedule}
