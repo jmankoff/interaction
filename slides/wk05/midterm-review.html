@@ -1,0 +1,419 @@
+---
+layout: presentation
+title: Midterm Review
+description: Review of material for midterm
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Midterm Review
+
+Jennifer Mankoff
+
+CSE 340 Spring 2019 
+---
+layout:false
+
+[//]: # (Outline Slide)
+.title[Today's goals]
+.body[
+- Discuss plan for midterm
+- Discuss question types
+- Discuss specific topics
+]
+---
+.title[Plan for Midterm]
+.body[
+Will cover material from weeks 1-5
+(except 3D printing)
+
+Will be in-class (50 minute exam)
+
+Content
+- Long answer questions
+- Short answer questions
+- Coding questions
+
+'CheatSheet' allowed (2 sided, hand written)
+]
+---
+.left-column[
+## Have now seen all the parts of an interface
+]
+.right-column[
+
+Input
+
+- Input models (events) 
+- Event dispatch 
+- Event handling (PPS) *likely coding problem*
+- Callbacks to application *likely coding problem*
+
+Output
+- Interactor Hierarchy design & use
+- Drawing models (`onDraw()`)  *likely coding problem*
+- Layout (`onLayout()` or `XML`) *likely coding problem*
+- Damage and redraw process 
+]
+---
+.left-column[
+## And Introduced Model View Controller
+]
+.right-column[
+Model
+- Model of a single interactor: Typically a field
+- Application model
+ - Separate from view model
+ - Typically more persistent (*e.g.,* saved with bundler)
+ 
+View
+- `onDraw()` in a single interactor
+- Interactor hierarchy in an application
+
+Controller
+- PPS in a single interactor
+- callbacks (*e.g.,* custom listeners) in an application
+]
+???
+Different for Interactor and Application
+
+
+---
+.left-column[
+## Example coding question about layout XML
+]
+.right-column[
+Below is the layout XML A restaurant with three reviews. 
+
+Draw the view in portrait on a 450dp x 800dp screen
+- In place of images and text, write the @ resource.
+- Notate the width of all views
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/food0"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawables/food0" />
+
+    <Button
+        android:id="@+id/helpful0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/helpful"
+        app:layout_constraintBottom_toBottomOf="@+id/food0"
+        app:layout_constraintStart_toEndOf="@+id/food0"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/reviewText0"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/reviewText0"
+        app:layout_constraintTop_toTopOf="@+id/food0"
+        app:layout_constraintBottom_toTopOf="@+id/helpful0"
+        app:layout_constraintStart_toStartOf="@+id/helpful0"
+        app:layout_constraintEnd_toEndOf="@+id/helpful0" />
+
+    <ImageView
+        android:id="@+id/food1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toBottomOf="@+id/food0"
+        app:layout_constraintStart_toStartOf="@+id/food0"
+        app:layout_constraintEnd_toEndOf="@+id/food0"
+        tools:srcCompat="@drawables/food1" />
+
+    <Button
+        android:id="@+id/helpful1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/helpful"
+        app:layout_constraintBottom_toBottomOf="@+id/food1"
+        app:layout_constraintStart_toEndOf="@+id/food1"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/reviewText1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/reviewText1"
+        app:layout_constraintTop_toTopOf="@+id/food1"
+        app:layout_constraintBottom_toTopOf="@+id/helpful1"
+        app:layout_constraintStart_toStartOf="@+id/helpful1"
+        app:layout_constraintEnd_toEndOf="@+id/helpful1" />
+
+    <ImageView
+        android:id="@+id/food2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toBottomOf="@+id/food1"
+        app:layout_constraintStart_toStartOf="@+id/food1"
+        app:layout_constraintEnd_toEndOf="@+id/food1"
+        tools:srcCompat="@drawables/food2" />
+
+    <Button
+        android:id="@+id/helpful2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/helpful"
+        app:layout_constraintBottom_toBottomOf="@+id/food2"
+        app:layout_constraintStart_toEndOf="@+id/food2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/reviewText2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/reviewText2"
+        app:layout_constraintTop_toTopOf="@+id/food2"
+        app:layout_constraintBottom_toTopOf="@+id/helpful2"
+        app:layout_constraintStart_toStartOf="@+id/helpful2"
+        app:layout_constraintEnd_toEndOf="@+id/helpful2" />
+
+</android.support.constraint.ConstraintLayout>
+```
+
+]
+---
+.title[Solution:]
+
+.body[
+**XX TBD drawing of solution**
+
+Solution is a drawing, with the following widths:
+
+Width of @id/food0: 90dp
+
+Width of @id/helpful0: 450 - 90 - 32 - 32 - 16 = 280dp
+
+(Portrait ratio: 280/90 = 28/9)
+
+Width of @id/helpful0: 800 - 90 - 32 - 32 - 16 = 630dp
+
+(Landscape ratio: 630/90 = 7)
+]
+---
+.title[Another typical coding problem]
+
+.body[
+<div class="mermaid">
+graph LR
+S((.)) --> START((START))
+START -- "DOWN:Inside?onEnter()" --> DRAWING((DRAWING))
+DRAWING -- "MOVE:Inside?onUpdate()" --> DRAWING((DRAWING))
+DRAWING -- "UP:Outside?Keep()" --> DONE[DONE]
+DRAWING -- "UP:Inside?Discard()" --> DONE[DONE]
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+
+
+class S invisible
+class START start
+class DRAWING normal
+class DONE finish
+</div>
+
+Implement `onTouch()` for this PPS, assuming there is an
+`essentialGeometry(Point p)` method available to you and that
+implementations for `onEnter()`, `onUpdate()`, `Keep()` and
+`Discard()` are provided. In addition, you can assume a field, `state`
+and an enum `Geometry` which has values `Geometry.INSIDE` and
+`Geometry.OUTSIDE` for checking your geometry and an enum `State` with
+values for all states in the state machine. 
+
+]
+---
+.title[Solution]
+.body[
+```java
+public boolean onTouch(MotionEvent e) {
+  geometry = essentialGeometry(new Point(e.getX(), e.getY());
+  switch(state) {
+    case State.START: 
+   	   if (geometry == Geometry.INSIDE && e.getAction() == MotionEvent.ACTION_DOWN) {
+           onEnter();
+		   this.state = State.DRAWING;
+	   }
+	case DRAWING
+    ...
+```
+]
+---
+.title[Core Toolkit Architecture]
+.body[
+Wait for *Event*
+
+*Dispatch* may cause change to:
+- interactor state
+- interactor hierarchy
+- application model
+]
+---
+.title[Core Toolkit Architecture]
+.body[
+If damage do
+- *layout* (may change)
+ - position
+ - size
+- If damage do *redraw* 
+ - Union of damage (any of those can cause it) used to trigger redraw of anything inside that union
+ - Drawing + clipping – standard drawing order, but only for things damaged; clipped to damage region
+ - Clear damage
+]
+---
+.left-column50[
+## Example non-programming question about architecture
+![:img picture showing LineA(0 0 to 4 4); CircleA (2 2 to 4 4); LineB (3 3 to 3 4); PointA (3 3) and PointB (6 4),60%](img/midterm/drawing.png)
+]
+.right-column50[
+You are implementing selection in a drawing program. 
+
+A touch press event arrives, with location (4,4). The interactor hierarchy is:
+
+<div class="mermaid">
+graph LR
+canvas[Drawing Canvas] --> CA[CircleA, Green]
+CA --> LA[LineA, Black]
+canvas --> LB[LineB, Orange]
+LB --> PA[PointA, Blue]
+LB --> PB[PointB, Black]
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+class canvas,CA,LA,LB,PA,PB normal
+</div>
+
+A) What will be first...last in the pick list?
+
+B) What will be first in bubble?
+]
+---
+.left-column[
+## Output/Drawing Concepts
+]
+.right-column[
+Drawing primitives – populate a pixel array
+
+Coordinate transformations (translate/scale/rotate/shear) & Clipping
+
+Fonts
+- Archaic origins
+- Non standardized
+- UI toolkit implications?
+]
+---
+.left-column[
+## Drawing Architecture
+]
+.right-column[
+Damage/Redraw invoked by `invalidate()` or equivalent
+
+Drawing is recursive
+- Makes it possible for parent to *decorate* kids
+- Parent responsible for making kids think they are the center of the universe (translate)
+- Clipping: intersect parent and child, also handled by parent
+]
+---
+.left-column[
+## Input/Event Concepts
+]
+.right-column[
+Devices
+
+- Logical: Valuator, Locator, Button, etc
+- Event vs. sampled devices
+- Absolute vs. Relative (and clutched)
+
+Event model to unify event and sampled devices
+- What
+- When
+- Where
+- Value
+- Context
+]
+---
+.left-column50[
+## Event Dispatch 
+
+![:img Picture of interactor hierarchy connected to an interface and a
+dotted line indicating application interface, 100%](img/midterm/callbacks.png)]
+.right-column50[
+Dispatch Strategies
+- Bottom-first and top-down positional
+- Focus-based
+
+Propositional Production System describes *within-view* response to events
+]
+---
+.left-column50[
+## Event Dispatch 
+
+![:img Picture of interactor hierarchy connected to an interface and a
+dotted line indicating application interface and a do_action() call
+happening below the line in response to a button_pressed(), 100%](img/midterm/callbacks2.png)]
+.right-column50[
+Callbacks handle *application* response to events
+- Update Application Model
+
+]
+
+---
+.left-column50[
+## Event Dispatch 
+
+![:img Picture of interactor hierarchy connected to an interface and a
+dotted line indicating application interface with do_action() replaced
+with an actionListener, 100%](img/midterm/callbacks3.png)]
+.right-column50[
+Callbacks handle *application* response to events
+- Update Application Model
+- Best implemented using custom listeners
+
+]
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+
+# Understanding People
+---
+layout:false
+
+...
