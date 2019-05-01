@@ -25,8 +25,8 @@ hci_goals:
   - Understand how sizes influence layout
 ---
 
-- TOC
-  {:toc}
+* TOC
+{:toc}
 
 # Part 1
 
