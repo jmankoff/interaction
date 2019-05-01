@@ -142,16 +142,6 @@ your user interface. To support this, we set things up so that the
 menu view is going to `MATCH_PARENT` width and height. However, the
 menu itself should show up right where the user presses down. 
 
-**Setup**
-
-(TBD: WE MAY UPDATE THIS) Before you can record data, you will need to
-navigate to settings/apps/PieMenu/permissions/storage and enable
-storage. You also need to install the Android Debug Bridge (adb) a
-command-line tool that lets you communicate with a device. Follow the
-instructions [here](https://developer.android.com/studio/releases/platform-tools.html)
-and install the adb for your computer.
-
-
 **Handling Touch Events**
 
 You will handle touch input by implementing the `onTouchEvent`
