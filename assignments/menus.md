@@ -378,7 +378,7 @@ provide a [template](menu-report).
 
 # Submission Instructions
 
-You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
+You will turn in the following files [here](https://gitgrade.cs.washington.edu/student/assignment/49/turnin):
 
 Part 1: 
 - MainActivity.java
