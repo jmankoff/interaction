@@ -6,7 +6,7 @@ code: A1
 published: true
 assigned: Thursday, April 25, 2019
 due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Wednesday, May 6, 2019
-revised: 7:10 AM Saturday, April 27, 2019
+revised: 9:17 PM Tuesday, April 39, 2019
 
 objective: Build an end-to-end application. Interact with users.
 
@@ -162,6 +162,17 @@ classes. The only thing they have to modify for `onTouchEvent` to
 work properly is `essentialGeometry`, since they have the exact same
 state machine. 
 
+- For the `PieMenu`, `essentialGeometry` should return -1 if the pointer
+  has moved less than `MIN_DIST` since selection started, and
+  otherwise return the item number currently being selected. Item
+  number is the menu item that a ray from
+  the center of the menu to the pointer intersects.
+- For the `NormalMenu`, `essentialGeometry` should return -1 if the
+  pointer is outside the bounds of the menu in any direction or has
+  moved less than `MIN_DIST` since interaction started. Otherwise it
+  should return the item number of the menu item that the pointer is
+  currently inside of. 
+
 You need to keep track of two main states `START` and
 `SELECTING`. When in the `SELECTING` state you need to distinguish
 between the event type to determine if the user has selected an option
@@ -170,6 +181,7 @@ or if they are still in the middle of making a choice.
 Relevant mouse events include `ACTION_DOWN`, `ACTION_MOVE`, and
 `ACTION_UP`; think about how these mouse events relate to the change
 and how the UI should respond to these events. 
+
 
 <div class="mermaid">
 graph LR
