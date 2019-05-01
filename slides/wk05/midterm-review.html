@@ -295,14 +295,12 @@ If damage do
  - Clear damage
 ]
 ---
-.left-column50[
+.left-column-half[
 ## Example non-programming question about architecture
 ![:img picture showing LineA(0 0 to 4 4); CircleA (2 2 to 4 4); LineB (3 3 to 3 4); PointA (3 3) and PointB (6 4),60%](img/midterm/drawing.png)
 ]
-.right-column50[
-You are implementing selection in a drawing program. 
-
-A touch press event arrives, with location (4,4). The interactor hierarchy is:
+.right-column-half[
+You are implementing selection in a drawing program.  A touch press event arrives, with location (4,4). The interactor hierarchy is:
 
 <div class="mermaid">
 graph LR
@@ -369,12 +367,12 @@ Event model to unify event and sampled devices
 - Context
 ]
 ---
-.left-column50[
+.left-column-half[
 ## Event Dispatch 
 
 ![:img Picture of interactor hierarchy connected to an interface and a
 dotted line indicating application interface, 100%](img/midterm/callbacks.png)]
-.right-column50[
+.right-column-half[
 Dispatch Strategies
 - Bottom-first and top-down positional
 - Focus-based
@@ -382,30 +380,68 @@ Dispatch Strategies
 Propositional Production System describes *within-view* response to events
 ]
 ---
-.left-column50[
+.left-column-half[
 ## Event Dispatch 
 
 ![:img Picture of interactor hierarchy connected to an interface and a
 dotted line indicating application interface and a do_action() call
 happening below the line in response to a button_pressed(), 100%](img/midterm/callbacks2.png)]
-.right-column50[
+.right-column-half[
 Callbacks handle *application* response to events
 - Update Application Model
 
 ]
 
 ---
-.left-column50[
+.left-column-half[
 ## Event Dispatch 
 
 ![:img Picture of interactor hierarchy connected to an interface and a
 dotted line indicating application interface with do_action() replaced
 with an actionListener, 100%](img/midterm/callbacks3.png)]
-.right-column50[
+.right-column-half[
 Callbacks handle *application* response to events
 - Update Application Model
 - Best implemented using custom listeners
 
+]
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# None-core concepts
+---
+layout:false
+
+.title[How an animation is set up]
+.body[
+Need the start and end value of the properties to be
+modified. Typically use a
+[Path](https://developer.android.com/reference/android/graphics/Path)
+for this. 
+
+Need a *duration* (total time in ms for the animation)
+
+Need the *pacing function* for animation. Can explore subclasses of
+[Interpolator](https://developer.android.com/reference/android/view/animation/Interpolator)
+(or make your own!) for this
+]
+---
+.left-column[
+## Example pacing functions
+![:img Picture of for types of interpolation functions provided with
+android, 100%](img/midterm/interpolators.gif)
+]
+.right-column[
+<br><br><br><br>
+Slow in slow out (Accelerate/decelerate)
+
+Slow in (Accelerate)
+
+Anticipate (back up slightly, then accelerate)
+
+Anticipate Overshoot (same, then go too far and slow down)
 ]
 ---
 name: inverse
@@ -416,4 +452,178 @@ class: center, middle, inverse
 ---
 layout:false
 
-...
+.title[HSV]
+.body[
+RGB matches the eye (rods & cones, red green and blue)
+
+HSV is much better for *people*
+- Hue: Dominant wavelength of light
+- Saturation: Purity (how much white/black mixed in)
+- Value: Luminance or amount of light in color = max(R,G,B)
+]
+
+---
+.left-column[
+## Example Short Answer Exam Question
+![:img Darker and lighter red boxes, 80%](img/midterm/redcomp.png)
+![:img Red with varying saturation (to white) and value (to black), 80%](img/midterm/value-sat.png)
+
+]
+.right-column[
+# Compare the following colors using HSV
+Which is correct?
+
+- A: Top color has different *hue* than bottom color
+- B: Top color has higher *saturation* than bottom color
+- C: Top color has higher *value* than bottom color
+]
+???
+B: Saturation
+
+---
+.title[Know your speeds (order of magnitude is key thing here)]
+.body[
+< ~20ms (1/50 sec) discrete images/flashes merge into continuous perception
+
+smooth animation: 24-40  frames per second 
+
+< ~100-200ms seems like “instant response”
+- on web a difference of 250 ms can switch people to a competitor
+
+< 1-2 seconds typically “good response time”
+
+More than 10-15 sec is typically “bad response time”
+
+
+]
+---
+.title[Recap of design tips]
+.body[
+- Don't rely on blue for small objects
+- Don't rely on blue for older users
+- Make sure that contrast is high enough
+- Minimize saturated colors
+- Use redundant cues
+- Make things distinct
+- Use small multiples
+- Manage expectations if you can't change response time
+- Replace subtle changes with obvious ones
+- Use well-tested visual grouping strategies
+- Minimize the number of options 
+- Rely on recognition rather than recall
+]
+---
+.title[Example long answer question]
+.body[
+##Which is better and which laws explain it?
+
+| #A | #B | 
+|--|--|
+|![:img Picture of the Graffiti gesture recognition alphabet from the Palm Pilot, 50%](img/midterm/Grafitti.png)|.right-column50[![:img Picture of the Edgewrite gesture recognition alphabet, 100%](img/midterm/Edgewrite.png)]|
+
+]
+--
+.body[
+- Fitts Law ( distance and sized;  expert errorless behavor)
+- Steering Law (distance and size over a path)
+- Cognitive modeling (expert behavior)
+- Gestalt Psychology (will they see it at all?)
+- **Errors (will they be reduced)**
+]
+---
+.left-column-half[
+# Fitts Law
+
+![:img Picture of graph of fitts law data collected when I did the
+experiment. Y axis is time and x is index of difficulty. It's fairly
+noisy because fitts law is designed to measure multiple
+people. However it does fit a line., 80%](img/midterm/timeoverid.png)
+
+Fitts' law only applies to *error-free, expert* behavior
+]
+.right-column-half[
+.jax[$$MT = a + b*log_2({Dist \over Size} + 1)$$
+]
+
+where
+- *MT* is movement time
+- *ID/MT* is the *Throughput* of a device in bits/second
+- *a* and *b* are empirically derived constants 
+- ID is the *Index of Difficulty* (ID, in bits) of a movement
+.jax[$$log_2({Dist \over Size} + 1)$$]
+
+
+]
+???
+This is just a line
+
+Fitts’ law tells us about difficulty for pointing and selection tasks
+- Time to move the hand depends only on relative precision required
+- MT increases as __distance__ from target increases
+- MT decreases as __size__ of target increases
+- Diagram this
+
+Fitts' law only applies to expert behavior
+
+---
+.title[Design tips derived from motor principals]
+.body[
+Design Tip #1: Make small targets larger
+
+Design Tip #2: Put commonly used things close together
+
+Design Tip #3: Make use of Edges: They are Infinite
+
+Design Tip #4: Use pie menus instead of context menus for expert tasks
+
+Design Tip #5: Use snapping to minimize distance<br> when likely
+targets are known
+
+Design Tip #6: Separate Motor Size from Visible Size
+
+]
+---
+.title[Use of two handed input]
+.body[
+
+2 Handed input principles
+- Non preferred leads
+- Sets frame of reference
+- Preferred does fine movement
+]
+--
+.title[Lenses]
+.body[
+Use: Display hidden, context-specific interaction
+
+Implementation
+]
+---
+.title[Study design]
+.body[
+Know your terms (participant, session, trial, condition)
+
+Know the important information about ethics
+- Beneficence -->
+ - Value of research higher than risks
+ - Do no harm
+- Respect for Persons -->
+ - Fully informed of intent and purpose
+ - Informed consent
+ - May opt out at any time, for any reason
+- Justice
+ - equitable, representative selection of participants
+]
+
+---
+.title[Study Analysis]
+.body[
+
+Basic statistics: Max, Min, Mean, Mode
+
+Bar chart: Compares conditions (means)
+
+Histogram: Shows number of results in each part of a range (distribution)
+
+Correlation != Causation
+]
