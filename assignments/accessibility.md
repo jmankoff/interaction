@@ -26,20 +26,27 @@ Tasks:
 - Learn different categories of app accessibility issues
 - Identify accessibility issues in our example app
 
-Please read Table 2 on page 8 of [Epidemiology as a Framework for Large-Scale Mobile Application Accessibility Assessment](https://xiaoyizhang.me/assets/Paper/ASSETS_2017_Epidemiology.pdf)
+Accessibility is an important part of any app. Whether you are developing a new app or adding features to an existing one, it is important to consider the accessibility of your app's components. Please read Table 2 on page 8 of [Epidemiology as a Framework for Large-Scale Mobile Application Accessibility Assessment](https://xiaoyizhang.me/assets/Paper/ASSETS_2017_Epidemiology.pdf).
 
-For example: this image does not have contentDescription property. It is an "Item Label" error in the paper above. Therefore, screen reader cannot read the alternative text of the image to people with visual impairments.
+Please watch this [quick video](https://youtu.be/1by5J7c5Vz4) to learn how visually-impaired users interact with Android applications. The video also offers some tips on ensuring your app is compatible with assistive tools.
+
+Consider the layout app that you worked on earlier this quarter. The image does not have `contentDescription` property. Google's Accessibility Scanner will classify this as "Item Label" error (defined in the paper above). Therefore, screen reader cannot read the alternative text of the image to people with visual impairments.
 
 ![Screenshot of an image without contentDescription property in layout editor](accessibility-img/1.png){:width="500px"}
 
-Our example app may not have ALL issues in the table. Try to identify as many issues as you can.
+The goal of part 1 of the assigment is to identify as many accessibility issues as possible within the given app. Our example app may not have ALL issues in the table. It is helpful to have basic understanding about [Talkback](https://support.google.com/accessibility/android/answer/6283677?hl=en) and [Switch Access](https://support.google.com/accessibility/android/answer/6122836?hl=en), two built-in assistive tools on Android.
 
-It is helpful to have basic understanding about [Talkback](https://support.google.com/accessibility/android/answer/6283677?hl=en) and [Switch Access](https://support.google.com/accessibility/android/answer/6122836?hl=en), two built-in assistive tools on Android.
+For each issue that you identify within the app, document the following details in a word document.
 
-Here are some guidelines of Android accessibility:
-[Google Android Accessibility](https://developer.android.com/guide/topics/ui/accessibility/) / [Android Accessibility: Apps](https://developer.android.com/guide/topics/ui/accessibility/apps) / [Material Design: Accessibility](https://material.io/design/usability/accessibility.html#composition)
+| Inaccessible UI elements  | Issue type  | Fix  |
+|---|---|---|
+| ...  | ...  | ...  |
+| ...  | ...  | ... |
 
-We will ask you to report all accessibility issues you identified. For each issue, you will identify the inaccessible UI element(s), indicate its issue type, and describe how to fix the issue.
+**Resources**
+* [Android Accessibility Overview](https://developer.android.com/guide/topics/ui/accessibility/)
+* [Android Accessibility Guides](https://developer.android.com/guide/topics/ui/accessibility/apps)
+* [Material Design: Assistive Technology](https://material.io/design/usability/accessibility.html#assistive-technology)
 
 <!-- <span style="color:red">
 XXX TODO: Should we ask them to write a report with the description of each issue? (Increases the workload of TA). Or we only grade based on how many issues are repaired? (What if they can identify but cannot repair some issues?)
@@ -54,9 +61,8 @@ XXX TODO: Should we provide them Google Accessibility Scanner? (Although it may 
 Tasks:
 - Repair accessibility issues you identified in part 1
 
-Once you identify an accessibility issue in the example app, please repair it by modifying code or xml layout file.
+For each issue that you identified in the app, please repair it by modifying code or xml layout file. For example: To repair "Item Label" error above, we can either
 
-For example: To repair "Item Label" error above, we can either
 - In layout editor, add "broccoli in a black bowl" as contentDescription property
 - In code, call method imageView.setContentDescription("broccoli in a black bowl")
 
@@ -70,8 +76,6 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 - MainActivity.java
 - content_main.xml
 ```
-
-Please also submit accessibility issues report in *Google Form link placeholder*.
 
 ## Grading (10pts)
 
