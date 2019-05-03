@@ -489,144 +489,69 @@ Histogram: Shows number of results in each part of a range (distribution)
 Correlation != Causation
 ]
 ---
-# END OF DECK
----
----
 .left-column[
 ## Example coding question about layout XML
 ]
 .right-column[
-Below is the layout XML A restaurant with three reviews. 
+Below is the layout XML of one review picked from a column of reviews for a restaurant. 
 
-Draw the top view in portrait on a 450dp x 800dp screen
+Draw the views as they would be positioned inside a ConstraintLayout in portrait on a 450dp x 800dp screen
 - In place of images and text, write the @ resource.
-- Notate the position
-
+- Note the top left point and dimensions of each view in `dp`, or `-` if unknown
+- Assume the button's content is 40dp tall.
+]
+---
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/food0"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:adjustViewBounds="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawables/food0" />
-
-    <Button
-        android:id="@+id/helpful0"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/helpful"
-        app:layout_constraintBottom_toBottomOf="@+id/food0"
-        app:layout_constraintStart_toEndOf="@+id/food0"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/reviewText0"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/reviewText0"
-        app:layout_constraintTop_toTopOf="@+id/food0"
-        app:layout_constraintBottom_toTopOf="@+id/helpful0"
-        app:layout_constraintStart_toStartOf="@+id/helpful0"
-        app:layout_constraintEnd_toEndOf="@+id/helpful0" />
-
-    <ImageView
-        android:id="@+id/food1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:adjustViewBounds="true"
-        app:layout_constraintTop_toBottomOf="@+id/food0"
-        app:layout_constraintStart_toStartOf="@+id/food0"
-        app:layout_constraintEnd_toEndOf="@+id/food0"
-        tools:srcCompat="@drawables/food1" />
-
-    <Button
-        android:id="@+id/helpful1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/helpful"
-        app:layout_constraintBottom_toBottomOf="@+id/food1"
-        app:layout_constraintStart_toEndOf="@+id/food1"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/reviewText1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="@string/reviewText1"
-        app:layout_constraintTop_toTopOf="@+id/food1"
-        app:layout_constraintBottom_toTopOf="@+id/helpful1"
-        app:layout_constraintStart_toStartOf="@+id/helpful1"
-        app:layout_constraintEnd_toEndOf="@+id/helpful1" />
-
-    <ImageView
-        android:id="@+id/food2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:adjustViewBounds="true"
-        app:layout_constraintTop_toBottomOf="@+id/food1"
-        app:layout_constraintStart_toStartOf="@+id/food1"
-        app:layout_constraintEnd_toEndOf="@+id/food1"
-        tools:srcCompat="@drawables/food2" />
-
-    <Button
-        android:id="@+id/helpful2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/helpful"
-        app:layout_constraintBottom_toBottomOf="@+id/food2"
-        app:layout_constraintStart_toEndOf="@+id/food2"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/reviewText2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="@string/reviewText2"
-        app:layout_constraintTop_toTopOf="@+id/food2"
-        app:layout_constraintBottom_toTopOf="@+id/helpful2"
-        app:layout_constraintStart_toStartOf="@+id/helpful2"
-        app:layout_constraintEnd_toEndOf="@+id/helpful2" />
-
-</android.support.constraint.ConstraintLayout>
+<ImageView
+    android:id="@+id/food0"
+    android:layout_width="90dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="32dp"
+    android:adjustViewBounds="true"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:srcCompat="@drawables/food0" />
 ```
-
+---
+```xml
+<Button
+    android:id="@+id/helpful0"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="32dp"
+    android:text="@string/helpful"
+    app:layout_constraintBottom_toBottomOf="@+id/food0"
+    app:layout_constraintStart_toEndOf="@+id/food0"
+    app:layout_constraintEnd_toEndOf="parent"/>
+```
+---
+```xml
+<TextView
+    android:id="@+id/reviewText0"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginBottom="8dp"
+    android:text="@string/reviewText0"
+    app:layout_constraintTop_toTopOf="@+id/food0"
+    app:layout_constraintBottom_toTopOf="@+id/helpful0"
+    app:layout_constraintStart_toStartOf="@+id/helpful0"
+    app:layout_constraintEnd_toEndOf="@+id/helpful0" />
+```
 ]
 ---
 .title[Solution:]
 
 .body[
-**XX TBD drawing of solution**
+![:img Rendered layout from the XML above,80%](img/midterm/layout_sol.svg)
 
 Solution is a drawing, with the following widths:
 
-Width of @id/food0: 90dp
-
-Width of @id/helpful0: 450 - 90 - 32 - 32 - 16 = 280dp
-
-(Portrait ratio: 280/90 = 28/9)
-
-Width of @id/helpful0: 800 - 90 - 32 - 32 - 16 = 630dp
-
-(Landscape ratio: 630/90 = 7)
+Width of @id/food0: 90dp<br/>
+Width of @id/helpful0: 450 - 90 - 32 - 32 - 16 = 280dp<br/>
+Width of @id/reviewText0: = width of @id/helpful0 = 280dp 
 ]
+---
+# END OF DECK
+---
