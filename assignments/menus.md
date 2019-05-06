@@ -5,13 +5,8 @@ code: A1
 
 published: true
 assigned: Thursday, April 25, 2019
-<<<<<<< HEAD
-due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:00 PM Monday, May 6, 2019
-revised: 7:10 AM Saturday, April 27, 2019
-=======
-due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Monday, May 6, 2019
+due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Wednesday, May 8, 2019
 revised: 3:05 PM Wednesday, May 1, 2019
->>>>>>> a076f7176280fb8c78a52bcd13ddd1f328de2fa8
 
 objective: Build an end-to-end application. Interact with users.
 

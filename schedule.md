@@ -108,11 +108,11 @@ layout: default
 |------|-------------|---------------------------------------------------------|
 | **5/6**|**Monday**    | **Accessibility**                                       |
 || Slides | Guest lecture by Tracy Tran | Learn about accessibility |
-|| Assignment Part 2 Due    | [Menus Data](/interaction/assignments/menus)                 | Collect data from users |
-| **5/8**|**Wednesday** |                                                         |
-|| Exercise Assigned | [Accessibility](/interaction/assignments/accessibility) |
+| **5/8**|**Wednesday** |
+|| Assignment Part 2 Due    | [Menus Data](/interaction/assignments/menus)                 | Collect data from users |                                                         |
 |**5/9**|**Thursday** | **Accessibility Exercise**||
 || |In-class demo of accessibility | Learning about how to check accessibility and use a screen reader on your phone|
+|| Exercise Assigned | [Accessibility](/interaction/assignments/accessibility) |
 | **5/10**|**Friday**   |                                                         |
 ||Midterm|In-class|
 {: .small #small .schedule #schedule}

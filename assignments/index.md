@@ -25,7 +25,7 @@ should post anything for discussion on the class [Piazza]({{site.piazza}})
 
 ## [Menus](/interaction/assignments/menus) 
 - 4/25 Thursday: [Menus](/interaction/assignments/menus) Assignment assigned
-- 5/6 Monday:  [Menus](/interaction/assignments/menus) Assignment due 
+- 5/8 Wednesday:  [Menus](/interaction/assignments/menus) Assignment due 
 
 ## [Accessibility](/interaction/assignments/accessibility) 
 - 5/9 Thursday: [Accessibility](/interaction/assignments/accessibility) Exercise assigned
