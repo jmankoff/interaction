@@ -37,7 +37,7 @@ Professor in charge, Professor Jennifer Mankoff, jmankoff [at] uw.edu
 # Written Consent
 Please answer the following questions
 
-I am over 18 y []  n []
+I am 18 or older y []  n []
 
 I am willing to participate in this research y []  n []
 
