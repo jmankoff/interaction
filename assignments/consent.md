@@ -14,7 +14,7 @@ must be 18 or older)]**
 
 # Study procedures (Respect for Persons)
 You will complete a series of menu selections during this study. You
-will need to click on 288 menus to complete the session as 
+will need to click on 72 menus to complete the session as 
 mentioned above. You should expect this to take approximately **[Fill
 in: X Minutes]** 
 
@@ -37,7 +37,7 @@ Professor in charge, Professor Jennifer Mankoff, jmankoff [at] uw.edu
 # Written Consent
 Please answer the following questions
 
-I am over 18 y []  n []
+I am 18 or older y []  n []
 
 I am willing to participate in this research y []  n []
 
