@@ -1,0 +1,556 @@
+---
+layout: presentation
+title: Midterm Review
+description: Review of material for midterm
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Midterm Review
+
+Jennifer Mankoff
+
+CSE 340 Spring 2019 
+---
+layout:false
+
+[//]: # (Outline Slide)
+.title[Today's goals]
+.body[
+- Discuss plan for midterm
+- Discuss question types
+- Discuss specific topics
+]
+---
+.title[Plan for Midterm]
+.body[
+Will cover material from weeks 1-5
+(except 3D printing)
+
+Will be in-class (50 minute exam)
+
+Content
+- Long answer questions
+- Short answer questions
+- Coding questions
+
+'CheatSheet' allowed (2 sided, hand written)
+]
+---
+.left-column[
+## Have now seen all the parts of an interface
+]
+.right-column[
+
+Input
+
+- Input models (events) 
+- Event dispatch 
+- Event handling (PPS) *likely coding problem*
+- Callbacks to application *likely coding problem*
+
+Output
+- Interactor Hierarchy design & use
+- Drawing models (`onDraw()`)  *likely coding problem*
+- Layout (`onLayout()` or `XML`) *likely coding problem*
+- Damage and redraw process 
+]
+---
+.left-column[
+## And Introduced Model View Controller
+]
+.right-column[
+Model
+- Model of a single interactor: Typically a field
+- Application model
+ - Separate from view model
+ - Typically more persistent (*e.g.,* saved with bundler)
+ 
+View
+- `onDraw()` in a single interactor
+- Interactor hierarchy in an application
+
+Controller
+- PPS in a single interactor
+- callbacks (*e.g.,* custom listeners) in an application
+]
+???
+Different for Interactor and Application
+
+
+---
+.title[A typical coding problem]
+
+.body[
+<div class="mermaid">
+graph LR
+S((.)) --> START((START))
+START -- "DOWN:Inside?onEnter()" --> DRAWING((DRAWING))
+DRAWING -- "MOVE:Inside?onUpdate()" --> DRAWING((DRAWING))
+DRAWING -- "UP:Outside?Keep()" --> DONE[DONE]
+DRAWING -- "UP:Inside?Discard()" --> DONE[DONE]
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+
+
+class S invisible
+class START start
+class DRAWING normal
+class DONE finish
+</div>
+
+Implement `onTouch()` for this PPS, assuming there is an
+`essentialGeometry(Point p)` method available to you and that
+implementations for `onEnter()`, `onUpdate()`, `Keep()` and
+`Discard()` are provided. In addition, you can assume a field, `state`
+and an enum `Geometry` which has values `Geometry.INSIDE` and
+`Geometry.OUTSIDE` for checking your geometry and an enum `State` with
+values for all states in the state machine. 
+
+]
+---
+.title[Solution]
+.body[
+```java
+public boolean onTouch(MotionEvent e) {
+  geometry = essentialGeometry(new Point(e.getX(), e.getY());
+  switch(state) {
+    case State.START: 
+   	   if (geometry == Geometry.INSIDE && e.getAction() == MotionEvent.ACTION_DOWN) {
+           onEnter();
+		   this.state = State.DRAWING;
+	   }
+	case DRAWING
+    ...
+```
+]
+---
+.title[Core Toolkit Architecture]
+.body[
+Wait for *Event*
+
+*Dispatch* may cause change to:
+- interactor state
+- interactor hierarchy
+- application model
+]
+---
+.title[Core Toolkit Architecture]
+.body[
+If damage do
+- *layout* (may change)
+ - position
+ - size
+- If damage do *redraw* 
+ - Union of damage (any of those can cause it) used to trigger redraw of anything inside that union
+ - Drawing + clipping – standard drawing order, but only for things damaged; clipped to damage region
+ - Clear damage
+]
+---
+.left-column-half[
+## Example non-programming question about architecture
+![:img picture showing LineA(0 0 to 4 4); CircleA (2 2 to 4 4); LineB (3 3 to 3 4); PointA (3 3) and PointB (6 4),60%](img/midterm/drawing.png)
+]
+.right-column-half[
+You are implementing selection in a drawing program.  A touch press event arrives, with location (4,4). The interactor hierarchy is:
+
+<div class="mermaid">
+graph LR
+canvas[Drawing Canvas] --> CA[CircleA, Green]
+CA --> LA[LineA, Black]
+canvas --> LB[LineB, Orange]
+LB --> PA[PointA, Blue]
+LB --> PB[PointB, Black]
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+class canvas,CA,LA,LB,PA,PB normal
+</div>
+
+A) What will be first...last in the pick list?
+
+B) What will be first in bubble?
+]
+---
+.left-column[
+## Output/Drawing Concepts
+]
+.right-column[
+Drawing primitives – populate a pixel array
+
+Coordinate transformations (translate/scale/rotate/shear) & Clipping
+
+Fonts
+- Archaic origins
+- Non standardized
+- UI toolkit implications?
+]
+---
+.left-column[
+## Drawing Architecture
+]
+.right-column[
+Damage/Redraw invoked by `invalidate()` or equivalent
+
+Drawing is recursive
+- Makes it possible for parent to *decorate* kids
+- Parent responsible for making kids think they are the center of the universe (translate)
+- Clipping: intersect parent and child, also handled by parent
+]
+---
+.left-column[
+## Input/Event Concepts
+]
+.right-column[
+Devices
+
+- Logical: Valuator, Locator, Button, etc
+- Event vs. sampled devices
+- Absolute vs. Relative (and clutched)
+
+Event model to unify event and sampled devices
+- What
+- When
+- Where
+- Value
+- Context
+]
+---
+.left-column-half[
+## Event Dispatch 
+
+![:img Picture of interactor hierarchy connected to an interface and a
+dotted line indicating application interface, 100%](img/midterm/callbacks.png)]
+.right-column-half[
+Dispatch Strategies
+- Bottom-first and top-down positional
+- Focus-based
+
+Propositional Production System describes *within-view* response to events
+]
+---
+.left-column-half[
+## Event Dispatch 
+
+![:img Picture of interactor hierarchy connected to an interface and a
+dotted line indicating application interface and a do_action() call
+happening below the line in response to a button_pressed(), 100%](img/midterm/callbacks2.png)]
+.right-column-half[
+Callbacks handle *application* response to events
+- Update Application Model
+
+]
+
+---
+.left-column-half[
+## Event Dispatch 
+
+![:img Picture of interactor hierarchy connected to an interface and a
+dotted line indicating application interface with do_action() replaced
+with an actionListener, 100%](img/midterm/callbacks3.png)]
+.right-column-half[
+Callbacks handle *application* response to events
+- Update Application Model
+- Best implemented using custom listeners
+
+]
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# None-core concepts
+---
+layout:false
+
+.title[How an animation is set up]
+.body[
+Need the start and end value of the properties to be
+modified. Typically use a
+[Path](https://developer.android.com/reference/android/graphics/Path)
+for this. 
+
+Need a *duration* (total time in ms for the animation)
+
+Need the *pacing function* for animation. Can explore subclasses of
+[Interpolator](https://developer.android.com/reference/android/view/animation/Interpolator)
+(or make your own!) for this
+]
+---
+.left-column[
+## Example pacing functions
+![:img Picture of for types of interpolation functions provided with
+android, 100%](img/midterm/interpolators.gif)
+]
+.right-column[
+<br><br><br><br>
+Slow in slow out (Accelerate/decelerate)
+
+Slow in (Accelerate)
+
+Anticipate (back up slightly, then accelerate)
+
+Anticipate Overshoot (same, then go too far and slow down)
+]
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+
+# Understanding People
+---
+layout:false
+
+.title[HSV]
+.body[
+RGB matches the eye (rods & cones, red green and blue)
+
+HSV is much better for *people*
+- Hue: Dominant wavelength of light
+- Saturation: Purity (how much white/black mixed in)
+- Value: Luminance or amount of light in color = max(R,G,B)
+]
+
+---
+.left-column[
+## Example Short Answer Exam Question
+![:img Darker and lighter red boxes, 80%](img/midterm/redcomp.png)
+![:img Red with varying saturation (to white) and value (to black), 80%](img/midterm/value-sat.png)
+
+]
+.right-column[
+# Compare the following colors using HSV
+Which is correct?
+
+- A: Top color has different *hue* than bottom color
+- B: Top color has higher *saturation* than bottom color
+- C: Top color has higher *value* than bottom color
+]
+???
+B: Saturation
+
+---
+.title[Know your speeds (order of magnitude is key thing here)]
+.body[
+< ~20ms (1/50 sec) discrete images/flashes merge into continuous perception
+
+smooth animation: 24-40  frames per second 
+
+< ~100-200ms seems like “instant response”
+- on web a difference of 250 ms can switch people to a competitor
+
+< 1-2 seconds typically “good response time”
+
+More than 10-15 sec is typically “bad response time”
+
+
+]
+---
+.title[Recap of design tips]
+.body[
+- Don't rely on blue for small objects
+- Don't rely on blue for older users
+- Make sure that contrast is high enough
+- Minimize saturated colors
+- Use redundant cues
+- Make things distinct
+- Use small multiples
+- Manage expectations if you can't change response time
+- Replace subtle changes with obvious ones
+- Use well-tested visual grouping strategies
+- Minimize the number of options 
+- Rely on recognition rather than recall
+]
+---
+.title[Example long answer question]
+.body[
+##Which is better and which laws explain it?
+
+| #A | #B | 
+|--|--|
+|![:img Picture of the Graffiti gesture recognition alphabet from the Palm Pilot, 50%](img/midterm/Grafitti.png)|.right-column50[![:img Picture of the Edgewrite gesture recognition alphabet, 100%](img/midterm/Edgewrite.png)]|
+
+]
+--
+.body[
+- Fitts Law ( distance and sized;  expert errorless behavor)
+- Steering Law (distance and size over a path)
+- Cognitive modeling (expert behavior)
+- Gestalt Psychology (will they see it at all?)
+- **Errors (will they be reduced)**
+]
+---
+.left-column-half[
+# Fitts Law
+
+![:img Picture of graph of fitts law data collected when I did the
+experiment. Y axis is time and x is index of difficulty. It's fairly
+noisy because fitts law is designed to measure multiple
+people. However it does fit a line., 80%](img/midterm/timeoverid.png)
+
+Fitts' law only applies to *error-free, expert* behavior
+]
+.right-column-half[
+.jax[$$MT = a + b*log_2({Dist \over Size} + 1)$$
+]
+
+where
+- *MT* is movement time
+- *ID/MT* is the *Throughput* of a device in bits/second
+- *a* and *b* are empirically derived constants 
+- ID is the *Index of Difficulty* (ID, in bits) of a movement
+.jax[$$log_2({Dist \over Size} + 1)$$]
+
+
+]
+???
+This is just a line
+
+Fitts’ law tells us about difficulty for pointing and selection tasks
+- Time to move the hand depends only on relative precision required
+- MT increases as __distance__ from target increases
+- MT decreases as __size__ of target increases
+- Diagram this
+
+Fitts' law only applies to expert behavior
+
+---
+.title[Design tips derived from motor principals]
+.body[
+Design Tip #1: Make small targets larger
+
+Design Tip #2: Put commonly used things close together
+
+Design Tip #3: Make use of Edges: They are Infinite
+
+Design Tip #4: Use pie menus instead of context menus for expert tasks
+
+Design Tip #5: Use snapping to minimize distance<br> when likely
+targets are known
+
+Design Tip #6: Separate Motor Size from Visible Size
+
+]
+---
+.title[Use of two handed input]
+.body[
+
+2 Handed input principles
+- Non preferred leads
+- Sets frame of reference
+- Preferred does fine movement
+]
+--
+.title[Lenses]
+.body[
+Use: Display hidden, context-specific interaction
+
+Implementation
+]
+---
+.title[Study design]
+.body[
+Know your terms (participant, session, trial, condition)
+
+Know the important information about ethics
+- Beneficence -->
+ - Value of research higher than risks
+ - Do no harm
+- Respect for Persons -->
+ - Fully informed of intent and purpose
+ - Informed consent
+ - May opt out at any time, for any reason
+- Justice
+ - equitable, representative selection of participants
+]
+
+---
+.title[Study Analysis]
+.body[
+
+Basic statistics: Max, Min, Mean, Mode
+
+Bar chart: Compares conditions (means)
+
+Histogram: Shows number of results in each part of a range (distribution)
+
+Correlation != Causation
+]
+---
+.left-column[
+## Example coding question about layout XML
+]
+.right-column[
+Below is the layout XML of one review picked from a column of reviews for a restaurant. 
+
+Draw the views as they would be positioned inside a ConstraintLayout in portrait on a 450dp x 800dp screen
+- In place of images and text, write the @ resource.
+- Note the top left point and dimensions of each view in `dp`, or `-` if unknown
+- Assume the button's content is 40dp tall.
+]
+---
+```xml
+<ImageView
+    android:id="@+id/food0"
+    android:layout_width="90dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="32dp"
+    android:adjustViewBounds="true"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:srcCompat="@drawables/food0" />
+```
+---
+```xml
+<Button
+    android:id="@+id/helpful0"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="32dp"
+    android:text="@string/helpful"
+    app:layout_constraintBottom_toBottomOf="@+id/food0"
+    app:layout_constraintStart_toEndOf="@+id/food0"
+    app:layout_constraintEnd_toEndOf="parent"/>
+```
+---
+```xml
+<TextView
+    android:id="@+id/reviewText0"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginBottom="8dp"
+    android:text="@string/reviewText0"
+    app:layout_constraintTop_toTopOf="@+id/food0"
+    app:layout_constraintBottom_toTopOf="@+id/helpful0"
+    app:layout_constraintStart_toStartOf="@+id/helpful0"
+    app:layout_constraintEnd_toEndOf="@+id/helpful0" />
+```
+---
+.title[Solution:]
+
+.body[
+![:img Rendered layout from the XML above,80%](img/midterm/layout_sol.svg)
+
+Solution is a drawing, with the following widths:
+
+Width of @id/food0: 90dp<br/>
+Width of @id/helpful0: 450 - 90 - 32 - 32 - 16 = 280dp<br/>
+Width of @id/reviewText0: = width of @id/helpful0 = 280dp 
+]
+---
+# END OF DECK
+---

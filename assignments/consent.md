@@ -14,7 +14,7 @@ must be 18 or older)]**
 
 # Study procedures (Respect for Persons)
 You will complete a series of menu selections during this study. You
-will need to click on 288 menus to complete the session as 
+will need to click on 72 menus to complete the session as 
 mentioned above. You should expect this to take approximately **[Fill
 in: X Minutes]** 
 

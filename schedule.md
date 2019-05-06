@@ -96,24 +96,25 @@ layout: default
 ||Slides|[Introduction to OpenSCAD/3D modeling](slides/wk05/3dmodeling.html) | Learn about how to create a custom 3D model in OpenSCAD|
 | **5/1**  | **Wednesday** | **Running Human Subjects Experiments** | Requirements for running experiments with participants |
 ||Slides|[Quantitative Study Design/Running](/interaction/slides/wk05/studies.html)|  Understand concepts in data pipeline in an applied fashion including what is our hypothesis, how this translates into study design and method, considerations when interacting with users, data collection cleaning and analysis, some statistical methods, and how we draw conclusions
-||Assignment Parts 1 and 2 Due|[Menus](/interaction/assignments/menus)|
+||Assignment Part 1 Due|[Menus Programming](/interaction/assignments/menus)|
 | **5/2**  | **Thursday** | Finalize and print your projects | | 
 ||Required safety training before class | [Mill safety training](https://reg.hfs.uw.edu/) | All UW students are required to complete the user agreement and safety training online annually.  You will need to swipe to verify you’ve completed this on every entry. |
 | **5/3**  | **Friday**    | |  | 
-|          | TBD |||
+||Slides| [Midterm Review](slides/wk05/midterm-review) | Overview of first 5 weeks of the quarter | 
 {: .small #small .schedule #schedule}
 
 # Week 6: Accessibility 
 
 |------|-------------|---------------------------------------------------------|
 | **5/6**|**Monday**    | **Accessibility**                                       |
-|| Assignment Due    | [Menus](/interaction/assignments/menus)                 |
+|| Slides | Guest lecture by Tracy Tran | Learn about accessibility |
+|| Assignment Part 2 Due    | [Menus Data](/interaction/assignments/menus)                 | Collect data from users |
 | **5/8**|**Wednesday** |                                                         |
 || Exercise Assigned | [Accessibility](/interaction/assignments/accessibility) |
+|**5/9**|**Thursday** | **Accessibility Exercise**||
+|| |In-class demo of accessibility | Learning about how to check accessibility and use a screen reader on your phone|
 | **5/10**|**Friday**   |                                                         |
-||Required Reading|[Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)|
 ||Midterm|In-class|
-||Slides|[06: Paper Prototyping](/interaction/slides/wk02/paper.html)|
 {: .small #small .schedule #schedule}
 
 # Week 7: Undo it please
@@ -160,7 +161,10 @@ layout: default
 ||Assignment: Context Due (6/10)+[Context/AR](/interaction/assignments/context)|
 {: .small #small .schedule #schedule}
 
-# Post Lecture
+# Post Lecture (Unused)
+|---|--------|--------------------------------------------------------------|
+||Required Reading|[Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)|
+|   | Slides | [06: Paper Prototyping](/interaction/slides/wk02/paper.html) |
 
 ## Final exam
 **6/10**, 8:30-10am in CSE2 G10

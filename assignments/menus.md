@@ -5,8 +5,13 @@ code: A1
 
 published: true
 assigned: Thursday, April 25, 2019
+<<<<<<< HEAD
 due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:00 PM Monday, May 6, 2019
 revised: 7:10 AM Saturday, April 27, 2019
+=======
+due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Monday, May 6, 2019
+revised: 3:05 PM Wednesday, May 1, 2019
+>>>>>>> a076f7176280fb8c78a52bcd13ddd1f328de2fa8
 
 objective: Build an end-to-end application. Interact with users.
 
@@ -142,16 +147,6 @@ your user interface. To support this, we set things up so that the
 menu view is going to `MATCH_PARENT` width and height. However, the
 menu itself should show up right where the user presses down. 
 
-**Setup**
-
-(TBD: WE MAY UPDATE THIS) Before you can record data, you will need to
-navigate to settings/apps/PieMenu/permissions/storage and enable
-storage. You also need to install the Android Debug Bridge (adb) a
-command-line tool that lets you communicate with a device. Follow the
-instructions [here](https://developer.android.com/studio/releases/platform-tools.html)
-and install the adb for your computer.
-
-
 **Handling Touch Events**
 
 You will handle touch input by implementing the `onTouchEvent`
@@ -162,6 +157,17 @@ classes. The only thing they have to modify for `onTouchEvent` to
 work properly is `essentialGeometry`, since they have the exact same
 state machine. 
 
+- For the `PieMenu`, `essentialGeometry` should return -1 if the pointer
+  has moved less than `MIN_DIST` since selection started, and
+  otherwise return the item number currently being selected. Item
+  number is the menu item that a ray from
+  the center of the menu to the pointer intersects.
+- For the `NormalMenu`, `essentialGeometry` should return -1 if the
+  pointer is outside the bounds of the menu in any direction or has
+  moved less than `MIN_DIST` since interaction started. Otherwise it
+  should return the item number of the menu item that the pointer is
+  currently inside of. 
+
 You need to keep track of two main states `START` and
 `SELECTING`. When in the `SELECTING` state you need to distinguish
 between the event type to determine if the user has selected an option
@@ -171,11 +177,12 @@ Relevant mouse events include `ACTION_DOWN`, `ACTION_MOVE`, and
 `ACTION_UP`; think about how these mouse events relate to the change
 and how the UI should respond to these events. 
 
+
 <div class="mermaid">
 graph LR
 S((.)) --> A((Start))
-A -- "Press?startTrial()" --> I((Selecting))
-I -- "Release:endTrial()" --> E[End]
+A -- "Press?startSelection()" --> I((Selecting))
+I -- "Release:endSelection()" --> E[End]
 I -- "Drag:dragResult()" --> I
 
 classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
@@ -247,11 +254,13 @@ trial is completed.
 
 MainActivity also needs to implement the code to respond to
 `onTrialCompleted`. In particular, this code should always remove the
-current menu item being shown. Then it should check if the session is
+current menu being shown. Then it should check if the session is
 over (remember the session is an iterator), and if not call
 `showMenuForTrial` with the next trial. If the session is over, it
 should update text of `InstructionTextView` to say that the session is
-completed. 
+completed. This means that until the next session is started, the system should not display any menus
+if the user clicks. You can also display a
+[Toast](https://developer.android.com/guide/topics/ui/notifiers/toasts).  
 
 **Related APIS**
 
@@ -322,46 +331,59 @@ the consent form (since you'll need to know how long it takes. This is
 also a good time to double check that your data is not lost by
 downloading it. 
 
-*Downloading your data* (TBD) On mac OS X, 
-`adb pull /storage/emulated/0/CSE340_PieMenu/TestResult.csv` will
-download your data to the current directory you are in (or you can
-specify a location). We are also looking into other approaches. You
-will need to look at this data fill to fill in the consent form, you
-should also check that it works properly. 
+*Downloading your data*
 
-*Create a clean CSV* You should use the
-hamburger menu in the app you just implemented to `Clear Result CSV`
+On mac OS X, `adb pull /storage/emulated/0/CSE340_PieMenu/TestResult.csv` will
+download your data to the current directory you are in (or you can
+specify a location).
+
+On all platforms, if you have Android Studio installed you can use
+a tool window called `Device File Manager`. This allows you to directly
+access the files on your Android device (emulated or physical) through a
+GUI window. If you aren't comfortable with using adb over the the command line,
+this is a great option.
+
+1) Connect your Android device. If you use an emulator just start the emulator like
+you usually would. If you use a physical device connect it to your computer over
+USB like you usually would when loading your Android apps.
+
+2) In the top menu, press View -> Tool Windows -> Device File Explorer. This will
+open a window that details the contents of your Android device's file system.
+
+![:img Screenshot of a normal menu](menus-img/device-file-explorer.png){:float="left"}
+
+3) Navigate to `/storage/emulated/0/CSE340_PieMenu/TestResult.csv`. You should be able
+to open the file and even save it elsewhere on your computer's file system. 
+
+*Create a clean CSV* 
+
+You should use the hamburger menu in the app you just implemented to `Clear Result CSV`
 before starting your study so that your data does not contaminate your results.
 
-*Recruit participants and have them sign your consent form* You can ask friends or classmates for help. Do
+*Recruit participants and have them sign your consent form* 
+
+You can ask friends or classmates for help. Do
 not *coerce* anyone into participating in your study. Make sure they
 know they have a choice, and have read and signed the consent
 form. You will be required to *turn in signed consent forms* with your
 report.
 
-*Collect data* Have each participant complete a session. Once *all*
+*Collect data* 
+
+Have each participant complete a session. Once *all*
 participants are done, you and download your final data file. It
 should have 72*4 (288) data points in it. You can use the emulator or your
 phone for this, and any mouse you want. You will need to turn in your
 final data file with your report. 
 
-**Analyze Data**
-
-To analyze your data, you should paste it into a spreadsheet we have
-created for you. This spreadsheet will let you see if there is a
-significant difference between various conditions. It will also
-include summary information that you can use to visualize your data if
-you want for your report.
-
 **Write a Report**
 
-You will need to write up a brief report about your study. We will
-provide a template (TBD). 
-
+You will need to write up a brief report about your study. We 
+provide a [template](menu-report).
 
 # Submission Instructions
 
-You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
+You will turn in the following files [here](https://gitgrade.cs.washington.edu/student/assignment/49/turnin):
 
 Part 1: 
 - MainActivity.java
@@ -381,6 +403,7 @@ Part 2:
   - Correctly implements essentialGeometry in NormalMenu and PieMenu: 1
   - Correctly implements drawMenu in NormalMenu and PieMenu: 1
   - Correctly handles trials and callbacks in MainActivity: 1
+- Turn-in and compiles: 1pt
 - Second Half (5 points)
   - Have reasonable CSV output and charts: 1pt
   - Have signed consent forms: 1pt
@@ -388,4 +411,3 @@ Part 2:
     - Description of study process: 1pt
     - Demonstrate understanding of results: 1pt
     - Draw appropriate conclusions about linear vs. pie menu: 1pt
-- Turn-in and compiles: 1pt
