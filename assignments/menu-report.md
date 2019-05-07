@@ -50,7 +50,7 @@ into the spreadsheet you'll see that it updates to reflect your data*
 ![Picture of bar chart showing relative performance of each condition
 with invalid data ](menus-img/time-chart.png)
 
-### Statistical Significance of Time
+### Statistical Significance of Time (OPTIONAL)
 
 *You can click on `Speed Analysis` in your spreadsheet and look at F3-H8 to see what if anything is
 significant. That is also where I copied this table from*
@@ -96,7 +96,7 @@ participants.*
 *Describe what happened in terms of errors -- provide at least one chart showing
 what you learned about errors in different conditions* 
 
-### Statistical Significance of Error
+### Statistical Significance of Error (OPTIONAL)
 
 *Repeat what was done for time*
 
