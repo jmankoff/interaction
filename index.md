@@ -18,13 +18,13 @@ Labs will be Thursday morning
 
 CSE 340 is taught by <a href="make4all.org">Jennifer Mankoff</a>. Ryan Rowe is Head TA.
 
-| Instructor         | Role       | Office Hour Time/Location            |
-| ------------------ | ---------- | ------------------------------------ |
-| Jennifer Mankoff   | Instructor | 2:30pm to 4pm, Wednesdays, Gates 211 |
-| Ryan Rowe          | Head TA    | Fridays 1:30-3pm, Gates 150          |
-| Saidutt Nimmagadda | TA         | Mondays 12-1pm, Allen Center 021     |
-| Adam Towers        | TA         | Tuesdays 12pm-1pm, Gates 153         |
-| Harshitha Akkaraju | TA         | Thursdays 5:30 - 7:30pm Allen Center 021   |
+| Instructor         | Role       | Office Hour Time/Location                |
+| ------------------ | ---------- | ---------------------------------------- |
+| Jennifer Mankoff   | Instructor | 2:30pm to 4pm, Wednesdays, Gates 211     |
+| Ryan Rowe          | Head TA    | Fridays 1:30-3pm, Gates 150              |
+| Saidutt Nimmagadda | TA         | Mondays 12-1pm, Allen Center 021         |
+| Adam Towers        | TA         | Tuesdays 5pm-6pm, Gates 131              |
+| Harshitha Akkaraju | TA         | Thursdays 5:30 - 7:30pm Allen Center 021 |
 
 # Should I take this class?
 
