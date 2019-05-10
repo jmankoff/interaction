@@ -3,9 +3,10 @@ layout: assignment
 title: Accessibility
 code: EX4
 
+published: true
 assigned: Thursday, May 9, 2019
-due: 11:59 PM Monday, May 13, 2019
-revised: 1:59 PM Wednesday, May 8th, 2019
+due: 11:59 PM Wednesday, May 15, 2019
+revised: 5:23 PM Thursday, May 9th, 2019
 
 objective: Identify and repair app accessibility issues.
 
@@ -34,7 +35,7 @@ Consider the layout app that you worked on earlier this quarter. The image does 
 
 ![Screenshot of an image without contentDescription property in layout editor](accessibility-img/1.png){:width="500px"}
 
-The goal of part 1 of the assigment is to identify as many accessibility issues as possible within the given app. Our example app may not have ALL issues in the table. Please use the Accessibility Scanner to detect defects in the app. For your reference, we identified 11 errors in the app. It is helpful to have basic understanding about [Talkback](https://support.google.com/accessibility/android/answer/6283677?hl=en) and [Switch Access](https://support.google.com/accessibility/android/answer/6122836?hl=en), two built-in assistive tools on Android.
+The goal of part 1 of the assigment is to identify **at least 10** accessibility issues within the given app. Our example app may not have ALL issues in the table. Please use the Accessibility Scanner to detect defects in the app. For your reference, we identified at least 11 errors in the app. It is helpful to have basic understanding about [Talkback](https://support.google.com/accessibility/android/answer/6283677?hl=en) and [Switch Access](https://support.google.com/accessibility/android/answer/6122836?hl=en), two built-in assistive tools on Android.
 
 For each issue that you identify within the app, document the following details in a word document. The Accessibility Scanner is decent with its suggested fixes, but if it is not obvious, for each element type, do some research to find all the attributes that help with accessibility. Also, in your report describe your experience using assistive tools while testing the accessibility of the app before and after fixing issues.
 
