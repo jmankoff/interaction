@@ -83,14 +83,21 @@ All of these changes only require modifying existing xml attributes or adding ne
 
 ### Part 2
 
-You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
-
+You will turn in the following files via GitGrade:
 ```
 - MainActivity.java
 - app_bar_main.xml
 - content_main.xml
 - nav_header_main.xml
+- strings.xml
 ```
+**Follow these instructions to submit part 2 of your assignment**
+
+- Make sure the code you want to submit is pushed to GitLab (origin/master)
+  - If you just commit locally and don't push, GitGrade won't see those changes 
+- (Optional) Go to your repo on GitLab to double check that the latest commit hash matches your latest local commit hash
+- Go to the turn in link: [https://gitgrade.cs.washington.edu/student/assignment/55/turnin](https://gitgrade.cs.washington.edu/student/assignment/55/turnin)
+- Check the box and click "Turn in"
 
 ## Grading (10pts)
 
