@@ -18,6 +18,9 @@ hci_goals:
   - Simple repairs to accessibility issues
 ---
 
+* TOC
+{:toc}
+
 # Part 1
 
 Tasks:
