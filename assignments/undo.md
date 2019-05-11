@@ -4,123 +4,57 @@ title: Undo
 code: A2
 
 assigned: Thursday, May 16, 2019
-due: 11:59 PM Wednesday, May 27, 2019
-revised: 1:46 PM Wednesday, April 10, 2019
+due: 11:59 PM Tuesday, May 21, 2019; Heuristic evaluation in lab on May 23, 2019
+revised: 1:00 PM Sunday, May 12, 2019
 
-objective: Understand Undo Abstractions.
+objective: Understand Undo Abstractions, practice Heuristic Evaluation
 
 android_goals:
-  - Build an application based on specs
-  - Create Command objects
-  - Separation of concerns
-  - Event handlers
+  - Be able to understand and modify an existing user interface
+  - Learn about floating action buttons
+  - Implement core data structure for Undo
 hci_goals:
-  - Make an accessible app
+  - Modify and existing app in a consistent fashion
+  - Make your modifications accessible
+  - Make your modifications usable 
   - Use heuristic evaluation to assess an app
-  - Build an app that does not have severe usability issues
 ---
 
 - TOC
 {:toc}
 
 Tasks:
-- Create a basic drawing app
-- Support different color and thickness
-- Handle undo/redo operations
-
-# Implementing drawing
-
-First you will implement the basic drawing app from our code stubs in `DrawingView.java`.
-
-```java
-public boolean onTouch(View arg0, MotionEvent event);
-```
-
-Notice that the above method calls different functions `onDrawStart(...)`, `onDrawMove(...)`, and `onDrawEnd()` depending on the type of input action taken. Implement these functions. They build the path that the user creates via touch input.
-
-*Related API*:
-[Path](https://developer.android.com/reference/android/graphics/Path)
-
-Then implement `onDraw(Canvas canvas)`. Think about when this function would and should be called.
-
-For examples of how this should look, look at screenshots 1 and 2 below.
+- Handle undo/redo operations (required)
+- Add a feature to your app (required)
+ - Make sure it is accessible
+- Improve usability of your app (optional)
+ - Try to identify at least one usability problem and address it 
 
 # Undo/Redo Operations
-## Changing Color/Thickness Floating Action Buttons (FABs)
-Create FABs to support changing color and thickness of drawing.
-
-When you click the FAB to select color, create a view that allows
-the user to select the color. It recommended that you leverage the
-`ColorPicker` you have already implemented. For an example of how this
-can look, look at screenshots 3 and 4.
-
-When you click the FAB to select the stroke thickness, the user should be
-able to decide between three thicknesses (each with their own FAB). For
-an example of how this should look, look at screenshots 5 and 6.
-
-## Expected Behavior
-Show the undo FAB if and only if there is any command to undo. See the behavior in screenshots 6 and 7 for an example of what happens when
-the undo FAB is clicked. On a long press of the undo button, a list of
-recent commands (up to 10) is displayed. Clicking a command should undo all actions up to and including the selected action.
-
-Show the redo FAB if and only if there is any command to redo. See the behavior in screenshots 7 and 8 for an example of what happens when the
-redo FAB is clicked. On a long press of the redo button, a list of recent commands (up to 10) is displayed. Clicking a command should redo all actions up to and including the selected action.
 
 There should be a limit on how many actions one can undo or redo. You should only allow up to 10 commands to undo and up to 10 commands to redo.
 
-### FAB States
- - When there is no command to undo, the undo FAB should not be visible.
- - When there is no command to redo, the redo FAB should not be visible.
- - As a color is selected and after the color is selected, the color FAB
+# Adding a feature
+You can add any feature you want to the app. However, we have some suggestions that will help guide you.
+
+- The simplest possible thing you could do is add a FAB to one of the existing menus. This would let you for example add a new color option. 
+- A more complex choice would be to replace the color option with something that calls your color picker. If you do this, try to make sure it is really round, meaning that if you click in a corner of its bounding box outside the color wheel, the right thing happens (a stroke starts in the underlying drawing view)
+- You could do something even more complex like allow the user to change the location of a stroke by dragging it. This is quite hard because you have to modify the command object and undo infrastructure, as well as adding new event handling capabilities to StrokeView. 
+
+# Improving usability
+As with adding a feature, there are several options here. Some examples of things *I* think are usability issues. You may not agree, if you choose to do this, you should focus on something *you* think is a usability issue. 
+- As a color is selected and after the color is selected, the color FAB
  should update its background to that color.
- - When a thickness is picked, the thickness FAB should update its icon
+- When a thickness is picked, the thickness FAB should update its icon
  to indicate the thickness selected.
+- When a thickness or color is selected, the menu should immediately
+  collapse down to a single FAB
+- Some might find the menu items small and hard to select  
 
-# Canvas State
-## Commands
-There are three types of Commands. Each of these commands are extended from the Command abstract class.
+# Peer grading: Heuristic evaluation
 
-- `CommandChangeColor`
-- `CommandChangeThickness`
-- `CommandDrawPath`
-
-## Designing the Canvas State
-Implement the constructor for the CanvasState. A CanvasState stores
-all the commands needed to generate the current canvas.
-
-Then implement `drawCanvas(Canvas canvas)`. This function will apply
-the commands that a CanvasState is comprised of to draw on the canvas.
-
-## Managing Different CanvasStates with a CanvasStateManager
-The CanvasStateManager will handle moving back and forth between `CanvasState`s as the user undoes, redoes, or applies actions. The
-`DrawingView` instance has a `CanvasStateManager.`
-
-`getUndoHistory()` and `getRedoHistory()` returns an array of the descriptors for the commands one can undo and redo respectively.
-
-`applyNewCommand(Command command)` will apply a new Command. This entails
-creating a new CanvasState accounting for the command and updating
-the `currentCanvasState`, `undoStack`, and `redoStack`.
-
-`undo()` and `redo` apply an undo and redo respectively to the `CanvasStateManager`. This entails
-updating the `currentCanvasState`, `undoStack`, and `redoStack`.
-
-## Screenshots of the user experience
-
-![Screenshot of step 1](undo-img/1.png){:width="200px"}
-![Screenshot of step 2](undo-img/2.png){:width="200px"}
-![Screenshot of step 3](undo-img/3.png){:width="200px"}
-![Screenshot of step 4](undo-img/4.png){:width="200px"}
-![Screenshot of step 5](undo-img/5.png){:width="200px"}
-![Screenshot of step 6](undo-img/6.png){:width="200px"}
-![Screenshot of step 7](undo-img/7.png){:width="200px"}
-![Screenshot of step 8](undo-img/8.png){:width="200px"}
-
-
-Peer grading
-
-3 students?
-
-Heuristic evaluation
+This will take place in lab on Thursday May 23rd, 2019, and be due over the next 24
+hours as with the previous peer grading exercise
 
 The Task:
 - Step 1: draw something
@@ -131,12 +65,18 @@ The Task:
 - Step 5: use new feature
 - Step 6: undo and redo
 
-Pick 3 most severe issues in all steps: Title + Screenshot + Pick one or more heuristics + severity rating + description
+You will take notes on paper about issues you run into. When you have
+completed all the tasks, you will fill out a survey with the 3 most
+severe issues. This will include questions about:
+- Who are you/ who are you evaluating
+- Which task step (above)
+- Which heuristics are violated (primary and secondary)
+- What severity rating would you give it
+- Take a picture if you can
+- Describe what happened
 
-Feedback of their customized command
-
-The current menu icon sizes are too small, already an usability issue. Just keep it.
-
+You will also tell us if they customized a command and what it
+was. You will submit 3 things for each of 3 handins. 
 
 # Turn-in
 
@@ -145,20 +85,17 @@ The current menu icon sizes are too small, already an usability issue. Just keep
 You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
 ```
-- CanvasState.java
-- CanvasStateManager.java
-- DrawingView.java
-- MainActivity.java
+- ...
 ```
 
 ## Grading (10pts)
 
 - Part 1: Implementation
-  - Accessible app: 1pt
+  - New feature
+   - Accessible: 1pt
+   - Works: 1 pt
   - Undo and redo works in general: 1pt
   - Edge cases in undo/redo works: 1pt
-  - Changing color works: 1pt
-  - Changing thickness works: 1pt
 - Part 2: Peer grading
   - Support one additional command: 1pt
   - Complete heuristic evaluation for other students: 2pt

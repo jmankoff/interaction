@@ -1,27 +1,43 @@
 ---
 layout: presentation
-title: Layout --Week 2, Monday-- 
-description: Description of Layout
+title: Interactive Application Design --Week 7, Monday-- 
+description: Description of principals for creating an understandable application
 class: middle, center, inverse
 ---
 name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Advanced Interaction Design
+# Interactive Application Design
 
 Jennifer Mankoff
 CSE 340 Spring 2019 
 ---
 layout: false
 
+# Hall of Shame/Hall of Fame
+(is this physical or virtual? Ubicomp!)
+
+
+![:img picture of faucet with IR sensor, 40%](img/interaction/sensor.jpg )| ![:img Sign explaining how to use the sensor, 48%](img/interaction/sensor-explanation.png)
+----|----
+---
+# Hall of Shame/Hall of Fame
+
+picture from airport about invisible disabilities...
+
+---
+
+
 [//]: # (Outline Slide)
-# Today's goals
+.left-column[# Today's goals]
+.right-column[
 - Metaphor
 - Creating good mental models
 - Design Tips for Interaction Design
  - Feedback
  - Feedforward
+]
 ---
 
 .title[Metaphor]
@@ -72,12 +88,12 @@ metaphors in our language:
 - Made from scratch - made from raw materials by hand
 ]]
 .left-column[
-![:img Picture of 4 chickens in a chicken coop,100%](img/chickens.png)
+![:img Picture of 4 chickens in a chicken coop,100%](img/interaction/chickens.png)
 ]
 ---
 .title[Desktop Metaphor (Magic Cap)]
 .body[
-![:img Picture of a very literal desktop metaphor,80%](img/desktop.png)
+![:img Picture of a very literal desktop metaphor,80%](img/interaction/desktop.png)
 
 Critique!
 ]
@@ -88,7 +104,7 @@ Not great use of screen real estate
 
 Other?
 ---
-.title[Better option]
+.title[Better option?]
 .right-column[
 Can use metaphors to leverage existing conceptual models
 - Not really an attempt to simulate a real desktop
@@ -96,14 +112,13 @@ Can use metaphors to leverage existing conceptual models
 - A way to explain why some windows seem blocked
 ]
 .left-column[
-![Jens mac desktop, 80%](img/desktop-new.png)
+![Jens mac desktop, 80%](img/interaction/desktop-new.png)
 ]
 
 ---
 .title[How else can we minimize errors?]
 ???
 Key concept: mental models
----
 ---
 .left-column[
 # Every system has at least 3 different models
@@ -132,26 +147,26 @@ functionality__.
 ---
 .title[# Model of Mental Models]
 .body[
-![:img A box showing the design (white),100%](img/mental1.png)
+![:img A box showing the design (white),100%](img/interaction/mental1.png)
 ]
 ---
 .title[# Model of Mental Models]
 .body[
-![:img A box showing the design (white) and actual function (blue missing a little bit of the white),100%](img/mental2.png)
-]
----
-.title[# Model of Mental Models]
-.body[
-![:img A box showing the design (white) and actual function (blue missing
-a little bit of the white) with a grey circle added in the center
-labeled "Frequently Used (Well understood) Part of System Functionality",100%](img/mental3.png)
+![:img A box showing the design (white) and actual function (blue missing a little bit of the white),100%](img/interaction/mental2.png)
 ]
 ---
 .title[# Model of Mental Models]
 .body[
 ![:img A box showing the design (white) and actual function (blue missing
 a little bit of the white) with a grey circle added in the center
-labeled "Frequently Used (Well understood) Part of System Functionality",100%](img/mental4.png)
+labeled "Frequently Used (Well understood) Part of System Functionality",100%](img/interaction/mental3.png)
+]
+---
+.title[# Model of Mental Models]
+.body[
+![:img A box showing the design (white) and actual function (blue missing
+a little bit of the white) with a grey circle added in the center
+labeled "Frequently Used (Well understood) Part of System Functionality",100%](img/interaction/mental4.png)
 ]
 ---
 .title[# Model of Mental Models]
@@ -160,7 +175,7 @@ labeled "Frequently Used (Well understood) Part of System Functionality",100%](i
 a little bit of the white) with a grey circle added in the center
 labeled "Frequently Used (Well understood) Part of System
 Functionality" a dark blue cloud labeled "Occasionally Used Part of
-System Functionality" around the user's well understood region,100%](img/mental5.png)
+System Functionality" around the user's well understood region,100%](img/interaction/mental5.png)
 ]
 ---
 .title[# Model of Mental Models]
@@ -171,7 +186,7 @@ labeled "Frequently Used (Well understood) Part of System
 Functionality" a dark blue cloud labeled "Occasionally Used Part of
 System Functionality" around the user's well understood region and
 another cloud further out with errors (regions outside the blue system
-box) labeled "Users full model of what the system does",100%](img/mental6.png)
+box) labeled "Users full model of what the system does",100%](img/interaction/mental6.png)
 ]
 
 ???
@@ -190,7 +205,7 @@ What mental model error is this likely to create?
 ![:img a screenshot from WebEx. Weve selected “Do not record a
 teleconference” but to continue we have to hit the “Start Recording”
 button. So we have a conflict in the mental model
-here.,80%](img/webex.png)
+here.,80%](img/interaction/webex.png)
 ]
 
 ???
@@ -228,7 +243,7 @@ Gulf of Evaluation
 .body[
 Good Affordance| Bad Affordance
 ----|----
-![:img Picture of a round doorknob, 40%](img/round-doorknob.png) | ![:img Picture of a flat doorknob, 40%](img/flat-doorknob.png) 
+![:img Picture of a round doorknob, 40%](img/interaction/round-doorknob.png) | ![:img Picture of a flat doorknob, 40%](img/interaction/flat-doorknob.png) 
 
 Well-designed objects have affordances
 - Clues to their operation that are readily apparent
@@ -247,20 +262,20 @@ Form “affords” certain actions and makes that apparent
 
 Action | Physical Affordance | Virtual Affordance |  Minimal Design
 ----|----|----|----
-Gripping | ![:img picture of knurling on a knob,45%](img/knurling.png) | ![:img Image of lines indicating a grabbable corner by imitating knurling,50%](img/virtual-knurling.png)
-Pushing | ![:img picture of buttons on a phone,55%](img/buttons.png) | ![:img Similar buttons on a webpage,55%](img/virtual-buttons.png)|![:img picture of web buttons on a flat-style page,55%](img/web-button.png)
-Search | No Real World Equivalent || ![:img Text area for search. Uses greyed out text to suggest what should go in it, 55%](img/search.png)
+Gripping | ![:img picture of knurling on a knob,45%](img/interaction/knurling.png) | ![:img Image of lines indicating a grabbable corner by imitating knurling,50%](img/interaction/virtual-knurling.png)
+Pushing | ![:img picture of buttons on a phone,55%](img/interaction/buttons.png) | ![:img Similar buttons on a webpage,55%](img/interaction/virtual-buttons.png)|![:img picture of web buttons on a flat-style page,55%](img/interaction/web-button.png)
+Search | No Real World Equivalent || ![:img Text area for search. Uses greyed out text to suggest what should go in it, 55%](img/interaction/search.png)
 ]
 ???
 Knurling: increases friction/affords gripping
 
 don't kneed to know the word to get it
 ---
-# When this goes wrong!
+# Revisit: What is this an example of?
 (is this physical or virtual? Ubicomp!)
 
 
-![:img picture of faucet with IR sensor, 40%](img/sensor.jpg )| ![:img Sign explaining how to use the sensor, 48%](img/sensor-explanation.png)
+![:img picture of faucet with IR sensor, 40%](img/interaction/sensor.jpg )| ![:img Sign explaining how to use the sensor, 48%](img/interaction/sensor-explanation.png)
 ----|----
 ---
 .title[Feedback]
@@ -273,7 +288,7 @@ Makes “system state” visible
 
 Messenger Feedback | and | Gmail Feedback
 ----|----|----
-![:img Facebook messenger showing feedback as the user clicks on the thumbs up button](img/messenger-bubble.gif)||![:img User selecting and dragging two conversations in gmail with feedback,50%](img/gmail-snapping.gif)
+![:img Facebook messenger showing feedback as the user clicks on the thumbs up button](img/interaction/messenger-bubble.gif)||![:img User selecting and dragging two conversations in gmail with feedback,50%](img/interaction/gmail-snapping.gif)
 ]
 ---
 .title[Design Tip #3 Make the Conceptual Model Visible]
@@ -298,5 +313,14 @@ Help people predict what will happen
 - Don’t forget feedforward for screens
 ]
 .left-column[
-![:img Picture of two icons showing additional visual feedback when the cursor hovers over them, 100%](img/feedforward.png)
+![:img Picture of two icons showing additional visual feedback when the cursor hovers over them, 100%](img/interaction/feedforward.png)
 ]
+
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Undo Assignment
+
+Demo

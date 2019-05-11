@@ -14,7 +14,7 @@ layout: default
 |**4/3**|**Wednesday** | **Basic Structure of Interaction** ||
 ||Reading <br> (10 min) | Chapter 1: Introduction from {{site.hcibook}}  | Structure of course; History of interface innovation | 
 ||Reading <br> (10 min) | [Understanding Android Application and Activity Lifecycles](https://developer.android.com/guide/components/activities/activity-lifecycle) | Getting up to speed on Android | 
-||Preparation (10-20 min) | Download Android Studio and follow [this tutorial]( https://developer.android.com/training/basics/firstapp) to create an Android Application. Continue with the tutorial to also [run your app](https://developer.android.com/training/basics/firstapp/running-app) either on an emulator or on your phone. Here is [additional information on android studio setup](slides/wk01/setup-android.html) | Getting up to speed on Android |
+||Preparation (10-20 min) | Get up to speed on Android | Download Android Studio and follow [this tutorial]( https://developer.android.com/training/basics/firstapp) to create an Android Application. Continue with the tutorial to also [run your app](https://developer.android.com/training/basics/firstapp/running-app) either on an emulator or on your phone. Here is [additional information on android studio setup](slides/wk01/setup-android.html)|
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
 ||Exercise Assigned | [Doodle](/interaction/assignments/doodle)| Getting up to speed on Android; Basics of drawing on the screen | 
 ||Slides | [Core Toolkit Abstractions](/interaction/slides/wk01/MVC.html)| Toolkit User Types; Basic structure of a user interfaces; Common interactors|
@@ -105,6 +105,7 @@ layout: default
 
 # Week 6: Accessibility 
 
+| Date | Type | Details | Learning Goal|
 |------|-------------|---------------------------------------------------------|
 | **5/6**|**Monday**    | **Accessibility**                                       |
 || Slides | Guest lecture by Tracy Tran | Learn about accessibility |
@@ -122,9 +123,9 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
 | **5/13**|**Monday**   | **Undo**     ||
-|| Exercise Due  | [Accessibility](/interaction/assignments/accessibility) ||
+||Slides|[Interaction Design Principals](/interaction/slides/wk07/interaction.html)|
 | **5/15**|**Wednesday**  | **Heuristic Evaluation**     ||
-||Slides|[Application Design Principals](/interaction/slides/wk07/interaction.html)|
+|| Exercise Due  | [Accessibility](/interaction/assignments/accessibility) ||
 || Assignment: Undo Assigned | [Undo](/interaction/assignments/undo)                   |
 | **5/17**|                  |                                                         |
 ||Slides|[Heuristic Evaluation](/interaction/slides/wk07/heuristic.html)|
@@ -161,10 +162,14 @@ layout: default
 ||Assignment: Context Due (6/10)+[Context/AR](/interaction/assignments/context)|
 {: .small #small .schedule #schedule}
 
+## Final exam
+**6/10**, 8:30-10am in CSE2 G10
+
+
 # Post Lecture (Unused)
+
+
 |---|--------|--------------------------------------------------------------|
 ||Required Reading|[Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)|
 |   | Slides | [06: Paper Prototyping](/interaction/slides/wk02/paper.html) |
-
-## Final exam
-**6/10**, 8:30-10am in CSE2 G10
+{: .small #small .schedule #schedule}
