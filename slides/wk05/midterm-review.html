@@ -498,7 +498,7 @@ Below is the layout XML of one review picked from a column of reviews for a rest
 Draw the views as they would be positioned inside a ConstraintLayout in portrait on a 450dp x 800dp screen
 - In place of images and text, write the @ resource.
 - Note the top left point and dimensions of each view in `dp`, or `-` if unknown
-- Assume the button's content is 40dp tall.
+- Assume the button's content is 30dp tall and images are square.
 ]
 ---
 ```xml
@@ -532,7 +532,6 @@ Draw the views as they would be positioned inside a ConstraintLayout in portrait
     android:id="@+id/reviewText0"
     android:layout_width="0dp"
     android:layout_height="0dp"
-    android:layout_marginBottom="8dp"
     android:text="@string/reviewText0"
     app:layout_constraintTop_toTopOf="@+id/food0"
     app:layout_constraintBottom_toTopOf="@+id/helpful0"

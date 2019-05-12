@@ -113,6 +113,7 @@ layout: default
 || Assignment Part 2 Due    | [Menus Data](/interaction/assignments/menus)                 | Collect data from users |                                                         |
 |**5/9**|**Thursday** | **Accessibility Exercise**||
 || |In-class demo of accessibility | Learning about how to check accessibility and use a screen reader on your phone|
+||Slides| [Lab slides](slides/l06/accessibility) | Overview of first 5 weeks of the quarter | 
 || Exercise Assigned | [Accessibility](/interaction/assignments/accessibility) |
 | **5/10**|**Friday**   |                                                         |
 ||Midterm|In-class|
@@ -123,7 +124,7 @@ layout: default
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
 | **5/13**|**Monday**   | **Undo**     ||
-||Slides|[Interaction Design Principals](/interaction/slides/wk07/interaction.html)|
+||Slides|[Application Design Principals](/interaction/slides/wk07/interaction.html)|
 | **5/15**|**Wednesday**  | **Heuristic Evaluation**     ||
 || Exercise Due  | [Accessibility](/interaction/assignments/accessibility) ||
 || Assignment: Undo Assigned | [Undo](/interaction/assignments/undo)                   |

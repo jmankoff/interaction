@@ -22,7 +22,7 @@ in: X Minutes]**
 
 # Voluntary nature of Study (Respect for Persons)
 Your participation is voluntary and you can stop at any time without
-penalty. Your decision not to participate will have impact on **[Fill
+penalty. Your decision not to participate will not have an impact on **[Fill
 in: What might be coercive to the participant]**
 
 # Benefits of Study (Beneficience)

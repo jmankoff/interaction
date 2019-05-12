@@ -22,6 +22,7 @@ hci_goals:
   - Callbacks
 ---
 
+* TOC
 {:toc}
 
 # Goal
