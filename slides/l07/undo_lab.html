@@ -1,0 +1,122 @@
+---
+layout: presentation
+title: Lab 07 Getting Started With Undo --Week 7, Thursday--
+description: Introduction to the Undo assignment
+class: middle, center, inverse
+---
+# CSE 340 Lab 7 (Spring 2019)
+## Undo
+---
+
+## The Undo feature
+
+- Incredibly useful interaction technique
+
+- Reverts the application to an older state
+
+  - Mistakes can easily be undone
+  
+  - *"Ugh...that was definitely not right, but manually erasing all this work is going to take forever"*
+
+---
+
+## The Redo feature
+
+- Inverse to the Undo feature
+
+- "Undoes" an undo
+
+  - Work previously undone is reapplied
+
+  - *"Huh, maybe I made the right decision after all..."*
+
+---
+
+## Undo Assignment Overview (1/4)
+
+- Take 10 minutes to read the spec and the project repository
+
+  - Specifically, take a look at the Java files and res/layout/activity_main.xml
+
+---
+
+## Undo Assignment Overview (2/4)
+
+- `UndoHistory.java`
+
+  - The file you will primarily concern yourself with
+
+  - Allows you to abstract the Undo/Redo feature as a data structure
+  manipulation problem
+
+    - Ask yourself:
+
+      - What data structures are used and why do they make sense?
+
+      - How should these data structures be used when doing an action,
+      undoing an action, or redoing an action?
+  
+- `res/layout/activity_main.xml`
+
+  - Useful to understand when considering how to implement an additional feature
+
+---
+
+## Undo Assignment Overview (3/4)
+
+- `DrawingEvent.java`
+
+  - encapsulates the metadata about a drawing action 
+  
+  - e.g. changing color, changing thickness, drawing a stroke
+
+- `DrawingView.java`
+
+  - The view that strokes are drawn against
+
+- `StrokeView.java`
+
+  - The view that encapsulates a drawn stroke
+
+- `MainActivity.java`
+
+  - look at `undo()`, `redo()`, `onDoAction()`, and `updateDraw()` to see how `DrawingEvent` objects affect the `DrawingView` and how `UndoHistory` plays a part
+
+---
+
+## Undo Assignment Overview (4/4)
+
+![:img Abridged Undo View Tree, 70%](img/abridged_undo_view_tree.png)
+
+---
+
+## Additional Requirements
+
+- Add a feature
+
+  - Additional color(s)
+  
+  - Additional thickness option(s)
+
+  - Change stroke position (hard)
+
+- Make sure the added feature is accessible
+
+- Improve usability (optional)
+
+---
+
+## Adding a new color demo
+
+- You could leverage your ColorPicker if you want to
+
+  - look at the [PopupWindow](https://developer.android.com/reference/android/widget/PopupWindow) class
+
+- Adding a single new color
+
+  - Create a new FloatingActionButton similar to the other color FABs in `activity_main.xml`
+
+  - Make the appropriate changes `MainActivity`'s `onCreate()`
+
+    - Notice that you will have to make changes to `DrawingEvent` as well to account for a new color
+

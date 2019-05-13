@@ -127,8 +127,10 @@ layout: default
 ||Slides|[Application Design Principals](/interaction/slides/wk07/interaction.html)|
 | **5/15**|**Wednesday**  | **Heuristic Evaluation**     ||
 || Exercise Due  | [Accessibility](/interaction/assignments/accessibility) ||
-|| Assignment: Undo Assigned | [Undo](/interaction/assignments/undo)                   |
-| **5/17**|                  |                                                         |
+|| Assignment Assigned: | [Undo](/interaction/assignments/undo)                   |
+| **5/16**|**Thursday** | Getting started with Undo ||
+||Slides|[Undo lab](/interaction/slides/l07/undo_lab.html)|         |
+| **5/17**|**Friday**||
 ||Slides|[Heuristic Evaluation](/interaction/slides/wk07/heuristic.html)|
 {: .small #small .schedule #schedule}
 
