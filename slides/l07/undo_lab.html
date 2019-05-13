@@ -103,3 +103,20 @@ class: middle, center, inverse
 - Make sure the added feature is accessible
 
 - Improve usability (optional)
+
+---
+
+## Adding a new color demo
+
+- You could leverage your ColorPicker if you want to
+
+  - look at the [PopupWindow](https://developer.android.com/reference/android/widget/PopupWindow) class
+
+- Adding a single new color
+
+  - Create a new FloatingActionButton similar to the other color FABs in `activity_main.xml`
+
+  - Make the appropriate changes `MainActivity`'s `onCreate()`
+
+    - Notice that you will have to make changes to `DrawingEvent` as well to account for a new color
+
