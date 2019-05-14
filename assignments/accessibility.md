@@ -90,6 +90,7 @@ You will turn in the following files via GitGrade:
 - content_main.xml
 - nav_header_main.xml
 - strings.xml
+- colors.xml
 ```
 **Follow these instructions to submit part 2 of your assignment**
 
