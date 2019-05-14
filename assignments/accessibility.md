@@ -6,7 +6,7 @@ code: EX4
 published: true
 assigned: Thursday, May 9, 2019
 due: 11:59 PM Wednesday, May 15, 2019
-revised: 5:23 PM Thursday, May 9th, 2019
+revised: 12:16 PM Tuesday, May 14th, 2019
 
 objective: Identify and repair app accessibility issues.
 
