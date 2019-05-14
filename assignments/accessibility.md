@@ -38,12 +38,35 @@ Consider the layout app (you will not be using your layout assignment during thi
 
 The goal of part 1 of the assigment is to identify **at least 10** accessibility issues within the given app. Our example app may not have ALL issues in the table. Please use the Accessibility Scanner to detect defects in the app. For your reference, we identified at least 11 errors in the app. It is helpful to have basic understanding about [Talkback](https://support.google.com/accessibility/android/answer/6283677?hl=en) and [Switch Access](https://support.google.com/accessibility/android/answer/6122836?hl=en), two built-in assistive tools on Android.
 
-For each issue that you identify within the app, document the following details in a word document. The Accessibility Scanner is decent with its suggested fixes, but if it is not obvious, for each element type, do some research to find all the attributes that help with accessibility. Also, in your report describe your experience using assistive tools while testing the accessibility of the app before and after fixing issues.
+The Accessibility Scanner is decent with its suggested fixes, but if
+it is not obvious, for each element type, do some research to find all
+the attributes that help with accessibility. 
 
-| Inaccessible UI elements | Issue type | Fix |
+# Report
+
+Your report should be structured as follows:
+
+## Title: Accessibility Report
+
+Overview (1 paragraph) 
+
+Describe your experience using assistive tools while testing the
+accessibility of the app before and after fixing issues. 
+
+Issues (table)
+
+For each issue that you identify within the app, document the following details:
+
+| Inaccessible UI element  | Issue type | Fix |
 | ------------------------ | ---------- | --- |
 | ...                      | ...        | ... |
 | ...                      | ...        | ... |
+
+
+You can use the XML id for the element, or describe it very briefly
+(~3 words). Issue type should be drawn from the list in the
+reading. The fix should provide a brief description (1 sentence or so)
+of what you did. Here's an example: `"Remove the android:contentDescription"`
 
 **Resources**
 

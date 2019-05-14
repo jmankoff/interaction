@@ -25,10 +25,12 @@ hci_goals:
 
 Tasks:
 - Handle undo/redo operations (required)
-- Add a feature to your app (required)
- - Make sure it is accessible
+- Add a new thickness (0) to your app (required)
+ - Make sure it is accessible (required)
+- Add another feature to your app (not thickness, required)
+ - Make sure it is accessible (required)
 - Improve usability of your app (optional)
- - Try to identify at least one usability problem and address it 
+ - Try to identify at least one usability problem and address it (optional)
 
 # Explanation of how codebase works
 This is one of the more complex programs we are giving you in terms of
@@ -186,6 +188,7 @@ The Task:
 - Step 4: draw something
 - Step 5: use new feature
 - Step 6: undo and redo
+- Step 7: look for the new feature
 
 You will take notes on paper about issues you run into. When you have
 completed all the tasks, you will fill out a survey with the 3 most
@@ -208,18 +211,21 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 
 ```
 - ...
+- A file describing the new features/usability changes you made 
 ```
 
 ## Grading (10pts)
 
 - Part 1: Implementation
-  - New feature
-   - Accessible: 1pt
-   - Works: 1 pt
-  - Undo and redo works in general: 1pt
+  - Add a fourth thickness option: 1pt
+  - New feature & thickness is accessible: 1pt 
+  - Description of new feature explains accessibility solution/challenges: 1pt 
+  - Undo and redo works in general: 2pt 
   - Edge cases in undo/redo works: 1pt
 - Part 2: Peer grading
-  - Support one additional command: 1pt
+  - New feature Works: 1 pt 
   - Complete heuristic evaluation for other students: 2pt
-  - No severe usability issues: 1pt
 - Code Organization and Style: 1 pt
+- Extra credit: 1 pt if your new feature is complex/ you make a usability improvement
+  (e.g. adding colorpicker, drawing rectangles, adding images to
+  canvas). Ask us if you have questions
