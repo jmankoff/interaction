@@ -128,17 +128,18 @@ layout: default
 | **5/15**|**Wednesday**  | **Undo**     ||
 || Exercise Due  | [Accessibility](/interaction/assignments/accessibility) | |
 || Assignment Assigned: | [Undo](/interaction/assignments/undo)| |
-||Slides|[Undo](/interaction/slides/wk07/undo.html)| Theory and implementation of Undo |
+||Slides|[Undo](/interaction/slides/wk07/undoSlides.html)| Theory and implementation of Undo |
 | **5/16**|**Thursday** | Getting started with Undo ||
 ||Slides|[Undo lab](/interaction/slides/l07/undo_lab.html)|         |
-| **5/17**|**Friday**| **Heuristic Evaluation**|
-||Slides|[Heuristic Evaluation](/interaction/slides/wk07/heuristic.html)|
+| **5/17**|**Friday**| **Exam Discussion/Review **|
 {: .small #small .schedule #schedule}
 
 # Week 8: There's a world out there!
 
-|----------|---|--------------------------------------|
-| **5/20** |   | Context Awareness                    |
+| Date | Type | Details | Learning Goal|
+|-----|--------|-------------------------------|
+| **5/20** |**Monday**   |  **Heur0istic Evaluation**                    |
+||Slides|[Heuristic Evaluation](/interaction/slides/wk07/heuristic.html)| Learn about a quick way to get feedback on the quality of your application, particularly good for focused tasks on screens. 
 | **5/22** |   | Passive Data Collection on the Phone |
 | **5/23** |   | Sensing in Android                   |
 | **5/24** |   | Augmented Reality on the Phone       |
