@@ -1,0 +1,309 @@
+---
+layout: presentation
+title: Undo -- Week 7, Wednesday --
+description: Why Undo, How Undo, What Undo
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Undo reasoning and implementation
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+layout: false
+
+[//]: # (Outline Slide)
+.left-column[# Today's goals]
+.right-column[
+- Introduce Undo conceptually 
+- Describe Implementation details for assignment
+]
+---
+
+.title[Metaphor]
+.right-column[
+Lakoff & Johnson, Metaphors We Live By
+
+.quote[“...the way we think, what we experience, and what we do every day
+is very much a matter of metaphor.” ]
+]
+---
+
+.title[Metaphor]
+.right-column[
+
+For example, until I had chickens I never noticed all the chicken
+metaphors in our language:
+
+.font-small[
+- “A hen is only an egg's way of making another egg.” - Samuel Butler
+- “The key to everything is patience. You get the chicken by hatching the egg, not by smashing it.” - unknown
+- "Regard it as just as desirable to build a chicken house as to build a cathedral." - Frank Lloyd Wright
+- "A chicken in every pot" - 1928 Republican Party campaign slogan
+- "Don't have a pot to put it in" - 1928 Democratic Party response slogan
+- Nest egg - to save a little money each week
+- Scratching out a living - to earn enough to get by on
+- Don't count your chickens before they hatch - don't plan on an outcome before it actually happens.
+- Don't put all your eggs in one basket - don't plan on an outcome before it actually happens.
+- Feather your nest - saving for the future
+- Mother hen - very protective
+- Flew the coop - gone
+- Walking on eggshells- treading softly where certain people are concerned; trying not to upset someone
+- Like a chicken with it's head cut off - running around with no direction
+- You're chicken! - being afraid
+- Hard-boiled - tough attitude
+- Ruffle your feathers - something annoys you
+- No spring chicken - you're old. Plain and simple.
+- Hatch an idea - put a plan into motion
+- Pecking order - finding your place
+- Brood over it - to worry; to hover over a problem
+- Chicken scratch - poor handwriting
+- Stick your neck out - go to bat for someone else
+- Stuck in your craw - upset about something and won't verbalize what's going on inside you; carrying a grudge.
+- Bad egg - less than honest person; poor moral standards
+- In a stew - got yourself in trouble
+- Raise your hackle feathers - visibly annoyed 
+- Nesting behavior- preparing a home (especially pregnant women just before a baby is due)
+- Empty nest syndrome - depression and loneliness when children leave home
+- Made from scratch - made from raw materials by hand
+]]
+.left-column[
+![:img Picture of 4 chickens in a chicken coop,100%](img/interaction/chickens.png)
+]
+---
+.title[Desktop Metaphor (Magic Cap)]
+.body[
+![:img Picture of a very literal desktop metaphor,80%](img/interaction/desktop.png)
+
+Critique!
+]
+???
+Unwieldy,
+
+Not great use of screen real estate
+
+Other?
+---
+.title[Better option?]
+.right-column[
+Can use metaphors to leverage existing conceptual models
+- Not really an attempt to simulate a real desktop
+- Leverages existing knowledge about files, folders, trash
+- A way to explain why some windows seem blocked
+]
+.left-column[
+![Jens mac desktop, 80%](img/interaction/desktop-new.png)
+]
+
+---
+.title[How else can we minimize errors?]
+???
+Key concept: mental models
+---
+.left-column[
+# Every system has at least 3 different models
+]
+.right-column[
+<div class="mermaid">
+graph TD
+  S[System Image: <br>Your Implementation&nbsp;] --> |System Feedback&nbsp;| U[User Model: How the user thinks&nbsp; <br>the system works] 
+  D[Design Model: How you <br>intend the system to work&nbsp;]-->S
+  U -->|User Feedback&nbsp;| S
+</div>
+
+]
+
+???
+# Relating the Human and the Machine
+
+- Gulf of Execution and Gulf of Evaluation
+
+Gulf of execution is the user 'error' region (user requests
+  function the __system DOESNT HAVE__), gulf of
+  evaluation is when the user __doesn't realize the system HAS a
+functionality__.
+
+---
+---
+.title[# Model of Mental Models]
+.body[
+![:img A box showing the design (white),100%](img/interaction/mental1.png)
+]
+---
+.title[# Model of Mental Models]
+.body[
+![:img A box showing the design (white) and actual function (blue missing a little bit of the white),100%](img/interaction/mental2.png)
+]
+---
+.title[# Model of Mental Models]
+.body[
+![:img A box showing the design (white) and actual function (blue missing
+a little bit of the white) with a grey circle added in the center
+labeled "Frequently Used (Well understood) Part of System Functionality",100%](img/interaction/mental3.png)
+]
+---
+.title[# Model of Mental Models]
+.body[
+![:img A box showing the design (white) and actual function (blue missing
+a little bit of the white) with a grey circle added in the center
+labeled "Frequently Used (Well understood) Part of System Functionality",100%](img/interaction/mental4.png)
+]
+---
+.title[# Model of Mental Models]
+.body[
+![:img A box showing the design (white) and actual function (blue missing
+a little bit of the white) with a grey circle added in the center
+labeled "Frequently Used (Well understood) Part of System
+Functionality" a dark blue cloud labeled "Occasionally Used Part of
+System Functionality" around the user's well understood region,100%](img/interaction/mental5.png)
+]
+---
+.title[# Model of Mental Models]
+.body[
+![:img A box showing the design (white) and actual function (blue missing
+a little bit of the white) with a grey circle added in the center
+labeled "Frequently Used (Well understood) Part of System
+Functionality" a dark blue cloud labeled "Occasionally Used Part of
+System Functionality" around the user's well understood region and
+another cloud further out with errors (regions outside the blue system
+box) labeled "Users full model of what the system does",100%](img/interaction/mental6.png)
+]
+
+???
+- Where are the gulf of evaluation and gulf of execution in this
+  image?  Gulf of execution is the user 'error' region (user requests
+  function the __system DOESNT HAVE__), gulf of
+  evaluation is when the user __doesn't realize the system HAS a
+  functionality__. 
+  
+- How does undo help the user bridge them? 
+
+---
+.title[Design Tip #1: Consistency is Critical]
+.body[
+What mental model error is this likely to create?
+![:img a screenshot from WebEx. Weve selected “Do not record a
+teleconference” but to continue we have to hit the “Start Recording”
+button. So we have a conflict in the mental model
+here.,80%](img/interaction/webex.png)
+]
+
+???
+Gulf of Evaluation
+
+---
+
+# Causes of Gulf of Evaluation
+???
+- Hard to understand visual feedback
+- Poor use of colors
+- Bad layout, poor grouping
+- Unfamiliar display of information
+- Unfamiliar design patterns, or doesn’t follow convention
+- Forcing people to remember lots of things
+- Lack of feedback in response to inputs
+- Might not see visual updates
+- Can’t find info on screen 
+- Might look same as unimportant
+- Irrelevant info on screen / important info missing
+---
+# Causes of Gulf of Execution
+???
+- Unfamiliar devices and inputs
+- Don’t know what is possible
+- Unfamiliar GUI components 
+- Solvable with experience
+- Unfamiliar interaction patterns
+- Also solvable with experience
+- Example patterns: Dialogs, Shopping Carts
+
+---
+.title[Affordances
+]
+.body[
+Good Affordance| Bad Affordance
+----|----
+![:img Picture of a round doorknob, 40%](img/interaction/round-doorknob.png) | ![:img Picture of a flat doorknob, 40%](img/interaction/flat-doorknob.png) 
+
+Well-designed objects have affordances
+- Clues to their operation that are readily apparent
+- Often visual, but not always (e.g., speech)
+- Allows and promotes certain actions
+]
+???
+Opportunities to act which are readily apparent to the user ... and
+appropriate to the user’s abilities 
+
+Form “affords” certain actions and makes that apparent
+---
+.title[Design Tip #2: Use *Affordances* to minimize errors
+]
+.body[
+
+Action | Physical Affordance | Virtual Affordance |  Minimal Design
+----|----|----|----
+Gripping | ![:img picture of knurling on a knob,45%](img/interaction/knurling.png) | ![:img Image of lines indicating a grabbable corner by imitating knurling,50%](img/interaction/virtual-knurling.png)
+Pushing | ![:img picture of buttons on a phone,55%](img/interaction/buttons.png) | ![:img Similar buttons on a webpage,55%](img/interaction/virtual-buttons.png)|![:img picture of web buttons on a flat-style page,55%](img/interaction/web-button.png)
+Search | No Real World Equivalent || ![:img Text area for search. Uses greyed out text to suggest what should go in it, 55%](img/interaction/search.png)
+]
+???
+Knurling: increases friction/affords gripping
+
+don't kneed to know the word to get it
+---
+# Revisit: What is this an example of?
+(is this physical or virtual? Ubicomp!)
+
+
+![:img picture of faucet with IR sensor, 40%](img/interaction/sensor.jpg )| ![:img Sign explaining how to use the sensor, 48%](img/interaction/sensor-explanation.png)
+----|----
+---
+.title[Feedback]
+.body[
+Response by the system to the actions of the user – Cause and effect
+
+Essential for forming mental models
+
+Makes “system state” visible
+
+Messenger Feedback | and | Gmail Feedback
+----|----|----
+![:img Facebook messenger showing feedback as the user clicks on the thumbs up button](img/interaction/messenger-bubble.gif)||![:img User selecting and dragging two conversations in gmail with feedback,50%](img/interaction/gmail-snapping.gif)
+]
+---
+.title[Design Tip #3 Make the Conceptual Model Visible]
+.right-column[
+Explicitly design a conceptual model 
+
+Use affordance and feedback
+(and everything else you have) to reinforce it
+]
+
+---
+.title[Feed Forward]
+.right-column[
+What will happen if you execute action
+- Ex. Web page mouseover
+- Ex. Word processing I-bar
+- Ex. Label on a button
+
+Help people predict what will happen
+- Need feedforward at all scales
+- GUI widgets will handle basic feedforward
+- Don’t forget feedforward for screens
+]
+.left-column[
+![:img Picture of two icons showing additional visual feedback when the cursor hovers over them, 100%](img/interaction/feedforward.png)
+]
+
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Undo Assignment
+
+Demo

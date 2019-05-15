@@ -1,0 +1,244 @@
+---
+layout: presentation
+title: Undo --Week 7, Wednesday--
+description: Why Undo/How Undo/What Undo
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Undo reasoning and implementation
+
+Jennifer Mankoff
+CSE 340 Spring 2019 
+---
+layout: false
+
+[//]: # (Outline Slide)
+.left-column[# Today's goals]
+.right-column[
+- Introduce Undo conceptually 
+- Describe Implementation details for assignment
+]
+---
+.left-column[
+## Quick updates
+]
+.right-column[
+Changes to code base, same basic approach for new FAB
+- See SPEC and comments in code for most up to date info
+
+Working hard on Menus and midterm grading. People are doing *very*
+well on Menus part 2. 
+
+Will be away this afternoon and all day tomorrow. Back on Friday for
+class
+
+
+]
+
+???
+will be released shortly
+
+---
+.left-column-half[
+## Remember this?
+
+![:img Picture of interactor hierarchy connected to an interface and a
+dotted line indicating application interface, 100%](img/undo/callbacks.png)]
+.right-column-half[
+Dispatch Strategies
+- Bottom-first and top-down positional
+- Focus-based
+
+Propositional Production System describes *within-view* response to events
+]
+---
+.left-column-half[
+## Event Dispatch 
+
+![:img Picture of interactor hierarchy connected to an interface and a
+dotted line indicating application interface and a do_action() call
+happening below the line in response to a button_pressed(), 100%](img/undo/callbacks2.png)]
+.right-column-half[
+Callbacks handle *application* response to events
+- Update Application Model
+
+]
+
+---
+.left-column-half[
+## Event Dispatch 
+
+![:img Picture of interactor hierarchy connected to an interface and a
+dotted line indicating application interface with do_action() replaced
+with an actionListener, 100%](img/undo/callbacks3.png)]
+.right-column-half[
+Callbacks handle *application* response to events
+- Update Application Model
+- Best implemented using custom listeners
+
+]
+---
+.title[What is `ActionPerformed`?]
+.body[
+`Higher level` input event (`Command` or `Action` object)
+ - Puts some  separation between UI and translation objects
+ - Application (or UI) can ‘listen’ for these events: 
+
+Key advantage: interactors don’t need to know who/what got notification
+Same basic flow as simple callbacks 
+]
+---
+.title[What should an Action object do?]
+.body[
+`doAction()`
+]
+
+???
+seems like a lot of work when we could just directly do the
+action. Major reason for action objects
+--
+.body[
+`undoAction()`
+]
+
+???
+What additional information do we need to undo an action?
+
+---
+.title[Advantages of an action object]
+.body[
+- can be stored on an undo stack
+- can create a consistent abstraction for reversing an action
+]
+---
+.left-column[
+## Undo and Redo]
+.right-column[
+1) new action object created and `doAction()` called
+
+2) Undo stack updated
+
+3) new action object created and `doAction()` called
+
+4) Undo stack updated
+
+5) `undo()` invoked
+
+6) Undo stack reduced and Redo stack increased
+
+7) `undo()` invoked
+
+8) Undo stack reduced and Redo stack increased
+]
+???
+draw sequence
+---
+.left-column[
+## Undo and Redo]
+.right-column[
+9) `redo()` invoked
+
+10) Redo stack decreased and Undo stack increased
+
+11) new action object created and `doAction()` called
+
+12) Redo stack cleared and Undo stack stack increased
+]
+---
+.left-column[
+## What if an action can't be undone?]
+.right-column[
+Actions that put system into a totally different context
+
+Clear both `undo` *and* `redo` stacks! Users may hate you]
+???
+example? Saving a file
+---
+.left-column[
+## Implementing `undo()`
+]
+.right-column[
+
+System pops action off undo stack
+
+Calls `undoAction()` method on it
+
+Pushes it on redo stack
+]
+---
+.left-column[
+## Why is `undoAction()` hard?
+]
+.right-column[
+Two ways to implement:
+
+- *Direct Code* (each action object has custom code)
+ - Need parameters of original action 
+ - Better store in `doAction()` for later
+ - This is what we will implement
+]
+---
+.left-column[
+## Why is `undoAction()` hard?
+]
+.right-column[
+Two ways to implement:
+
+- *Direct Code* (each action object has custom code)
+- *Change Records* (Keep a record of the “old value” for everything
+changed by the application, then put all those values back to undo)
+ - More general
+ - Takes more space
+ - `Action` object records `ChangeRecord` (changes which are abstracted into a
+ common data format) 
+ - Application has to provide code to restore from change records 
+]
+---
+
+.left-column[
+## Implementing `redo()`
+]
+.right-column[
+
+System pops action off redo stack
+
+Calls `redoAction()` method on it
+
+Pushes it on undo stack
+]
+---
+.left-column[
+## More sophisticated forms of Undo
+]
+.right-column[
+Explicit visualization of steps
+
+Manipulation of action list 
+
+Delete actions from the middle, reorder, etc.
+by undoing back to point of change then redoing forward 
+
+But note: doAction() must be able to work in new context
+]
+
+---
+.left-column[
+## Flatland: Semantic Undo
+
+![:img Picture of a map with multiple edits including deleting and adding roads,100%](img/undo/flatland-roads.png)
+]
+.right-column[
+![:img Picture of an undo history with a transaction stack that
+represents causality in a timeline, 80%](img/undo/flatland.png)
+]
+.footnote[
+Edwards, W. K. ; Igarashi, T. ; LaMarca, A .; Mynatt, E. D. A temporal model for multi-level undo and redo. UIST 2000, Proceedings of 13th Annual ACM Symposium on User Interface Software and Technology; 2000 November 5-8; San Diego, CA. NY: ACM; 2000; 31-40.
+]
+---
+.left-column[Summary]
+.right-column[
+
+]
