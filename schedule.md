@@ -123,14 +123,15 @@ layout: default
 
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
-| **5/13**|**Monday**   | **Undo**     ||
-||Slides|[Application Design Principals](/interaction/slides/wk07/interaction.html)|
-| **5/15**|**Wednesday**  | **Heuristic Evaluation**     ||
-|| Exercise Due  | [Accessibility](/interaction/assignments/accessibility) ||
-|| Assignment Assigned: | [Undo](/interaction/assignments/undo)                   |
+| **5/13**|**Monday**   | **Application Design**     ||
+||Slides|[Application Design Principals](/interaction/slides/wk07/interaction.html)| Mental models, gulf of execution, gulf of evaluation |
+| **5/15**|**Wednesday**  | **Undo**     ||
+|| Exercise Due  | [Accessibility](/interaction/assignments/accessibility) | |
+|| Assignment Assigned: | [Undo](/interaction/assignments/undo)| |
+||Slides|[Undo](/interaction/slides/wk07/undo.html)| Theory and implementation of Undo |
 | **5/16**|**Thursday** | Getting started with Undo ||
 ||Slides|[Undo lab](/interaction/slides/l07/undo_lab.html)|         |
-| **5/17**|**Friday**||
+| **5/17**|**Friday**| **Heuristic Evaluation**|
 ||Slides|[Heuristic Evaluation](/interaction/slides/wk07/heuristic.html)|
 {: .small #small .schedule #schedule}
 

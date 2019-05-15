@@ -26,26 +26,29 @@ hci_goals:
 Tasks:
 - Handle undo/redo operations (required)
 - Add a new thickness (0) to your app (required)
- - Make sure it is accessible (required)
-- Add another feature to your app (not thickness, required)
- - Make sure it is accessible (required)
-- Improve usability of your app (optional)
- - Try to identify at least one usability problem and address it (optional)
+ - Make sure the button you add is accessible (required)
+- Improve your app by adding a feature (not thickness, required)
+ - Make sure your change is accessible (required)
+- Try to identify at least one usability problem and address it
+  (optional) 
 
-# Explanation of how codebase works
+# Explanation of Codebase
 This is one of the more complex programs we are giving you in terms of
 code, it is a fairly functional application.
 
-Here is the interactor hierarchy initially. The FAB subtrees are the
-menus at the bottom of the screen, made up of one or more floating
-action buttons. The `DrawingView` is the place where drawing takes
-place. Each new stroke is saved as a separate, new `StrokeView` added
-to the `DrawingView`.
 
 The initial interactor hierarchy at instantiation looks like this
 (shown at the side is a legend for the visibility status of different
 interactors). Hidden means on screen and drawn but hidden behind
 something else. 
+
+The FAB subtrees are the
+menus at the top of the screen (for undo and redo) and bottom (for
+color and thickness), made up of one or more floating
+action buttons. The `DrawingView` is the place where drawing takes
+place. Each new stroke is saved as a separate, new `StrokeView` added
+to the `DrawingView`.
+
 
 <div class="mermaid">
 graph TD
@@ -108,63 +111,136 @@ The sequence in the interface:
 You can play around with the interface to change color and
 thickness. Each new stroke you add adds another `StrokeView` to the interface. 
 
-# Undo/Redo Operations
+# Codebase Structure
+This is a complete codebase for a drawing program. It is designed to
+be as modular as possible and includes support for *Command Objects* which
+encapsulate changes to the application model. 
 
-## TBD still writing!!!
-There should be a limit on how many actions one can undo or redo. You
-should only allow up to 10 commands to undo and up to 10 commands to
-redo.
+## Actions 
+Actions are Command Objects, which encapsulate changes to the
+application model. An `Action` has a single (abstract) method, `doAction(view)` which,
+when called, applies the action to the view. 
 
+`ReversibleAction` extends `Action` to add `undoAction(view)` which,
+when called, reverses the action.
 
-# Adding a feature
-You can add any feature you want to the app. However, we have some suggestions that will help guide you.
+As with events, Actions are part of an inheritance
+hierarchy. `ReversibleAction` has three subclasses --
+`ChangeThicknessAction`, `ChangeColorAction` and `StrokeAction.`
+You will not need to modify these, but may find it instructive to see
+how they operate. All of them modify properties of the `DrawingView`
+class (specifically the stroke width and current color of its `Paint`
+object, and the its child views (painted strokes are encapsulated in a
+`StrokeView` that is added to the `DrawingVIew`. 
+
+## History (Requirement 1: Handle undo/redo)
+`Actions` are the raw material that is used in the history. An
+`AbstractHistory` simply allows an action to be added and supports `undo()`
+and `redo()`. We subclass this with a stack-based history class called
+`StackHistory` that you will implement some methods for, to support
+undo and redo.
+
+A `StackHistory` has a `capacity` (a max number of actions that it can
+store), a `undoStack` (the history) and a `redoStack` (actions that
+have been undone and can be re-applied). It also supports specific capabilities  you must implement (see comments in the code
+   for specifically what to do):
+ - `addAction()` adds an action to the history stack
+ - `undo()` undo the top action in the history stack
+ - `redo()` redo the top action in the redo stack.
+ - `clear()` reset everything
+
+## Application Code (`/app`)
+We've mentioned a `DrawingView` (which is the main canvas for the
+drawing application) and `StrokeView` (which encapsulates a specific
+stroke for the drawing application).
+
+- `DrawingActivity` is an abstract class for an app that supports
+  drawing without  support for Undo. If you changed the manifest to use
+  it (you would need to make it not abstract first), you would see
+  blank canvas that you can draw on with no   thickness or color  options. 
+- `ReversibleDrawingActivity` extends `DrawingActivity` and adds
+  support for undo to it, including both the undo/redo buttons and the
+  history. You can try changing the manifest to use this as well (not
+  abstract). 
+- `MainActivity` inherits from
+  `ReversableDrawingActivity`. It adds support for thickness and color
+  to the undo/redo support in `ReversibleDrawingActivity`. It also
+  adds menus to show them. You can make a drawing application without
+  support for history by changing `MainActivity` to inherit from
+  `DrawingActivity` instead. 
+- `DrawingView` is the canvas on which drawing takes place. Drawings
+  are made up of `StrokeView` classes which are added to the
+  `DrawingView`. This class also implements a PPS (shown below) which
+  responds to `onTouchEvent()` by creating `StrokeViews`. 
+- `StrokeView` is a single stroke. A stroke has a `path` and `paint`
+  object which define it. 
+
+<div class="mermaid">
+graph LR
+S((.)) --> A((Start))
+A -- "Press:onDrawStart()" --> I((Drawing))
+I -- "Release:onDrawEnd()" --> E[End]
+I -- "Cancel:onDrawCancel()" --> E[End]
+I -- "Move:onDrawMove()" --> I
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+class S invisible
+class A start
+class E finish
+class I normal
+</div>
+
+# Requirement 2: Adding a thickness 0 FAB to the thickness menu
+
+The FABs in this assignment refer to [Floating Action
+Buttons](https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton.html).  
+
+There are two main things you will need to do to add one.
+
+First, you right place in  `thickness_menu.xml` to
+modify. For example, this is the XML in that file for the thickest FAB
+Action Button:
+
+```XML
+<android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_thickness_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/fab_label_margin"
+        android:alpha="0"
+        android:clickable="false"
+        android:contentDescription="@string/thick_desc"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_thickness_30" />
+```
+
+Next, you will need to update `onThicknessSelected` to respond when
+your FAB is pressed. It should change the stroke width to 0. Once you
+do that, everything should work!
+
+# Requirement 3: Improving the application
+
+You can add any feature you want to the app (except another option in
+the thickness menu since you've already done that). When you do, make sure
+your change is accessible. We have some suggestions that will help guide you. 
 
 - The simplest possible thing you could do is add a FAB to one of the existing menus. This would let you for example add a new color option. 
 - A more complex choice would be to replace the color option with something that calls your color picker. If you do this, try to make sure it is really round, meaning that if you click in a corner of its bounding box outside the color wheel, the right thing happens (a stroke starts in the underlying drawing view)
 - You could do something even more complex like allow the user to change the location of a stroke by dragging it. This is quite hard because you have to modify the command object and undo infrastructure, as well as adding new event handling capabilities to StrokeView. 
 
-To provide guidance on this, we will focus specifically on how to add
-a FAB to one of the existing menus. Other things that you may want to
-do will require you to read and understand the code, which we have
-commented, or ask questions in office hours.
 
-## Adding a FAB to an existing menu
-
-
-The FABs in this assignment refer to [Floating Action
-Buttons](https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton.html). 
-
-There
-are two main things you will need to do to add one.
-
-First, you will need to decide whether you are adding a color or a
-thickness, and then find the right place in `activity_main.xml` to
-modify. For example, this is the XML in that file for the thickest FAB
-Action Button:
-
-```XML
- <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_thickness_2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom|center"
-            android:layout_marginBottom="20dp"
-            app:srcCompat="@drawable/thickness_2" />
-```
-
-Next, you will need to add this to `actionButtons` in
-`MainActivity.java` and correctly update `bsetupActionButtons(actionButtons, new View.OnClickListener() {...})`
-In order to change the switch statement in `setupActionButtons`,
-however, you will need to make sure that `DrawingEvent.java` has an
-appropriate constant for your new button. For example, you may need to
-add a constant for `COLOR_YELLOW` if you are adding a FAB for
-selecting yellow. 
-
-
-
-
-# Improving usability
-As with adding a feature, there are several options here. Some examples of things *I* think are usability issues. You may not agree, if you choose to do this, you should focus on something *you* think is a usability issue. 
+# Optional addition: Improving usability
+- Try to identify at least one usability problem and address it
+  (optional).  As with adding a feature, there are several options
+  here. Some examples of things *I* think are usability issues. You
+  may not agree, if you choose to do this, you should focus on
+  something *you* think is a usability issue.  
+  
 - As a color is selected and after the color is selected, the color FAB
  should update its background to that color.
 - When a thickness is picked, the thickness FAB should update its icon
