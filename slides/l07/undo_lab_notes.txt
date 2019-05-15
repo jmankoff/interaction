@@ -1,0 +1,104 @@
+Today we will spend lecture exploring and building an understanding of the
+Undo assignment.
+
+The Undo feature is an incredibly useful interaction technique. It allows the user
+to revert the application to an older state, enabling mistakes to be easily undone.
+
+The Redo feature is also very useful, and is the inverse to the Undo feature.
+It "undoes" an undo. Work previously undone is reapplied.
+
+[DEMO]
+Let's begin by looking at the app in action. There are two different
+menus - one for changing the thickness of the drawn stroke and the other
+for changing the color of the drawn stroke. Changing the thickness, changing
+the color, or changing the stroke are the three types of actions the user can
+take, and the user can undo or redo any of these actions using buttons that
+only appear when they're relevant. Undo only appears when there is an action to
+undo, and redo only appears when there is an action to redo.
+
+[CODEBASE EXPLORATION]
+
+[ACTIVITY FILES]
+Let's dive into the codebase.
+
+The MainActivity in this app is a concrete implementation of the ReversibleDrawingActivity
+and in turn DrawingActivity abstract classes. Important methods include `onColorSelected()`
+and `onThicknessSelected()`
+
+DrawingActivity is an abstract class for an app that supports drawing without support for Undo or Redo.
+An important method to read is doAction().
+
+The ReversibleDrawingActivity extends DrawingActivity and adds support for undo/redo to it, 
+including both the undo/redo buttons and the history. Important methods to read
+include doAction(), undo(), and redo().
+
+The MainActivity class inherits from ReversibleDrawingActivity. It adds support for thickness
+and color to the undo/redo support in ReversibleDrawingActivity. It also adds menus to show 
+the thickness/color options. Important methods to read include onColorSelected() and onThicknessSelected().
+
+[DRAWING VIEW]
+The DrawingActivity is a wrapper around a DrawingView. The DrawingView sets the 
+behavior for how strokes are drawn. Strokes are just StrokeView objects drawn against
+the DrawingView. The onTouchEvent() should look 
+familiar. It implements a PPS that describes the lifetime of a stroke being created.
+
+There's a useful diagram that visualizes the code's structure. You should also look
+at the layout files. Chances are you'll want to update them to add new features. 
+
+[ACTIONS]
+
+We're building a drawing app. Whenever the user interacts with the app, he/she
+is taking some sort of Action. The Action abstract class defines the basic behavior
+any Action should have. The DrawingActivity's doAction() calls apply() to apply an action,
+which depends on the doAction() implementation in Action's subclasses. 
+
+There's another abstract class called ReversibleAction that extends Action. This represents an action
+that is reversible. The ReversibleAction abstract class extends the Action abstract class to add a reverse()
+method that calls subclass implementations of undoAction() to undo the particular Action. 
+All three of the actions we've defined in the app are reversible. If for your extra feature you define a 
+new action, it may extend ReversibleAction, or it may just extend Action - it's up to you.
+
+The three actions we've defined are ChangeColorAction, ChangeThicknessAction, and StrokeAction.
+The ChangeColorAction, when applied, stores the DrawingView's Paint's old color and sets a new color.
+When undone, it sets the color on the DrawingView's paint to its previous color. 
+The ChangeThicknessAction does something similar, except it alters the thickness of the
+DrawingView's paint. The StrokeAction creates a StrokeView that represents the View of the
+stroke drawn and adds it to the DrawingView.
+
+[HISTORY]
+
+Your first goal with this assignment is to implement StackHistory. StackHistory extends the
+AbstractHistory abstract class. It is the fundamental data structure that will allow your
+users to undo and/or redo actions on the app, and it is used in the ReversibleDrawingActivity.
+
+[ADDITIONAL RESPONSIBILITIES]
+Your second goal with this assignment is to add a new FAB that adds a thickness 0 stroke.
+
+Your third goal with this assignment is to add an additional feature to the app. The simplest
+thing to do is to add a new FAB to one of the existing menus, like a FAB that allows you to draw 
+in a new color. If you want to challenge yourself, you could allow users to use your ColorPicker wheel
+to select a color or allow a user to change a stroke location.
+
+That was a lot. I'm actually going to help you out and show you how to add one of the
+additional features, but before I get to that - any questions?
+
+[ADDING COLOR FAB]
+
+I'm going to show you how to add a Color FAB. This is one of your options for additional
+features. It's also very similar to adding the Thickness 0 FAB.
+
+The first thing I'm going to do is go to color_menu.xml, because I know this
+is the layout file that contains all the color FABs. I'm just going to copy
+and paste one of the other color FABs. Then I'm going to update it's id, contentDescription,
+and backgroundTint attributes. 
+
+To be consistent with the style here, I'm going to define the string for the contentDescription
+in the strings.xml file.
+
+Next I'm going to look at MainActivity because I know that's the class that adds
+the color and thickness buttons. I noticed that the other color buttons are stored 
+in COLOR_MENU_ITEMS array. I add my grey FAB to the array. addCollapsableMenu adds
+the button and sets its on click listener automatically, so you don't have to worry 
+about it showing up correctly on your app or registering a listener. All you have to
+do now is go to onColorSelected, which is the listener function for the color buttons.
+I add my own case for the grey fab, do a ChangeColorAction, and I'm done.

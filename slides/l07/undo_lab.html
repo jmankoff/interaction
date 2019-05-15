@@ -32,91 +32,120 @@ class: middle, center, inverse
 
 ---
 
-## Undo Assignment Overview (1/4)
+## Codebase: Activity Files
 
-- Take 10 minutes to read the spec and the project repository
+- `MainActivity` inherits from `ReversibleDrawingActivity`, which inherits from `DrawingActivity`
 
-  - Specifically, take a look at the Java files and res/layout/activity_main.xml
+- `DrawingActivity` - abstract class for app that supports drawing without history
+
+  - Wrapper around a `DrawingView`
+
+  - `doAction()`
+
+- `ReversibleDrawingActivity` - abstract class that extends DrawingActivity
+
+  - adds support for undo/redo
+
+  - includes buttons for undo/redo
+
+  - `doAction()`, `undo()`, `redo()`
+
+- `MainActivity` - inherits from `ReversibleDrawingActivity`
+
+  - adds support for thickness, color actions
+
+  - `onColorSelected()`, `onThicknessSelected()`
 
 ---
 
-## Undo Assignment Overview (2/4)
+## Codebase: DrawingView, Code Structure, and Layouts
 
-- `UndoHistory.java`
+- `DrawingActivity` is a wrapper around a `DrawingView`
 
-  - The file you will primarily concern yourself with
+  - Sets behavior for how strokes are drawn 
 
-  - Allows you to abstract the Undo/Redo feature as a data structure
-  manipulation problem
+      -- Strokes are just `StrokeView`'s in the `DrawingView`
 
-    - Ask yourself:
+  - `onTouchEvent()` implements a PPS that describes lifetime of a stroke being created
 
-      - What data structures are used and why do they make sense?
+- Useful diagram on the spec makes the code structure clear
 
-      - How should these data structures be used when doing an action,
-      undoing an action, or redoing an action?
+- Also look at the layout files - you'll probably need to use them 
+
+---
+
+## Codebase: Actions
+
+- `Action` abstract class defines basic behavior any Action should have
+
+- `ReversibleAction` abstract class defines interface for actions that can be undone
+
+- `DrawingActivity`'s `doAction()` calls `Action`'s  `apply()` to apply an action
+
+  - `apply()` calls `Action`'s `doAction()`, which is implemented in subclasses
+
+- `ReversibleDrawingActivity`'s `undo()` and `redo()` call methods on ReversibleAction to undo/redo 
+
+- The three actions:
   
-- `res/layout/activity_main.xml`
+  - `ChangeColorAction`
 
-  - Useful to understand when considering how to implement an additional feature
+  - `ChangeThicknessAction`
 
----
-
-## Undo Assignment Overview (3/4)
-
-- `DrawingEvent.java`
-
-  - encapsulates the metadata about a drawing action 
-  
-  - e.g. changing color, changing thickness, drawing a stroke
-
-- `DrawingView.java`
-
-  - The view that strokes are drawn against
-
-- `StrokeView.java`
-
-  - The view that encapsulates a drawn stroke
-
-- `MainActivity.java`
-
-  - look at `undo()`, `redo()`, `onDoAction()`, and `updateDraw()` to see how `DrawingEvent` objects affect the `DrawingView` and how `UndoHistory` plays a part
+  - `StrokeAction`
 
 ---
 
-## Undo Assignment Overview (4/4)
+## Codebase: History
 
-![:img Abridged Undo View Tree, 70%](img/abridged_undo_view_tree.png)
+- The `ReversibleDrawingActivity` uses an AbstractHistory interface to manage the undo/redo history
+
+  - You will implement the concrete StackHistory which implements AbstractHistory
+
+  - Think: What data structures are used? Why does this make sense?
+
+      -- What happens to the redo history if you take a new action after undoing a couple times?
+
+      -- What happens to the undo history if you redo an action?
+
+      -- What happens to the redo history if you undo an action?
 
 ---
 
-## Additional Requirements
+## Additional Responsibilities
 
-- Add a feature
+- Add a new thickness button with stroke width 0
 
-  - Additional color(s)
-  
-  - Additional thickness option(s)
+- Add a new feature
 
-  - Change stroke position (hard)
+  - Can be a new FAB (cannot add another thickness, but could add another color)
 
-- Make sure the added feature is accessible
+  - Challenges:
+
+      -- Leverage your ColorPicker
+
+      -- Allow the user to move a stroke
 
 - Improve usability (optional)
 
+- Make sure all added features are accessible
+
 ---
 
-## Adding a new color demo
+## Demo: Adding a new color FAB
 
-- You could leverage your ColorPicker if you want to
+- This is very similar to adding a new thickness
 
-  - look at the [PopupWindow](https://developer.android.com/reference/android/widget/PopupWindow) class
+- `color_menu.xml` is the layout file with all the color FABs
 
-- Adding a single new color
+  - Create a new FAB 
 
-  - Create a new FloatingActionButton similar to the other color FABs in `activity_main.xml`
+      -- can just copy and paste, changing relevant attributes
 
-  - Make the appropriate changes `MainActivity`'s `onCreate()`
+  - Update MainActivity.java
 
-    - Notice that you will have to make changes to `DrawingEvent` as well to account for a new color
+      -- It already adds the other thickness and color FABs
 
+      -- `addCollapsableMenu()` adds all buttons in an array to a menu and sets their listeners for you
+
+          -- All you have to do is update the appropriate listener function (in this case, `onColorSelected()`)
