@@ -33,7 +33,7 @@ should post anything for discussion on the class [Piazza]({{site.piazza}})
 
 ## [Undo](/interaction/assignments/undo) 
 - 5/16 Thursday: [Undo](/interaction/assignments/undo) Assignment assigned
-- 5/27: Wednesday: [Undo](/interaction/assignments/undo) Assignment due
+- 5/21: Tuesday: [Undo](/interaction/assignments/undo) Assignment due
 
 ## [Sensing](/interaction/assignments/sensing) 
 - 5/28 Monday: [Sensing](/interaction/assignments/sensing) Exercise assigned
@@ -42,5 +42,3 @@ should post anything for discussion on the class [Piazza]({{site.piazza}})
 ## [Context Awareness](/interaction/assignments/contextaware) 
 - 5/28: Friday: [Context Awareness](/interaction/assignments/contextaware) Assignment assigned
 - 6/10: Friday:  [Context Awareness](/interaction/assignments/contextaware) Assignment due
-
-

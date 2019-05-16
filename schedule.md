@@ -139,9 +139,12 @@ layout: default
 
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
-| **5/20** |**Monday**   |  **TBD**                    |
+| **5/20** |**Monday**   |  **TBD**                   |
+| **5/21** |   |  |
+||Assignment: Undo Due|[Undo](/interaction/assignments/undo)|
 | **5/22** |   | Passive Data Collection on the Phone |
 | **5/23** |   | Sensing in Android                   |
+||Undo Heuristic Eval Due|[Undo](/interaction/assignments/undo)|
 | **5/24** |   | Augmented Reality on the Phone       |
 {: .small #small .schedule #schedule}
 
@@ -149,7 +152,6 @@ layout: default
 
 |-------|------|-------------------------------|
 |**5/27**|Memorial Day**|**No Class**|
-||Assignment: Undo Due|[Undo](/interaction/assignments/undo)|
 ||Exercise Assigned|[Sensing](/interaction/assignments/sensing)|
 ||Assignment: Context Awareness|[Context Awareness](/interaction/assignments/contextaware)|
 |**5/29**|||
