@@ -51,7 +51,7 @@ place. Each new stroke is saved as a separate, new `StrokeView` added
 to the `DrawingView`.
 
 
-{% mermaid %}
+<div class="mermaid">
 graph TD
 M[MainActivity] --> D[DrawingView]
 M --> FUndo[FAB:Undo]
@@ -73,14 +73,14 @@ classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
 
 class M,D,FColor,FThick,Vis start
 class Red,Green,Blue,Thin,Med,Thick,Hid normal
-{% endmermaid %}
+</div>
 
 When the user draws on screen (by clicking and dragging inside the
 `DrawingView`, this adds a new `StrokeView` to the interface. Notice
 that the `Undo` button is now visible instead of visible because there
 is an action to undo. 
 
-{% mermaid %}
+<div class="mermaid">
 graph TD
 M[MainActivity] --> D[DrawingView]
 D --> Stroke1[StrokeView]
@@ -102,7 +102,7 @@ classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
 
 class M,D,Stroke1,FUndo,FColor,FThick,Vis start
 class Red,Green,Blue,Thin,Med,Thick,Hid normal
-{% endmermaid %}
+</div>
 
 The sequence in the interface:
 
