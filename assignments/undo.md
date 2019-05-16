@@ -288,6 +288,8 @@ severe issues. This will include questions about:
 You will also tell us if they customized a command and what it
 was. You will submit 3 things for each of 3 handins. 
 
+# Turn-in
+
 ## Submission Instructions
 
 You will turn in the following files via GitGrade. It will accept:
@@ -306,14 +308,8 @@ Remember, edit the README to add a description of the new features/usability cha
 - Make sure the code you want to submit is pushed to GitLab (origin/master)
   - If you just commit locally and don't push, GitGrade won't see those changes 
 - (Optional) Go to your repo on GitLab to double check that the latest commit hash matches your latest local commit hash
-- Go to the turn in link: [https://gitgrade.cs.washington.edu/student/assignment/55/turnin](https://gitgrade.cs.washington.edu/student/assignment/55/turnin)
+- Go to the turn in link: [https://gitgrade.cs.washington.edu/student/assignment/59/turnin](https://gitgrade.cs.washington.edu/student/assignment/59/turnin)
 - Check the box and click "Turn in"
-
-# Turn-in
-
-## Submission Instructions
-
-You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
 ## Grading (10pts)
 
