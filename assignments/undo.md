@@ -3,9 +3,10 @@ layout: assignment
 title: Undo
 code: A2
 
+published: true
 assigned: Thursday, May 16, 2019
 due: 11:59 PM Tuesday, May 21, 2019; Heuristic evaluation in lab on May 23, 2019
-revised: 1:00 PM Sunday, May 12, 2019
+revised: 3:32:23 AM Thursday, May 16, 2019
 
 objective: Understand Undo Abstractions, practice Heuristic Evaluation
 
@@ -116,7 +117,7 @@ This is a complete codebase for a drawing program. It is designed to
 be as modular as possible and includes support for *Command Objects* which
 encapsulate changes to the application model. 
 
-## Actions 
+## Actions
 Actions are Command Objects, which encapsulate changes to the
 application model. An `Action` has a single (abstract) method, `doAction(view)` which,
 when called, applies the action to the view. 
@@ -127,11 +128,17 @@ when called, reverses the action.
 As with events, Actions are part of an inheritance
 hierarchy. `ReversibleAction` has three subclasses --
 `ChangeThicknessAction`, `ChangeColorAction` and `StrokeAction.`
-You will not need to modify these, but may find it instructive to see
-how they operate. All of them modify properties of the `DrawingView`
+All of them modify properties of the `DrawingView`
 class (specifically the stroke width and current color of its `Paint`
 object, and the its child views (painted strokes are encapsulated in a
-`StrokeView` that is added to the `DrawingVIew`. 
+`StrokeView` that is added to the `DrawingView`. 
+
+### Requirement 0: Implement `ChangeThicknessAction`
+In order to familiarize yourself with Actions and reversible logic, implement
+`ChangeThicknessAction`. This will be very similar to `ChangeColorAction` and
+should be very straight forward once you've read the action code. Because it's
+so simple, this requirement is part of the code organization and style point. See
+[turn-in](#turn-in) for more details.
 
 ## History (Requirement 1: Handle undo/redo)
 `Actions` are the raw material that is used in the history. An
@@ -227,7 +234,8 @@ do that, everything should work!
 
 You can add any feature you want to the app (except another option in
 the thickness menu since you've already done that). When you do, make sure
-your change is accessible. We have some suggestions that will help guide you. 
+your change is accessible. We have some suggestions that will help guide you.
+Whatever you add, please describe your addition in the provided README.
 
 - The simplest possible thing you could do is add a FAB to one of the existing menus. This would let you for example add a new color option. 
 - A more complex choice would be to replace the color option with something that calls your color picker. If you do this, try to make sure it is really round, meaning that if you click in a corner of its bounding box outside the color wheel, the right thing happens (a stroke starts in the underlying drawing view)
@@ -240,6 +248,7 @@ your change is accessible. We have some suggestions that will help guide you.
   here. Some examples of things *I* think are usability issues. You
   may not agree, if you choose to do this, you should focus on
   something *you* think is a usability issue.  
+- Whatever problems you address, please briefly describe the problems and solutions in the provided README.
   
 - As a color is selected and after the color is selected, the color FAB
  should update its background to that color.
@@ -279,16 +288,32 @@ severe issues. This will include questions about:
 You will also tell us if they customized a command and what it
 was. You will submit 3 things for each of 3 handins. 
 
+## Submission Instructions
+
+You will turn in the following files via GitGrade. It will accept:
+- StackHistory
+- MainActivity
+- Any additional classes you create in the `cse340.undo` package.
+- `layout/*_menu.xml`
+- `drawable/*`
+- `values/{colors,dimens,strings}.xml`
+- `README.md`
+
+Remember, edit the README to add a description of the new features/usability changes you made.
+
+**Follow these instructions to submit part 2 of your assignment**
+
+- Make sure the code you want to submit is pushed to GitLab (origin/master)
+  - If you just commit locally and don't push, GitGrade won't see those changes 
+- (Optional) Go to your repo on GitLab to double check that the latest commit hash matches your latest local commit hash
+- Go to the turn in link: [https://gitgrade.cs.washington.edu/student/assignment/55/turnin](https://gitgrade.cs.washington.edu/student/assignment/55/turnin)
+- Check the box and click "Turn in"
+
 # Turn-in
 
 ## Submission Instructions
 
 You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
-
-```
-- ...
-- A file describing the new features/usability changes you made 
-```
 
 ## Grading (10pts)
 
@@ -301,7 +326,7 @@ You will turn in the following files <a href="javascript:alert('Turn-in link pen
 - Part 2: Peer grading
   - New feature Works: 1 pt 
   - Complete heuristic evaluation for other students: 2pt
-- Code Organization and Style: 1 pt
+- Requirement 0, Code Organization, and Style: 1 pt
 - Extra credit: 1 pt if your new feature is complex/ you make a usability improvement
   (e.g. adding colorpicker, drawing rectangles, adding images to
   canvas). Ask us if you have questions
