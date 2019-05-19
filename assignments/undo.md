@@ -149,6 +149,27 @@ have been undone and can be re-applied). It also supports specific capabilities 
  - `redo()` redo the top action in the redo stack.
  - `clear()` reset everything
 
+## Undo/Redo behavior
+
+Here is a scenario where the user draws a stroke in the default
+color/thickness (1), changes the color (2), changes the thickness (3), and draws
+another stroke (4) in the original thickness and color, with various
+undos and redos mixed in.
+
+| Action | Undo Stack | Redo Stack | Interfaces state | 
+| -- | -- | -- | -- | 
+| drawstroke (1) | 1 | | 1 | 
+| change color (2) | 1,2 | | 1,2 | 
+| undo | 1 | 2 | 1 | 
+| redo | 1, 2| | 1, 2|
+| change thickness (3) | 1, 2, 3 | | 1, 2, 3|
+| undo | 1, 2 | 3 | 1, 2 |
+| undo | 1 | 3, 2 | 1 | 
+| drawstroke (4) | 1, 4 | | 1, 4| 
+| undo | 1 | 4 | 1 | 
+
+
+
 ## Application Code (`/app`)
 We've mentioned a `DrawingView` (which is the main canvas for the
 drawing application) and `StrokeView` (which encapsulates a specific
