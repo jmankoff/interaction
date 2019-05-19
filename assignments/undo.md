@@ -6,7 +6,7 @@ code: A2
 published: true
 assigned: Thursday, May 16, 2019
 due: 11:59 PM Tuesday, May 21, 2019; Heuristic evaluation in lab on May 23, 2019
-revised: 3:32:23 AM Thursday, May 16, 2019
+revised: 6:55 AM, Sunday, May 19, 2019
 
 objective: Understand Undo Abstractions, practice Heuristic Evaluation
 
