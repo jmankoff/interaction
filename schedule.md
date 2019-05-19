@@ -139,8 +139,9 @@ layout: default
 
 | Date | Type | Details | Learning Goal|
 |-----|--------|-------------------------------|
-| **5/20** |**Monday**   |  **TBD**                   |
-| **5/21** |   |  |
+| **5/20** |**Monday**   |  **Context Awareness**                   |
+||Slides|[The Physical Phone](/interaction/slides/wk08/context.html)| Assumptions about phone use and examples of context aware applications |
+| **5/21** |**Wednesday**   | **Sensing with your phone**  |
 ||Assignment: Undo Due|[Undo](/interaction/assignments/undo)|
 | **5/22** |   | Passive Data Collection on the Phone |
 | **5/23** |   | Sensing in Android                   |
