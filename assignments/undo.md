@@ -156,7 +156,7 @@ color/thickness (1), changes the color (2), changes the thickness (3), and draws
 another stroke (4) in the original thickness and color, with various
 undos and redos mixed in.
 
-| Action | Undo Stack | Redo Stack | Interfaces state | 
+| Action | Undo Stack | Redo Stack | Interface state | 
 | -- | -- | -- | -- | 
 | drawstroke (1) | 1 | | 1 | 
 | change color (2) | 1,2 | | 1,2 | 
@@ -165,7 +165,7 @@ undos and redos mixed in.
 | change thickness (3) | 1, 2, 3 | | 1, 2, 3|
 | undo | 1, 2 | 3 | 1, 2 |
 | undo | 1 | 3, 2 | 1 | 
-| drawstroke (4) | 1, 4 | | 1, 4| 
+| drawstroke (4) | 1, 4 | CLEARED | 1, 4| 
 | undo | 1 | 4 | 1 | 
 
 
