@@ -49,12 +49,12 @@ at the layout files. Chances are you'll want to update them to add new features.
 
 We're building a drawing app. Whenever the user interacts with the app, he/she
 is taking some sort of Action. The Action abstract class defines the basic behavior
-any Action should have. The DrawingActivity's doAction() calls apply() to apply an action,
-which depends on the doAction() implementation in Action's subclasses. 
+any Action should have. The DrawingActivity's doAction() calls the doAction() implementation
+ in Action's subclasses. 
 
 There's another abstract class called ReversibleAction that extends Action. This represents an action
-that is reversible. The ReversibleAction abstract class extends the Action abstract class to add a reverse()
-method that calls subclass implementations of undoAction() to undo the particular Action. 
+that is reversible. The ReversibleAction abstract class extends the Action abstract class 
+and adds an undoAction() method to undo the particular Action. 
 All three of the actions we've defined in the app are reversible. If for your extra feature you define a 
 new action, it may extend ReversibleAction, or it may just extend Action - it's up to you.
 

@@ -80,9 +80,7 @@ class: middle, center, inverse
 
 - `ReversibleAction` abstract class defines interface for actions that can be undone
 
-- `DrawingActivity`'s `doAction()` calls `Action`'s  `apply()` to apply an action
-
-  - `apply()` calls `Action`'s `doAction()`, which is implemented in subclasses
+- `DrawingActivity`'s `doAction()` calls `Action`'s  `doAction()` to apply an action
 
 - `ReversibleDrawingActivity`'s `undo()` and `redo()` call methods on ReversibleAction to undo/redo 
 
