@@ -9,6 +9,6 @@ remark.macros.youtube = function (altText, yid) {
 };
 
 remark.macros.vimeo = function (altText, yid) {
-	return '<iframe title="'+ altText + '" src="https://player.vimeo.com/video/'+yid+' width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+	return '<iframe title="'+ altText + '" src="https://player.vimeo.com/video/'+yid+' width="500" height="281" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>'; 
 };
 

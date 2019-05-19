@@ -1,29 +1,624 @@
-<!-- ---
-# Types of Input
+---
+layout: presentation
+title: The Physical Phone --Week 8, Monday--
+description: What we know about the physical use and abilities of a phone
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+background-image: url(img/context/people-background.png)
+# The Physical Phone 
 
-- Not just touches, clicks, key presses
+Jennifer Mankoff
 
---
+CSE 340 Spring 2019 
+---
+layout: false
 
-- *Sensors* - GPS, IMU/Accelerometer, humidity, temperature, etc
+[//]: # (Outline Slide)
+.left-column[# Today's goals]
+.right-column[
+- Talk about myths about phone use
+- Talk about what a phone can sense
+]
+---
+.title[Context Aware Computing]
+.body[
+
+<div class="mermaid">
+graph TD
+
+I(Input) --Explicit Interaction--> A(Application)
+A --> Act(Action)
+
+U(User) --Implicit Sensing--> C(Context-Aware Application)
+S(System) --Implicit Sensing--> C
+E(Environment) --Implicit Sensing--> C
+C --> Act2(Action)
+
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+
+class U,C,A,I,S,E,Act,Act2 normal
+</div>
+]
+---
+.left-column[
+![:img Picture of a bunch of internet enabled devices labeled "Internet of Things", 110%](img/context/IOT.png)
+]
+.right-column[
+## Human Activity and Context Awareness
+- Useful, and necessary, input to context-aware systems
+- Easier and easier to collect information about human activity
+]
+
+.footnote[[Image credit](https://www.techherd.co/iot-mobile-threats/) ]
 
 ???
-Sampled or event based?
---
-  - `Managers` (e.g. `LocationManager`) let us create and register a listener
+Improved software and inferencing
 
-  - Listeners can receive updates at different intervals, etc.
+Improved sensors
+---
+.left-column[
+## Computational Behavioral Imaging
+]
+.right-column[
+![:img Picture of X-ray scan of body, 30%](img/context/imaging.png)
+]
+---
+.left-column[
+## Computational Behavioral Imaging
+]
+.right-column[
+![:img Picture of X-ray scan of body, 30%](img/context/imaging.png) ![:img Internet of things devices, 50%](img/context/IOT.png) 
+]
+---
+.left-column[
+## Computational Behavioral Imaging
+]
+.right-column[
+![:img Picture of X-ray scan of body, 30%](img/context/imaging.png) ![:img Smartphone, 20%](img/context/phone.png) 
+]
+---
+.left-column[
+![:img Smartphone, 100%](img/context/phone.png) 
+]
+.right-column[
+## Phones
 
-  - Some Sensor-specific settings  
-    https://source.android.com/devices/sensors/sensor-types.html
+People already carry them
+
+Interactions with information: virtual
+
+Social engagement: social
+
+Loads of sensors: physical
+]
+---
+.title[
+ Example phone sensors
+]
+.body[
+
+| | | |
+|--|--|--|
+|Accelerometer | Rotation | Screen|
+|Applications | Location | Telephony|
+|Battery | Magnetometer | Temperature|
+|Bluetooth | Network Usage | Traffic|
+|Calls | Orientation | WiFi|
+|Messaging | Pressure | Processor|
+|Gravity | Proximity | ... Many More | 
+|Gyroscope | Light |  |
+
+]
 
 ---
-# Other Kinds of Input
+.left-column[
+## Assumptions
+]
+.right-column[
+We have made a number of .red.bold[WRONG] assumptions about:
+- what smartphones are
+- how they are used
+]
 
-- Microphone
+---
+.left-column[
+## Assumption #1: We all have smart phones
 
-- Camera
+![:img Picture of a bunch of phones (some outdated), 100%](img/context/phones.png)
+]
+.right-column[
+What is a smart phone? 
+]
+???
+What do you think?
+---
+.left-column[
+## Assumption #1: We all have smart phones
+![:img Picture of a bunch of phones (some outdated), 100%](img/context/phones.png)
 
-- Multi-touch
+]
+.right-column[
+What is a smart phone? 
+- Runs a complete mobile OS
+- Offers computing ability and connectivity
+- Includes sensors
+]
 
-- Connected Devices? -->
+--
+.corner-ribbon.brtl[All Marketing]
+---
+background-image: url(img/context/phones-background.png)
+.title[Dumb (Feature) Phones]
+.body[
+We live in a time of dumb phones
+
+Know almost nothing about me
+
+Explicit preferences
+
+Contacts
+
+Running applications
+
+Hardly knows when I’m mobile/fixed, charging/not charging
+
+Doesn’t know me or what I’m doing
+]
+--
+.corner-ribbon.purple.tlbr[WHY NOT???]
+---
+.left-column[
+## Goal: Re-cast Assumption #1
+![:img Smartphone, 100%](img/context/phone.png) 
+]
+.right-column[
+Want to build a smart phone that
+- Collects and learns a model of human behavior with every interaction
+- From the moment the phone is purchased and turned on
+- Uses behavior information to improve interaction and the user experience
+- Do this opportunistically
+ - Your noise is my signal!
+ - Big Data of 1
+]
+???
+How close are we to this?
+
+- Amazing amounts of computation at hand
+- Memory and storage
+- Radios and communication
+- Sensors
+- Software
+---
+.title[Big Data of One]
+.body[
+Build compelling and useful apps that provide value in everyday life and a compelling user experience
+
+Think about what you can do with big data for 1 with origins in everyday activity
+]
+???
+let the class discuss
+---
+.left-column[
+## Assumption #2: Usage is Notification Driven
+![:img People at a dinner table paying attention to their phones instead of eachother, 100%](img/context/dinner.png)
+]
+.right-column[
+What do we know about how people use their mobile devices?
+
+- “Always on the phone!”
+- “Notifications are ruining my life!”
+
+]
+---
+.title[Characterizing Usage]
+.body[
+![:img Picture of different kinds of usage including glance; review; engage; and phone calls showing that almost all include glancing at the lock screen while others also include the home screen (almost all) and applicaion usage also includes app-specific stuff, 80%](img/context/usage.png)
+
+]
+.footnote[Based on 1 months data from 10 participants]
+---
+.title[Characterizing Usage]
+.body[
+![:img Histograph of percentage of total device use sessions by
+session duration showing that most sessions are lock screen only and
+less than 60 seconds long, 80%](img/context/usage2.png)
+]
+???
+95% of sessions shorter than 5 minutes; most < 60 secs
+
+Notifications lead to engagement… only 25% of the time!
+
+Self-interruption therefore more common than we would think
+
+Notifications prevent unnecessary engages
+
+No good support for reviews
+---
+.left-column[
+# Glance
+![:img Diagram of glance usage showing lockscreen and off or
+lockscreen and homescreen and off,100%](img/context/glance.png)
+]
+.right-column[
+
+![:youtube Glancing at a phone without engaging, 4pXLqDZCFwo]
+]
+
+---
+.left-column[
+# Review
+![:img Diagram of review usage showing lockscreen and homescreen and off,100%](img/context/review.png)
+]
+.right-column[
+
+![:youtube Reviewing on a phone, vsPkU8fHp-c]
+]
+---
+.left-column[
+# Engage 
+ ![:img Diagram of engage  usage showing lockscreen and
+homescreen and app usage ,100%](img/context/engage.png)
+]
+.right-column[
+
+![:youtube Reviewing on a phone, NCwj3__BFxQ]
+]
+---
+.left-column[
+## Opportunity: Leverage real knowledge about phone use 
+![:img People at a dinner table paying attention to their phones instead of eachother, 100%](img/context/dinner.png)
+]
+.right-column[
+Engage people when appropriate
+
+Avoid interrupting when not
+
+Make short interactions more powerful
+
+]
+---
+.left-column[
+![:img Picture of a mobile phone with an unlock gesture that also labels emails for keeping or discarding, 100%](img/context/proactive.png)
+]
+.right-column[
+## Example: pro-active tasks
+
+Provide access to email management, etc right on lock screen
+
+]
+---
+.left-column[
+![:img Picture of a mobile phone with an unlock gesture that also labels emails for keeping or discarding, 100%](img/context/proactive.png)
+]
+.right-column[
+## Example: pro-active tasks
+
+Provide access to email management, etc right on lock screen
+
+Study of phone use (10 users, 4 weeks)
+
+95% of sessions shorter than 5 minutes; most < 60 secs
+
+No good support for quick task completion (just viewing things)
+]
+---
+.left-column[
+## All users 
+
+![:img Picture of a graph showing 3 weeks of use going from 15%
+engagement down to 6.4% engagement, 100%](img/context/proactive-results.png)
+]
+
+.right-column[
+## Results
+
+25 participants
+- 10 nonusers (4% of lockscreen views with a task or less per week)
+- 9 regular users (5-10% of lockscreen views with a task per week)
+- 5 power users (40-60% of lockscreen views!)
+]
+???
+regular users  mostly used the tasks when they had some down time, or
+when bored or nothing better to do.
+
+power users who applied actions to email in more than 1/3 of sessions
+when tasks were present on their lock screen. 
+
+---
+.left-column[
+## Cleaners
+
+![:img Picture of a graph showing 3 weeks of use going from 39%
+engagement down to 22% and then back up to 50% engagement, 100%](img/context/cleaneruser.png)
+]
+.right-column[
+## Results
+
+25 participants
+- 10 nonusers (4% of lockscreen views with a task or less per week)
+- 9 regular users (5-10% of lockscreen views with a task per week)
+- 5 power users (40-60% of lockscreen views!)
+- 3 'cleaners' 
+]
+???
+We also found a special kind of power users called cleaners. They rarely had any unread emails in their inbox and used ProactiveTasks to keep their inbox clear of any unwanted emails.
+
+---
+.left-column[
+## Assumption #3: Proximity is standard]
+.right-column[
+We assume that users have their phones with them and turned on 24-7
+
+Which is great for things like health apps and behavior modeling
+- Mobile phone is personal and travels with the user
+- Proxy for user context
+- Proxy for user’s environment context
+- Proxy for user’s attention/display device
+- Provide always-available service
+]
+---
+.left-column[
+## Assumption #3: Proximity is standard]
+.right-column[
+## How much of the day is your phone on?
+
+Average user: 78-81% [Dey, 2011]
+
+One-fifth of the time, phone is off
+Can’t sense anything
+Can’t show anything to the user
+]
+---
+.left-column[
+## Assumption #3: Proximity is standard
+
+![:img Picture of person holding a phone to their head,30%](img/context/armsreach.png)]
+.right-column[
+## When your phone is on, where is it?
+Within arm’s reach
+
+]
+---
+.left-column[
+## Assumption #3: Proximity is standard
+
+![:img Picture of person in a room with a phone,80%](img/context/roomsreach.png)]
+.right-column[
+## When your phone is on, where is it?
+- Within arm’s reach
+- Within the same room
+
+]
+---
+.left-column[
+## Assumption #3: Proximity is standard
+
+![:img Picture of person near a house with a phone,100%](img/context/AWAY.png)]
+.right-column[
+## When your phone is on, where is it?
+- Within arm’s reach (53%)
+- Within the same room (35%)
+- Further away? (12%)
+
+![Bar plot showing 53% within arm’s reach; 35% same room; 12% further away, 100%
+](img/context/phonedist.png)
+]
+---
+.left-column[
+## Assumption #3: Proximity is standard
+
+]
+.right-column[
+## Challenges for interpreting phone data
+
+Can't use the phone as a proxy for the user 
+
+May need complementary sensors
+ - smart watch
+ - fitbit
+ - room level sensing
+ 
+]
+---
+.left-column[
+## Assumption #4: Need is Necessary
+![:img People at a dinner table paying attention to their phones instead of eachother, 100%](img/context/dinner.png)
+]
+.right-column[
+
+.quote[When asked which device or platform they would not be able to
+live without, a majority (65%) chose iPhone, while only a few (1%)
+[...mentioned] facebook. Nearly 15% ...  
+]
+]
+---
+.left-column[
+## Assumption #4: Need is Necessary
+![:img People at a dinner table paying attention to their phones instead of eachother, 100%](img/context/dinner.png)
+]
+.right-column[
+
+.quote[When asked which device or platform they would not be able to
+live without, a majority (65%) chose iPhone, while only a few (1%)
+[...mentioned] facebook. Nearly 15% ...  .red[said they'd rather give up sex
+than go for even a weekend without their iPhone] Now *thats* love.
+]
+]
+---
+.left-column[
+## Assumption #4: Need is Necessary
+![:img People at a dinner table paying attention to their phones instead of eachother, 100%](img/context/dinner.png)
+]
+.right-column[
+![:img barplot showing percentage of people would keep their smart
+phone over game console (72%); tablet computer (69%); Dishwasher
+(46%); Laptop computer (40%); TV (32%); Fridge (13%); and care (8%),
+80%](img/context/phone-compare.png)
+]
+---
+.left-column[
+## Assumption #4: Need is Necessary
+
+## Should we combat this? How?
+
+]
+.right-column[
+
+[Hinicker](https://www.alexishiniker.com/) (works at UW): 
+- Can devices teach self-regulation, rather than trying to regulate children?
+- Why do people compulsively check their phones? Can they change this?
+  
+[Burke](http://thoughtcrumbs.com/) (works at Facebook):
+- [Watching silly cat videos is good for
+  you](https://www.wsj.com/articles/why-watching-silly-cat-videos-is-good-for-you-1475602097)
+- [Online social life good for your
+  longevity](https://www.nytimes.com/2016/11/01/science/facebook-longer-life.html)
+   ... but [The Relationship Between Facebook Use and Well-Being
+  Depends on Communication Type and Tie
+  Strength](https://academic.oup.com/jcmc/article/21/4/265/4161784)
+  
+
+  
+]
+---
+.left-column[
+## Assumptions
+
+- Assumption #1: Phones are smart
+- Assumption #2: Usage is notification driven 
+- Assumption #3: Proximity is standard
+- Assumption #4: Need is necessary
+]
+
+.right-column[
+By removing assumptions, we can recast: 
+
+- the notion of what a smart phone is
+- how we can use them to improve people’s lives
+- how to leverage make (personalized) meaning from (your) big data
+
+What might we make is in this case?
+]
+???
+We = the research community and now consumers
+
+---
+.left-column[
+## What might we do with today's phones?
+![:img Picture of a mobile phone with a text message on screen containing a transcription of recent audio, 100%](img/context/scribe4me.jpeg)
+]
+.right-column[
+
+Capture and Access:
+- .red[Food diarying] and nutritional awareness via receipt analysis [Ubicomp 2002] 
+- .bold.red[Audio Accessibility] for deaf people by supporting mobile
+sound transcription [Ubicomp 2006, CHI 2007] 
+- .red[Citizen Science] volunteer data collection in the field [CSCW
+  2013, CHI
+  2015] 
+- .red[Air quality assessment] and visualization [CHI 2013]
+- .red[Coordinating between patients and doctors] via wearable
+  sensing of in-home physical therapy [CHI 2014]
+]
+---
+.left-column[
+## What might we do with today's phones?
+
+![:img Picture of a mobile phone with an unlock gesture that also labels emails for keeping or discarding, 100%](img/context/proactive.png)
+]
+.right-column[
+
+## Adaptive Services (changing operation or timing)
+
+- .red[Adaptive Text Prediction] for assistive communication devices
+  [TOCHI 2005]
+- .red[Location prediction] based on prior behavior [Ubicomp 2014]
+- .bold.red[Pro-active task access] on lock screen based on predicted user
+  interest [MobileHCI 2014]
+]  
+---
+.left-column[
+## What might we do with today's phones?
+![:img example interaction above and on the surface of a phone supported by adding a depth camera to the front of the phone -- shows
+interacting with text, 80%](img/context/airtouch.jpg)  
+
+![:img example interaction above and on the surface of a phone supported by adding a depth camera to the front of the phone -- shows interacting with an image, 80%](img/context/airtouch2.jpg)  
+]
+.right-column[
+## Novel Interaction
+
+- .red[Cord Input] for interacting with mobile devices  [CHI 2010]
+- .red[Smart Watch Intent to Interact] via twist'n'knock gesture [GI
+  2016]
+- .red[VR Intent to Interact] vi sensing body pose, gaze and gesture
+  [CHI 2017]  
+- .red[Around Body interaction] through gestures with the phone
+  [Mobile HCI 2014]
+- .red.bold[Around phone interaction] through gestures combining on and
+  above phone surface [UIST 2014]
+  
+]
+---
+.left-column[
+## What might we do with today's phones?
+![:img example interaction above and on the surface of a phone supported by adding a depth camera to the front of the phone -- shows
+interacting with text, 80%](img/context/airtouch.jpg)  
+
+![:img example interaction above and on the surface of a phone supported by adding a depth camera to the front of the phone -- shows interacting with an image, 80%](img/context/airtouch2.jpg)  
+]
+.right-column[
+![:youtube Interweaving touch and in-air gestures using in-air
+gestures to segment touch gestures, H5niZW6ZhTk]
+]
+
+---
+.left-column[
+## What might we do with today's phones?
+
+![:img Picture of an interface for simulating driving behavior providing feedback to the user about aggressive driving, 100%](img/context/driving.png)
+
+]
+.right-column[
+
+## Behavioral Imaging
+
+- .red[Detecting and Generating Safe Driving Behavior] by using
+inverse reinforcement learning to create human routine models [CHI 2016,
+2017]
+- .red[Detecting Deviations in Family Routines] such as being late to
+pick up kids [CHI 2016]
+]
+---
+.left-column[
+## What might we do with today's phones?
+
+![:img The Momento desktop platform (D) and server (S) communicate with clients (C) via SMS/MMS; HTTP; or the Context Toolkit, 100%](img/context/momento.png)
+
+]
+.right-column[
+## General Solutions for Data Collection and Response
+
+- .red[General solution for studying people in the wild] via mobile
+sensing and interaction [CHI 2007]
+- .red[Minimizing user burden] for generating adaptive services via
+  test-time feature ordering [Ubicomp 2016]
+]
+
+---
+.title[Challenges to this vision]
+.body[
+
+- Battery
+- Raw sensors not behavior data
+- Not the sensors we always want
+- Computational complexity
+- Latency in communication
+- Basic software framework to support apps that can adapt to user behavior
+- Apps that drive innovation
+- How people use phones
+]
+
