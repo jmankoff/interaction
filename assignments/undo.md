@@ -77,7 +77,7 @@ class Red,Green,Blue,Thin,Med,Thick,Hid normal
 
 When the user draws on screen (by clicking and dragging inside the
 `DrawingView`, this adds a new `StrokeView` to the interface. Notice
-that the `Undo` button is now visible instead of visible because there
+that the `Undo` button is now visible instead of invisible because there
 is an action to undo. 
 
 <div class="mermaid">
