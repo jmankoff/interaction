@@ -325,7 +325,8 @@ You will turn in the following files via GitGrade. It will accept:
 
 - StackHistory
 - MainActivity
-- Any additional classes you create in the `cse340.undo` package.
+- StrokeView and StrokeAction
+- Any additional classes you create in `cse340.undo` except for `cse340.undo.history`
 - `layout/*_menu.xml`
 - `drawable/*`
 - `values/{colors,dimens,strings}.xml`
