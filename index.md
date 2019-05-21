@@ -231,12 +231,11 @@ This maps to the 4.0 scale roughly as follows. You will get at least the grade b
 
 # Late Days
 
-Each homework will allow late days with a 10% penalty per day. Partial days may not be used (i.e., 12 hours late is a 10% deduction, not 5%). For exercises, only one late day is allowed and subsequent turn-ins will be given a zero. For assignments, up to three late days are allowed after which turn-ins will be given a zero.
+Each homework will allow late days with a 10% penalty per day. Partial days may not be used (i.e., 12 hours late is a 10% deduction, not 5%). You are allowed to use up to 2 late days on each assignment, after which turn-ins will be given a zero.
 
-For the quarter, two **penalty-free** late days are provided which can be used on exercises and assignments.
+For the quarter, two **penalty-free** late days are provided which can be used on assignments by filling out the late day request form posted on Piazza.
 
 - Penalty-free late days do not pause late penalty accumulation. _For example, one late is day is used, but the assignment is turned in two days late: -20%._
-- Usage of penalty-free late days do not extend the last possible date that an assignment can be turned in for any credit. _For example, exercises only have one possible late day, if a late day is used but the assignment is turned in two days late: score is 0._
 
 <!-- Text can be **bold**, _italic_, or ~~strikethrough~~. -->
 
