@@ -45,6 +45,7 @@ We already provide example code to get weather, using snapshot, and headphone st
 # Preparing to run the app
 You will need to set some things up
 
+<!--
 ## Get your API Key
 
 Follow the ["Quick Guide"](https://developers.google.com/places/web-service/get-api-key)
@@ -69,10 +70,9 @@ You'll need to enable one more API than the automated quick guide does for you. 
 ![Screenshot of awareness search](sensing/apisearch.png)
 
 Click on the search result, and select **Enable.** You'll then need to click on the **Create Credentials** button and create credentials. Again, you'll get an API string which you'll need to add to your manifest, in the other API KEY meta data (just below the geo one). 
+-->
 
-##
-
-
+## What the app looks liken
 
 Here are sample screenshots for sensor results:
 
@@ -87,7 +87,65 @@ Here are sample screenshots for sensor results:
 
 
 ## Create your own implicit application
-You should create an application that makes use of one sensor. If you are using an emulator, you can focus on something that is likely to change even without a mobile device. An example is weather. 
+You should create an application that makes use of at least one sensor
+to do something implicitly. 
+
+## Simulating input if using an emulator
+To test your app, you will need to either use a real phone or
+[simulation
+capabilities](https://developer.android.com/studio/run/emulator#extended)
+built into the emulator. You bring it up by clicking on the "..."
+shown in red in the bottom right of the below image.
+
+![Screenshot of emulator with simulator running](sensing/simulator.png)
+
+Using this you can simulate location, either current location or a
+whole route. To simulate a route, you can upload gps traces to
+simulate motion over time. A 
+good place to download sample traces is [OpenStreetMap's traces
+page](https://www.openstreetmap.org/traces/). If you want to double
+check the results of location, here are [instructions on how to find a
+place in google maps using
+lat/long](https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=en)
+
+You can also create your own route by modifing the lat/long in a trace
+(or making your own from scratch using the [GPS exchange
+format](https://en.wikipedia.org/wiki/GPS_Exchange_Format) 
+
+You can also simulate weather (find it in the 'Virtual sensors' part
+of the simulator). 
+
+You can simulate headphones in the 'Microphone' tab of the simulator.
+
+We have not found a way to simulate activity.
+
+# Files provided
+The files provided are 
+
+```
+Snapshot:
+ContextSnapshotActivity.java
+WeatherSnapshotActivity.java (inherits from ContextSnapshotActivity.java)
+
+Fence:
+FenceActivity.java
+FenceBroadcastReceiver.java 
+HeadphoneFenceActivity.java (inherits from FenceActivity.java)
+```
+
+All snapshots should inherit from `ContextSnapshotActivity.java`. This
+file provides a method `setSnapshotListener(Task t, SnapshotListener sl)` that you will need to
+call from `onCreate()`, providing a `snapshotListener`. Your listener should then
+respond to the input, by drawing text on the screen in the case of the
+assigned sensor implementations. Note that if your sensor uses
+location, you have to check permissions as demonstrated in `WeatherSnapshotActivity.java`
+
+All fences should inherit from `FenceActivity.java`.
+This class provides a method `setupFence(AwarenessFence during,
+AwarenessFence starting, AwarenessFence stopping, String fenceName,
+FenceActivityListener l)` which you will call from `onCreate()`. Again
+pay attention to permissions. 
+
 
 # Turn-in
 
@@ -96,12 +154,18 @@ You should create an application that makes use of one sensor. If you are using 
 You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
 
 ```
-- DetectedActivityActivity.java
-- LocationActivity.java
-- PlacesActivity.java
-- WeatherActivity.java
-- DetectedActivityFenceActivity.java
+- ActivityFenceActivity.java
 - LocationFenceActivity.java
+- ActivitySnapshotActivity.java
+- LocationSnapshotActivity.java
+- HeadphoneSnapshotActivity.java
+```
+
+You may also change:
+```
+- strings.xml
+- activity_main.xml
+- Any class you create that did not previously exist
 ```
 
 ## Grading (10pts)
