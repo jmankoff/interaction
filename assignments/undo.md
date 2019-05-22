@@ -22,7 +22,7 @@ hci_goals:
 ---
 
 - TOC
-  {:toc}
+{:toc}
 
 Tasks:
 
