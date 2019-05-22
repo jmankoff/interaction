@@ -1,0 +1,149 @@
+---
+layout: presentation
+title: Lab 07 Getting Started With Undo --Week 7, Thursday--
+description: Introduction to the Undo assignment
+class: middle, center, inverse
+---
+# CSE 340 Lab 7 (Spring 2019)
+## Heuristic Evaluations, Sensing
+---
+
+## Heuristic Evaluations
+
+- Incredibly useful interaction technique
+
+- Reverts the application to an older state
+
+  - Mistakes can easily be undone
+  
+  - *"Ugh...that was definitely not right, but manually erasing all this work is going to take forever"*
+
+---
+
+## The Redo feature
+
+- Inverse to the Undo feature
+
+- "Undoes" an undo
+
+  - Work previously undone is reapplied
+
+  - *"Huh, maybe I made the right decision after all..."*
+
+---
+
+## Codebase: Activity Files
+
+- `MainActivity` inherits from `ReversibleDrawingActivity`, which inherits from `DrawingActivity`
+
+- `DrawingActivity` - abstract class for app that supports drawing without history
+
+  - Wrapper around a `DrawingView`
+
+  - `doAction()`
+
+- `ReversibleDrawingActivity` - abstract class that extends DrawingActivity
+
+  - adds support for undo/redo
+
+  - includes buttons for undo/redo
+
+  - `doAction()`, `undo()`, `redo()`
+
+- `MainActivity` - inherits from `ReversibleDrawingActivity`
+
+  - adds support for thickness, color actions
+
+  - `onColorSelected()`, `onThicknessSelected()`
+
+---
+
+## Codebase: DrawingView, Code Structure, and Layouts
+
+- `DrawingActivity` is a wrapper around a `DrawingView`
+
+  - Sets behavior for how strokes are drawn 
+
+      -- Strokes are just `StrokeView`'s in the `DrawingView`
+
+  - `onTouchEvent()` implements a PPS that describes lifetime of a stroke being created
+
+- Useful diagram on the spec makes the code structure clear
+
+- Also look at the layout files - you'll probably need to use them 
+
+---
+
+## Codebase: Actions
+
+- `Action` abstract class defines basic behavior any Action should have
+
+- `ReversibleAction` abstract class defines interface for actions that can be undone
+
+- `DrawingActivity`'s `doAction()` calls `Action`'s  `doAction()` to apply an action
+
+- `ReversibleDrawingActivity`'s `undo()` and `redo()` call methods on ReversibleAction to undo/redo 
+
+- The three actions:
+  
+  - `ChangeColorAction`
+
+  - `ChangeThicknessAction`
+
+  - `StrokeAction`
+
+---
+
+## Codebase: History
+
+- The `ReversibleDrawingActivity` uses an AbstractHistory interface to manage the undo/redo history
+
+  - You will implement the concrete StackHistory which implements AbstractHistory
+
+  - Think: What data structures are used? Why does this make sense?
+
+      -- What happens to the redo history if you take a new action after undoing a couple times?
+
+      -- What happens to the undo history if you redo an action?
+
+      -- What happens to the redo history if you undo an action?
+
+---
+
+## Additional Responsibilities
+
+- Add a new thickness button with stroke width 0
+
+- Add a new feature
+
+  - Can be a new FAB (cannot add another thickness, but could add another color)
+
+  - Challenges:
+
+      -- Leverage your ColorPicker
+
+      -- Allow the user to move a stroke
+
+- Improve usability (optional)
+
+- Make sure all added features are accessible
+
+---
+
+## Demo: Adding a new color FAB
+
+- This is very similar to adding a new thickness
+
+- `color_menu.xml` is the layout file with all the color FABs
+
+  - Create a new FAB 
+
+      -- can just copy and paste, changing relevant attributes
+
+  - Update MainActivity.java
+
+      -- It already adds the other thickness and color FABs
+
+      -- `addCollapsableMenu()` adds all buttons in an array to a menu and sets their listeners for you
+
+          -- All you have to do is update the appropriate listener function (in this case, `onColorSelected()`)
