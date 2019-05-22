@@ -149,7 +149,7 @@ layout: default
 | **5/22** |   | Passive Data Collection on the Phone |
 ||Exercise Assigned|[Sensing](/interaction/assignments/sensing)|
 | **5/23** |   | Sensing in Android                   |
-||Undo Heuristic Eval Due|[Undo](/interaction/assignments/undo)|
+||Undo Heuristic Eval Due|[Section](/interaction/slides/l08/lab8.html)|
 | **5/24** |   | Augmented Reality on the Phone       |
 ||Reading Quiz [Undo](https://canvas.uw.edu/courses/1317447/quizzes/1133592) | Reading quiz on undo material. We did not assign a reading and you can do this quiz without reading, but Chapter 16 is optional reading for this module |
 {: .small #small .schedule #schedule}
