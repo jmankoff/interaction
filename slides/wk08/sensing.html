@@ -1,8 +1,24 @@
+---
+layout: presentation
+title: Sensing with your Phone
+description: Discussion of practical side of phone sensing
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Sensing with your Phone
 
-<!-- ---
+Jennifer Mankoff
+
+CSE 340 Spring 2019 
+---
+layout: false
+
 # Types of Input
 
-- Not just touches, clicks, key presses
+- Not just touches: clicks, key presses
 
 --
 
@@ -16,7 +32,7 @@ Sampled or event based?
   - Listeners can receive updates at different intervals, etc.
 
   - Some Sensor-specific settings  
-    https://source.android.com/devices/sensors/sensor-types.html
+    [https://source.android.com/devices/sensors/sensor-types.html](https://source.android.com/devices/sensors/sensor-types.html)
 
 ---
 # Other Kinds of Input
@@ -27,5 +43,87 @@ Sampled or event based?
 
 - Multi-touch
 
-- Connected Devices? -->
+- Connected Devices? 
+---
+.title[
+Aware Framework]
+.body[
+![:img Picture of how AWARE is used](img/sensing/aware_overview1.png)
+[Aware's Many Sensors](https://awareframework.com/sensors/)
+]
+???
+AWARE is an Android framework dedicated to instrument, infer, log and share mobile context information, for application developers, researchers and smartphone users. AWARE captures hardware-, software-, and human-based data. The data is then analyzed using AWARE plugins. They transform data into information you can understand.
+---
+.title[Easy to collect data]
+.body[
+![:img Aware Study Interface, 70%](img/sensing/aware-study.png)
+]
+---
+.title[We'll implement our own version]
+.body[
+Much Simpler
+
+Android only
+
+Uses Android's
+[Task](https://developer.android.com/reference/com/google/android/play/core/tasks/Task)
+API because this may be asynchronous. We do our best to hide this for
+you
+
+Uses Google's [Awareness
+API](https://developers.google.com/awareness/) to provide you access
+to data
+]
+
+???
+---
+.title[Snapshots]
+.body[
+Current info
+
+Requires a single callback: 
+`onSnapshot(Response response)`
+
+Parse the response and act on it! 
+
+`WeatherSnapshotActivity` example
+]
+---
+.title[Subclass ContextSnapshotActivity]
+.body[
+	You'll create activities for multiple sensors
+]
+---
+.title[[Fences](https://developers.google.com/awareness/)]
+.body[
+Conditional data
+
+3 callbacks: during, starting, stopping
+
+From the android docs: 
+```
+if (TextUtils.equals(fenceState.getFenceKey(), "headphoneFenceKey")) {
+            switch(fenceState.getCurrentState()) {
+                case FenceState.TRUE:
+                    Log.i(TAG, "Headphones are plugged in.");
+                    break;
+                case FenceState.FALSE:
+                    Log.i(TAG, "Headphones are NOT plugged in.");
+                    break;
+                case FenceState.UNKNOWN:
+                    Log.i(TAG, "The headphone fence is in an unknown state.");
+                    break;
+            }
+        }
+```
+]
+---
+.title[Subclass FenceActivity]
+.body[
+Again you'll create for multiple sensors
+]
+---
+.title[Simulation Demo]
+.body[
+]
 ---

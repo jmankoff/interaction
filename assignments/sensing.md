@@ -26,8 +26,8 @@ Tasks:
   - Location
   - User Activity
 - Use fence suppor to listen for changes to the following sensors:
-  - Location
-  - Activity
+  - Location (detect whether in CSE)
+  - Activity (detect whether walking)
 - Create an app that responds to implicit data (i.e. reacts to a change in context)
 
 Context awareness capabilities enable mobile phones to sense their physical environment and adapt their behavior accordingly. You can practice how to load and react to data from different sensors in this exercise, as the preparation to build context aware app in the final assignment. 
@@ -97,7 +97,7 @@ capabilities](https://developer.android.com/studio/run/emulator#extended)
 built into the emulator. You bring it up by clicking on the "..."
 shown in red in the bottom right of the below image.
 
-![Screenshot of emulator with simulator running](sensing/simulator.png)
+![Screenshot of emulator with simulator running](sensing/simulator.png){:width="400px"}
 
 Using this you can simulate location, either current location or a
 whole route. To simulate a route, you can upload gps traces to

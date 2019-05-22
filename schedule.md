@@ -141,8 +141,11 @@ layout: default
 |-----|--------|-------------------------------|
 | **5/20** |**Monday**   |  **Context Awareness**                   |
 ||Slides|[The Physical Phone](/interaction/slides/wk08/context.html)| Assumptions about phone use and examples of context aware applications |
-| **5/21** |**Wednesday**   | **Sensing with your phone**  |
+| **5/20** | **Tuesday** | 
 ||Assignment: Undo Due|[Undo](/interaction/assignments/undo)|
+| **5/21** |**Wednesday**   | **Midterm Recap**  |
+||Slides|[Midterm Recap](/interaction/slides/wk08/midterm.html)||
+||Slides|[Phone Sensing](/interaction/slides/wk08/sensing.html)||
 | **5/22** |   | Passive Data Collection on the Phone |
 | **5/23** |   | Sensing in Android                   |
 ||Undo Heuristic Eval Due|[Undo](/interaction/assignments/undo)|
