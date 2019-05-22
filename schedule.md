@@ -147,6 +147,7 @@ layout: default
 ||Slides|[Midterm Recap](/interaction/slides/wk08/midterm.html)||
 ||Slides|[Phone Sensing](/interaction/slides/wk08/sensing.html)||
 | **5/22** |   | Passive Data Collection on the Phone |
+||Exercise Assigned|[Sensing](/interaction/assignments/sensing)|
 | **5/23** |   | Sensing in Android                   |
 ||Undo Heuristic Eval Due|[Undo](/interaction/assignments/undo)|
 | **5/24** |   | Augmented Reality on the Phone       |
@@ -157,17 +158,16 @@ layout: default
 
 |-------|------|-------------------------------|
 |**5/27**|Memorial Day**|**No Class**|
-||Exercise Assigned|[Sensing](/interaction/assignments/sensing)|
 ||Assignment: Context Awareness|[Context Awareness](/interaction/assignments/contextaware)|
 |**5/29**|||
-|**5/31**|||
-|**6/3**|||
+|**5/30**|||
 ||Exercise Due|[Sensing](/interaction/assignments/sensing)|
+|**5/31**|||
 {: .small #small .schedule #schedule}
 
 # Week 10: TBD
-
 |-----|--------|-------------------------------|
+|**6/3**|||
 |**6/5**|||
 |**6/6**|||
 |**6/7**|||
