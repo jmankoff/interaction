@@ -10,140 +10,102 @@ class: middle, center, inverse
 
 ## Heuristic Evaluations
 
-- Incredibly useful interaction technique
+- You should have received an email with the survey link and APKs
 
-- Reverts the application to an older state
+- We will complete a heuristic evaluation on one submission in section today
 
-  - Mistakes can easily be undone
-  
-  - *"Ugh...that was definitely not right, but manually erasing all this work is going to take forever"*
+    -- You must complete the remaining evaluations within the next day
+
+- What do you do?
+
+    -- Two passes through the interface: one to inspect flow, another to inspect each screen against heuristics
+
+    -- Fill out Usability Action Report
+---
+
+## Evaluation criteria
+
+- **Visibility of system status**
+    -- Are users informed about what is going on in their application?
+
+- **Match between the system and the real world**
+    -- Does the app use concepts, language, and conventions that would be familiar to the user?
+
+- **User control and freedom?**
+    -- Does it allow the user to do what he/she wants to?
+
+- **Consistency/Standards?**
+    -- Does the application use the same conventions in all its components? Is it consistent with other apps on the same platform?
+
+- **Error prevention?**
+    -- Is the application defensive? Does it have a design that protects users from making mistakes?
+
+- **Recognition rather than recall?**
+    -- Are the objects/actions/options of the app easily accessible to newcomers, or do they require memory?
+
+- **Flexibility and Efficiency of Use**
+    -- Can the user customize the application to their needs?
+
+- **Aesthetic and minimalist design**
+    -- Is the application cluttered? Does it contain only relevant components?
+
+- **Help users recognize, diagnose, and recover from errors?**
+    -- When the user runs into a problem, will it be easy for them to fix it?
+
+- **Help and Documentation**
+    -- Is help easy to find any navigate? Is the information given even helpful?
 
 ---
 
-## The Redo feature
+## Sensing
 
-- Inverse to the Undo feature
+- Goals
+    - Add Snapshot support for the Headphone, Location, and User Activity sensors
+    - Add Fence support to listen for changes to the Location and Activity sensors
+    - Create an application that leverages a sensor in some new way
+    
+- Snapshots
+    - Return the most recent information from the sensor
+        -- May not be real time
 
-- "Undoes" an undo
+- Fences
+    - Triggered when the sensor data changes based on signal conditions set
+    - Can combine multiple conditions to create a smarter fence
 
-  - Work previously undone is reapplied
-
-  - *"Huh, maybe I made the right decision after all..."*
-
----
-
-## Codebase: Activity Files
-
-- `MainActivity` inherits from `ReversibleDrawingActivity`, which inherits from `DrawingActivity`
-
-- `DrawingActivity` - abstract class for app that supports drawing without history
-
-  - Wrapper around a `DrawingView`
-
-  - `doAction()`
-
-- `ReversibleDrawingActivity` - abstract class that extends DrawingActivity
-
-  - adds support for undo/redo
-
-  - includes buttons for undo/redo
-
-  - `doAction()`, `undo()`, `redo()`
-
-- `MainActivity` - inherits from `ReversibleDrawingActivity`
-
-  - adds support for thickness, color actions
-
-  - `onColorSelected()`, `onThicknessSelected()`
+- Take 10 minutes to read through the specification and the code files
 
 ---
 
-## Codebase: DrawingView, Code Structure, and Layouts
+## Sensing code
 
-- `DrawingActivity` is a wrapper around a `DrawingView`
+- Important object types to look at:
+    
+    - `FenceActivity.java`
+    
+    - `FenceBroadcastReceiver.java` - BroadcastReceiver that passes data relevant to the Fence in a callback
+    
+    - `ContextSnapshotActivity.java`
 
-  - Sets behavior for how strokes are drawn 
+- Every Activity you will implement in this assignment is either a `FenceActivity` or a `SnapshotActivity`
+    
+    - There are classes of both types already implemented as an example for you
 
-      -- Strokes are just `StrokeView`'s in the `DrawingView`
-
-  - `onTouchEvent()` implements a PPS that describes lifetime of a stroke being created
-
-- Useful diagram on the spec makes the code structure clear
-
-- Also look at the layout files - you'll probably need to use them 
-
----
-
-## Codebase: Actions
-
-- `Action` abstract class defines basic behavior any Action should have
-
-- `ReversibleAction` abstract class defines interface for actions that can be undone
-
-- `DrawingActivity`'s `doAction()` calls `Action`'s  `doAction()` to apply an action
-
-- `ReversibleDrawingActivity`'s `undo()` and `redo()` call methods on ReversibleAction to undo/redo 
-
-- The three actions:
-  
-  - `ChangeColorAction`
-
-  - `ChangeThicknessAction`
-
-  - `StrokeAction`
+- Questions?
 
 ---
 
-## Codebase: History
+## Demo
 
-- The `ReversibleDrawingActivity` uses an AbstractHistory interface to manage the undo/redo history
+- We will implement `HeadphoneFenceActivity` and `HeadphoneSnapshotActivity` together
 
-  - You will implement the concrete StackHistory which implements AbstractHistory
+- `HeadphoneSnapshotActivity.java`
+    - `getHeadphoneState()` from the `response`
+    - Get the appropriate `text_headphone` TextView in the `snapshot_headphone.xml` layout
+    - Depending on if the headphones are plugged in, set the text on the TextView using string constants in `strings.xml`
 
-  - Think: What data structures are used? Why does this make sense?
-
-      -- What happens to the redo history if you take a new action after undoing a couple times?
-
-      -- What happens to the undo history if you redo an action?
-
-      -- What happens to the redo history if you undo an action?
-
----
-
-## Additional Responsibilities
-
-- Add a new thickness button with stroke width 0
-
-- Add a new feature
-
-  - Can be a new FAB (cannot add another thickness, but could add another color)
-
-  - Challenges:
-
-      -- Leverage your ColorPicker
-
-      -- Allow the user to move a stroke
-
-- Improve usability (optional)
-
-- Make sure all added features are accessible
-
----
-
-## Demo: Adding a new color FAB
-
-- This is very similar to adding a new thickness
-
-- `color_menu.xml` is the layout file with all the color FABs
-
-  - Create a new FAB 
-
-      -- can just copy and paste, changing relevant attributes
-
-  - Update MainActivity.java
-
-      -- It already adds the other thickness and color FABs
-
-      -- `addCollapsableMenu()` adds all buttons in an array to a menu and sets their listeners for you
-
-          -- All you have to do is update the appropriate listener function (in this case, `onColorSelected()`)
+- `HeadphoneFenceActivity.java`
+    - call setupFence() with AwarenessFence objects
+        -- use `HeadphoneFence` static methods to get the appropriate AwarenessFence instances
+    - pass in a FenceActivityListener to setupFence()
+        -- No behavior needs to be defined if the headphones are actively being plugged/unplugged
+        -- Otherwise, get the FenceState and display the `text_headphones_plugged_in`, `text_headphones_unplugged`, or `condition_unknown` on the `text_headphone_fence` TextView
