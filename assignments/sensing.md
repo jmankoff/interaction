@@ -25,7 +25,7 @@ Tasks:
   - Headphone
   - Location
   - User Activity
-- Use fence suppor to listen for changes to the following sensors:
+- Use fence support to listen for changes to the following sensors:
   - Location (detect whether in CSE)
   - Activity (detect whether walking)
 - Create an app that responds to implicit data (i.e. reacts to a change in context)
@@ -140,6 +140,19 @@ FenceBroadcastReceiver.java
 HeadphoneFenceActivity.java (inherits from FenceActivity.java)
 ```
 
+The files you will modify as part of the base assignment (not including your own implicit application) are
+
+```
+Snapshot:
+ActivitySnapshotActivity.java
+LocationSnapshotActivity.java
+HeadphoneSnapshotActivity.java
+
+Fence:
+ActivityFenceActivity.java
+LocationFenceActivity.java
+```
+
 All snapshots should inherit from `ContextSnapshotActivity.java`. This
 file provides a method `setSnapshotListener(Task t, SnapshotListener sl)` that you will need to
 call from `onCreate()`, providing a `snapshotListener`. Your listener should then
@@ -153,6 +166,10 @@ AwarenessFence starting, AwarenessFence stopping, String fenceName,
 FenceActivityListener l)` which you will call from `onCreate()`. Again
 pay attention to permissions. 
 
+There are detailed comments in the code files you will implement that will direct you through the assignment.
+
+# Known Issues
+Currently our solution has a bug in that FenceActivity instances do not get redrawn as soon the corresponding Broadcast Intent is sent and (ought to be) received. This is why, for example, the HeadphoneFenceActivity we give you does not change text as soon as you put your headphones in - it only changes text whenever the Activity is redrawn during the normal Activity lifecycle. If we do not get a patch up in a timely manner, we will not penalize you for your FenceActivity instances failing to refresh automatically.
 
 # Turn-in
 

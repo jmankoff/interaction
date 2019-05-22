@@ -1,0 +1,111 @@
+---
+layout: presentation
+title: Lab 07 Getting Started With Undo --Week 7, Thursday--
+description: Introduction to the Undo assignment
+class: middle, center, inverse
+---
+# CSE 340 Lab 7 (Spring 2019)
+## Heuristic Evaluations, Sensing
+---
+
+## Heuristic Evaluations
+
+- You should have received an email with the survey link and APKs
+
+- We will complete a heuristic evaluation on one submission in section today
+
+    -- You must complete the remaining evaluations within the next day
+
+- What do you do?
+
+    -- Two passes through the interface: one to inspect flow, another to inspect each screen against heuristics
+
+    -- Fill out Usability Action Report
+---
+
+## Evaluation criteria
+
+- **Visibility of system status**
+    -- Are users informed about what is going on in their application?
+
+- **Match between the system and the real world**
+    -- Does the app use concepts, language, and conventions that would be familiar to the user?
+
+- **User control and freedom?**
+    -- Does it allow the user to do what he/she wants to?
+
+- **Consistency/Standards?**
+    -- Does the application use the same conventions in all its components? Is it consistent with other apps on the same platform?
+
+- **Error prevention?**
+    -- Is the application defensive? Does it have a design that protects users from making mistakes?
+
+- **Recognition rather than recall?**
+    -- Are the objects/actions/options of the app easily accessible to newcomers, or do they require memory?
+
+- **Flexibility and Efficiency of Use**
+    -- Can the user customize the application to their needs?
+
+- **Aesthetic and minimalist design**
+    -- Is the application cluttered? Does it contain only relevant components?
+
+- **Help users recognize, diagnose, and recover from errors?**
+    -- When the user runs into a problem, will it be easy for them to fix it?
+
+- **Help and Documentation**
+    -- Is help easy to find any navigate? Is the information given even helpful?
+
+---
+
+## Sensing
+
+- Goals
+    - Add Snapshot support for the Headphone, Location, and User Activity sensors
+    - Add Fence support to listen for changes to the Location and Activity sensors
+    - Create an application that leverages a sensor in some new way
+    
+- Snapshots
+    - Return the most recent information from the sensor
+        -- May not be real time
+
+- Fences
+    - Triggered when the sensor data changes based on signal conditions set
+    - Can combine multiple conditions to create a smarter fence
+
+- Take 10 minutes to read through the specification and the code files
+
+---
+
+## Sensing code
+
+- Important object types to look at:
+    
+    - `FenceActivity.java`
+    
+    - `FenceBroadcastReceiver.java` - BroadcastReceiver that passes data relevant to the Fence in a callback
+    
+    - `ContextSnapshotActivity.java`
+
+- Every Activity you will implement in this assignment is either a `FenceActivity` or a `SnapshotActivity`
+    
+    - There are classes of both types already implemented as an example for you
+
+- Questions?
+
+---
+
+## Demo
+
+- We will implement `HeadphoneFenceActivity` and `HeadphoneSnapshotActivity` together
+
+- `HeadphoneSnapshotActivity.java`
+    - `getHeadphoneState()` from the `response`
+    - Get the appropriate `text_headphone` TextView in the `snapshot_headphone.xml` layout
+    - Depending on if the headphones are plugged in, set the text on the TextView using string constants in `strings.xml`
+
+- `HeadphoneFenceActivity.java`
+    - call setupFence() with AwarenessFence objects
+        -- use `HeadphoneFence` static methods to get the appropriate AwarenessFence instances
+    - pass in a FenceActivityListener to setupFence()
+        -- No behavior needs to be defined if the headphones are actively being plugged/unplugged
+        -- Otherwise, get the FenceState and display the `text_headphones_plugged_in`, `text_headphones_unplugged`, or `condition_unknown` on the `text_headphone_fence` TextView
