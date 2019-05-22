@@ -97,7 +97,14 @@ capabilities](https://developer.android.com/studio/run/emulator#extended)
 built into the emulator. You bring it up by clicking on the "..."
 shown in red in the bottom right of the below image.
 
+### Location Simulation
 ![Screenshot of emulator with simulator running](sensing/simulator.png){:width="400px"}
+
+### Headphone Simulation
+![Screenshot of emulator with simulator running](sensing/headphone.png){:width="400px"}
+
+### Weather Simulation
+![Screenshot of emulator with simulator running](sensing/weather.png){:width="400px"}
 
 Using this you can simulate location, either current location or a
 whole route. To simulate a route, you can upload gps traces to
