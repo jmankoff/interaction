@@ -215,19 +215,11 @@ will do to try to make the class a welcoming environment:
 
 Grades will be assigned approximately as follows:
 
-- 25%: Exercises (Five of these)
-- 45%: Assignments (Three of these)
+- 70%: Assignments
 - 10%: Effort, participation and altruism
 - 20%: Exams
 
-This maps to the 4.0 scale roughly as follows. You will get at least the grade below for the percentage shown:
-
-- 90%: at least 3.5
-- 85%: at least 3.0
-- 80%: at least 2.5
-- 75%: at least 2.0
-- 70%: at least 1.5
-- 60%: at least 0.7
+To estimate your final GPA, multiply your current overall grade (from 0 to 100) by 4 and divide by 100.
 
 # Late Days
 
