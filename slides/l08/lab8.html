@@ -5,7 +5,15 @@ description: Introduction to the Undo assignment
 class: middle, center, inverse
 ---
 # CSE 340 Lab 7 (Spring 2019)
-## Heuristic Evaluations, Sensing
+## Heuristic Evaluations, Feedback
+---
+
+## Menus, Accessibility, Undo Feedback
+
+- There are currently survey(s) on Canvas your experience with Menus, Undo, and Accessibility
+
+    - Organized under Canvas Quizzes
+
 ---
 
 ## Heuristic Evaluations
@@ -56,56 +64,3 @@ class: middle, center, inverse
     -- Is help easy to find any navigate? Is the information given even helpful?
 
 ---
-
-## Sensing
-
-- Goals
-    - Add Snapshot support for the Headphone, Location, and User Activity sensors
-    - Add Fence support to listen for changes to the Location and Activity sensors
-    - Create an application that leverages a sensor in some new way
-    
-- Snapshots
-    - Return the most recent information from the sensor
-        -- May not be real time
-
-- Fences
-    - Triggered when the sensor data changes based on signal conditions set
-    - Can combine multiple conditions to create a smarter fence
-
-- Take 10 minutes to read through the specification and the code files
-
----
-
-## Sensing code
-
-- Important object types to look at:
-    
-    - `FenceActivity.java`
-    
-    - `FenceBroadcastReceiver.java` - BroadcastReceiver that passes data relevant to the Fence in a callback
-    
-    - `ContextSnapshotActivity.java`
-
-- Every Activity you will implement in this assignment is either a `FenceActivity` or a `SnapshotActivity`
-    
-    - There are classes of both types already implemented as an example for you
-
-- Questions?
-
----
-
-## Demo
-
-- We will implement `HeadphoneFenceActivity` and `HeadphoneSnapshotActivity` together
-
-- `HeadphoneSnapshotActivity.java`
-    - `getHeadphoneState()` from the `response`
-    - Get the appropriate `text_headphone` TextView in the `snapshot_headphone.xml` layout
-    - Depending on if the headphones are plugged in, set the text on the TextView using string constants in `strings.xml`
-
-- `HeadphoneFenceActivity.java`
-    - call setupFence() with AwarenessFence objects
-        -- use `HeadphoneFence` static methods to get the appropriate AwarenessFence instances
-    - pass in a FenceActivityListener to setupFence()
-        -- No behavior needs to be defined if the headphones are actively being plugged/unplugged
-        -- Otherwise, get the FenceState and display the `text_headphones_plugged_in`, `text_headphones_unplugged`, or `condition_unknown` on the `text_headphone_fence` TextView
