@@ -3,9 +3,9 @@ layout: assignment
 title: Sensing
 code: EX5
 
-assigned: Monday, May 28, 2019
-due: 11:59 PM Friday, June 3, 2019
-revised: Monday, May 28, 2019
+assigned: Tuesday, May 28, 2019
+due: 11:59 PM Friday, May 31, 2019
+revised: 12:14pm Monday, May 27, 2019
 
 objective: Access Android sensors as the preparation to build context aware application.
 
@@ -13,8 +13,6 @@ android_goals:
   - Learn Android Awareness APIs
   - Load sensor data
   - Understand how and when to use Snapshot or Fence
-hci_goals:
-  - Create an app that uses implicit data
 ---
 
 - TOC
