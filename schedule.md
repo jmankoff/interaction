@@ -147,8 +147,6 @@ layout: default
 ||Slides|[Midterm Recap](/interaction/slides/wk08/midterm.html)||
 ||Slides|[Phone Sensing](/interaction/slides/wk08/sensing.html)||
 | **5/22** |   | Passive Data Collection on the Phone |
-||Exercise Assigned|[Sensing](/interaction/assignments/sensing)|
-| **5/23** |   | Sensing in Android                   |
 ||Undo Heuristic Eval Due|[Section](/interaction/slides/l08/lab8.html)|
 | **5/24** |   | Augmented Reality on the Phone       |
 ||Reading Quiz [Undo](https://canvas.uw.edu/courses/1317447/quizzes/1133592)| | Reading quiz on undo material. We did not assign a reading and you can do this quiz without reading, but Chapter 16 is optional reading for this module |
@@ -159,10 +157,12 @@ layout: default
 
 |-------|------|-------------------------------|
 |**5/27**|Memorial Day**|**No Class**|
+||Exercise Assigned|[Sensing](/interaction/assignments/sensing)|
+||Exercise Due|[Sensing](/interaction/assignments/sensing)|
 ||Assignment: Context Awareness|[Context Awareness](/interaction/assignments/contextaware)|
 |**5/29**|||
 |**5/30**|||
-||Exercise Due|[Sensing](/interaction/assignments/sensing)|
+|**5/23** |   | Sensing in Android                   |
 |**5/31**|||
 {: .small #small .schedule #schedule}
 
