@@ -64,10 +64,10 @@ When you have your API key, go to your android manifest and paste it in between 
 ```xml
         <meta-data
             android:name="com.google.android.awareness.API_KEY"
-            android:value="YOUR KEY HERE"/>
+            android:value="YOUR_KEY_HERE"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR KEY HERE"/>
+            android:value="YOUR_KEY_HERE"/>
 ```
 
 If you have a hard time with this, contact us on Piazza, and we will
