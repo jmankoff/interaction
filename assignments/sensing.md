@@ -3,9 +3,10 @@ layout: assignment
 title: Sensing
 code: EX5
 
+published: true
 assigned: Tuesday, May 28, 2019
 due: 11:59 PM Friday, May 31, 2019
-revised: 12:14pm Monday, May 27, 2019
+revised: 1:13pm Tuesday, May 28, 2019
 
 objective: Access Android sensors as the preparation to build context aware application.
 
