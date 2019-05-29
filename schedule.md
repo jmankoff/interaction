@@ -162,9 +162,9 @@ layout: default
 ||Assignment: Context Awareness II (Group)|[Context Awareness](/interaction/assignments/contextaware)||
 |**5/29**|**Wednesday** |Sensing Assignment||
 ||Slides|[Sensing Assignment](/interaction/slides/wk09/sensing-assignment.html)|Description of some key things you need to do to implement Sensing, discussion of the context awareness assignment|
-||Slides|[Behavior Change](/interaction/slides/wk09/behavior-change.html)|Discussion of behavior-change interfaces, which frequently use mobile device. |
 |**5/30**||||
 |**5/31**||||
+||Slides|[Behavior Change](/interaction/slides/wk09/behavior-change.html)|Discussion of behavior-change interfaces, which frequently use mobile device. |
 ||Assignment Due: Context Awareness I|[Sensing](/interaction/assignments/sensing)||
 {: .small #small .schedule #schedule}
 
