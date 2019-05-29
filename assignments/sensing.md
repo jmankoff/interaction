@@ -6,7 +6,7 @@ code: EX5
 published: true
 assigned: Tuesday, May 28, 2019
 due: 11:59 PM Friday, May 31, 2019
-revised: 1:13pm Tuesday, May 28, 2019
+revised: 12:48 AM Wednesday, May 29, 2019
 
 objective: Access Android sensors as the preparation to build context aware application.
 
@@ -60,7 +60,7 @@ You'll be asked to set up a billing account. However, for the minor use in this 
 
 When the interface gives you your API key **copy it and don't lose it**. That is the only time you'll ever see it for security reasons, you'll have to create a new app if you lose it.
 
-When you have your API key, go to your android manifest and paste it in between the quotation marks labeled API_KEY.
+When you have your API key, go to your android manifest and paste it in between the quotation marks labeled `YOUR_KEY_HERE`.
 
 ```xml
         <meta-data
@@ -76,17 +76,13 @@ provide you with a key. However it should be used for this assignment
 only, not for future android programming, and not shared with anyone
 else. 
 
-## 2) Prepare a virtual device that is based on Nougat (API v. 27) 
-
-It needs to have google play store support, as 
-shown by the rightward facing arrow next to the Pixel 2 in this screenshot: 
-
-![Screenshot of play emulator](sensing/emulator.png){:width="200px"} 
+## 2) Prepare a virtual device that is based on Oreo (API v. 26) 
 
 ## 3) Run your app and update things
 
-1) enable sensing
+1) Allow location permissions
 
+<!-- TODO: Why do these use px dimensions? They should use [:img alt, XX%] for better mobile support -->
 ![Screenshot of enabling sensing](sensing/enable-sensing.png){:width="200px"} 
 
 2) Click on 'User Activity Snapshot'. This will cause an error telling
