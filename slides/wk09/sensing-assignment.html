@@ -48,10 +48,8 @@ cse340-LaughingChipmunks) -- competing with all other google apps for namespace
 Minimum requirements
 - Awareness API (should be turned on by default
 - [See APis enabled](https://console.developers.google.com/apis/)
-
-To do more, consider:
-- Places API
 ]
+
 ---
 .title[Using your API key]
 .body[
@@ -144,7 +142,7 @@ The rest is pretty boilerplate for everything
 ```java
 if (((Checkable) v).isChecked() && 
      ensureFineLocationAccess()) {
-*                mActivityFenceListener.register();
+                mActivityFenceListener.register();
             } else {
                  mActivityFenceListener.unregister();
             }
@@ -152,11 +150,35 @@ if (((Checkable) v).isChecked() &&
 ]
 .footnote[These are because this is asynchronous]
 ---
-.title[For lab (tomorrow)]
+.title[Using Places]
+.body[
+Shows you what is nearby
+
+```java
+//In MainActivity:
+setSnapshotListener(
+    Awareness.getSnapshotClient(this).getPlaces(),
+                        new PlacesSnapshotListener(mUpdate, mResources)));
+//In PlacesSnapshotListener
+
+public void onSnapshot(PlacesResponse response) {
+        List<PlaceLikelihood> placeLikelihood = response.getPlaceLikelihoods();
+        if (placeLikelihood != null && !placeLikelihood.isEmpty()) {
+            for (PlaceLikelihood likelihood : placeLikelihood) {
+                addPlace(likelihood.getPlace().getName().toString(), likelihood.getLikelihood());
+            }
+        }
+
+
+        mUpdate.prependText(placeLikelihood.toString());
+    }
+```
+---
+.title[Work on adding a snapshot]
 .body[
 Try to have the base code running (e.g. everything installed;
-            api keys correct) by lab
-You can get help in lab or office hours
+            api keys correct) 
+You can get additional help in office hours
 ]
 ---
 .title[Context Aware Computing Assignment]
