@@ -153,17 +153,19 @@ layout: default
 ||Slides|[AR](/interaction/slides/wk08/ar.html)||
 {: .small #small .schedule #schedule}
 
-# Week 9: Advanced Interface Concepts
+# Week 9: Putting it in context
 
-|-------|------|-------------------------------|
-|**5/27**|Memorial Day**|**No Class**|
-||Exercise Assigned|[Sensing](/interaction/assignments/sensing)|
-||Exercise Due|[Sensing](/interaction/assignments/sensing)|
-||Assignment: Context Awareness|[Context Awareness](/interaction/assignments/contextaware)|
-|**5/29**|||
-|**5/30**|||
-|**5/23** |   | Sensing in Android                   |
-|**5/31**|||
+| Date | Type | Details | Learning Goal|
+|-------|------|--------|-------------|
+|**5/27**|Memorial Day**|**No Class**||
+||Assignment: Context Awareness I|[Sensing](/interaction/assignments/sensing)||
+||Assignment: Context Awareness II (Group)|[Context Awareness](/interaction/assignments/contextaware)||
+|**5/29**|**Wednesday** |Sensing Assignment||
+||Slides|[Sensing Assignment](/interaction/slides/wk09/sensing-assignment.html)|Description of some key things you need to do to implement Sensing, discussion of the context awareness assignment|
+||Slides|[Behavior Change](/interaction/slides/wk09/behavior-change.html)|Discussion of behavior-change interfaces, which frequently use mobile device. |
+|**5/30**||||
+|**5/31**||||
+||Assignment Due: Context Awareness I|[Sensing](/interaction/assignments/sensing)||
 {: .small #small .schedule #schedule}
 
 # Week 10: TBD
@@ -172,7 +174,7 @@ layout: default
 |**6/5**|||
 |**6/6**|||
 |**6/7**|||
-||Assignment: Context Due (6/10)+[Context/AR](/interaction/assignments/context)|
+||Assignment Due: Context Awareness II (Group)|[Context Awareness](/interaction/assignments/contextaware)|
 {: .small #small .schedule #schedule}
 
 ## Final exam

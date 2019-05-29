@@ -1,0 +1,209 @@
+---
+layout: presentation
+title: Sensing Implementation
+description: Implementation of phone sensing
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Sensing with your Phone: Implementation
+
+Jennifer Mankoff
+
+CSE 340 Spring 2019 
+---
+layout: false
+
+.title[Review: Android Awareness API]
+.body[
+Link to overview [Awareness API](https://developers.google.com/awareness/) 
+
+Unfortunately much of the documentation online is not up to date (last
+updated in 2017)
+]
+
+???
+---
+.title[Non-programming requirements]
+.body[
+Emulator requirements: Play store installed
+- Makes it easier to get your app working
+
+Permission requirements: Correct API installed
+
+Follow the “[Quick
+Guide](https://developers.google.com/places/web-service/get-api-key)”
+- Click on 'Get Started'
+- Use your class repo name for your app name (something like
+cse340-LaughingChipmunks) -- competing with all other google apps for namespace
+- You may need a billing account. 
+- DONT LOSE YOUR API KEY or you'll have to start over. 
+]
+---
+.title[Which APIs to enable?]
+.body[
+
+Minimum requirements
+- Awareness API (should be turned on by default
+- [See APis enabled](https://console.developers.google.com/apis/)
+
+To do more, consider:
+- Places API
+]
+---
+.title[Using your API key]
+.body[
+When you have your API key, go to your android manifest and paste it
+in between the quotation marks labeled API_KEY. 
+
+Once you do that, as
+described in the spec, you'll need to accept permissions and update
+play when you run your code.
+
+```xml
+
+        <meta-data
+            android:name="com.google.android.awareness.API_KEY"
+            android:value="YOUR_KEY_HERE"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+          android:value="YOUR_KEY_HERE"/>
+```
+	
+]
+---
+.title[Review: Snapshots]
+.body[
+Current info
+
+Requires a single callback: 
+`onSnapshot(Response response)`
+
+Setup the callback in MainActivity (pass in the type of activity)
+`setSnapshotListener(Awareness.getSnapshotClient(this).getDetectedActivity(),`
+`new ActivitySnapshotListener(mUpdate, mResources));`
+	
+Parse the response and act on it in onSnapshot
+]
+---
+.title[What are Snapshots useful for?]
+.body[
+Debugging
+
+Anything else?
+
+]
+---
+.title[Review: [Fences](https://developers.google.com/awareness/)]
+.body[
+Conditional data
+
+3 callbacks: during, starting, stopping
+
+Setup in `MainActivity.java setupFenceListeners()`
+```java
+mActivityFenceListener = new ActivityFenceListener(
+	            // during
+                DetectedActivityFence.during(DetectedActivity.WALKING),
+			    // starting
+                DetectedActivityFence.starting(DetectedActivity.WALKING),
+				// stopping
+                DetectedActivityFence.stopping(DetectedActivity.WALKING),
+                this, this, mUpdate);
+```
+]
+???
+What might we use for a location fence?
+Headphone fence?
+...
+---
+.title[Setting up a fence in `MainActivity.java`]
+.body[
+The rest is pretty boilerplate for everything
+
+```java
+if (((Checkable) v).isChecked() && 
+*    ensureFineLocationAccess()) {
+                mActivityFenceListener.register();
+            } else {
+                mActivityFenceListener.unregister();
+            }
+```
+]
+.footnote[
+`ensureFineLocationAccess()` needs to be checked before anything
+that uses location, e.g. weather]
+
+---
+.title[Setting up a fence in `MainActivity.java`]
+.body[
+
+The rest is pretty boilerplate for everything
+```java
+if (((Checkable) v).isChecked() && 
+     ensureFineLocationAccess()) {
+*                mActivityFenceListener.register();
+            } else {
+                 mActivityFenceListener.unregister();
+            }
+```
+]
+.footnote[These are because this is asynchronous]
+---
+.title[For lab (tomorrow)]
+.body[
+Try to have the base code running (e.g. everything installed;
+            api keys correct) by lab
+You can get help in lab or office hours
+]
+---
+.title[Context Aware Computing Assignment]
+.body[
+Pick one type of context
+- attach for later
+- automatically execute based on context
+- present info based on context
+]
+---
+.title[System Usability Scale]
+.body[
+1) I think that I would like to keep using this app.
+
+2) I found the system unnecessarily complex.
+
+3) I thought the system was easy to use.
+
+4) I found the use of implicit and explicit data in this app to be well integrated.
+
+5) I thought there was too much inconsistency in this system.
+
+6) I would imagine that most people would learn to use this system very quickly.
+
+7) I found the system very cumbersome to use.
+
+8) I felt very confident using the system.
+]
+---
+.title[Group Project]
+.body[
+Expectations:
+- Work together to decide on a focus
+- Implement your App
+- Make a video
+]
+---
+.title[More Expectations:]
+.body[
+Divide and conquer ok for video, interface implementation,
+  context-aware implementation
+
+Should not look at sensing code by others until yours has been
+  turned in 
+
+Group participation will be assessed
+]
+???
+Questions?
+---

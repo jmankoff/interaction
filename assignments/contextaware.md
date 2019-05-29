@@ -62,12 +62,19 @@ We will be looking for whether you app is accessible and
     Strongly Agree to Strongly Disagree on a 5 point scale)
 	
 1) I think that I would like to keep using this app.
+
 2) I found the system unnecessarily complex.
+
 3) I thought the system was easy to use.
+
 4) I found the use of implicit and explicit data in this app to be well integrated.
+
 5) I thought there was too much inconsistency in this system.
+
 6) I would imagine that most people would learn to use this system very quickly.
+
 7) I found the system very cumbersome to use.
+
 8) I felt very confident using the system.
 
 # Group Project
