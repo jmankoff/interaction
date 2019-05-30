@@ -11,9 +11,8 @@ objective: Build a context aware application.
 
 hci_goals:
   - Create an app that uses implicit data
-  - Make a usable app (as defined by the
-    [SUS](https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html))
-    when evaluated by a TA 
+  - Make a usable app as defined by the <a href="https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html">SUS
+    </a> when evaluated by a TA 
   - Make an accessible app
 ---
 
