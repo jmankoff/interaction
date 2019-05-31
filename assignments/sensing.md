@@ -6,7 +6,7 @@ code: EX5
 published: true
 assigned: Tuesday, May 28, 2019
 due: 11:59 PM Friday, May 31, 2019
-revised: 9:08 PM Thursday, May 30, 2019
+revised: 10:08 PM Thursday, May 30, 2019
 
 objective: Access Android sensors as the preparation to build context aware application.
 
