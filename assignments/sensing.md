@@ -6,7 +6,7 @@ code: EX5
 published: true
 assigned: Tuesday, May 28, 2019
 due: 11:59 PM Friday, May 31, 2019
-revised: 12:48 AM Wednesday, May 29, 2019
+revised: 10:08 PM Thursday, May 30, 2019
 
 objective: Access Android sensors as the preparation to build context aware application.
 
@@ -125,6 +125,8 @@ Click on the search result, and select **Enable.** You'll then need to click on 
 
 Here are sample screenshots for sensor results:
 
+<span style="color: red;">Note: the weather screenshots display `&#x2103` where they should display °</span>
+
 ![Screenshot of sensor list](sensing/1.png){:width="200px"}
 ![Screenshot of headphone snapshot](sensing/2.png){:width="200px"}
 ![Screenshot of location snapshot](sensing/3.png){:width="200px"}
@@ -135,7 +137,9 @@ Here are sample screenshots for sensor results:
 ![Screenshot of detected activity fence](sensing/9.png){:width="200px"}
 
 Here is a [link to a video of it in
-use](https://youtu.be/oF0i2lL4EUE). 
+use](https://youtu.be/oF0i2lL4EUE).
+
+<span style="color: red;">Note: the video does not exhibit the updated behavior of fences prepending text to the beginning of the existing text</span>
 
 ## Simulating input if using an emulator
 Although we ask that the group member with the phone donate phone time
@@ -263,7 +267,7 @@ There are detailed comments in the code files you will implement that will direc
 
 ## Submission Instructions
 
-You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
+You will turn in the following files [here](https://gitgrade.cs.washington.edu/student/assignment/64/turnin):
 
 ```
 - HeadphoneSnapshotListener.java
