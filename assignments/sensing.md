@@ -267,7 +267,7 @@ There are detailed comments in the code files you will implement that will direc
 
 ## Submission Instructions
 
-You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
+You will turn in the following files [here](https://gitgrade.cs.washington.edu/student/assignment/64/turnin):
 
 ```
 - HeadphoneSnapshotListener.java
