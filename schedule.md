@@ -169,12 +169,14 @@ layout: default
 {: .small #small .schedule #schedule}
 
 # Week 10: TBD
-|-----|--------|-------------------------------|
-|**6/3**|||
-|**6/5**|||
-|**6/6**|||
-|**6/7**|||
-||Assignment Due: Context Awareness II (Group)|[Context Awareness](/interaction/assignments/contextaware)|
+
+| Date    | Type                                         | Details                                                    | Learning Goal                                                                                                       |
+|---------|----------------------------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| **6/3** | Lecture                                      | In-class group work                                        | Please make every effort to attend. Group work to help you make progress on your final project & class evaluations. |
+| **6/5** | TBD                                          |                                                            |                                                                                                                     |
+| **6/6** | Lab                                          | Group work and help                                        | Please make every effort to attend. Group work requires in person time and coordination.                            |
+| **6/7** | Slides TBD                                   | Final exam review                                          |                                                                                                                     |
+|         | Assignment Due: Context Awareness II (Group) | [Context Awareness](/interaction/assignments/contextaware) |                                                                                                                     |
 {: .small #small .schedule #schedule}
 
 ## Final exam
