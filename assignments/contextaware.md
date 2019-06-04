@@ -5,7 +5,7 @@ code: A3
 
 assigned: Tuesday, May 28, 2019
 due: 11:59 PM Friday, June 7, 2019
-revised: 12:30pm Monday, May 27, 2019
+revised: 9:49am Tuesday, June 4, 2019
 
 objective: Build a context aware application.
 
@@ -85,6 +85,35 @@ will be based on a survey at the end asking you to describe your
 contributions, your group members' contributions and mention any
 issues. We expect everyone to get full credit for this point, but will
 be using this to check for any problems.
+
+# Video
+The video for this project should be about 2 minutes long. It can be
+made with slides/photos + video clips for the visuals, and you can
+either use text (shown in the video) or spoken audio to provide the
+information listed below. It should
+have the following structure:
+
+## Opening slide
+Should use text, not voiceover for this.
+
+Title for the project 
+Names of team members
+
+## Story
+Brief (30 second) introduction to what you created. Should cover the
+following
+- What is the need (e.g. "Remembering not to be late for class")
+- Why is this hard (e.g. "I tend to sleep late")
+- What is the solution (e.g. "Calculate distance to class an hour
+  before class starts and set an alarm to go off with enough time to
+  walk there")
+  
+## Demonstration
+Pick 1-3 use scenarios and show clips of someone using the application
+with explanations
+
+## Credits
+End with credits saying who did what in the project
 
 # Turn-in
 Turn in your code, an apk file and a video.
