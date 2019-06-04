@@ -87,10 +87,10 @@ issues. We expect everyone to get full credit for this point, but will
 be using this to check for any problems.
 
 # Video
-The video for this project should be about 2 minutes long. It can be
-made with slides/photos + video clips for the visuals, and you can
-either use text (shown in the video) or spoken audio to provide the
-information listed below. It should
+The video for this project should be about 2 minutes long (+/- 30
+secs). It can be made with slides/photos + video clips for the
+visuals, and you can either use text (shown in the video) or spoken
+audio to provide the information listed below. It should
 have the following structure:
 
 ## Opening slide
