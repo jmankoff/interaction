@@ -1,0 +1,361 @@
+---
+layout: presentation
+title: Using Mobile Phones for Machine Learning
+description: Using Mobile Phones for Machine Learning
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Google maps
+
+![:img google maps,100%](img/ml/google.jpg)
+
+
+.footnote[Picture from [Machine Learning on your Phone](https://www.appypie.com/top-machine-learning-mobile-apps)]
+
+???
+fame/shame
+neighborhood traffic...
+shorter commutes...
+---
+# Machine Learning and your Phone
+
+Jennifer Mankoff
+
+CSE 340 Spring 2019 
+
+.footnote[Slides credit: Jason Hong, Carnegie Mellon University
+ [Are my Devices Spying on Me? Living in a World of
+Ubiquitous
+Computing](https://www.slideshare.net/jas0nh0ng/are-my-devices-spying-on-me-living-in-a-world-of-ubiquitous-computing);
+]
+
+---
+layout: false
+
+.left-column[
+## Smartphones are Intimate Fun Facts about Millennials
+
+- 83% sleep with phones
+]
+.right-column[
+![:img Millenial with phone in bed, 100%](img/ml/phone-bed.jpg)
+]
+--
+.left-column[
+- 90% check first thing in morning
+]
+--
+.left-column[
+- 1 in 3 use in bathroom
+]
+---
+.title[Smartphone Data is Intimate]
+.body[
+![:img Picture of smart phone screens with phone numbers; map; and sensor data, 100%](img/ml/personal.png)
+
+| Who we know           | Sensors               | Where we go   |
+|-----------------------|-----------------------|---------------|
+| (contacts + call log) | (accel, sound, light) | (gps, photos) |
+
+]
+---
+.title[Some useful applications of this data]
+.body[
+![:img Picture of LeafSnap app, 100%](img/ml/leafsnap.jpg)
+]
+.footnote[[LeafSnap](http://leafsnap.com/) uses computer vision to
+identify trees by their leaves]
+
+---
+.title[Some useful applications of this data]
+.body[
+![:img Picture of Aipoly app, 100%](img/ml/aipoly.jpg)
+]
+.footnote[[Vision AI](https://www.aipoly.com/) uses computer vision to
+identify images for the Blind and Visually Impaired]
+
+---
+.title[Some useful applications of this data]
+.body[
+![:img Picture of Carat app, 100%](img/ml/Carat.jpg)
+]
+.footnote[[Carat: Collaborative Energy
+Diagnosis](http://carat.cs.helsinki.fi/) uses machine learning to save
+battery life]
+---
+.title[Some useful applications of this data]
+.body[
+![:img Picture of Imprompdo app, 100%](img/ml/imprompdo.jpg)
+]
+.footnote[[Imprompdo](http://imprompdo.webflow.io/
+) uses machine learning to recommend activities to do, both fund and todos]
+---
+.title[How do these systems work?]
+.body[
+
+Machine Learning is used to make these kinds of predictions 
+- Machine learning is one area of Artificial Intelligence 
+- This is the kind that’s been getting lots of press 
+
+The goal of machine learning is to develop systems that can improve
+performance with more experience 
+- Can use "example data" as "experience"
+- Uses these examples to discern patterns 
+- And to make predictions
+]
+---
+.title[Two main approaches]
+.body[
+ Supervised learning (we have lots of examples of what should be
+ predicted)
+ 
+Unsupervised learning (e.g. clustering into groups and inferring what
+they are about)
+
+Can combine these (semi-supervised)
+
+Can learn over time or train up front
+]
+
+---
+.left-column[
+## In class exercise
+
+- What recognition question (sleep quality? length?...)
+- What sensors
+- How to interpret sensors?
+
+]
+.right-column[
+How might you recognize sleep?
+]
+--
+.right-column[
+![:img Sleep trace for accelerometer and sound, 60%](img/ml/sleep.png)
+]
+???
+
+---
+.title[How do we program this?]
+.body[
+Write down some rules
+Implement them
+]
+---
+.title[ML is a major shift in thinking]
+.body[
+Old Approach: Create software by hand
+- Use libraries (like JQuery) and frameworks
+- Create content, do layout, code up functionality
+- Deterministic (code does what you tell it to)
+
+New Approach: Collect data and train algorithms
+- Will still do the above, but will also have some functionality based
+on ML 
+- .red[Collect lots of examples and train a ML algorithm]
+- .red[Statistical way of thinking]
+]
+
+---
+.title[How Machine Learning is Typically Used]
+.body[
+Step 1: Gather lots of data (easy on a phone!)
+]
+--
+.body[
+
+Step 2: Figure out useful features
+- Convert data to information (not knowledge!)
+
+(typically) Collect labels
+
+]
+---
+.title[How Machine Learning is Typically Used]
+.body[
+Step 1: Gather lots of data (easy on a phone!)
+
+Step 2: Figure out useful features
+
+Step 3: Select and train the ML algorithm
+- Lots of toolkits for this
+- Lots of algorithms to choose from
+- Mostly treat as a "black box" 
+
+]
+---
+.title[How Machine Learning is Typically Used]
+.body[
+Step 1: Gather lots of data (easy on a phone!)
+
+Step 2: Figure out useful features
+
+Step 3: Select and train the ML algorithm
+
+Step 4: Evaluate metrics (and iterate)
+]
+???
+See how well algorithm does using several metrics
+Error analysis: what went wrong and why
+Iterate: get new data, make new features
+
+---
+.title[How Machine Learning is Typically Used]
+.body[
+Step 1: Gather lots of data (easy on a phone!)
+
+Step 2: Figure out useful features
+
+Step 3: Select and train the ML algorithm
+
+Step 4: Evaluate metrics (and iterate)
+
+Step 5: Deploy
+]
+---
+.title[Training process]
+.body[
+![:img ML Training Process, 100%](img/ml/training.png)
+]
+---
+
+.title[What makes this work well?]
+.body[
+Typically more data is better
+
+Accurate labels important
+
+Quality of features determines quality of results
+
+.red[*NOT* as sophisticated as the media makes out]
+]
+--
+.body[
+.red[*BUT* can infer all sorts of things]
+]
+---
+.title[AI / Machine Learning Not As Sophisticated as in Media]
+.body[
+
+A lot of people outside of computer science often ascribe human
+behaviors to AI systems 
+- Especially desires and intentions 
+- Works well for sci-fi, but not for today or near future 
+
+These systems only do: 
+- What we program them to do 
+- What they are trained to do (based on the (possibly biased) data) 
+]
+---
+.title[Concerns]
+
+.body[
+Significant Societal Challenges for Privacy
+]
+---
+.title[Wide Range of Privacy Risks]
+.body[
+
+| Everyday Risks     | Medium Risk         | Extreme Risks     |
+|--------------------|---------------------|-------------------|
+| Friends, Family    | Employer/Government | Stalkers, Hackers |
+| Over-protection    | Over-monitoring     | Well-being        |
+| Social obligations | Discrimination      | Personal safety   |
+| Embarrassment      | Reputation          | Blackmail         |
+|                    | Civil Liberties     |                   |
+
+- It's not just Big Brother 
+- It-s not just corporations 
+- Privacy is about our relationships with every other individual and
+  organization out there
+  
+]
+---
+.title[Five Reasons Why Privacy is Hard]
+.body[
+###1 Strong Incentives to for Companies to Collect Data 
+
+- Barriers to collecting data are also really low 
+- More data means better predictive models 
+
+Data has strong potential to affect bottom line 
+- Increasing relevance of online ads worth millions 
+- "Post-purchase monetization"
+]
+---
+.title[Five Reasons Why Privacy is Hard]
+.body[
+###2 Low Knowledge, Awareness, Motivation by Devs 
+- Even those with CS degrees have little knowledge 
+- In surveys and interviews, vast majority of app developers knew
+  little about what privacy issues there were and how to address them 
+- Many developers don’t realize how much data their app is collecting
+(Or that it was collecting data at all)
+ - App developers often use third-party libraries 
+ - In one study, over 40% of apps collect data only because of these
+ libraries
+ - Some apps use several libraries, which mean your data is being sent
+   to lots of third parties
+]
+---
+.title[Five Reasons Why Privacy is Hard]
+.body[
+###3 Companies Get Little Pushback on Privacy 
+
+Let’s say you want to purchase a web cam 
+- Go into store, can compare price, color, features
+- But can’t easily compare privacy (or security) 
+- So, privacy does not influence customer purchases 
+- So, companies not incentivized to improve 
+
+Less than 0.1% of reviews on Google Play mention privacy concerns 
+
+This is a market failure – This is why companies assign privacy a low
+priority
+]
+
+---
+.body[
+###4 Unclear What the Right Thing To Do Is 
+
+Even if a company wants to be privacy-sensitive, it’s not always clear
+what the right thing to do is 
+]
+--
+.body[
+New York Times privacy policy
+]
+???
+Still state of the art for privacy notices 
+
+No one reads these
+---
+.title[Five Reasons Why Privacy is Hard]
+.body[
+###4 Unclear  What the Right Thing To Do Is 
+ 
+Even if a company wants to be privacy-sensitive, it’s not always clear
+what the right thing to do is
+- What is the best way
+of informing people? 
+- What is the best way of storing data? 
+- How to best assess what is / isn’t acceptable?
+]
+---
+.title[Five Reasons Why Privacy is Hard]
+.body[
+###5 Burden on End-Users is Too High 
+
+Individuals have to be constantly vigilant
+
+Individuals also   have to make too many decisions 
+- Is this device good with respect   to privacy? 
+- Should I install this app? 
+- What are all the settings  I need to know? 
+- What are all the terms and conditions? 
+– Trackers,  cookies, VPNs, anonymizers, etc 
+]
+---
