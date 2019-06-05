@@ -10,7 +10,7 @@ class: center, middle, inverse
 ---
 # Google maps
 
-![:img google maps,100%](img/ml/google.jpg)
+![![:img google maps,100%](img/ml/google.jpg)](img/ml/google.jpg)
 
 
 .footnote[Picture from [Machine Learning on your Phone](https://www.appypie.com/top-machine-learning-mobile-apps)]
@@ -43,13 +43,27 @@ layout: false
 .right-column[
 ![:img Millenial with phone in bed, 100%](img/ml/phone-bed.jpg)
 ]
---
+---
 .left-column[
+## Smartphones are Intimate Fun Facts about Millennials
+
+- 83% sleep with phones
 - 90% check first thing in morning
 ]
---
+.right-column[
+![:img Millenial with phone in bed, 100%](img/ml/phone-bed.jpg)
+]
+---
 .left-column[
+## Smartphones are Intimate Fun Facts about Millennials
+
+- 83% sleep with phones
+- 90% check first thing in morning
 - 1 in 3 use in bathroom
+]
+.right-column[
+![:img Millenial with phone in bed, 100%](img/ml/phone-bed.jpg)
+
 ]
 ---
 .title[Smartphone Data is Intimate]
@@ -109,10 +123,10 @@ performance with more experience
 ---
 .title[Two main approaches]
 .body[
- Supervised learning (we have lots of examples of what should be
+*Supervised learning* (we have lots of examples of what should be
  predicted)
  
-Unsupervised learning (e.g. clustering into groups and inferring what
+*Unsupervised learning* (e.g. clustering into groups and inferring what
 they are about)
 
 Can combine these (semi-supervised)
@@ -124,24 +138,37 @@ Can learn over time or train up front
 .left-column[
 ## In class exercise
 
-- What recognition question (sleep quality? length?...)
-- What sensors
-- How to interpret sensors?
 
 ]
 .right-column[
 How might you recognize sleep?
-]
---
-.right-column[
-![:img Sleep trace for accelerometer and sound, 60%](img/ml/sleep.png)
+
+- What recognition question
+- What sensors
 ]
 ???
+
+(sleep quality? length?...)
+
+How to interpret sensors?
+
+---
+.left-column[
+## In class exercise
+
+- What recognition question (sleep quality? length?...)
+- What sensors
+- How to interpret sensors?
+]
+.right-column[
+![:img Sleep trace for accelerometer and sound, 80%](img/ml/sleep.png)
+]
 
 ---
 .title[How do we program this?]
 .body[
 Write down some rules
+
 Implement them
 ]
 ---
@@ -155,8 +182,8 @@ Old Approach: Create software by hand
 New Approach: Collect data and train algorithms
 - Will still do the above, but will also have some functionality based
 on ML 
-- .red[Collect lots of examples and train a ML algorithm]
-- .red[Statistical way of thinking]
+- *Collect lots of examples and train a ML algorithm*
+- *Statistical way of thinking*
 ]
 
 ---
@@ -169,8 +196,7 @@ Step 1: Gather lots of data (easy on a phone!)
 
 Step 2: Figure out useful features
 - Convert data to information (not knowledge!)
-
-(typically) Collect labels
+- (typically) Collect labels
 
 ]
 ---
@@ -187,6 +213,75 @@ Step 3: Select and train the ML algorithm
 
 ]
 ---
+.left-column[
+## Regression
+
+![:img Example of regression, 100%](img/ml/regression.png)
+]
+.right-column[
+Predicting a *continuous value* based on inputs
+- Ex. House price based on #rooms, #bathrooms, etc
+- Ex. #views based on page content
+
+Simple example: linear regression
+- Same as in statistics
+- Seeks to minimize errorin predictions
+
+Lots of algorithms
+- See Wikipedia
+]
+---
+.left-column[
+## Classification
+]
+.right-column[
+Predicting from a *set of categories*
+- Ex. {Spam, Ham}?
+- Ex. {Chalupa, Taco, Burrito}?
+
+Lots of variants
+- Multi-class (the examples above)
+- One-class (identifies all objects in that class)
+- Multi-label (it’s both a Chalupa and a Burrito)
+
+Also lots of algorithms
+- See Wikipedia
+]
+---
+
+.left-column[
+## Example classification algorithms]
+.right-column[
+Naïve Bayes (probabilities)
+
+Neural Networks / Deep Learning (human brain)
+
+**Decision Tree (workflow)**
+
+Support Vector Machine (analogy / similarity)
+
+]
+---
+.body[
+![:img decision tree, 80%](img/ml/decisiontree.png)
+]
+---
+.title[Recent advances: Deep Learning]
+.body[
+![:img Captioning Images. Note the errors,
+60%](img/ml/captioning.png)
+]
+.footnote[[Captioning images. Note the
+errors.](http://cs.stanford.edu/people/karpathy/deepimagesent/) Deep
+learning now
+[available on your phone!](https://www.tensorflow.org/lite)]
+
+---
+.title[Training process]
+.body[
+![:img ML Training Process, 100%](img/ml/training.png)
+]
+---
 .title[How Machine Learning is Typically Used]
 .body[
 Step 1: Gather lots of data (easy on a phone!)
@@ -201,6 +296,121 @@ Step 4: Evaluate metrics (and iterate)
 See how well algorithm does using several metrics
 Error analysis: what went wrong and why
 Iterate: get new data, make new features
+---
+.title[Evaluation Concerns]
+.body[
+Accuracy: Might be too error-prone
+
+]
+---
+.left-column[
+## Assessing Accuracy]
+.right-column[
+
+Prior probabilities
+- Probability before any observations (ie just guessing)
+- Ex. ML classifier to guess if a person is male or female based on name
+ - Just assume all names are female (50% will be right)
+- Your trained model needs to do better than prior
+
+Other baseline approaches
+- Cheap and dumb algorithms
+- Ex. Names that end in vowel are female
+- Your model needs to do better than these too
+]
+
+---
+.left-column[
+## Assessing Accuracy]
+
+.right-column[
+Don't just measure accuracy (percent right)
+
+Sometimes we care about *False positives* vs *False negatives*
+]
+---
+.left-column[
+## Assessing Accuracy
+
+## Confusion matrix helps show this]
+
+.right-column[
+
+|             |              | .red[Prediction]     |                      |
+|-------------|--------------|----------------------|----------------------|
+|             |              | **Positive**         | **Negative**         |
+| .red[Label] | **Positive** | True Positive (good) | False Negative (bad) |
+|             | **Negative** | False Positive (bad) | True Negative (good) |
+
+Accuracy is (TP + TN) / (TP + FP + TN + FN)
+
+]
+---
+.left-column[
+## Assessing Accuracy
+
+## Precision
+]
+
+.right-column[
+
+|             |              | .red[Prediction]           |                      |
+|-------------|--------------|----------------------------|----------------------|
+|             |              | **Positive**               | **Negative**         |
+| .red[Label] | **Positive** | .red[True Positive (good)] | False Negative (bad) |
+|             | **Negative** | .ref[False Positive (bad)] | True Negative (good) |
+
+Precision = TP / (TP+FP)
+
+Intuition: Of the positive items, how many right?
+
+]
+
+---
+.left-column[
+## Assessing Accuracy
+
+## Recall
+]
+.right-column[
+
+|        |              | Prediction                 |                            |
+|--------|--------------|----------------------------|----------------------------|
+| Actual |              | **Positive**               | **Negative**               |
+|        | **Positive** | .red[True Positive (good)] | .red[False Negative (bad)] |
+|        | **Negative** | False Positive (bad)       | True Negative (good)       |
+
+Recall = TP / (TP+FN)
+
+Intuition: Of all things that should have been positive, how many actually labeled correctly?
+]
+
+---
+.title[Evaluation Concerns]
+.body[
+Accuracy: Might be too error-prone
+
+Overfitting: Your ML model is too specific for data you have
+- Might not generalize well
+
+![:img overfitting, 100%](img/ml/overfitting.png)
+]
+
+---
+.title[Avoiding Overfitting]
+.body[
+
+To avoid overfitting, typically split data into training set and test set
+
+Train model on training set, and test on test set
+
+Often do this through cross validation
+
+![:img cross validation, 60%](img/ml/cross-validation.png)
+]
+
+
+
 
 ---
 .title[How Machine Learning is Typically Used]
@@ -216,12 +426,6 @@ Step 4: Evaluate metrics (and iterate)
 Step 5: Deploy
 ]
 ---
-.title[Training process]
-.body[
-![:img ML Training Process, 100%](img/ml/training.png)
-]
----
-
 .title[What makes this work well?]
 .body[
 Typically more data is better
@@ -256,8 +460,9 @@ These systems only do:
 Significant Societal Challenges for Privacy
 ]
 ---
-.title[Wide Range of Privacy Risks]
-.body[
+.left-column[
+## Wide Range of Privacy Risks]
+.right-column[
 
 | Everyday Risks     | Medium Risk         | Extreme Risks     |
 |--------------------|---------------------|-------------------|
@@ -318,17 +523,16 @@ priority
 ]
 
 ---
+.title[Five Reasons Why Privacy is Hard]
 .body[
 ###4 Unclear What the Right Thing To Do Is 
 
 Even if a company wants to be privacy-sensitive, it’s not always clear
 what the right thing to do is 
 ]
---
-.body[
-New York Times privacy policy
-]
 ???
+privacy policies very long
+
 Still state of the art for privacy notices 
 
 No one reads these
@@ -357,5 +561,193 @@ Individuals also   have to make too many decisions
 - What are all the settings  I need to know? 
 - What are all the terms and conditions? 
 – Trackers,  cookies, VPNs, anonymizers, etc 
+]
+---
+.title[Concerns]
+
+.body[
+Significant Societal Challenges for Privacy
+
+Who should have the initiative?
+
+]
+---
+.title[Mixed-initiative interfaces]
+.body[
+Basically, who is in charge?
+- Does person initiate things? Or computer?
+- How much does computer system do on your behalf?
+
+Example: Autonomous vehicles
+- Some people think Tesla autopilot is full autonomous, leads to risky actions
+
+Why initiative matters
+- Potential major shift: instead of direct manipulation, some smarts (intelligent agent) for automation
+]
+---
+.left-column[
+## Mixed-initiative best practices
+- Significant value-added automation
+- Considering uncertainty
+- Socially appropriate interaction w/ agent
+- Consider cost, benefit, uncertainty
+- Use dialog to resolve uncertainty
+- Support direct invocation and termination
+- Remember recent interactions
+]
+.right-column[
+
+![:img mixed initiative figure, 100%](img/ml/mixed.png)
+]
+---
+.left-column[
+## Mixed-initiative best practices
+- Significant value-added automation
+- Considering uncertainty
+- Socially appropriate interaction w/ agent
+- Consider cost, benefit, uncertainty
+- Use dialog to resolve uncertainty
+- Support direct invocation and termination
+- Remember recent interactions
+]
+.right-column[
+
+![:img mixed initiative figure, 100%](img/ml/mixed2.png)
+]
+???
+Can see what agent is suggesting, in terms of scheduling a meeting
+
+---
+.left-column[
+## Mixed-initiative best practices
+- Significant value-added automation
+- Considering uncertainty
+- Socially appropriate interaction w/ agent
+- Consider cost, benefit, uncertainty
+- Use dialog to resolve uncertainty
+- Support direct invocation and termination
+- Remember recent interactions
+]
+.right-column[
+
+![:img mixed initiative figure, 100%](img/ml/mixed3.png)
+]
+???
+Uses anthropomorphized aganet
+Uses speech for input
+Uses mediation to help resolve conflict
+---
+.left-column[
+## Mixed-initiative best practices
+]
+
+.right-column[
+Built-in cost-benefit model in system
+- If perceived benefit >> cost, then do the action
+- Otherwise wait
+
+Note that this is just one point in design space (1999), and still lots of open questions
+- Ex. Should “intelligence” be anthropomorphized?
+- Ex. How to learn what system can and can’t do?
+- Ex. What kinds of tasks should be automated / not?
+- Ex. What are strategies for showing state of system?
+- Ex. What are strategies for preventing errors?
+]
+---
+
+.title[Concerns]
+
+.body[
+Significant Societal Challenges for Privacy
+
+Who should have the initiative?
+
+Bias in Machine Learning
+]
+---
+background-image: url(img/ml/gma.png)
+
+.body[
+
+.quote[Johnson says his jaw dropped when he read one of the reasons American
+Express gave for lowering his credit limit:  
+
+" Other customers who have used their card at establishments
+where you recently shopped have a poor repayment history with American
+Express."
+]
+]
+---
+.right-column[
+
+![:img bias figure, 100%](img/ml/bias.png)
+]
+---
+
+.title[Concerns]
+
+.body[
+Significant Societal Challenges for Privacy
+
+Who should have the initiative?
+
+Bias in Machine Learning
+
+Understanding ML
+]
+---
+.title[Understanding what is going on: Forming Mental Models]
+.body[
+How does a system know I am addressing it?
+
+How do I know a system is attending to me?
+
+When I issue a command/action, how does the system know what it relates to?
+
+How do I know that the system correctly understands my command and correctly executes my intended action?
+
+]
+.footnote[
+Belloti et al., CHI 2002 ‘Making Sense of Sensing’
+]
+---
+.title[Wrong location-based rec]
+.body[
+![:img wrong, 100%](img/ml/wrong.png)
+]
+???
+Why did it not tell me about the Museum? How does it determine my loca0on? 
+Providing explana7ons to these ques7ons can make Intelligent systems Intelligible 
+
+other examples: caregiving hours by insurance company, etc
+
+---
+.title[Types of feedback]
+.body[
+
+Feedback: crucial to user’s understanding of how a system works and helping guide future action 
+- What did the system do?
+- What if I do W, what will the system do? 
+- Why did the system do X?
+- Why did the system not do Y
+- How do I get the system to do Z? 
+]
+---
+.title[Summary ML and ethics]
+.body[
+
+ML is powerful (but not perfect), often better than heuristics
+
+Basic approach is collect data, train, test, deploy
+
+Hard to understand what algorithms are doing (transparency)
+- ML algorithms just try to optimize, but might end up finding a proxy for race, gender, computer, etc
+- But hard to inspect these algorithms
+- Still a huge open question
+
+Privacy
+- How much data should be collected about people?
+- How to communicate this to people?
+- What kinds of inferences are ok?
 ]
 ---

@@ -4,6 +4,7 @@ remark.macros.img = function (altText, width) {
   return '<img alt="' + altText + '" src="' + url + '" style="width: ' + width + '" />';
 };
 
+
 remark.macros.youtube = function (altText, yid) {
 	return '<iframe title="'+ altText + '" width="560" height="315" src="https://www.youtube.com/embed/'+yid+'?rel=0&amp;controls=1&amp;showinfo=0"	frameborder="0" allow="autoplay; encrypted-media"	allowfullscreen></iframe>';
 };
