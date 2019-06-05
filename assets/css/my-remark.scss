@@ -24,6 +24,8 @@
   position: absolute;
   bottom: 3em;
   font-size: .8em;
+  background: #f9f9f9;
+  padding: 0px 5px 0px 5px;
 }
 
 .jax{
@@ -185,6 +187,11 @@ th, td {
 }
 .red {
   color: #e43;
+}
+
+.highlight {
+  color: #096000;
+  background: #fff9ff;
 }
 
 .medium {

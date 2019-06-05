@@ -14,3 +14,14 @@ remark.macros.vimeo = function (altText, yid) {
 	return '<iframe title="'+ altText + '" src="https://player.vimeo.com/video/'+yid+' width="500" height="281" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>'; 
 };
 
+
+remark.macros.quote = function (text) {
+	return '<i class="fa fa-quote-left"><i> <p class="quote">' + text + '</p>'; 
+};
+
+
+remark.macros.fa = function (icon, size) {
+	return '<i class="fa fa-'+icon+' '+size+'"></i> '; 
+};
+
+

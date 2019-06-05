@@ -39,7 +39,8 @@ plugins:
   - uglifier
   - jekyll-mermaid
   - jekyll-bootstrap-sass
-
+  - jekyll-font-awesome-sass
+  
 highlighter: rouge
 
 bootstrap:
@@ -92,3 +93,6 @@ exclude:
    - vendor/cache/
    - vendor/gems/
    - vendor/ruby/
+
+font-awesome:
+  assets: true
