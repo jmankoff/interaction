@@ -183,10 +183,3 @@ layout: default
 **6/10**, 8:30-10am in CSE2 G10
 
 
-# Post Lecture (Unused)
-
-
-|---|--------|--------------------------------------------------------------|
-||Required Reading|[Rettig: Prototyping for Tiny Fingers](https://www.cs.odu.edu/~jain/CS441-S18/papers/Prototyping_for_tiny_fingers.pdf)|
-|   | Slides | [06: Paper Prototyping](/interaction/slides/wk02/paper.html) |
-{: .small #small .schedule #schedule}
