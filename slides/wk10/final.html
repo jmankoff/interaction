@@ -1,0 +1,419 @@
+---
+layout: presentation
+title: Final Exam Review
+description: Final Exam Review
+class: middle, center, inverse
+---
+name: inverse
+layout: true
+class: center, middle, inverse
+---
+# Final Exam Review
+
+Jennifer Mankoff
+
+CSE 340 Spring 2019 
+
+---
+layout: false
+
+.title[Plan for Final (Monday 8:30-10)]
+.body[
+Will cover material from whole course
+
+Emphasis on second half
+
+Same basic structure, more questions
+- Long answer questions
+- Short answer questions
+- Coding questions
+- 'Cheat Sheet' allowed (2 sided, hand written)
+
+Nothing on sustainability; augmented reality
+
+
+]
+---
+.title[Core concepts from first half]
+.body[
+
+Input
+- Input models (events)
+- Event dispatch
+- Event handling (PPS) likely coding problem
+- Callbacks to application likely coding problem
+
+Output
+- Interactor Hierarchy design & use
+- Drawing models (`onDraw()`) likely coding problem
+- Layout (`onLayout()` or `XML`) likely coding problem
+- Damage and redraw process
+]
+---
+.title[And Introduced Model View Controller]
+.body[
+Model
+- Model of a single interactor: Typically a field
+- Application model
+ - Separate from view model
+- Typically more persistent (e.g., saved with bundler)
+
+View
+- `onDraw()` in a single interactor
+- Interactor hierarchy in an application
+
+Controller
+- PPS in a single interactor
+- callbacks (e.g., custom listeners) in an application
+]
+---
+.left-column50[
+## 2D Drawing -> 3D modeling
+
+Same core concepts
+
+Now in OpenSCAD
+
+Key ideas:
+- 3D
+ - `cube (size)`
+ - `cylinder (h, r|d, center)`
+ - `polyhedron (points, triangles, convexity)`
+ - `sphere (radius | d=diameter)`
+ ]
+ 
+.right-column50[
+## Similar Transformations
+
+- Transformations
+ - `translate ([x, y, z])`
+ - `rotate ([x, y, z])`
+ - `scale ([x, y, z])`
+ - `resize ([x, y, z], auto)`
+- Boolean operations
+ - `union()`
+ - `difference()` (subtract second from first)
+ - `intersection()`
+]
+
+???
+Limitations of 3D printing?
+
+cost for large scale manufacturing
+
+
+---
+.title[Studies]
+
+.body[
+
+<div class="mermaid">
+graph LR
+S((.)) --> Hypothesis((Hypothesis:<br>Decreased seek <br>time and errors))
+Hypothesis -- "Study Design" --> Method((2 menu x <br> 3 task conditions ))
+Method -- "Run Study" --> Data((Consent<br>Consistency))
+Data -- "Clean and Prep" --> Analysis((Clean<br>Compute))
+Analysis --> Conclusions((Conclusions))
+
+classDef finish outline-style:double,fill:#d1e0e0,stroke:#333,stroke-width:2px;
+classDef normal fill:#e6f3ff,stroke:#333,stroke-width:2px;
+classDef start fill:#d1e0e0,stroke:#333,stroke-width:4px;
+classDef invisible fill:#FFFFFF,stroke:#FFFFFF,color:#FFFFFF
+
+linkStyle 0 stroke-width:4px;
+linkStyle 1 stroke-width:4px;
+linkStyle 2 stroke-width:4px;
+linkStyle 3 stroke-width:4px;
+linkStyle 4 stroke-width:4px;
+
+
+class S invisible
+class Hypothesis,Conclusions start
+class Method,Data,Analysis normal
+</div>
+
+method:
+conditions | sessions | trials
+
+ethics:
+beneficence | respect for persons | justice
+
+- Which is violated by a coercive statement in a consent form?
+- Which is violated by an inequitable selection of participants?
+- Which is violated by risky, pointless research?
+
+analysis:
+How do we determine causality?
+   - correlation
+   - intervention
+]
+
+---
+.title[Accessibility]
+.body[
+**Disability** is a
+mismatched interaction
+between someone and
+their context
+]
+---
+.title[Example Q1: Which is true about disability?]
+.body[
+A personal attribute
+Context dependent
+Permanent
+]
+---
+.title[Example Q2: Is using a phone while holding a dog leash]
+.body[
+Temporary impairment
+Permanent impairment
+Situational impairment?
+]
+---
+.title[Example Q3: List three examples of Assistive technologies]
+
+???
+Screen reader
+Zooming
+Speech input
+Sticky keys
+Xbox adaptive controller
+High contrast interaction
+
+---
+.title[Accessibility Testing]
+.body[
+
+| Error                | Description                                                                                                                   |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Clickable Items      | Overlapping clickable items                                                                                                   |
+| Editable Image Label | TextView has a content description. This might interfere with a screen reader’s ability to read the content of the text field |
+| Image Contrast       | Low contrast in image or icon                                                                                                 |
+| Item Descriptions    | Items with identical speakable text                                                                                           |
+| Item Label           | Missing element label                                                                                                         |
+| Item Type Label      | Item label ends with type, e.g., “Play Button.” TalkBack automatically announces item type, so information is redundant       |
+| Link                 | URL in link may be invalid                                                                                                    |
+| Text Contrast        | Low text contrast between foreground and background                                                                           |
+| Touch Target         | Item is too small|
+
+]
+???
+minimum to fix each problem (legal accessibility)
+
+true accessibility
+
+---
+.title[Affordances & Feedback
+]
+.body[
+Good Affordance| Bad Affordance
+----|----
+![:img Picture of a round doorknob, 40%](img/final/round-doorknob.png) | ![:img Picture of a flat doorknob, 40%](img/final/flat-doorknob.png) 
+
+Well-designed objects have affordances
+- Clues to their operation that are readily apparent
+- Often visual, but not always (e.g., speech)
+- Allows and promotes certain actions
+]
+???
+Opportunities to act which are readily apparent to the user ... and
+appropriate to the user’s abilities 
+
+relationship of affordence and feedback
+
+Form “affords” certain actions and makes that apparent
+
+---
+.title[# Model of Mental Models]
+.body[
+![:img A box showing the design (white) and actual function (blue missing
+a little bit of the white) with a grey circle added in the center
+labeled "Frequently Used (Well understood) Part of System
+Functionality" a dark blue cloud labeled "Occasionally Used Part of
+System Functionality" around the user's well understood region and
+another cloud further out with errors (regions outside the blue system
+box) labeled "Users full model of what the system does",100%](img/final/mental6.png)
+]
+
+???
+- Where are the gulf of evaluation and gulf of execution in this
+  image?  Gulf of execution is the user 'error' region (user requests
+  function the __system DOESNT HAVE__), gulf of
+  evaluation is when the user __doesn't realize the system HAS a
+  functionality__. 
+  
+- How does undo help the user bridge them? 
+
+---
+
+.title[Undo Sample Q]
+.body[
+Something other than drawing! Let's try text
+
+What should be the "action"? Characters or words?
+]
+--
+.body[
+
+- type "helo"
+- type "world"
+- undo
+- undo
+- type "hello"
+- redo
+- type "world"
+]
+
+---
+.left-column[
+### Heuristic Evaluation
+- H1: Visibility of system status
+- H2: Match between system and the real world
+- H3: User control and freedom
+- H4: Consistency and standards
+- H5: Error prevention
+- H6: Recognition vs. recall
+- H7: Flexibility and efficiency of use
+- H8: Aesthetic and minimalist design
+- H9: Error recovery
+- H10: Help and Documentation
+]
+.right-column[
+## UAR
+- Which heuristic
+- Explanation
+- Severity
+ - Frequency
+ - Impact
+ - Persistence
+- Scale: 
+ - 0 - Not a problem at all
+ - 1 - Cosmetic problem only
+ - 2 - Minor usability problem (fix with low priority)
+ - 3 - Major usability problem (fix with high priority)
+ - 4 - Usability catastrophe (imperative to fix before release)
+
+]
+.upper_right[![:img Four dialogue boxes with different locations for
+ok; cancel and help (inconsistent), 80%](img/final/consistency.png)]
+---
+.title[HE pros and cons?]
+---
+.left-column50[
+## Pros
+
+Discount usability engineering
+
+Intimidation low
+
+Don't need to identify tasks, activities
+
+Can identify some fairly obvious fixes
+
+Can expose problems user testing doesn’t expose
+
+Provides a language for justifying usability recommendations
+]
+.right-column50[
+## Cons
+
+Un-validated
+
+Unreliable
+
+Should use usability experts
+
+Problems unconnected with tasks
+
+Heuristics may be hard to apply to new technology
+
+Coordination costs]
+---
+.title[Sensing and context-awareness]
+.body[
+What makes an app context-aware?
+
+]
+???
+*use of implicit input*
+---
+.title[Sensing and context-awareness]
+.body[
+What makes an app context-aware?
+
+
+*use of implicit input*
+]
+---
+.title[Types of context-aware apps]
+--
+.body[
+Capture and Access
+
+Adaptive Services (changing operation or timing)
+
+Novel Interaction
+
+Behavioral Imaging
+
+General Solutions for Data Collection and Response
+
+Challenges?
+]
+???
+- Battery
+- Raw sensors not behavior data
+- Not the sensors we always want
+- Computational complexity
+- Latency in communication
+- Basic software framework to support apps that can adapt to user behavior
+- Apps that drive innovation
+- How people use phones
+
+---
+.title[Fences and snapshots]
+.body[
+When to use each?]
+
+---
+.left-column[
+## Behavior Change
+
+![:img five part model of personal informatics with stages
+preparation; collection; integration; reflection; action ,
+150%](img/final/personal-informatics-model.png)
+]
+.right-column[
+- Example Q: What stage does the leader board engage with?
+- Example Q: What stage do the icons support 
+- Example Q: What aspect of this interface supports action?
+
+![:img cscw, 70%](img/final/android.png)
+
+]
+---
+.left-column[
+## Machine Learning
+
+![:img decision tree, 80%](img/ml/decisiontree.png)
+]
+
+.right-column[
+
+<div class="mermaid">
+graph TD
+  T[Time] -- "10pm-8am" -->  N[Noise]
+  T[Time] -- "8am-10pm" --> Aw2[Awake y=35,n=2]
+  N -- "Low" --> As[Asleep y=20,n=5]
+  N -- "High" --> Aw3[Awake y=10,n=2]
+  
+</div>
+
+- Q1: What is this recognizing
+- Q2: What features are being used?
+- Q3: What are the labels?
+- Q4: What will be predicted if there is noise between 10am and noon?
+- Q5: What is the accuracy of this decision tree?
+]
+---

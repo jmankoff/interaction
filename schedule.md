@@ -105,18 +105,18 @@ layout: default
 
 # Week 6: Accessibility 
 
-| Date | Type | Details | Learning Goal|
-|------|-------------|---------------------------------------------------------|
-| **5/6**|**Monday**    | **Accessibility**                                       |
-|| Lecture | [Slides](/interaction/slides/wk06/Introduction to Accessibility and Inclusive Design.pdf) [Video](https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=de948795-52c9-49d3-be5c-aa1d0134761b)| Guest lecture by Tracy Tran. Learn about accessibility |
-| **5/8**|**Wednesday** |
-|| Assignment Part 2 Due    | [Menus Data](/interaction/assignments/menus)                 | Collect data from users |                                                         |
-|**5/9**|**Thursday** | **Accessibility Exercise**||
-|| |In-class demo of accessibility | Learning about how to check accessibility and use a screen reader on your phone|
-||Lecture| [Lab slides](slides/l06/accessibility) | Overview of first 5 weeks of the quarter | 
-|| Exercise Assigned | [Accessibility](/interaction/assignments/accessibility) |
-| **5/10**|**Friday**   |                                                         |
-||Midterm|In-class|
+| Date     | Type                  | Details                                                                                                                                                       | Learning Goal                                                                   |   |
+|----------|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|---|
+| **5/6**  | **Monday**            | **Accessibility**                                                                                                                                             |                                                                                 |   |
+|          | Lecture               | [Slides](/interaction/slides/wk06/Accessibility.pdf) [Video](https://uw.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=de948795-52c9-49d3-be5c-aa1d0134761b) | Guest lecture by Tracy Tran. Learn about accessibility                          |   |
+| **5/8**  | **Wednesday**         |                                                                                                                                                               |                                                                                 |   |
+|          | Assignment Part 2 Due | [Menus Data](/interaction/assignments/menus)                                                                                                                  | Collect data from users                                                         |   |
+| **5/9**  | **Thursday**          | **Accessibility Exercise**                                                                                                                                    |                                                                                 |   |
+|          |                       | In-class demo of accessibility                                                                                                                                | Learning about how to check accessibility and use a screen reader on your phone |   |
+|          | Lecture               | [Lab slides](/interaction/slides/l06/accessibility.html)                                                                                                      | Overview of first 5 weeks of the quarter                                        |   |
+|          | Exercise Assigned     | [Accessibility](/interaction/assignments/accessibility)                                                                                                       |                                                                                 |   |
+| **5/10** | **Friday**            |                                                                                                                                                               |                                                                                 |   |
+|          | Midterm               | In-class                                                                                                                                                      |                                                                                 |   |
 {: .small #small .schedule #schedule}
 
 # Week 7: Undo it please
@@ -175,7 +175,7 @@ layout: default
 | **6/3** | Lecture                                      | In-class group work                                                    | Please make every effort to attend. Group work to help you make progress on your final project & class evaluations. |
 | **6/5** | Lecture                                       | [Machine Learning on Mobile Devices](/interaction/slides/wk10/ml.html) | Basic logic behind machine learning and some of the relevant risks                                                                                                                    |
 | **6/6** | Lab                                          | Group work and help                                                    | Please make every effort to attend. Group work requires in person time and coordination.                            |
-| **6/7** | Lecture TBD                                   | Final exam review                                                      |                                                                                                                     |
+| **6/7** | Lecture TBD                                   | [Final exam review](/interaction/slides/wk10/final.html)                                                      |                                                                                                                     |
 |         | Assignment Due: Context Awareness II (Group) | [Context Awareness](/interaction/assignments/contextaware)             |                                                                                                                     |
 {: .small #small .schedule #schedule}
 

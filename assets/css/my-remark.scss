@@ -32,14 +32,48 @@
     font: inherit; font-size: 100%; background: inherit; border: inherit;
 }
 
+
 table {
-    border-collapse: collapse;
+  border: 2px solid #FFFFFF;
+  text-align: left;
+  table-layout:fixed;
+  border-collapse: collapse;
 }
-th, td {
-    padding: 5px;
-    font-size: 0.9em;
-    text-align: left;
+table td, table th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 4px;
 }
+table tbody td {
+  font-size: 0.7em;
+}
+table td:nth-child(even) {
+  background: #EBEBEB;
+}
+table thead {
+  background: #FFFFFF;
+  border-bottom: 4px solid #333333;
+}
+
+table thead th {
+  font-size: 0.7em;
+  font-weight: bold;
+  color: #333333;
+  border-left: 2px solid #333333;
+}
+table thead th:first-child {
+  border-left: none;
+}
+
+table tfoot {
+  font-size: 0.7em;
+  font-weight: bold;
+  color: #333333;
+  border-top: 4px solid #333333;
+}
+table tfoot td {
+  font-size:0.7em;
+}
+ 
 
 @media print {
  .remark-container.remark-presenter-mode .remark-slide-notes {
@@ -123,8 +157,32 @@ th, td {
   }
 }
 
-/* Two-column layout */
+.upper_left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+}
+.upper_right {
+	position: absolute;
+	top: 100;
+	right: 0%;
+	width: 640px;
+}
+.lower_left {
+	position: absolute;
+	bottom: 10%;
+	width: 200px;
+	left: 0;
+}
+.lower_right {
+	bottom: 10%;
+	right: 10%;
+	width: 200px;
+	position: absolute;
+}
 
+/* Two-column layout */
 .left-column {
   color: #777;
   width: 20%;

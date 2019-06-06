@@ -22,7 +22,6 @@ group :jekyll_plugins do
   gem 'font-awesome-sass'
   gem 'remark'
   gem 'jekyll-mermaid'
-  gem 'jekyll-font-awesome-sass'
   gem 'jekyll-bootstrap-sass'
   gem 'uglifier'
 end

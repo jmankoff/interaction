@@ -54,18 +54,6 @@
       highlightStyle: 'github',
       highlightLines: 'true'
   });
-  MathJax.Hub.Config({
-      tex2jax: {
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-      }
-  });
-
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += 'jax';
-      }
-  });
 </script>
 <script type="module" src="{{site.baseurl}}/assets/js/mermaid.js"></script>
   </body>
