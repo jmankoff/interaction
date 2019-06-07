@@ -5,7 +5,7 @@ code: A3
 published: true
 assigned: Tuesday, May 28, 2019
 due: 11:59 PM Friday, June 7, 2019
-revised: 9 pm Thursday, June 6, 2019
+revised: 12:47 PM Friday, June 7, 2019
 
 objective: Build a context aware application.
 
@@ -124,17 +124,16 @@ explain your application.
 
 ## Submission Instructions
 
-You will turn in the following files <a href="https://canvas.uw.edu/courses/1317447/assignments/4723261">on canvas</a>:
+You submit this assignment <a href="https://canvas.uw.edu/courses/1317447/assignments/4723261">on canvas</a>:
 
-- File upload: 
-```
-─ src.zip
-```
-
-- **Text entry**: Briefly provide any notes you wish to tell us about the
-assignment
-- **Website url**: Please provide a link to your github repository for the assignment
-- **Media**: Upload your video
+- Files to turn in:
+  - `src.zip`: a ZIP file containing your source
+  - `video.mp4`: your video (other filetypes also work) unless using a video hosting website such as YouTube
+- Then, make a comment on your submission with:
+  - A link to your repository. Make sure that we have access to it
+  - Brief notes on anything you wish to tell us about your assignment
+    - These will be visible to all group members
+  - Link to your hosted video (unless you turned in a video file)
 - **In Addition**: *every* member of your group should fill
 out [this group participation survey](https://forms.gle/79xCgpa99nBXbq7W6)
 
