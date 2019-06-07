@@ -2,10 +2,10 @@
 layout: assignment
 title: Context Awareness
 code: A3
-
+published: true
 assigned: Tuesday, May 28, 2019
 due: 11:59 PM Friday, June 7, 2019
-revised: 9:49am Tuesday, June 4, 2019
+revised: 9 pm Thursday, June 6, 2019
 
 objective: Build a context aware application.
 
@@ -124,12 +124,20 @@ explain your application.
 
 ## Submission Instructions
 
-You will turn in the following files <a href="javascript:alert('Turn-in link pending assignment release');">here</a>:
+You will turn in the following files <a href="https://canvas.uw.edu/courses/1317447/assignments/4723261">on canvas</a>:
 
+- File upload: 
 ```
 ─ src.zip
-- video.zip
 ```
+
+- Text entry: Briefly provide any notes you wish to tell us about the
+assignment
+- Website url: Please provide a link to your github repository for the assignment
+- Media: Upload your video
+- Group Participation survey: *every* member of your group should fill
+out [this survey](https://forms.gle/79xCgpa99nBXbq7W6)
+
 
 ## Grading (5pts)
 
