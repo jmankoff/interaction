@@ -131,13 +131,12 @@ You will turn in the following files <a href="https://canvas.uw.edu/courses/1317
 ─ src.zip
 ```
 
-- Text entry: Briefly provide any notes you wish to tell us about the
+- **Text entry**: Briefly provide any notes you wish to tell us about the
 assignment
-- Website url: Please provide a link to your github repository for the assignment
-- Media: Upload your video
-- Group Participation survey: *every* member of your group should fill
-out [this survey](https://forms.gle/79xCgpa99nBXbq7W6)
-
+- **Website url**: Please provide a link to your github repository for the assignment
+- **Media**: Upload your video
+- **In Addition**: *every* member of your group should fill
+out [this group participation survey](https://forms.gle/79xCgpa99nBXbq7W6)
 
 ## Grading (5pts)
 
@@ -154,3 +153,6 @@ In peer grading survey,
 - We will ask what type of context is used
 - Ask if the app is enjoyable, in a Likert scale
 - Prompt to write a paragraph feedback
+
+Late policy: Since context uses half days, all group members must have
+at least 1/2 day left to get a free late day 
