@@ -5,7 +5,7 @@ code: A3
 published: true
 assigned: Tuesday, May 28, 2019
 due: 11:59 PM Friday, June 7, 2019
-revised: 9 pm Thursday, June 6, 2019
+revised: 9 pm Friday, June 7, 2019
 
 objective: Build a context aware application.
 
@@ -128,8 +128,10 @@ You will turn in the following files <a href="https://canvas.uw.edu/courses/1317
 
 - File upload: 
 ```
-─ src.zip
-```
+─ src.zip  contains:
+  - source code
+  - an apk
+````
 
 - **Text entry**: Briefly provide any notes you wish to tell us about the
 assignment
