@@ -126,28 +126,17 @@ explain your application.
 
 You submit this assignment <a href="https://canvas.uw.edu/courses/1317447/assignments/4723261">on canvas</a>:
 
-<<<<<<< HEAD
-- File upload: 
-```
-─ src.zip  contains:
-  - source code
-  - an apk
-````
-
-- **Text entry**: Briefly provide any notes you wish to tell us about the
-assignment
-- **Website url**: Please provide a link to your github repository for the assignment
-- **Media**: Upload your video
-=======
 - Files to turn in:
   - `src.zip`: a ZIP file containing your source
-  - `video.mp4`: your video (other filetypes also work) unless using a video hosting website such as YouTube
+  - `video.mp4`: your video (other filetypes also work) unless using a
+    video hosting website such as YouTube
+  - `context.apk`: Your apk 
 - Then, make a comment on your submission with:
   - A link to your repository. Make sure that we have access to it
   - Brief notes on anything you wish to tell us about your assignment
     - These will be visible to all group members
   - Link to your hosted video (unless you turned in a video file)
->>>>>>> 8e4e51df2b3f10ca63982a95568f4c8c99e929fe
+
 - **In Addition**: *every* member of your group should fill
 out [this group participation survey](https://forms.gle/79xCgpa99nBXbq7W6)
 
