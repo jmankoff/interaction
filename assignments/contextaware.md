@@ -132,7 +132,8 @@ You submit this assignment <a href="https://canvas.uw.edu/courses/1317447/assign
     video hosting website such as YouTube
   - `context.apk`: Your apk 
 - Then, make a comment on your submission with:
-  - A link to your repository. Make sure that we have access to it
+  - A link to your repository. Make sure that we have access to it by
+    giving access to the `cse340` if visible to you, otherwise `rfrowe`
   - Brief notes on anything you wish to tell us about your assignment
     - These will be visible to all group members
   - Link to your hosted video (unless you turned in a video file)
