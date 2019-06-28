@@ -3,7 +3,7 @@ layout: assignment
 title: Undo
 code: A2
 
-published: true
+published: draft
 assigned: Thursday, May 16, 2019
 due: 11:59 PM Tuesday, May 21, 2019; Heuristic evaluation in lab on May 23, 2019
 revised: 2:00 PM, Monday, May 20, 2019

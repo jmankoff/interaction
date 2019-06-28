@@ -3,7 +3,7 @@ layout: assignment
 title: Layout
 code: EX2
 
-published: true
+published: draft
 assigned: Thursday, April 11, 2019
 due: 11:59 PM Thursday, April 18, 2019
 revised: 11:16 AM Thursday, April 13, 2019

@@ -3,7 +3,7 @@ layout: assignment
 title: Sensing
 code: EX5
 
-published: true
+published: draft
 assigned: Tuesday, May 28, 2019
 due: 11:59 PM Friday, May 31, 2019
 revised: 10:08 PM Thursday, May 30, 2019
