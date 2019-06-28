@@ -5,7 +5,13 @@
     {% include header.html %}
 
     <main id="content" class="main-content" role="main">
-      {% if page.published != true %}
+      <div id="unpublished-warning">
+	This is the CSE340-SP19 final website. It is no longer in
+	use. Please make sure to use the current master branch for
+	this quarter's code.
+      </div>
+
+{% if page.published != true %}
       <div id="unpublished-warning">
         This assignment has not yet been released. Its requirements and code base are subject to change.
       </div>

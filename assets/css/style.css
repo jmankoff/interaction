@@ -23,6 +23,15 @@ table.schedule {
   table-layout:fixed;
   border-collapse: collapse;
 }
+#unpublished-warning {
+   background-color: pink;
+   border: 0.15em solid red;
+   border-radius: 0.5em;
+   color: red;
+   font-size: large;
+   padding: 0.25em 0.5em;
+   margin-bottom: 1em;
+}
 table.schedule td, table.schedule th {
   border: 1px solid #FFFFFF;
   padding: 3px 4px;
