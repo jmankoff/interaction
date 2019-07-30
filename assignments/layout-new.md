@@ -38,11 +38,30 @@ This is the assignment spec for Exercise 2. Scroll down below part 5 for some de
 
 Tasks:
 
-- Reproduce a given interactor hierarchy and diagram using the Android Studio visual editor.
+- Familiarize yourself with the Android Studio visual layout editor.
+
+- Use the tools provided by Visual Studio to build a layout based on a list of specifications.
+
+When it comes to layout, working directly with XML can be a pain, especially when there's several attributes to keep track of on each element. Luckily, Android Studio provides a visual editor which you can use to build your app layout without knowing any XML.
+
+For this part, you will use the visual/XML editor to construct a single, scrollable column of images. When you rotate the device, this column should update automatically.
+
+You may find the following link helpful in composing your layout:
+[Linear Layouts | Android Developers](https://developer.android.com/guide/topics/ui/layout/linear)
 
 <!--
 This is something that we have to figure out -- are we going to reuse the old part 1, or rewrite it from scratch to suit the new assignment?
+
+This is just the same as Part 1 for now!
+
+Old Part 1: Change it into a lab activity (visual, intro to prog)
+
+New part 1: single column of images
+
+New part 2: single column of images, programmatically
 -->
+
+TODO: Write explanations for part 1 and part 2, so that students can walk
 
 # Part 2
 
@@ -68,6 +87,12 @@ For this part, you cannot use the LayoutInflater in your final submission. Howev
 
 ---
 
+<!--
+For part 5: encourage students to explain their implementation.
+
+TODO: write up a mock draft and reflection
+-->
+
 The `Part3View` starter code can be found in the `cse340.layout` directory in Android Studio.
 
 Tasks:
@@ -87,7 +112,7 @@ For this part, you will be doing just that. Using a combination of programmatic 
 
 *Hint: Our images are all actually the same width. Although we cannot rely on the width and height of the image view before it is added to the view, we can find a way to access the image resource it contains in order to calculate its impact on the column height.*
 
-In `Part4View`, you should accomplish the following:
+In `Part3View`, you should accomplish the following:
 
 - Add each image to one of two columns. By using two `LinearLayout`s instead of simply adding all images to the parent `ConstraintLayout` and using constraints to maintain the columns, we reduce the number of constraints required from `O(n)` to `O(1)` for `n` images.
     * Each image should be `vMargin` from the previous image vertically (or the top of the column if first image).
@@ -109,6 +134,8 @@ To determine which column a photo should go in, we will use "pinterest" ordering
 
 For this part, you may apply the margin rules to your liking in order to achieve the above layout. For instance, in order to satisfy the margin constraint between columns, you may apply a margin rule to each image, or to the columns.
 
+You may find the following link helpful when working with constraint layouts: ["Building a Responsive UI with Constraint Layout" -- Note the "Set Size as a ratio" section here](https://developer.android.com/training/constraint-layout)
+
 # Part 4
 
 ---
@@ -127,7 +154,11 @@ Your layout must meet the following requirements:
 * Implements at least three different view types either in XML or programmatically to accomplish the desired app layout.
     * One of these MUST be a scroll layout, in order to make your custom app scroll!
 
+* Your app should be usable in both portrait and landscape mode. Be sure to use the emulated android device's rotation feature to ensure that your app displays somewhat properly when rotated!
+
 * Contains at least 5 view nodes. A view node is defined as a View which contains no nested views, for instance an ImageView or TextView.
+
+When working with more advanced constraint layouts, you may find the following resource helpful: ["What's new in Constraint Layout 1.1.0"](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be) (Part 4)
 
 # Part 5
 
@@ -150,13 +181,15 @@ For this part, you simply need to provide a paragraph of reflection on your subm
 
 ---
 
+***TODO: Move dev strategies into each relevant section, break apart, allow this to be used as a reference throughout the quarter!***
+
 * You may run into issues when rotating the device. Note that, when rotating the emulated device, or your personal Android device, that the layout should adjust accordingly. You do not need to readjust the layout of your images when rotating the device, as this should remain the same.
 
 ![Rotation buttons on emulated android device](layout-img/rotations.PNG)
 <p style="text-align: center; color:#808080; font-style: italic; font-size: 10pt;">These buttons will allow you to rotate the emulated device clockwise/counter-clockwise.</p>
 
-* When dealing with the Android documentation: ask as many questions as necessary! The android documentation can be painful to read through, as there are many potential options to choose from. If you need any help parsing it, feel free to ask anyone on the course staff for advice! Additionally, we suggest that you read through the following resources as you develop your apps, in order to better understand the tools you are utilizing:
-    * [Linear Layouts | Android Developers](https://developer.android.com/guide/topics/ui/layout/linear)
-    * ["Building a Responsive UI with Constraint Layout" -- Note the "Set Size as a ratio" section here](https://developer.android.com/training/constraint-layout)
-    * ["An explanation of the ImageView ScaleType attribute" - Important when developing part 3!](https://thoughtbot.com/blog/android-imageview-scaletype-a-visual-guide)
-    * ["What's new in Constraint Layout 1.1.0" - Covers some new features you can utilize when building your layouts in part 4!](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be)
+* When dealing with the Android documentation: ask as many questions as necessary! The android documentation can be painful to read through, as there are many potential options to choose from. If you need any help parsing it, feel free to ask anyone on the course staff for advice! Additionally, we suggest that you read through the following resources as you develop your apps, in order to better understand the tools you are utilizing (these are referenced in their respective parts as well):
+    * [Linear Layouts | Android Developers](https://developer.android.com/guide/topics/ui/layout/linear) (Part 1)
+    * ["An explanation of the ImageView ScaleType attribute" - Important when developing part 3!](https://thoughtbot.com/blog/android-imageview-scaletype-a-visual-guide) (Part 1)
+    * ["Building a Responsive UI with Constraint Layout" -- Note the "Set Size as a ratio" section here](https://developer.android.com/training/constraint-layout) (Part 3)
+    * ["What's new in Constraint Layout 1.1.0"](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be) (Part 4)
