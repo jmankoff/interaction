@@ -87,12 +87,6 @@ For this part, you cannot use the LayoutInflater in your final submission. Howev
 
 ---
 
-<!--
-For part 5: encourage students to explain their implementation.
-
-TODO: write up a mock draft and reflection
--->
-
 The `Part3View` starter code can be found in the `cse340.layout` directory in Android Studio.
 
 Tasks:
@@ -164,7 +158,7 @@ When working with more advanced constraint layouts, you may find the following r
 
 ---
 
-For this part, you simply need to provide a paragraph of reflection on your submission. Some things you may want to cover here:
+For this part, you simply need to provide a short reflection on your submission. Some things you may want to cover here:
 
 * Your experience, positive or negative, working on parts 1 - 4. We are always looking to revise these specs as necessary, so any feedback provided here will improve the quality of assignment rubrics for future quarters.
 
