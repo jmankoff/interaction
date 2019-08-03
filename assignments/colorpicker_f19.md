@@ -149,6 +149,11 @@ Once interaction with the wheel begins, we should update the ColorPickerView's l
 
 Use the `x` and `y` coordinates of the touch event to calculate the angle (in radians) of the touch on the wheel with `ColorPicker#getTouchAngle(float, float)`. It is difficult to do this mapping in tranditional RGB color space. The HSV color space discussed during class fits this task well. You can read more about the HSV color space [here](https://en.wikipedia.org/wiki/HSL_and_HSV). Since we're just adjusting color, we only want to modify hue while leaving saturation and value constant. You may see detailed instruction in code comments under `ColorPicker#getColorFromAngle`, which we provide you. Use this implementation to guide your work on `ColorPickerView#getAngleFromColor`, which does the opposite operation. 
 
+Here are some test values to help test your implementation of `getAngleFromColor`:
+- angle: 2.5769272, color: -16774401 (blue)
+- angle: -1.5461564, color: -64000 (red)
+- angle: 0.42093232, color: -15073536 (green)
+
 ### Transition to the end state.
 
 When the user finishes interacting with the wheel, you'll need to update the UI to reflect the new selected color, by calling `onColorSelected` on the  `ColorListener` with our newly selected color. In addition, the thumb transparency should be reset to `1f`.
