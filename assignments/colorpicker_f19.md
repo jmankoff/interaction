@@ -134,7 +134,7 @@ _Related APIs_
 
 ### Transitioning out of the Start State
 
-As shown in the state diagram, when in the start state (before interaction begins), we ignore any touches that are outside of the wheel. These events should be _rejected_ by your ColorPickerView so that other interactors can use them if they want. Only transition out of the start state when the user presses on or inside the wheel. When you transition out of the start state, color is updated, thumb transparency is changed (to `0.5f`), and thumb position is updated.
+As shown in the state diagram, when in the start state (before interaction begins), we ignore any touches that are outside of the wheel. These events should be _rejected_ by your ColorPickerView so that other interactors can use them if they want. Specifically, views that may lie underneath our `ColorPickerView` should be able to react to events outside the wheel, but within the square of the `ColorPickerView`. Only transition out of the start state when the user presses on or inside the wheel. When you transition out of the start state, color is updated, thumb transparency is changed (to `0.5f`), and thumb position is updated.
 
 <!-- <span style="color:red"> XXX TODO: Check edge case: e.g., drag and move outside wheel, the handle stays in 50% alpha (should be 100% alpha). I added examples in test to check alpha of handle to check state.</span> -->
 
