@@ -44,24 +44,17 @@ Tasks:
 
 When it comes to layout, working directly with XML can be a pain, especially when there's several attributes to keep track of on each element. Luckily, Android Studio provides a visual editor which you can use to build your app layout without knowing any XML.
 
-For this part, you will use the visual/XML editor to construct a single, scrollable column of images. When you rotate the device, this column should update automatically.
+For `Part1View`, you will accomplish the following:
+
+* Use the visual/XML editor to construct a single, scrollable column of images.
+
+* You should place a `vMargin` gap between images and their container, as well as between consecutive images.
+
+    * Since this view will scroll, you only have to worry about the border between the top of the container and the first image, as well as the border between the bottom of the container and the last image.
+
 
 You may find the following link helpful in composing your layout:
 [Linear Layouts | Android Developers](https://developer.android.com/guide/topics/ui/layout/linear)
-
-<!--
-This is something that we have to figure out -- are we going to reuse the old part 1, or rewrite it from scratch to suit the new assignment?
-
-This is just the same as Part 1 for now!
-
-Old Part 1: Change it into a lab activity (visual, intro to prog)
-
-New part 1: single column of images
-
-New part 2: single column of images, programmatically
--->
-
-TODO: Write explanations for part 1 and part 2, so that students can walk
 
 # Part 2
 
@@ -81,7 +74,13 @@ Before getting started on this section, try constructing a [LayoutInflater](http
 
 The LayoutInflater allows us to accept a valid XML file, in this case our `part1.xml` file, and convert it into a customizable View object. The XML/visual editor makes it much easier to build our app layouts, so we can use that to create new layouts, then use an inflater to convert the XML into an object before programmatically appending it to our current app layout.
 
-For this part, you cannot use the LayoutInflater in your final submission. However, you are encouraged to familiarize yourself with the inflator in order to better understand how it works (this will be useful on the upcoming parts!).
+Note that, although you have been given the list of image names to add to your view, you still need a way to access that image resource programmatically. There are a number of ways to accomplish this, so you are encouraged to search around for potential solutions.
+
+Your `Part2View` submission should accomplish the following:
+
+* Achieve the layout from `Part1View` without using an XML file. That is, you should accomplish the layout requirements from Part 1 programmatically, creating Views in Java to accomplish your desired layout.
+
+For this part, you cannot use the LayoutInflater in your final submission. However, it may be useful to inflate your layout from part 1 in order to better understand how your XML is structured.
 
 # Part 3
 
@@ -104,7 +103,7 @@ Pinterest is a great example of a high-profile app that can be built with relati
 
 For this part, you will be doing just that. Using a combination of programmatic and XML layout, you will build the columnar layout necessary to house the images provided in `res/drawables`. Using Java, you should take into account the height of each image, so that each successive image is added to the shorter column. In order to accomplish this, you should take into account the height of each image resource provided.
 
-*Hint: Our images are all actually the same width. Although we cannot rely on the width and height of the image view before it is added to the view, we can find a way to access the image resource it contains in order to calculate its impact on the column height.*
+*Hint: Our images are all actually the same width. Although we cannot rely on the width and height of the image view before it is added to the screen, we could find a way to access the image resource it contains in order to calculate its impact on the column height.*
 
 In `Part3View`, you should accomplish the following:
 
@@ -136,23 +135,17 @@ You may find the following link helpful when working with constraint layouts: ["
 
 The `Part4View` starter code can be found in the `cse340.layout` directory in Android Studio.
 
-For part 4, feel free to explore anything pertaining to layout that we have discussed in the past 2 weeks. You have several options for this submission:
-
-* Wireframe and recreate an interface from another popular app. For instance: Twitter, Facebook, Instagram, etc.
-    * If you are worried about the workload, approach any member of the course staff for their suggestion.
-
-* Wireframe and recreate your own interface from scratch! Make use of the views discussed in the previous three parts as well as any others to create your own custom app layout.
+For part 4, feel free to explore anything pertaining to layout that we have discussed in the past 2 weeks. Your task is to wireframe and recreate an interface from another popular app. For instance: Twitter, Facebook, Instagram, etc.
 
 Your layout must meet the following requirements:
-(guess)
-* Implements at least three different view types either in XML or programmatically to accomplish the desired app layout.
-    * One of these MUST be a scroll layout, in order to make your custom app scroll!
 
-* Your app should be usable in both portrait and landscape mode. Be sure to use the emulated android device's rotation feature to ensure that your app displays somewhat properly when rotated!
+* Your layout must implement a scroll view in some fashion, allowing the user to scroll through content on your application.
 
-* Contains at least 5 view nodes. A view node is defined as a View which contains no nested views, for instance an ImageView or TextView.
+* Your layout must be responsive to device orientation. If the user rotates their device, then your application should adjust to fit the new orientation.
 
-When working with more advanced constraint layouts, you may find the following resource helpful: ["What's new in Constraint Layout 1.1.0"](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be) (Part 4)
+* In your final submission, you must provide a wireframe of the application you used as reference.
+
+When working with more advanced constraint layouts, you may find the following resource helpful: ["What's new in Constraint Layout 1.1.0"](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be)
 
 # Part 5
 
@@ -174,8 +167,6 @@ For this part, you simply need to provide a short reflection on your submission.
 # Development Strategies
 
 ---
-
-***TODO: Move dev strategies into each relevant section, break apart, allow this to be used as a reference throughout the quarter!***
 
 * You may run into issues when rotating the device. Note that, when rotating the emulated device, or your personal Android device, that the layout should adjust accordingly. You do not need to readjust the layout of your images when rotating the device, as this should remain the same.
 
