@@ -57,9 +57,7 @@ You will be turning in  `ColorPickerView.java` and `MainActivity.java` so make s
 
 # Getting Started
 
-Over the course of this assignment you will be editing `ColorPickerView.java` and `MainActivity.java`, it is important to understand the inheritance chains of these two files, as you will be using **lots** of variables and functions defined in parent classes. **Read the classes these classes extend!**
-
-It is important to understand the inheritance chains of these two files, as you will be using **lots** of variables and functions defined in parent classes. **Read the parent classes!**
+Over the course of this assignment you will be editing `ColorPickerView.java` and `MainActivity.java`, it is important to understand the inheritance chains of these two files, as you will be using **lots** of variables and functions defined in parent classes. **Read the classes these classes extend!** Where applicable, you **must** use inherited variables and functions (e.g. don't overload the inherited functions).
 
 It may be wortwhile to read
 [Android/Custom-Drawing](https://developer.android.com/training/custom-views/custom-drawing)
@@ -173,7 +171,8 @@ The application layer should set the default color of `colorPicker` using `MainA
 
 To find out about color changes, the application needs to register a callback by calling `colorPicker.setColorListener()`. This callback
 should update the application's `colorView` and `colorTextView` whenever `onColorSelected` is called to demonstrate that the
-application correctly got a color from `colorPickerView`. This has been implemented for you in our `ColorPickerFragment#onCreateDialog`. For more on custom listeners, see [CodePath's guide to creating
+application correctly got a color from `colorPickerView`. This means you are **prohibited** from leveraging publicly accessible
+fields/functions on the color picker to observe the ColorPickerView state. For more on custom listeners, see [CodePath's guide to creating
 custom listeners](https://guides.codepath.com/android/Creating-Custom-Listeners). For more information about Fragments, see the [Android Fragment API](https://developer.android.com/guide/components/fragments).
 
 # Part 3: Save Application Model using Bundle
