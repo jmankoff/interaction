@@ -55,6 +55,9 @@ Tasks for `MainActivity`
 
 You will be turning in  `ColorPickerView.java` and `MainActivity.java` so make sure that any variables/fields you create/modify are in these files. 
 
+<span style="color:red">We will be asking you to re-use your color picker interactor in a later assignment so make sure you understand
+how the custom interactor communicates with the application.</span>
+
 # Getting Started
 
 Over the course of this assignment you will be editing `ColorPickerView.java` and `MainActivity.java`, it is important to understand the inheritance chains of these two files, as you will be using **lots** of variables and functions defined in parent classes. **Read the classes these classes extend!** Where applicable, you **must** use inherited variables and functions (e.g. don't overload the inherited functions).
