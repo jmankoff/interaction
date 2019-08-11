@@ -6,6 +6,8 @@ Each `case` should be broken out of and should properly handle input, propogatin
 
 ## Checkbox example
 
+![Checkbox PPS image](checkbox_pps.png){:width="150px"}
+
 ```java
 @Override
 public boolean onTouchEvent(MotionEvent event) {
