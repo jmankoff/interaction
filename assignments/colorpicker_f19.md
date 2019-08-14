@@ -196,16 +196,24 @@ The best way to test this functionality is to enable the setting referenced abov
 
 _Related APIs_:
 [Saving and Restoring State](https://developer.android.com/guide/components/activities/activity-lifecycle.html#saras)
-| [Android Developer Options](https://developer.android.com/studio/debug/dev-options)
+| [Android Developer Options](https://developer.android.com/studio/debug/dev-options) | [Explanations for how to use Bundle](https://stackoverflow.com/questions/6525698/how-to-use-onsavedinstancestate-example-please)
 
 # Debugging tips and tricks
 
-Logging output is especially useful for testing the functionality of sections of code such as `getAngleFromColor` and other methods. Much like `System.out.print` in Java, Andriod provides its own class for producing output: `Log`. We suggest that you use `Log.i` and create your own custom tag so that you can filter the output for the information you want.
+Logging output is especially useful for testing the functionality of sections of code such as `getAngleFromColor` and other methods. Much like `System.out.print` in Java, Andriod provides its own class for producing output: `Log`. We suggest that you use `Log.i` and create your own custom tag so that you can filter the output for the information you want. Below is an example of how to use the `Log.i` function.
 
-<INSERT SCREENSHOTS OF LOGGER>
+```java
+private static final String TAG = "ColorPicker MainActivity";
+
+Log.i(TAG, "Hello world!");
+```
+
+To make full use of Logcat, make sure to configure the priority level (in this case, "Info") and use the correct tag (in this case, "ColorPicker MainActivity"). It's also good to check that you have the correct device/emulator selected.
+
+![Logcat diagram](colorpicker-img/logcat_diagram.png){:width="150px"}
 
 _Related APIs_:
-[Android Log.\*]https://developer.android.com/reference/android/util/Log.html
+[Android Log.\*](https://developer.android.com/reference/android/util/Log.html) | [Using Logcat](https://developer.android.com/studio/debug/am-logcat)
 
 # Misc.
 
