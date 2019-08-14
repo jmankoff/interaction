@@ -33,3 +33,6 @@ public boolean onTouchEvent(MotionEvent event) {
     return false;
 }
 ```
+
+In this case, the call to `invalidate()` in will call `shadeBox()` when in the `START` state and `checkBox()` when in the `INSIDE` case. 
+<POTENTIALLY INSERT CODE FOR shadeBox() AND checkBox()>
