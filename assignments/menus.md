@@ -68,7 +68,7 @@ You will be implementing a class that can display a pie menu, and a
 class that can display a linear menu for use in an experiment
 comparing which is faster for the user to select menu items from. By
 *menu items* we mean the individual items in a menu, such as the
-number 1 in the sample video. 
+number 1 in the sample video.
 
 This experiment will have 6 conditions, each of which will include
 `NUM_REPEATS*ITEM_MAX` trials, as follows.
@@ -85,13 +85,13 @@ The two *menu types* (specified in an `Enum` in the code) are `PIE`
 (round) and `NORMAL` (linear).
 
 The three *task types* (also an `Enum`) are `LINEAR` (menu items such as
-1,2,3,4,5,6,7,8) ; `RELATIVE` (menu items such as
+1,2,4,8,16,32,64,128) ; `RELATIVE` (menu items such as
 Up/UpRight/Right/Down/etc...); and `UNCLASS` (menu items such as
 Print/Cast/Bookmark/etc);
 
 The *trials* are specific combinations of menu item, task type,
 and menu type. So for example, one trial might involve showing the
-user a pie menu, with the numbers 1..8 in it, and asking them to
+user a pie menu, with the numbers 1..128 in it, and asking them to
 select number 3. The participant can select any option, no matter what
 as soon as they complete a selection, the result is recorded and the
 next trial begins. 
@@ -116,10 +116,10 @@ part 2 of this project.
 
 We have implemented in `ExperimentSession` the code for you to generate
 all of the trials from a setup file called `menuContents.csv` found in
-the assets directory. Look at ExperimentSession.java, please understand
-`createTrials` method which sets up conditions for
+the assets directory. Make sure that you understand the `createTrials` method 
+provided in ExperimentSession.java which sets up conditions for the
 whole experiment.  `ExperimentSession` is an iterator, so to run the
-trials for a give session you just use `session.next` as long as
+trials for a given session you just use `session.next` as long as
 `session.getNext` is true.
 
 # Part 1: Implement MenuExperimentView and MainActivity
@@ -129,8 +129,9 @@ trials for a give session you just use `session.next` as long as
 - Implement `showMenuForTrial` in `MainActivity`
 - Implement `onTrialCompleted` in `MainActivity`
 
-For this part, you will be working in `MenuExperimentView.java`. This
-class includes several fields that you will need to implement. You
+For this part, you will be working in `MenuExperimentView.java` and `MainActivity`. 
+This section will entail defining the functions which power your menu experiment.
+The `MenuExperimentView` class includes several fields that you will need to implement. You
 will implement the state machine logic in `onTouchEvent` (similar to
 what you've done in ColorPicker) and the logic to draw the menu in
 `onDraw`. You will also implement the code necessary to add and remove
@@ -140,7 +141,8 @@ menu views from the application when a trial ends and
 One tricky thing about context menus -- they can appear anywhere in
 your user interface. To support this, we set things up so that the
 menu view is going to `MATCH_PARENT` width and height. However, the
-menu itself should show up right where the user presses down. 
+menu itself should show up right where the user presses down. This
+means that you must use the provided Canvas object to correctly draw your menus.
 
 **Handling Touch Events**
 
@@ -148,9 +150,22 @@ You will handle touch input by implementing the `onTouchEvent`
 method. This is the event handler that is invoked when a touch occurs
 in this view. Note that `onTouchEvent` is implemented in the parent
 class, `MenuExperimentView` and *is not changed* in the child
-classes. The only thing they have to modify for `onTouchEvent` to
-work properly is `essentialGeometry`, since they have the exact same
-state machine. 
+classes. 
+
+`MenuExperimentView`'s implementation of onTouchEvent makes
+use of your menu's `essentialGeometry` function to determine the
+relative position of the user's finger. We have provided a copy of
+essentialGeometry which accepts a touch event and adjusts the coordinates
+of the event so that the current finger position is sent relative to the menu's
+local (0, 0) coordinate. You should not have to modify this version of `essentialGeometry`.
+
+The state machine defined in onTouchEvent should apply to every view that you define,
+with `essentialGeometry` doing the work of finding the current index. Within `onTouchEvent`,
+you should define the state machine behind your menu views.
+
+You **MUST NOT** perform any assignments within essentialGeometry, as it violates the utility
+of that function. Instead, essentialGeometry should return the index associated with the desired
+view, allowing the function calling it to act on that value.
 
 - For the `PieMenu`, `essentialGeometry` should return -1 if the pointer
   has moved less than `MIN_DIST` since selection started, and
@@ -163,13 +178,13 @@ state machine.
   should return the item number of the menu item that the pointer is
   currently inside of. 
 
-You need to keep track of two main states `START` and
+You need to keep track of two main states: `START` and
 `SELECTING`. When in the `SELECTING` state you need to distinguish
 between the event type to determine if the user has selected an option
 or if they are still in the middle of making a choice. 
 
-Relevant mouse events include `ACTION_DOWN`, `ACTION_MOVE`, and
-`ACTION_UP`; think about how these mouse events relate to the change
+Relevant touch events include `ACTION_DOWN`, `ACTION_MOVE`, and
+`ACTION_UP`; think about how these touch events relate to the change
 and how the UI should respond to these events. 
 
 
@@ -213,13 +228,14 @@ dragResult(){
 ```
 
 Note that you do not need to check whether the user clicked on the
-correct menu item when you call endTrial(). 
+correct menu item when you call endTrial(). This data will be recorded automatically
+by `ExperimentSession`.
 
 **Implement onDraw**
 
 For `onDraw()`, your will do some setup that will allow your
 subclasses to draw properly. First, you will need to check if you are
-in the proper state to draw (only draw when in the `SELECTING`
+in the proper state to draw (you should only draw when in the `SELECTING`
 state).
 
 Next, you really want to draw from the (0,0) location of the menu,
@@ -234,9 +250,12 @@ drawing method, which our children will implement. This is called
 `NormalMenuView`.  Therefore, your `onDraw` implementation in
 `MenuExperimentView.java` will be pretty short.
 
-The starter code contains several useful fields that are 
+<!-- would it make sense to contain everything inside of onDraw? pass the canvas into the superclass and use that to modify the coords, then go on like nothing happened -->
+
+The starter code contains several fields that are 
 useful for drawing the menus on screen. For PieMenu, the given `RADIUS`
 corresponds to the outer radius. The inner radius is defined by `RADIUS - TEXT_SIZE * 2`.
+Furthermore, be sure to check the `MenuExperimentView` starter code for any additional values that you should use when creating your menus.
 
 **MainActivity**
 
@@ -247,8 +266,12 @@ layout parameters so that it fills its parent and is visible on the
 screen, and register a callback with it that knows what to do when a
 trial is completed.
 
+<!-- The solution code makes use of functional interfaces (MainActivity line 86),
+     it's solvable without but should we mention this somewhere in the docs? -->
+
 MainActivity also needs to implement the code to respond to
-`onTrialCompleted`. In particular, this code should always remove the
+`onTrialCompleted`, a method of the TrialListener interface defined
+in `MenuExperimentView`. In particular, this code should always remove the
 current menu being shown. Then it should check if the session is
 over (remember the session is an iterator), and if not call
 `showMenuForTrial` with the next trial. If the session is over, it
@@ -270,7 +293,7 @@ if the user clicks. You can also display a
 - `NormalMenuView`: Implement `essentialGeometry` and `drawMenu`
 
 Both `PieMenuView` and `NormalMenuView` extend `MenuExperimentView`. You
-will implement `essentialGeometry` and determine what menu item the
+will implement `essentialGeometry` for each and determine what menu item the
 touch event maps to. You'll have to come up with the math logic to map
 from touch event to an item index. 
 
@@ -285,6 +308,11 @@ The radius of the circle in the pie menu is `RADIUS - TEXT_SIZE * 2`.
 The width of each item in the normal menu is `CELL_WIDTH` and the height is
 `CELL_HEIGHT`.
 
+In the event that part of your menu may appear off-screen, you should adjust its
+start point to ensure that the entire menu is legible and accessible. If part of
+the user's finger is over a menu item as a result, then you should select that index
+when you draw the menu.
+
 ## Some hints for the pie menu
 
 - `drawArc` will draw a pizza-pie shaped arc, so you can do things
@@ -293,12 +321,24 @@ The width of each item in the normal menu is `CELL_WIDTH` and the height is
   the top of the pie (both when drawing and in essential geometry)
   because angle is traditionally measured from cardinal east. You can
   add this in radians before converting from angle to index. 
+- Check your color picker submission for some advice on setting up
+  the `essentialGeometry` function for `PieMenuView`.
+- Your pie menu text does not need to be centered -- as long as it
+  is contained within the outer ring of the pie menu, you are fine.
 
 
  
 **Related APIs**
 * [Canvas](https://developer.android.com/reference/android/graphics/Canvas): See documentation on drawCircle and drawText.
 * [Path](https://developer.android.com/reference/android/graphics/Path): For adding text along a curve
+
+## Extra Credit Opportunity
+
+For extra credit on this assignment, you may complete one of the following:
+
+* Make one of our menus accessible! Using the concepts discussed in the accessibility assignment, find a way to make our Pie menu / Normal menu accessible. This may be a challenge, as we are drawing our menu elements with the Canvas as opposed to defining them as individual views. You are definitely encouraged to look around the Android API for solutions here, as well as share anything that you come across.
+
+* Create a new menu! Working off of the provided `MenuExperimentView` interface, build your own third menu. This menu should be different from the Pie/Normal menus. You are encouraged to explore user interactions here, and you will receive credit as long as your code shows significant effort. Your menu does not have to be great here -- if you choose, you can aim to create the "worst menu ever" for this submission. Alternatively, you can aim to outcompete our provided menu views! (you do not need to display this menu in your experiment -- however, if you want to do so and analyse the data separately, you are certainly encouraged to!)
 
 # Part 3: Conduct and Write Up User Study
 
@@ -317,14 +357,14 @@ The width of each item in the normal menu is `CELL_WIDTH` and the height is
 **Conduct User Study**
 
 To finalize the [consent form](consent.html), you will need to copy over the text from
-our sample consent and modify it in all of the places marked as
+our sample consent form and modify it in all of the places marked as
 such. You should print out two copies of the consent form for each
 participant -- one for them and one for you.
 
 You will need to try out your own program as a participant to fill in
-the consent form (since you'll need to know how long it takes. This is
+the consent form (since you'll need to know how long it takes). This is
 also a good time to double check that your data is not lost by
-downloading it. 
+downloading it.
 
 *Downloading your data*
 
@@ -332,11 +372,14 @@ On mac OS X, `adb pull /storage/emulated/0/CSE340_PieMenu/TestResult.csv` will
 download your data to the current directory you are in (or you can
 specify a location).
 
+On some devices, this file is instead located inside `/sdcard/CSE340_PieMenu/TestResult.csv`.
+If the above command does not work, try searching this directory as well.
+
 On all platforms, if you have Android Studio installed you can use
 a tool window called `Device File Manager`. This allows you to directly
 access the files on your Android device (emulated or physical) through a
 GUI window. If you aren't comfortable with using adb over the the command line,
-this is a great option.
+or if you are having trouble locating the file, this is a great option.
 
 1) Connect your Android device. If you use an emulator just start the emulator like
 you usually would. If you use a physical device connect it to your computer over
@@ -353,7 +396,9 @@ to open the file and even save it elsewhere on your computer's file system.
 *Create a clean CSV* 
 
 You should use the hamburger menu in the app you just implemented to `Clear Result CSV`
-before starting your study so that your data does not contaminate your results.
+before starting your study so that your data does not contaminate your results. **Make sure that you do not clear the results between submissions!** This will erase your trial data.
+
+Our implementation uses the ExperimentSession object to create, manage, and record experiment data to the CSV. If you are interested, check out the recordResult function on line 213 of ExperimentSession.java (as always, modify at your own risk!)
 
 *Recruit participants and have them sign your consent form* 
 
@@ -361,7 +406,7 @@ You can ask friends or classmates for help. Do
 not *coerce* anyone into participating in your study. Make sure they
 know they have a choice, and have read and signed the consent
 form. You will be required to *turn in signed consent forms* with your
-report.
+report. The language used in your consent form is key, so ensure that it does not come off as forceful or coercive.
 
 *Collect data* 
 
@@ -406,3 +451,4 @@ Part 2:
     - Description of study process: 1pt
     - Demonstrate understanding of results: 1pt
     - Draw appropriate conclusions about linear vs. pie menu: 1pt
+- Extra credit submission: 1pt
