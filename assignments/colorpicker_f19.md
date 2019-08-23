@@ -141,8 +141,6 @@ As shown in the state diagram, when in the start state (before interaction begin
 
 The starter code already has some built-in functionality to help you test whether or not you are correctly rejecting input. When you click outside the wheel, there should be a message that pops up saying "You have clicked outside the wheel!". If this message does not appear when you click outside the wheel, then you are not correctly rejecting input.
 
-<!-- <span style="color:red"> XXX TODO: Check edge case: e.g., drag and move outside wheel, the handle stays in 50% alpha (should be 100% alpha). I added examples in test to check alpha of handle to check state.</span> -->
-
 ### Transitions within the Inside State
 
 Once interaction with the wheel begins, we should update the ColorPickerView's local model only when the user is dragging their finger inside the wheel.
@@ -174,19 +172,22 @@ The application layer should set the default color of `colorPicker` using `MainA
 
 ## Managing Application State with Listeners
 
-To find out about color changes, the application needs to register a callback by calling `colorPicker.setColorListener()`. This callback
+To find out about color changes, the application needs to register a callback by calling `colorPicker.addColorListener()`. This callback
 should update the application's `colorView` and `colorTextView` whenever `onColorSelected` is called to demonstrate that the
 application correctly got a color from `colorPickerView`. This means you are **prohibited** from leveraging publicly accessible
-fields/functions on the color picker to observe the ColorPickerView state. For more on custom listeners, see [CodePath's guide to creating
-custom listeners](https://guides.codepath.com/android/Creating-Custom-Listeners). For more information about Fragments, see the [Android Fragment API](https://developer.android.com/guide/components/fragments).
+fields/functions on the color picker to observe the ColorPickerView state. 
 
-# Part 3: Save Application Model using Bundle
+As good practice, you should always unregister listeners when they are no longer relevent. This has been done for you in the `MainActivity.java#onDestroy` which is called when the application is killed.
+
+You may notice that `ColorPicker.java` keeps a `List` of `ColorChangeListeners`. This allows for our interactor to be more flexible because it can register many listeners that will all be notfied when a new color is selected. For more on custom listeners, see [CodePath's guide to creating custom listeners](https://guides.codepath.com/android/Creating-Custom-Listeners). For more information about Fragments, see the [Android Fragment API](https://developer.android.com/guide/components/fragments).
+
+# Part 3: Save and Restore Application Model using Bundle
 
 Please save application model (i.e. the current color as known by the application) in the `onSaveInstanceState` bundle. When user goes off to some other app, Android kills our Activity. We need the bundle to get the saved state back.
 
 We want to manage the state at the application level (`MainActivity.java`) versus at the interactor level, this means you will need to find a way to set the state of the color picker from the application when the bundle is loaded.
 
-Notice from the documentation that `onRestoreInstanceState` is called after `onCreate` if a bundle exists. However, to make grading easier, we want you to handle the bundle in `ColorPickerActivity#setStartingColor` so you **should not implement `onRestoreInstanceState`.**
+Notice from the documentation that `onRestoreInstanceState` is called after `onCreate` if a bundle exists. This is where you will access the information we saved in `onSaveInstanceState` to restore the current color with the color we had before our Activity was killed.
 
 <span style="color:red">We will kill the activity to test if the state
 is saved. Use adb to test killing it or in developer options set Apps
