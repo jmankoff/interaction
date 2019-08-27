@@ -266,14 +266,17 @@ already made a custom interactor that allows users to choose any color on the co
 First, you need to copy over the `ColorPicker.java` and `ColorPikerView.java` files from your `as3-Color-Picker` repository. Put these files in the same
 directory as your `MainActivity.java` file. 
 
-Next, you will need to change the behavior of the color FAB so that, when clicked, it opens up the color picking interface. For reference on how to do this, take a look at `MainActivity.java#onCreate` from the color picker assignment. Once you set up all the listeners to respond correctly, your
-color picker interactor should allow users to pick any stroke color they want!
+Next, you will need to change the behavior of the color FAB so that, when clicked, it opens up the color picking interface instead of opening the collapsable color menu. For reference on how to do this, take a look at `MainActivity.java#onCreate` from the color picker assignment. When users have the color picker interactor open, they _should not_ be able to access any of the FABs (undo, redo, color change, thickness change) so be sure to hide them when you show the color picker. If a color change is undone or redone, the color picker should reflect the correct color. Once you set up all the listeners to respond correctly, your color picker interactor should allow users to pick any stroke color they want!
 
-# Requirement 4: Improving the application
+_Related APIs_:
+[View#using-views](https://developer.android.com/reference/android/view/View#using-views)
 
-Create an interesting way the user can interact with the application that can be undone and redone. This means that whatever interaction you
+# Extra Credit: Improving the application
+
+Create an interesting way the user can interact with the application that **can be undone and redone**. This means that whatever interaction you
 add must have a custom undo and redo function (it might help to take a look at `ReversibleAction#doAction` and `ReversibleAction#undoAction(DrawingView)`).
-Whatever you choose to implement, please describe your addition in the provided README.
+
+Please implement this extra feature **on a new branch**. Whatever you choose to implement, please describe your addition in the provided README.
 
 # Optional addition: Improving usability
 
