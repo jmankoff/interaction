@@ -130,6 +130,8 @@ Note that the End state only exists to show the lifetime of a _single_ interacti
 
 We'll handle touch input by implementing `onTouchEvent`. This is the event handler that will be called when a touch occurs in this view. In addition, when feedback is needed, you will have to ensure that the view is _redrawn_.
 
+As you write the PPS, make sure to utilize proper coding style to ensure that the code is readable to someone not familiar with the project. For an example of how to translate PPS into code, see the [PPS page](./pps.md).
+
 _Related APIs_
 [View](https://developer.android.com/reference/android/view/View) (see documentation on Drawing)
 
