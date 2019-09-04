@@ -128,7 +128,7 @@ class I normal
 
 Note that the End state only exists to show the lifetime of a _single_ interaction. Because the user can interact with the color picker any number of times, we would actually return to the Start state when the thumb is released. For some examples of single interactions, see the diagrams below.
 
-We'll handle touch input by implementing `onTouchEvent`. This is the event handler that will be called when a touch occurs in this view. In addition, when feedback is needed, you will have to ensure that the view is _redrawn_.
+We'll handle touch input by implementing `onTouchEvent`. This is the event handler that will be called when a touch occurs in this view. In addition, when feedback is needed, you will have to ensure that the view is _redrawn_. For style purposes, you should only redraw the view when necessary. We **will be taking off points** for redraw calls if they are not necessary. A good general guideline is to only redraw in your PPS code.
 
 As you write the PPS, make sure to utilize proper coding style to ensure that the code is readable to someone not familiar with the project. For an example of how to translate PPS into code, see the [PPS page](./pps.md).
 
