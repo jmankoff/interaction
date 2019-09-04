@@ -2,11 +2,9 @@
 
 The code implementation should spiritually follow the PPS; that is, your code should only take action when moving from state to state (along tha arrows in the PPS). This behavior is best represented by a `switch` statement, where each `case` represents a state in our PPS. Within each `case`, there can be nested `if` statement to handle transitioning to another state. 
 
-Each `case` should be broken out of and should properly handle input, propogating input to later views or stopping the input propogration as necessary. We typically do this through the `onTouchEvent` method. In `onTouchEvent`, returning `true` will stop the input propogation to views below it, while returning false allows views below it to see the event.
+Each `case` should be broken out of and should properly handle input, propogating input to later views or stopping the input propogration as necessary. We typically do this through the `onTouchEvent` method. In `onTouchEvent`, returning `true` will stop the input propogation to views below it, while returning `false` allows views below it to see the event.
 
-## Checkbox example
-
-![Checkbox PPS image](checkbox_pps.png){:width="150px"}
+## Volume example
 
 ```java
 @Override
@@ -14,25 +12,31 @@ public boolean onTouchEvent(MotionEvent event) {
     EssentialGeometry geometry = essentialGeometry(event);
     switch(mState) {
         case START:
-            if (event.getAction() == MotionEvent.ACTION_DOWN &&
-                geometry == EssentialGeometry.BOX) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN && geometry == EssentialGeometry.BAR) {
                 mState = State.INSIDE;
+                updateThumb();
+                updateVolume();
                 invalidate();
                 return true;
             }
+            break;
         case INSIDE:
-            if (event.getAction() == MotionEvent.ACTION_UP &&
-                geometry == EssentialGeometry.BOX) {
-                mState = State.START;
+            if (event.getAction() == MotionEvent.ACTION_MOVE && geometry == EssentialGeometry.BAR) {
+                updateVolume();
                 invalidate();
                 return true;
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                mState = State.START;
+                updateThumb();
+                invokeVolumeChangeListener();
+                invalidate();
+                return true;                   
             }
+            break;
         default:
             break;
     }
     return false;
 }
 ```
-
-In this case, the call to `invalidate()` in will call `shadeBox()` when in the `START` state and `checkBox()` when in the `INSIDE` case. 
-<POTENTIALLY INSERT CODE FOR shadeBox() AND checkBox()>
+In the above code snippet, `updateThumb()` would handle determining and setting the opacity of the thumb, while `updateVolume()` would similarly update the volume based on the position of your finger.
