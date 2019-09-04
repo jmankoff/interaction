@@ -308,6 +308,8 @@ The radius of the circle in the pie menu is `RADIUS - TEXT_SIZE * 2`.
 The width of each item in the normal menu is `CELL_WIDTH` and the height is
 `CELL_HEIGHT`.
 
+<!-- optional bit, we should drop this if we decide to -->
+
 In the event that part of your menu may appear off-screen, you should adjust its
 start point to ensure that the entire menu is legible and accessible. If part of
 the user's finger is over a menu item as a result, then you should select that index
@@ -334,11 +336,17 @@ when you draw the menu.
 
 ## Extra Credit Opportunity
 
-For extra credit on this assignment, you may complete one of the following:
+Create a new menu! Working off of the provided `MenuExperimentView` interface, build your own third menu. This menu should be different from the Pie/Normal menus. You are encouraged to explore user interactions here, and you will receive credit as long as your code shows significant effort. Your menu does not have to be great here -- if you choose, you can aim to create the "worst menu ever" for this submission. Alternatively, you can aim to outcompete our provided menu views! (you do not need to display this menu in your experiment -- however, if you want to do so and analyse the data separately, you are certainly encouraged to!)
 
-* Make one of our menus accessible! Using the concepts discussed in the accessibility assignment, find a way to make our Pie menu / Normal menu accessible. This may be a challenge, as we are drawing our menu elements with the Canvas as opposed to defining them as individual views. You are definitely encouraged to look around the Android API for solutions here, as well as share anything that you come across.
+In addition to completing this additional menu, you must also submit a reflection based on this assignment. Within this reflection, you should address the following:
 
-* Create a new menu! Working off of the provided `MenuExperimentView` interface, build your own third menu. This menu should be different from the Pie/Normal menus. You are encouraged to explore user interactions here, and you will receive credit as long as your code shows significant effort. Your menu does not have to be great here -- if you choose, you can aim to create the "worst menu ever" for this submission. Alternatively, you can aim to outcompete our provided menu views! (you do not need to display this menu in your experiment -- however, if you want to do so and analyse the data separately, you are certainly encouraged to!)
+- How does your custom menu work? What is the intended way for the user to interact with it?
+
+- Did you have any goals in mind for your custom menu? Did you succeed/fail at those?
+
+- Given your experience with the Accessibility assignment, how would you go about making an accessible menu? What aspects of our current menus would make it difficult to create an accessible menu?
+
+- How would you account for the case where a menu appears off the screen? You may use either pseudocode, or a plain-English description.
 
 # Part 3: Conduct and Write Up User Study
 
@@ -415,6 +423,8 @@ participants are done, you and download your final data file. It
 should have 72*4 (288) data points in it. You can use the emulator or your
 phone for this, and any mouse you want. You will need to turn in your
 final data file with your report. 
+
+When collecting data, you should inform users that all interactions will begin with tapping on the center of the screen. This should help avoid cases where your menu is unusable due to the screen format.
 
 **Write a Report**
 
