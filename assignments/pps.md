@@ -6,6 +6,8 @@ Each `case` should be broken out of and should properly handle input, propogatin
 
 ## Volume example
 
+![Volume PPS diagram](volume_pps.png)
+
 ```java
 @Override
 public boolean onTouchEvent(MotionEvent event) {
@@ -14,7 +16,8 @@ public boolean onTouchEvent(MotionEvent event) {
         case START:
             if (event.getAction() == MotionEvent.ACTION_DOWN && geometry == EssentialGeometry.BAR) {
                 mState = State.INSIDE;
-                updateThumb();
+                updateThumbPosition();
+                updateThumbAlpha();
                 updateVolume();
                 invalidate();
                 return true;
@@ -22,12 +25,13 @@ public boolean onTouchEvent(MotionEvent event) {
             break;
         case INSIDE:
             if (event.getAction() == MotionEvent.ACTION_MOVE && geometry == EssentialGeometry.BAR) {
-                updateVolume();
+                updateThumbPosition();
+                updateVolume();                
                 invalidate();
                 return true;
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 mState = State.START;
-                updateThumb();
+                updateThumbAlpha();
                 invokeVolumeChangeListener();
                 invalidate();
                 return true;                   
