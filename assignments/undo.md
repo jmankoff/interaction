@@ -266,7 +266,7 @@ already made a custom interactor that allows users to choose any color on the co
 First, you need to copy over the `ColorPicker.java` and `ColorPikerView.java` files from your `as3-Color-Picker` repository. Put these files in the same
 directory as your `MainActivity.java` file. 
 
-Next, you will need to change the behavior of the color FAB so that, when clicked, it opens up the color picking interface instead of opening the collapsable color menu. For reference on how to do this, take a look at `MainActivity.java#onCreate` from the color picker assignment. When users have the color picker interactor open, they _should not_ be able to access any of the FABs (undo, redo, color change, thickness change) so be sure to hide them when you show the color picker. If a color change is undone or redone, the color picker should reflect the correct color. Once you set up all the listeners to respond correctly, your color picker interactor should allow users to pick any stroke color they want!
+Next, you will need to change the behavior of the color FAB so that, when clicked, it opens up the color picking interface instead of opening the collapsible color menu. For reference on how to do this, take a look at `MainActivity.java#onCreate` from the color picker assignment (hint: make sure to take a look at what interfaces `MainActivity.java` implements). When users have the color picker interactor open, they _should not_ be able to access any of the FABs (undo, redo, color change, thickness change) so be sure to disable them when you show the color picker and visually indicate to the user that they are disabled. If a color change is undone or redone, the color picker should reflect the correct color. Once you set up all the listeners to respond correctly, your color picker interactor should allow users to pick any stroke color they want!
 
 _Related APIs_:
 [View#using-views](https://developer.android.com/reference/android/view/View#using-views)
@@ -276,7 +276,7 @@ _Related APIs_:
 Create an interesting way the user can interact with the application that **can be undone and redone**. This means that whatever interaction you
 add must have a custom undo and redo function (it might help to take a look at `ReversibleAction#doAction` and `ReversibleAction#undoAction(DrawingView)`).
 
-Please implement this extra feature **on a new branch**. Whatever you choose to implement, please describe your addition in the provided README.
+Please implement this extra feature **on a new branch**. Whatever you choose to implement, make sure to describe your addition in the provided README.md.
 
 # Optional addition: Improving usability
 
