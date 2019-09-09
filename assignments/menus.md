@@ -334,11 +334,7 @@ when you draw the menu.
 
 ## Extra Credit Opportunity
 
-For extra credit on this assignment, you may complete one of the following:
-
-* Make one of our menus accessible! Using the concepts discussed in the accessibility assignment, find a way to make our Pie menu / Normal menu accessible. This may be a challenge, as we are drawing our menu elements with the Canvas as opposed to defining them as individual views. You are definitely encouraged to look around the Android API for solutions here, as well as share anything that you come across.
-
-* Create a new menu! Working off of the provided `MenuExperimentView` interface, build your own third menu. This menu should be different from the Pie/Normal menus. You are encouraged to explore user interactions here, and you will receive credit as long as your code shows significant effort. Your menu does not have to be great here -- if you choose, you can aim to create the "worst menu ever" for this submission. Alternatively, you can aim to outcompete our provided menu views! (you do not need to display this menu in your experiment -- however, if you want to do so and analyse the data separately, you are certainly encouraged to!)
+Create a new menu! Working off of the provided `MenuExperimentView` interface, build your own third menu. This menu should be different from the Pie/Normal menus. You are encouraged to explore user interactions here, and you will receive credit as long as your code shows significant effort. Your menu does not have to be great here -- if you choose, you can aim to create the "worst menu ever" for this submission. Alternatively, you can aim to outcompete our provided menu views! (you do not need to display this menu in your experiment -- however, if you want to do so and analyse the data separately, you are certainly encouraged to!)
 
 # Part 3: Conduct and Write Up User Study
 
@@ -393,7 +389,7 @@ open a window that details the contents of your Android device's file system.
 3) Navigate to `/storage/emulated/0/CSE340_PieMenu/TestResult.csv`. You should be able
 to open the file and even save it elsewhere on your computer's file system. 
 
-*Create a clean CSV* 
+**Create a clean CSV**
 
 You should use the hamburger menu in the app you just implemented to `Clear Result CSV`
 before starting your study so that your data does not contaminate your results. **Make sure that you do not clear the results between submissions!** This will erase your trial data.
@@ -408,7 +404,7 @@ know they have a choice, and have read and signed the consent
 form. You will be required to *turn in signed consent forms* with your
 report. The language used in your consent form is key, so ensure that it does not come off as forceful or coercive.
 
-*Collect data* 
+**Collect data** 
 
 Have each participant complete a session. Once *all*
 participants are done, you and download your final data file. It
@@ -418,8 +414,17 @@ final data file with your report.
 
 **Write a Report**
 
-You will need to write up a brief report about your study. We 
-provide a [template](menu-report).
+You will need to write up a brief report about your study. We have provided a [template](menu-report) for you to use here. Please reference this template as necessary when writing this report.
+
+# Reflection
+
+Lastly, you should also write a reflection. This reflection does not need to be long -- a paragraph or two should be fine. This reflection should cover your experience working on this assignment, as well as any suggestions you have for the assignment moving forward.
+
+In order to receive full credit here, you should at minimum answer the following: 
+
+*Given the structure of our Pie/Normal menus, why do you think it may be difficult to create an accessible menu when working with the MenuExperimentView class?*
+
+*If you implemented a custom menu for this assignment, what was the goal behind the custom menu, and were you able to achieve it?*
 
 # Submission Instructions
 
@@ -435,6 +440,9 @@ Part 2:
 - TestResult.csv
 - Signed consent forms (images/scans)
 - Report.pdf
+- Reflection
+
+Only your reflection should be uploaded to Gradescope. The rest should instead be submitted to GitGrade.
 
 ## Grading (10 pts)
 
@@ -444,11 +452,12 @@ Part 2:
   - Correctly implements drawMenu in NormalMenu and PieMenu: 1
   - Correctly handles trials and callbacks in MainActivity: 1
 - Turn-in and compiles: 1pt
-- Second Half (5 points)
+- Second Half (6 points)
   - Have reasonable CSV output and charts: 1pt
   - Have signed consent forms: 1pt
   - Report:
     - Description of study process: 1pt
     - Demonstrate understanding of results: 1pt
     - Draw appropriate conclusions about linear vs. pie menu: 1pt
+  - Reflection: 1pt
 - Extra credit submission: 1pt

@@ -46,6 +46,9 @@ Subclasses of `Part1` will have access to these methods once they are implemente
 
 You'll notice in `doodle` in `Part1` that we use `scaleX` and `scaleY` around our coordinates (and size for images). These allow us to ensure the doodle still looks good on smaller screen sizes. **If you use _any_ pixel coordinates in your solutions, remember to wrap them in these scaling methods**. These will scale coordinates from the Pixel 2 XL to the dimensions of your device's screen. We'd recommend that you use a Pixel 2 XL emulator to compare the finished doodle against our screenshot to be sure you're implementing everything right.
 
+Additionally, there are instances where the the image CSV file fails to load properly due to discrepencies in line endings (CRLF vs LF). If you run into this,
+try redownloading the file or re-saving it in a text editor.
+
 ### Specs for addImage
 ```java
 ImageView addImage(FrameLayout mainCanvas, String imageName, float x, float y, int size);
