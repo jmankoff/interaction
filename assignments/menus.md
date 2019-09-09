@@ -308,6 +308,8 @@ The radius of the circle in the pie menu is `RADIUS - TEXT_SIZE * 2`.
 The width of each item in the normal menu is `CELL_WIDTH` and the height is
 `CELL_HEIGHT`.
 
+<!-- optional bit, we should drop this if we decide to -->
+
 In the event that part of your menu may appear off-screen, you should adjust its
 start point to ensure that the entire menu is legible and accessible. If part of
 the user's finger is over a menu item as a result, then you should select that index
@@ -412,6 +414,8 @@ should have 72*4 (288) data points in it. You can use the emulator or your
 phone for this, and any mouse you want. You will need to turn in your
 final data file with your report. 
 
+When collecting data, you should inform users that all interactions will begin with tapping on the center of the screen. This should help avoid cases where your menu is unusable due to the screen format.
+
 **Write a Report**
 
 You will need to write up a brief report about your study. We have provided a [template](menu-report) for you to use here. Please reference this template as necessary when writing this report.
@@ -425,6 +429,8 @@ In order to receive full credit here, you should at minimum answer the following
 *Given the structure of our Pie/Normal menus, why do you think it may be difficult to create an accessible menu when working with the MenuExperimentView class?*
 
 *If you implemented a custom menu for this assignment, what was the goal behind the custom menu, and were you able to achieve it?*
+
+*How would you account for the case where a menu appears off of the phone screen? For instance, if a user attempts to access the Normal menu from the bottom of the screen.*
 
 # Submission Instructions
 
