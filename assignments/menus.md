@@ -39,6 +39,13 @@ data and importing it into the spreadsheet we provide (30 mins);
 Analyze the data (1 hr) and write the report (1-2 hours). Again, reach
 out if spending more than double the expected time. 
 
+## Learning Goals
+
+- Gain more experience working with callbacks.
+- Further practice with state machines and event handling
+- Understand pie menus
+- Collect, parse, and interpret results collected from a study.
+
 # Key Files to look at 
 
 * ExperimentSession.java

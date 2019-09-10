@@ -26,9 +26,19 @@ android_goals:
 * TOC
 {:toc}
 
+# Assignment Description
+
+For this assignment, you will be creating an activity class which will allow you to create "Doodles" consisting of images, lines, and text.
+
 This assignment will take about 6 - 8.5 hours to complete. You should expect this amount of workload on most assignments this quarter, so make sure to build good habits when completing it.
 
 If you find yourself taking additional time on this submission, we strongly suggest that you get in touch with the course staff on Piazza or in person.
+
+## Learning Goals
+
+- Utilize abstracted methods to draw onto the screen.
+- Create animations in Android Studio.
+- Begin considering how to style your Android apps.
 
 # Part 1
 ***

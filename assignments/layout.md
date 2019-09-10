@@ -28,9 +28,30 @@ hci_goals:
 * TOC
 {:toc}
 
+# Assignment Description
+
 This is the assignment spec for Exercise 2. Scroll down below part 5 for some development strategies and tips curated from last spring's students!
 
 In Spring 2019, students spent about 10 - 12 hours on average on this assignment. It has been modified somewhat since then, but make sure that you are getting started early -- part 4 is often the most difficult, so start early on that, as this can quickly become one of the more time-consuming assignments of the quarter.
+
+## Learning Goals
+
+- Understand Android layout GUI and XML
+- Familiarize with Android programmatic layout API
+- Understand Android constraints implementation
+- Handle portrait and landscape orientation correctly
+- Handle fixed and variable size container views
+
+- Make use of interactor hierarchy
+- Use constraints to create responsive layouts
+- Make use of complex built-in layouts
+- Implement reusable layouts
+- Understand how scrolling works
+- Understand how sizes influence layout
+
+<!-- These are just borrowed from the assignment header for now -->
+
+# Introduction to Parts 1 and 2
 
 For parts 1 and 2, you will be building the same layout twice.
 
@@ -44,7 +65,7 @@ For part 2, you will create the same layout programatically, using Java syntax t
 
 ![Landscape screenshot for parts 1 and 2](layout-img/1_new_landscape.png){:width="50%"}
 
-# Part 1
+## Part 1
 
 ---
 
@@ -70,7 +91,7 @@ For `Part1View`, you will accomplish the following:
 You may find the following link helpful in composing your layout:
 [Linear Layouts | Android Developers](https://developer.android.com/guide/topics/ui/layout/linear)
 
-# Part 2
+## Part 2
 
 ---
 
@@ -95,6 +116,7 @@ Your `Part2View` submission should accomplish the following:
 * Achieve the layout from `Part1View` without using an XML file. That is, you should accomplish the layout requirements from Part 1 programmatically, creating Views in Java to accomplish your desired layout.
 
 For this part, you cannot use the LayoutInflater in your final submission. However, it may be useful to inflate your layout from part 1 in order to better understand how your XML is structured.
+
 
 # Part 3
 
