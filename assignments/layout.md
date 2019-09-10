@@ -30,7 +30,7 @@ hci_goals:
 
 This is the assignment spec for Exercise 2. Scroll down below part 5 for some development strategies and tips curated from last spring's students!
 
-In Spring 2019, students spent about 10 - 12 hours on average on this assignment. It has been modified somewhat since then, but make sure that you are getting started early -- part 4 is often the most difficult, so start early on that, as this can quickly become one of the more time-consuming assignments of the quarter!
+In Spring 2019, students spent about 10 - 12 hours on average on this assignment. It has been modified somewhat since then, but make sure that you are getting started early -- part 4 is often the most difficult, so start early on that, as this can quickly become one of the more time-consuming assignments of the quarter.
 
 For parts 1 and 2, you will be building the same layout twice.
 
