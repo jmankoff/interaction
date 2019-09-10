@@ -26,6 +26,10 @@ android_goals:
 * TOC
 {:toc}
 
+This assignment will take about 6 - 8.5 hours to complete. You should expect this amount of workload on most assignments this quarter, so make sure to build good habits when completing it.
+
+If you find yourself taking additional time on this submission, we strongly suggest that you get in touch with the course staff on Piazza or in person.
+
 # Part 1
 ***
 
@@ -150,6 +154,17 @@ You will turn in the following files [here](https://gradeit.cs.washington.edu/uw
 If you use your own images in [Part 2](#part-2), please include them in a ZIP archive. The images should be compressed together without an enclosing folder. Ex: `zip images.zip abc.jpg ... xyz.jpg`. Do not place the files in a folder called `images` and compress that.
 
 If you're positioning a large number of images for [Part 2](#part-2), it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part2.csv` if necessary. Remember, the CSV coordinates are on a Pixel 2 XL and scaled to the current screen in `Doodler#addAllImagesFromData(FrameLayout)`.
+
+## Reflection
+In addition, you are expected to turn in a short reflection on this assignment. Moving forward for this quarter, you will be expected to fill out a reflection for each assignment. These reflections are your opportunity to offer us feedback on the structure of each assignment, as well as reflect on the topics covered.
+
+For this assignment, your reflection should at minimum cover the following:
+
+- *Why might it be better to animate a view, rather than invalidate/redraw its contents?*
+
+- *Our LineView class is a bit clunky. What optimizations could you think of making to our LineView class? Consider the operations you used to style your TextView and ImageViews.*
+
+- *At the moment our application is pretty static. Think of at least two ways that you would go about adding interactivity to this application.*
 
 ## Grading (10pts)
 

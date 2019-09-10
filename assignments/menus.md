@@ -30,6 +30,8 @@ and re-uses many concepts from [ColorPicker](colorpicker.html). Please
 start early, and reach out if you find you are spending more than 10
 hours. 
 
+If you choose to pursue the extra credit, it will add on an additional 2 hours or so, depending on the scope of your submission.
+
 The user study will take about the same. Your time will include the following:
 Write your consent form using our template and print out (1 hr)
 recruit, consent and run 4 participants (1-2 hours); Download your

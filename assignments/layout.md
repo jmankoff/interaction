@@ -30,6 +30,8 @@ hci_goals:
 
 This is the assignment spec for Exercise 2. Scroll down below part 5 for some development strategies and tips curated from last spring's students!
 
+In Spring 2019, students spent about 10 - 12 hours on average on this assignment. It has been modified somewhat since then, but make sure that you are getting started early -- part 4 is often the most difficult, so start early on that, as this can quickly become one of the more time-consuming assignments of the quarter!
+
 For parts 1 and 2, you will be building the same layout twice.
 
 For part 1, you will create the desired layout using Android Studio's built-in layout editor to create the desired layout.
@@ -147,7 +149,7 @@ You may find the following link helpful when working with constraint layouts: ["
 
 The `Part4View` starter code can be found in the `cse340.layout` directory in Android Studio.
 
-For part 4, feel free to explore anything pertaining to layout that we have discussed in the past 2 weeks. Your task is to wireframe and recreate an interface from another popular app. For instance: Twitter, Facebook, Instagram, etc.
+For part 4, feel free to explore anything pertaining to layout that we have discussed in the past 2 weeks. Your task is to wireframe and recreate an interface from another popular app. For instance: Twitter, Facebook, Instagram, etc. (not Pinterest!)
 
 Your layout must meet the following requirements:
 
@@ -157,24 +159,23 @@ Your layout must meet the following requirements:
 
 * In your final submission, you must provide a wireframe of the application you used as reference.
 
+## Wireframe requirements
+
+Your wireframe should clearly identify the application which you are recreating. When building a wireframe, you should provide labels connecting placeholder "wireframe" objects to application level implementations -- for instance, a wireframe for our Pinterest layout might label
+
 When working with more advanced constraint layouts, you may find the following resource helpful: ["What's new in Constraint Layout 1.1.0"](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be)
 
 # Part 5
 
 ---
 
-For this part, you simply need to provide a short reflection on your submission. Some things you may want to cover here:
+For this part, you will submit your reflection on this assignment. This reflection should, at minimum, cover the following:
 
-* Your experience, positive or negative, working on parts 1 - 4. We are always looking to revise these specs as necessary, so any feedback provided here will improve the quality of assignment rubrics for future quarters.
+- *When creating new views for your **Part 4** submission, did you find any interesting tools within the Android Studio documentation?*
 
-* Anything new that you learned while working on the assignment. This can be anything related to the process of building your app, including:
-    * new concepts in Java/Android
-    * new strategies for designing wireframes and layouts
-    * Advice you received from an instructor or peer which helped you complete the assignment.
+- *Do you feel that your custom layout was successful? If so, why? If not, what would you fix?*
 
-* Any feedback you have on the provided rubrics. Was anything unclear? Let us know!
-
-* Anything you want more explanation on in class. Although we can't cover everything, we will take these suggestions into account when planning out future material.
+- *Did you prefer building your layout via the XML editor, or programatically? Why?*
 
 # Development Strategies
 
@@ -190,3 +191,45 @@ For this part, you simply need to provide a short reflection on your submission.
     * ["An explanation of the ImageView ScaleType attribute" - Important when developing part 3!](https://thoughtbot.com/blog/android-imageview-scaletype-a-visual-guide) (Part 1)
     * ["Building a Responsive UI with Constraint Layout" -- Note the "Set Size as a ratio" section here](https://developer.android.com/training/constraint-layout) (Part 3)
     * ["What's new in Constraint Layout 1.1.0"](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be) (Part 4)
+
+# Turn-in
+
+## Submission Instructions
+
+You will turn in the following files [here](https://gradeit.cs.washington.edu/uwcse/turnin/code/turnin_page_view.php?course=340&quarter=19sp&assignment=ex2):
+
+```
+─ part1.xml
+─ part2.xml
+- Part3View.java
+- Part4View.java
+- part4_grid.xml
+- strings.xml
+```
+
+<span style="color:red;">We will test layout on emulators with different screen sizes. Please use constraint correctly. Don't just try to match pixels in our sample screenshots.</span>
+
+## Grading (10pts)
+
+- Part 1
+  - Portrait and Landscape: 1 pt
+- Part 2
+  - Portrait and Landscape: 1 pt
+- Part 3
+  - Correct "Pinterest" column ordering: 2 pts
+  - (Portrait and Landscape) Correct image widths: 1 pt
+  - (Portrait and Landscape) Correct image margins: 1 pt
+- Part 4
+  - 
+- Code Organization and Style: 1 pt
+
+## IDE Errors/Warnings you can ignore
+
+<span style="color:red;">**NOTE:**</span> An error/warning that can be ignored for this assignment **cannot** be ignored for every assignment. Check IDE notices against specs on per assignment basis.
+
+- `Button`
+  - Hardcoded Strings
+- `TextView`
+  - Hardcoded Strings
+- `ImageView`
+  - Missing `contentDescription`
