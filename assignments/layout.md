@@ -65,6 +65,10 @@ For part 2, you will create the same layout programatically, using Java syntax t
 
 ![Landscape screenshot for parts 1 and 2](layout-img/1_new_landscape.png){:width="50%"}
 
+The interactor hierarchy for parts 1 and 2 is shown below:
+
+![Interactor hierarchy for parts 1 and 2](layout-img/pt1hierarchy.png)
+
 ## Part 1
 
 ---
@@ -103,11 +107,11 @@ Tasks:
 
 In `Part2Activity` we have set up the basic scaffolding necessary to complete the given layout. For this section you will be instantiating the view objects from Part 1 programmatically.
 
-Before getting started on this section, try constructing a [LayoutInflater](https://developer.android.com/reference/android/view/LayoutInflater.html) and passing in your `part1.xml` file.
+<!-- Before getting started on this section, try constructing a [LayoutInflater](https://developer.android.com/reference/android/view/LayoutInflater.html) and passing in your `part1.xml` file.
 
-*Hint: Look for a method which accepts our current context as a parameter and returns a new LayoutInflater.*
+*Hint: Look for a method which accepts our current context as a parameter and returns a new LayoutInflater.* -->
 
-The LayoutInflater allows us to accept a valid XML file, in this case our `part1.xml` file, and convert it into a customizable View object. The XML/visual editor makes it much easier to build our app layouts, so we can use that to create new layouts, then use an inflater to convert the XML into an object before programmatically appending it to our current app layout.
+<!-- The LayoutInflater allows us to accept a valid XML file, in this case our `part1.xml` file, and convert it into a customizable View object. The XML/visual editor makes it much easier to build our app layouts, so we can use that to create new layouts, then use an inflater to convert the XML into an object before programmatically appending it to our current app layout. -->
 
 Note that, although you have been given the list of image names to add to your view, you still need a way to access that image resource programmatically. There are a number of ways to accomplish this, so you are encouraged to search around for potential solutions.
 
@@ -115,7 +119,9 @@ Your `Part2View` submission should accomplish the following:
 
 * Achieve the layout from `Part1View` without using an XML file. That is, you should accomplish the layout requirements from Part 1 programmatically, creating Views in Java to accomplish your desired layout.
 
-For this part, you cannot use the LayoutInflater in your final submission. However, it may be useful to inflate your layout from part 1 in order to better understand how your XML is structured.
+You may not make use of your part 1 solution when writing the code for this part of the assignment.
+
+<!-- For this part, you cannot use the LayoutInflater in your final submission. However, it may be useful to inflate your layout from part 1 in order to better understand how your XML is structured. -->
 
 
 # Part 3
@@ -123,6 +129,10 @@ For this part, you cannot use the LayoutInflater in your final submission. Howev
 ---
 
 The `Part3View` starter code can be found in the `cse340.layout` directory in Android Studio.
+
+The interactor hierarchy for Part 3 is shown below:
+
+![interactor hierarchy for part 3](layout-img/pt3hierarchy.png)
 
 Tasks:
 
