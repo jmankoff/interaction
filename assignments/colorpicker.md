@@ -74,7 +74,7 @@ Your colorpicker view will require you to support drawing (of feedback on the sc
 
 ## Drawing
 
-Drawing is implemented in `onDraw()`. You will need to draw the thumb and the color in the center of the circle. This can be done using things you learned in Doodle, since `ColorPickerView` inherits from `ImageView`. We provide a color dial in drawable and it is already being drawn due to `ColorPicker`.
+Drawing is implemented in `ColorPickerView#onDraw`. You will need to draw the thumb and the color in the center of the circle. This can be done using things you learned in Doodle, since `ColorPickerView` inherits from `ImageView`. We provide a color dial in the drawable folder and it is already being drawn by `ColorPicker#onDraw` which is called because `ColorPickerView` inherits from `ColorPicker`.
 
 The term `wheel` used throughout the spec refers to the dial **and** inner circle; it is the larger circle that contains all interface you will be drawing.
 
@@ -92,11 +92,11 @@ _Related APIs_:
 
 ### Thumb
 
-In the screenshots there is a visible thumb that marks the selected color on the dial. The thumb is drawn in `onDraw()` and should move around as a user interacts with the color picker.
+In the screenshots there is a visible thumb that marks the selected color on the dial. The thumb is drawn in `ColorPickerView#onDraw` and should move around as a user interacts with the color picker.
 
-The thumb should be constrained to moving along a circular track that places it within the dial. It should move along that track even when the user is interacting with the inner circle.
+The thumb should be constrained to moving along a circular track that places it within the dial. It should move along that track even when the user is dragging their finger inside the inner circle.
 
-Visually, the thumb's radius is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). This value is provided to you as a constant. Intuitively, positioning the thumb is similar to `ColorPicker#getTouchAngle(..)` but in reverse, additionally constraining the thumb to stay within the color band.
+Visually, the thumb's radius is `0.085` times the outer-radius of the dial (center of circle to outside edge of color). This value is provided to you as a constant. Intuitively, positioning the thumb is similar to `ColorPicker#getTouchAngle` but in reverse, additionally constraining the thumb to stay within the color band.
 
 To calculate the alpha (which is an `int` [0, 255]) multiply the floats provided in the PPS by 255, then cast to `int`.
 
@@ -128,7 +128,7 @@ class I normal
 
 Note that the End state only exists to show the lifetime of a _single_ interaction. Because the user can interact with the color picker any number of times, we would actually return to the Start state when the thumb is released. For some examples of single interactions, see the diagrams below.
 
-We'll handle touch input by implementing `onTouchEvent`. This is the event handler that will be called when a touch occurs in this view. In addition, when feedback is needed, you will have to ensure that the view is _redrawn_. For style purposes, you should only redraw the view when necessary. We **will be taking off points** for redraw calls if they are not necessary. A good general guideline is to only redraw in your PPS code.
+We'll handle touch input by implementing `ColorPickerView#onTouchEvent`. This is the event handler that will be called when a touch occurs in this view. In addition, when feedback is needed, you will have to ensure that the view is _redrawn_. For style purposes, you should only call `invalidate()` when necessary. `invalidate()` doesn't directly trigger more redraws and will likely have no impact, but it is good style to only call it when needed. We **will be taking off points** for redraw calls if they are not necessary. In this assignment, a good guideline is to do all the redrawing in your PPS code and to only call `invalidate()` once in `ColorPickerView#onTouchEvent`.
 
 As you write the PPS, make sure to utilize proper coding style to ensure that the code is readable to someone not familiar with the project. For an example of how to translate PPS into code, see the [PPS page](./pps.md).
 
@@ -150,16 +150,16 @@ Once interaction with the wheel begins, we should update the ColorPickerView's l
 - When a finger drags on screen inside the wheel, the thumb will follow the angle the finger is at, and the color of the center circle will update to reflect the change in the local model for the ColorPicker
 - When a finger drags on screen outside the wheel, the thumb will stay at the most recent angle within the wheel. If the finger re-enters the wheel at a different angle, the thumb should jump to that angle and the color within the wheel should display the corresponding color.
 
-Use the `x` and `y` coordinates of the touch event to calculate the angle (in radians) of the touch on the wheel with `ColorPicker#getTouchAngle(float, float)`. It is difficult to do this mapping in tranditional RGB color space. The HSV color space discussed during class fits this task well. You can read more about the HSV color space [here](https://en.wikipedia.org/wiki/HSL_and_HSV). Since we're just adjusting color, we only want to modify hue while leaving saturation and value constant. You may see detailed instruction in code comments under `ColorPicker#getColorFromAngle`, which we provide you. Use this implementation to guide your work on `ColorPickerView#getAngleFromColor`, which does the opposite operation. 
+Use the `x` and `y` coordinates of the touch event to calculate the angle (in radians) of the touch on the wheel with `ColorPicker#getTouchAngle`. It is difficult to do this mapping in tranditional RGB color space. The HSV color space discussed during class fits this task well. You can read more about the HSV color space [here](https://en.wikipedia.org/wiki/HSL_and_HSV). Since we're just adjusting color, we only want to modify hue while leaving saturation and value constant. You may see detailed instruction in code comments under `ColorPicker#getColorFromAngle`, which we provide you. Use this implementation to guide your work on `ColorPickerView#getAngleFromColor`, which does the opposite operation. 
 
-Here are some test values to help test your implementation of `getAngleFromColor`:
+Here are some test values to help test your implementation of `ColorPickerView#getAngleFromColor`:
 - angle: 2.5769272, color: -16774401 (blue)
 - angle: -1.5461564, color: -64000 (red)
 - angle: 0.42093232, color: -15073536 (green)
 
 ### Transition to the end state.
 
-When the user finishes interacting with the wheel, you'll need to update the UI to reflect the new selected color, by calling `onColorSelected` on the  `ColorListener` with our newly selected color. In addition, the thumb transparency should be reset to `1f`.
+When the user finishes interacting with the wheel, you'll need to update the UI to reflect the new selected color, by calling `onColorSelected` on the `ColorChangeListener` with our newly selected color. In addition, the thumb transparency should be reset to `1f`.
 
 _Related APIs_:
 [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent) / [Color](https://developer.android.com/reference/android/graphics/Color) / [ColorUtils](https://developer.android.com/reference/android/support/v4/graphics/ColorUtils) / [View#onTouchEvent](<https://developer.android.com/reference/android/view/View.html#onTouchEvent(android.view.MotionEvent)>)
@@ -174,7 +174,7 @@ The application layer should set the default color of `colorPicker` using `MainA
 
 ## Managing Application State with Listeners
 
-To find out about color changes, the application needs to register a callback by calling `colorPicker.addColorListener()`. This callback
+To find out about color changes, the application needs to register a callback by calling `colorPicker.addColorListener`. This callback
 should update the application's `colorView` and `colorTextView` whenever `onColorSelected` is called to demonstrate that the
 application correctly got a color from `colorPickerView`. This means you are **prohibited** from leveraging publicly accessible
 fields/functions on the color picker to observe the ColorPickerView state. 
