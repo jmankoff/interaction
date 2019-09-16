@@ -30,13 +30,13 @@ android_goals:
 
 For this assignment, you will be creating an activity class which will allow you to create "Doodles" consisting of images, lines, and text.
 
-This assignment will take about 6 - 8.5 hours to complete. You should expect this amount of workload on most assignments this quarter, so make sure to build good habits when completing it.
+This assignment will take about 6 - 8 hours to complete. You should expect this amount of workload on most assignments this quarter, so make sure to build good habits when completing it.
 
 If you find yourself taking additional time on this submission, we strongly suggest that you get in touch with the course staff on Piazza or in person.
 
 ## Learning Goals
 
-- Utilize abstracted methods to draw onto the screen.
+- Use abstracted methods to draw onto the screen.
 - Create animations in Android Studio.
 - Begin considering how to style your Android apps.
 
@@ -168,11 +168,11 @@ If you're positioning a large number of images for [Part 2](#part-2), it may be 
 ## Reflection
 In addition, you are expected to turn in a short reflection on this assignment. Moving forward for this quarter, you will be expected to fill out a reflection for each assignment. These reflections are your opportunity to offer us feedback on the structure of each assignment, as well as reflect on the topics covered.
 
+These reflections should always be submitted directly to Gradescope. 
+
 For this assignment, your reflection should at minimum cover the following:
 
 - *Why might it be better to animate a view, rather than invalidate/redraw its contents?*
-
-- *Our LineView class is a bit clunky. What optimizations could you think of making to our LineView class? Consider the operations you used to style your TextView and ImageViews.*
 
 - *At the moment our application is pretty static. Think of at least two ways that you would go about adding interactivity to this application.*
 
@@ -189,3 +189,4 @@ For this assignment, your reflection should at minimum cover the following:
     - Using an animation: 1 pt
   - Complete assigned peer grading: 1 pt
 - Turn-in and compiles: 1 pt
+
