@@ -248,7 +248,11 @@ Here, you should consider the assignment's usefulness in the greater scope of th
 Some things to mention:
 * Do you feel like you were well-prepared for this assignment in lecture and section?
 
+* Is there anything we could cover in greater detail that would benefit students directly on this assignment?
+
 <!-- TODO: Integrate part 4 optional reflection -->
+
+As before, this reflection will be submitted to Gradescope.
 
 # Development Strategies
 

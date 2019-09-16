@@ -434,6 +434,14 @@ In order to receive full credit here, you should at minimum answer the following
 
 *How would you account for the case where a menu appears off of the phone screen? For instance, if a user attempts to access the Normal menu from the bottom of the screen.*
 
+If you implemented  a custom menu for extra credit, your reflection should also include the following:
+
+*What goals did you target with your custom menu? Was it able to achieve those goals?*
+
+*How does your custom menu work? How does a user interact with it?*
+
+As usual, this reflection should be submitted to Gradescope.
+
 # Submission Instructions
 
 You will turn in the following files [here](https://gitgrade.cs.washington.edu/student/assignment/49/turnin):
