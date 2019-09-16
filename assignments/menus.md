@@ -317,13 +317,6 @@ The radius of the circle in the pie menu is `RADIUS - TEXT_SIZE * 2`.
 The width of each item in the normal menu is `CELL_WIDTH` and the height is
 `CELL_HEIGHT`.
 
-<!-- optional bit, we should drop this if we decide to -->
-
-In the event that part of your menu may appear off-screen, you should adjust its
-start point to ensure that the entire menu is legible and accessible. If part of
-the user's finger is over a menu item as a result, then you should select that index
-when you draw the menu.
-
 ## Some hints for the pie menu
 
 - `drawArc` will draw a pizza-pie shaped arc, so you can do things
@@ -332,8 +325,8 @@ when you draw the menu.
   the top of the pie (both when drawing and in essential geometry)
   because angle is traditionally measured from cardinal east. You can
   add this in radians before converting from angle to index. 
-- Check your color picker submission for some advice on setting up
-  the `essentialGeometry` function for `PieMenuView`.
+- Just as in color picker, you should look to the atan function for
+  your pie menu's essentialGeometry function.
 - Your pie menu text does not need to be centered -- as long as it
   is contained within the outer ring of the pie menu, you are fine.
 
