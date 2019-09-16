@@ -201,13 +201,54 @@ When working with more advanced constraint layouts, you may find the following r
 
 ---
 
-For this part, you will submit your reflection on this assignment. This reflection should, at minimum, cover the following:
+For this part, you will submit your reflection on this assignment. The reflection should abide by the following layout:
 
-- *When creating new views for your **Part 4** submission, did you find any interesting tools within the Android Studio documentation?*
+## Paragraph 1: Assignment Feedback
 
-- *Do you feel that your custom layout was successful? If so, why? If not, what would you fix?*
+---
 
-- *Did you prefer building your layout via the XML editor, or programatically? Why?*
+We would appreciate your feedback on this assignment, particularly in parts 1 through 3 (though feel free to cover anything in part 4 that is not relevant to paragraph 1).
+
+Things to consider:
+
+* Relative Difficulty
+    * How did the difficulty of this assignment feel?
+    * By an estimate, how much time did you spend working on your submission?
+    * Do you feel the workload was too much, too little, or just right?
+    * Is there anything you would add to/remove from this assignment?
+
+* Suggestions
+    * Do you think it contributed positively to the course material thus far? If not, why?
+    * If you had the opportunity, how would you change this assignment?
+
+## Paragraph 2: Reflection on Part 4 (optional)
+
+---
+
+You should spend at least a paragraph describing your submission for part 4. This reflection is open ended, however you should take the following guidelines into consideration:
+
+* Inspiration
+    * If your layout submission is based on the layout of another popular interface, what interface did you use? If the layout was designed for another platform, what considerations did you take when porting it over to Android?
+    * If your layout submission is original, what inspired your decisions regarding layout and design? Was there anything you used as a resource when considering layout?
+        * Additionally, if you choose to go this route you should take a sentence or two to describe the use case of your mock layout application.
+
+* Implementation
+    * What resources did you use within Android Studio to accomplish your desired layout?
+
+* Successes and Struggles
+    * How successful do you feel with your submission? What worked and what didn't? Is there anything that you wanted to implement but could not figure out?
+
+<!-- do we want to do this? -->
+In addition, you should provide a labeled draft of your current app layout. The blueprint view in the visual studio is a good starting point for this.
+
+## Paragraph 3: General Feedback
+
+Here, you should consider the assignment's usefulness in the greater scope of the course. Any miscellaneous feedback you have for the TA team should be provided here as well.
+
+Some things to mention:
+* Do you feel like you were well-prepared for this assignment in lecture and section?
+
+<!-- TODO: Integrate part 4 optional reflection -->
 
 # Development Strategies
 
