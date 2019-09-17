@@ -263,10 +263,10 @@ In addition to adding a thickness, we want to be able to draw strokes of _any_ c
 already made a custom interactor that allows users to choose any color on the color spectrum in a previous assignment. It is time to wire up a
 `ColorPickerView` into this application.
 
-First, you need to copy over the `ColorPicker.java` and `ColorPikerView.java` files from your `as3-Color-Picker` repository. Put these files in the same
+First, you need to copy over the `ColorPicker.java` and `ColorPickerView.java` files from your `as3-Color-Picker` repository. Put these files in the same
 directory as your `MainActivity.java` file. 
 
-Next, you will need to change the behavior of the color FAB so that, when clicked, it opens up the color picking interface instead of opening the collapsible color menu. For reference on how to do this, take a look at `MainActivity.java#onCreate` from the color picker assignment (hint: make sure to take a look at what interfaces `MainActivity.java` implements). When users have the color picker interactor open, they _should not_ be able to access any of the FABs (undo, redo, color change, thickness change) so be sure to disable them when you show the color picker and visually indicate to the user that they are disabled. If a color change is undone or redone, the color picker should reflect the correct color. Once you set up all the listeners to respond correctly, your color picker interactor should allow users to pick any stroke color they want!
+Next, you will need to change the behavior of the color FAB so that, when clicked, it opens up the color picking interface instead of opening the collapsible color menu. For reference on how to do this, take a look at `MainActivity.java#onCreate` from the color picker assignment (hint: make sure to take a look at what interfaces `MainActivity.java` implements). When users have the color picker interactor open, they _should not_ be able to access any of the FABs (undo, redo, color change, thickness change) so be sure to disable them when you show the color picker and visually indicate to the user that they are disabled. This behavior should be very similar to the what happens when you try to change the thickness using the collapsible menu. If a color change is undone or redone, the color picker should reflect the correct color. Once you set up all the listeners to respond correctly, your color picker interactor should allow users to pick any stroke color they want!
 
 _Related APIs_:
 [View#using-views](https://developer.android.com/reference/android/view/View#using-views)
