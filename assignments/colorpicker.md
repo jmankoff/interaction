@@ -40,7 +40,7 @@ Tasks for `ColorPickerView`
 - Initialize properties during `onLayout` (register the first measure
   before initializing all views)
 - Draw the colorpicker in `onDraw`
-- Save view state locally
+- Save/restore view state locally
 
 You will also edit `MainActivity.java`. This is your
 _application_ and it will _use_ your color picker. `MainActivity`
@@ -164,9 +164,9 @@ When the user finishes interacting with the wheel, you'll need to update the UI 
 _Related APIs_:
 [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent) / [Color](https://developer.android.com/reference/android/graphics/Color) / [ColorUtils](https://developer.android.com/reference/android/support/v4/graphics/ColorUtils) / [View#onTouchEvent](<https://developer.android.com/reference/android/view/View.html#onTouchEvent(android.view.MotionEvent)>)
 
-# Part 2: Creating your application
+# Part 2: Implementing the application layer
 
-Your application is making use of your color picker. The application needs a way to find out from its fancy new view (`ColorPickerView`) when the color changes. In our case, it will use this information to display the newly chosen color and update the application model, though another application might do something different. Examples of other applications include Photoshop, MS Paint, etc. 
+Your application is making use of your color picker. The application layer needs a way to find out from its fancy new view (`ColorPickerView`) when the color changes. In our case, it will use this information to display the newly chosen color and update the application model, though another application might do something different. Examples of other applications include Photoshop, MS Paint, etc. 
 
 ## Setting up the Application
 
@@ -187,7 +187,7 @@ You may notice that `ColorPicker.java` keeps a `List` of `ColorChangeListeners`.
 
 Please save application model (i.e. the current color as known by the application) in the `onSaveInstanceState` bundle. When user goes off to some other app, Android kills our Activity. We need the bundle to get the saved state back.
 
-We want to manage the state at the application level (`MainActivity.java`) versus at the interactor level, this means you will need to find a way to set the state of the color picker from the application when the bundle is loaded.
+We want to manage the state at the application level (`MainActivity.java`) versus at the interactor level, this means you will need to find a way to set the state of the color picker from the application layer when the bundle is loaded.
 
 Notice from the documentation that `onRestoreInstanceState` is called after `onCreate` if a bundle exists. This is where you will access the information we saved in `onSaveInstanceState` to restore the current color with the color we had before our Activity was killed.
 
