@@ -4,9 +4,9 @@ title: Color Picker
 code: EX3
 
 published: draft
-assigned: Thursday, April 18, 2019
-due: 11:59 PM Wednesday, April 24, 2019
-revised: 2:15 PM Tuesday, April 23, 2019
+assigned: <!-- Thursday, April 18, 2019 -->
+due: <!-- 11:59 PM Wednesday, April 24, 2019 -->
+revised: <!-- 2:15 PM Tuesday, April 23, 2019 -->
 
 objective: Create an RGB color picker which lets you choose a color on a rainbow circle (color wheel).
 

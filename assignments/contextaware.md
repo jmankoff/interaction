@@ -3,9 +3,9 @@ layout: assignment
 title: Context Awareness
 code: A3
 published: draft
-assigned: Tuesday, May 28, 2019
-due: 11:59 PM Friday, June 7, 2019
-revised: 9 pm Friday, June 8, 2019
+assigned: <!-- Tuesday, May 28, 2019 -->
+due: <!-- 11:59 PM Friday, June 7, 2019 -->
+revised: <!-- 9 pm Friday, June 8, 2019 -->
 
 objective: Build a context aware application.
 
