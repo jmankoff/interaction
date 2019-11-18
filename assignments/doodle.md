@@ -76,14 +76,12 @@ addText(mainCanvas, "CSE340", scaleX(550), scaleY(200), 60, Color.rgb(51,0,111))
 
 ### Specs for addLine
 ```java
-ImageView addLine(FrameLayout mainCanvas, float startX, float startY, float endX, float endY, int width, int color);
+LineView addLine(FrameLayout mainCanvas, float startX, float startY, float endX, float endY, int width, int color);
 ```
 
 There are several ways to draw a line. [android--code](https://android--code.blogspot.com) has [a good example](https://android--code.blogspot.com/2015/11/android-how-to-draw-line-on-canvas.html).
 
-For your `Bitmap`, you can use `Bitmap#createBitmap(int, int, Bitmap.Config)` to create a new `Bitmap` with the width and height of the current screen. **You can find the width and height of the current device screen in the `PHONE_DIMS` constant of `Doodler`**. It will be available to you in `Part1`.
-
-**You may notice that the line does not fully span the width of the screen.** This is due to the `ImageView` in which the `Bitmap` resides having a margin around it. To fix this, **set the width and height of the `ImageView` to match the dimensions you set for the `Bitmap`**. See `addImage` for how to adjust the width and height of an `ImageView`.
+For this function, you will be implementing a LineView class whose job is to draw a line onto the canvas. To this end, we have provided some blank stub code for you to fill in. All the parameters for this function should be passed into your LineView constructor, and you will be implementing both the constructor and `onDraw` functions to successfully draw the line onto your device screen. Each `LineView` should draw a single line onto the canvas.
 
 If you implement it correctly, you'll see the image below if you run:
 ```java
