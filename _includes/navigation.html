@@ -1,15 +1,20 @@
 <!-- Much of this code copied from pdarragh at https://gist.github.com/pdarragh/c7ca120604c1a1d8b8de -->
 
 {% for entry in site.data.navigation %}
-{% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
-  {% if fullurl == page.url %}
-    {% assign current_page = fullurl %}
-    {% break %}
-  {% elsif page.url contains fullurl %}
-    {% assign current_page = fullurl %}
-  {% endif %}
+ {% if entry.url == "canvas" %}
+   {% assign current_page = page.url %}
+ {% elsif entry.url == "piazza" %}
+   {% assign current_page = page.url %}
+ {% else %}
+   {% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
+     {% if fullurl == page.url %}
+       {% assign current_page = fullurl %}
+       {% break %}
+     {% elsif page.url contains fullurl %}
+       {% assign current_page = fullurl %}
+     {% endif %}
+ {% endif %}
 {% endfor %}
-
 
 <nav aria-label={{site.data.navigation.nav_list_title}} id="mainNav"
      class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -26,7 +31,15 @@
     <ul class="navbar-nav ml-auto" id="menubar1" role="menubar"
       aria-label={{site.data.navigation.nav_list_title}}>
     {% for entry in site.data.navigation.nav_list %}
-      {% if entry.url == current_page %}
+      {% if entry.url == "canvas" %}
+        {% assign itemurl = site.canvas %}
+      {% elsif entry.url == "piazza" %}
+        {% assign itemurl = site.piazza %}
+      {% else %}
+        {% assign itemurl = entry.url %}
+      {% endif %}
+    
+      {% if itemurl == current_page %}
          {% assign current = "current" %}
       {% else %}
             <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
@@ -41,7 +54,7 @@
          {% assign base = site.baseurl %}
       {% endif %}
 
-      <a class="navbar-brand js-scroll-trigger" role="menuitem" href="{{ base }}{{ entry.url }}">{{ entry.title }}</a>
+      <a class="navbar-brand js-scroll-trigger" role="menuitem" href="{{ base }}{{ itemurl }}">{{ entry.title }}</a>
       <ul>
         {% for sublink in sublinks %}
 	{% if sublink.url contains "http" %}
@@ -55,13 +68,13 @@
     </li>
        {% else %}
     <li class = "nav-item {{ current }}">
-      {% if entry.url contains "http" %}
+      {% if itemurl contains "http" %}
          {% assign base = "" %}
       {% else %}
          {% assign base = site.baseurl %}
       {% endif %}
 
-      <a class="navbar-brand js-scroll-trigger"  role="menuitem" href="{{base}}{{entry.url}}">{{ entry.title }}</a>
+      <a class="navbar-brand js-scroll-trigger"  role="menuitem" href="{{base}}{{itemurl}}">{{ entry.title }}</a>
     </li>
        {% endif %}
     {% endfor %}
