@@ -3,7 +3,7 @@ layout: assignment
 title: Menus
 code: A1
 
-published: true
+published: draft
 assigned: Thursday, April 25, 2019
 due: Code on 11:59 PM Wednesday, May 1, 2019; Writeup and data on 11:59 PM Wednesday, May 8, 2019
 revised: 3:05 PM Wednesday, May 1, 2019

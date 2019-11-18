@@ -3,7 +3,7 @@ layout: assignment
 title: Doodle
 code: EX1
 
-published: true
+published: draft
 assigned: Thursday, April 4, 2019
 due: 11:59 PM Monday, April 10, 2019
 revised: 1:44 PM Wednesday, April 10, 2019
