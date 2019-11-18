@@ -1,10 +1,12 @@
 ---
 layout: default
 ---
+{% if page.warning != none %}
       <div id="unpublished-warning">
-	This is the CSE340-F19 final website. It is currently in
+	This is the CSE340-W20 website. It is currently in
 	development and not final
       </div>
+{% endif %}
 
       <h2>{{ page.title }}</h2>
 <p class="meta">{{ page.date | date_to_string }}</p>
