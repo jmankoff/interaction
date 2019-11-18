@@ -40,6 +40,7 @@ If you find yourself taking additional time on this submission, we strongly sugg
 - Create animations in Android Studio.
 - Begin considering how to style your Android apps.
 
+
 # Part 1
 ***
 
@@ -59,9 +60,6 @@ Subclasses of `Part1` will have access to these methods once they are implemente
 ![A screenshot with a heart on it made up of smaller pictures. There's an "I" in the upper left and a "UW" in the middle left](doodle-img/screenshot_no_animation.jpeg){:width="25%"}
 
 You'll notice in `doodle` in `Part1` that we use `scaleX` and `scaleY` around our coordinates (and size for images). These allow us to ensure the doodle still looks good on smaller screen sizes. **If you use _any_ pixel coordinates in your solutions, remember to wrap them in these scaling methods**. These will scale coordinates from the Pixel 2 XL to the dimensions of your device's screen. We'd recommend that you use a Pixel 2 XL emulator to compare the finished doodle against our screenshot to be sure you're implementing everything right.
-
-Additionally, there are instances where the the image CSV file fails to load properly due to discrepencies in line endings (CRLF vs LF). If you run into this,
-try redownloading the file or re-saving it in a text editor.
 
 ### Specs for addImage
 ```java
@@ -93,14 +91,12 @@ addText(mainCanvas, "CSE340", scaleX(550), scaleY(200), 60, Color.rgb(51,0,111))
 
 ### Specs for addLine
 ```java
-ImageView addLine(FrameLayout mainCanvas, float startX, float startY, float endX, float endY, int width, int color);
+LineView addLine(FrameLayout mainCanvas, float startX, float startY, float endX, float endY, int width, int color);
 ```
 
 There are several ways to draw a line. [android--code](https://android--code.blogspot.com) has [a good example](https://android--code.blogspot.com/2015/11/android-how-to-draw-line-on-canvas.html).
 
-For your `Bitmap`, you can use `Bitmap#createBitmap(int, int, Bitmap.Config)` to create a new `Bitmap` with the width and height of the current screen. **You can find the width and height of the current device screen in the `PHONE_DIMS` constant of `Doodler`**. It will be available to you in `Part1`.
-
-**You may notice that the line does not fully span the width of the screen.** This is due to the `ImageView` in which the `Bitmap` resides having a margin around it. To fix this, **set the width and height of the `ImageView` to match the dimensions you set for the `Bitmap`**. See `addImage` for how to adjust the width and height of an `ImageView`.
+For this function, you will be implementing a LineView class whose job is to draw a line onto the canvas. To this end, we have provided some blank stub code for you to fill in. Parameters for this function should be passed into your LineView constructor, and you will be implementing both the constructor and `onDraw` functions to successfully draw the line onto your device screen. Each `LineView` should draw a single line onto the canvas.
 
 If you implement it correctly, you'll see the image below if you run:
 ```java
@@ -165,17 +161,6 @@ If you use your own images in [Part 2](#part-2), please include them in a ZIP ar
 
 If you're positioning a large number of images for [Part 2](#part-2), it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part2.csv` if necessary. Remember, the CSV coordinates are on a Pixel 2 XL and scaled to the current screen in `Doodler#addAllImagesFromData(FrameLayout)`.
 
-## Reflection
-In addition, you are expected to turn in a short reflection on this assignment. Moving forward for this quarter, you will be expected to fill out a reflection for each assignment. These reflections are your opportunity to offer us feedback on the structure of each assignment, as well as reflect on the topics covered.
-
-These reflections should always be submitted directly to Gradescope. 
-
-For this assignment, your reflection should at minimum cover the following:
-
-- *Why might it be better to animate a view, rather than invalidate/redraw its contents?*
-
-- *At the moment our application is pretty static. Think of at least two ways that you would go about adding interactivity to this application.*
-
 ## Grading (10pts)
 
 - Part 1
@@ -189,4 +174,3 @@ For this assignment, your reflection should at minimum cover the following:
     - Using an animation: 1 pt
   - Complete assigned peer grading: 1 pt
 - Turn-in and compiles: 1 pt
-
