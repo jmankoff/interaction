@@ -28,48 +28,9 @@ hci_goals:
 * TOC
 {:toc}
 
-# Assignment Description
-
 This is the assignment spec for Exercise 2. Scroll down below part 5 for some development strategies and tips curated from last spring's students!
 
-In Spring 2019, students spent about 10 - 12 hours on average on this assignment. It has been modified somewhat since then, but make sure that you are getting started early -- part 4 is often the most difficult, so start early on that, as this can quickly become one of the more time-consuming assignments of the quarter.
-
-## Learning Goals
-
-- Understand Android layout GUI and XML
-- Familiarize with Android programmatic layout API
-- Understand Android constraints implementation
-- Handle portrait and landscape orientation correctly
-- Handle fixed and variable size container views
-
-- Make use of interactor hierarchy
-- Use constraints to create responsive layouts
-- Make use of complex built-in layouts
-- Implement reusable layouts
-- Understand how scrolling works
-- Understand how sizes influence layout
-
-<!-- These are just borrowed from the assignment header for now -->
-
-# Introduction to Parts 1 and 2
-
-For parts 1 and 2, you will be building the same layout twice.
-
-For part 1, you will create the desired layout using Android Studio's built-in layout editor to create the desired layout.
-
-For part 2, you will create the same layout programatically, using Java syntax to construct view objects and add them to our activity.
-
-![Reference image for parts 1 and 2](layout-img/LayoutSpec.png){:width="75%"}
-
-![Portrait screenshot for parts 1 and 2](layout-img/1_new_portrait.png){:width="25%"}
-
-![Landscape screenshot for parts 1 and 2](layout-img/1_new_landscape.png){:width="50%"}
-
-The interactor hierarchy for parts 1 and 2 is shown below:
-
-![Interactor hierarchy for parts 1 and 2](layout-img/pt1hierarchy.png)
-
-## Part 1
+# Part 1
 
 ---
 
@@ -83,7 +44,7 @@ Tasks:
 
 When it comes to layout, working directly with XML can be a pain, especially when there's several attributes to keep track of on each element. Luckily, Android Studio provides a visual editor which you can use to build your app layout without knowing any XML.
 
-For `Part1View`, you will accomplish the following:
+For `part1.xml`, you will accomplish the following:
 
 * Use the visual/XML editor to construct a single, scrollable column of images.
 
@@ -95,7 +56,7 @@ For `Part1View`, you will accomplish the following:
 You may find the following link helpful in composing your layout:
 [Linear Layouts | Android Developers](https://developer.android.com/guide/topics/ui/layout/linear)
 
-## Part 2
+# Part 2
 
 ---
 
@@ -107,11 +68,11 @@ Tasks:
 
 In `Part2Activity` we have set up the basic scaffolding necessary to complete the given layout. For this section you will be instantiating the view objects from Part 1 programmatically.
 
-<!-- Before getting started on this section, try constructing a [LayoutInflater](https://developer.android.com/reference/android/view/LayoutInflater.html) and passing in your `part1.xml` file.
+Before getting started on this section, try constructing a [LayoutInflater](https://developer.android.com/reference/android/view/LayoutInflater.html) and passing in your `part1.xml` file.
 
-*Hint: Look for a method which accepts our current context as a parameter and returns a new LayoutInflater.* -->
+*Hint: Look for a method which accepts our current context as a parameter and returns a new LayoutInflater.*
 
-<!-- The LayoutInflater allows us to accept a valid XML file, in this case our `part1.xml` file, and convert it into a customizable View object. The XML/visual editor makes it much easier to build our app layouts, so we can use that to create new layouts, then use an inflater to convert the XML into an object before programmatically appending it to our current app layout. -->
+The LayoutInflater allows us to accept a valid XML file, in this case our `part1.xml` file, and convert it into a customizable View object. The XML/visual editor makes it much easier to build our app layouts, so we can use that to create new layouts, then use an inflater to convert the XML into an object before programmatically appending it to our current app layout.
 
 Note that, although you have been given the list of image names to add to your view, you still need a way to access that image resource programmatically. There are a number of ways to accomplish this, so you are encouraged to search around for potential solutions.
 
@@ -119,20 +80,13 @@ Your `Part2View` submission should accomplish the following:
 
 * Achieve the layout from `Part1View` without using an XML file. That is, you should accomplish the layout requirements from Part 1 programmatically, creating Views in Java to accomplish your desired layout.
 
-You may not make use of your part 1 solution when writing the code for this part of the assignment.
-
-<!-- For this part, you cannot use the LayoutInflater in your final submission. However, it may be useful to inflate your layout from part 1 in order to better understand how your XML is structured. -->
-
+For this part, you cannot use the LayoutInflater in your final submission. However, it may be useful to inflate your layout from part 1 in order to better understand how your XML is structured.
 
 # Part 3
 
 ---
 
 The `Part3View` starter code can be found in the `cse340.layout` directory in Android Studio.
-
-The interactor hierarchy for Part 3 is shown below:
-
-![interactor hierarchy for part 3](layout-img/pt3hierarchy.png)
 
 Tasks:
 
@@ -181,7 +135,7 @@ You may find the following link helpful when working with constraint layouts: ["
 
 The `Part4View` starter code can be found in the `cse340.layout` directory in Android Studio.
 
-For part 4, feel free to explore anything pertaining to layout that we have discussed in the past 2 weeks. Your task is to wireframe and recreate an interface from another popular app. For instance: Twitter, Facebook, Instagram, etc. (not Pinterest!)
+For part 4, feel free to explore anything pertaining to layout that we have discussed in the past 2 weeks. Your task is to wireframe and recreate an interface from another popular app. For instance: Twitter, Facebook, Instagram, etc.
 
 Your layout must meet the following requirements:
 
@@ -191,68 +145,24 @@ Your layout must meet the following requirements:
 
 * In your final submission, you must provide a wireframe of the application you used as reference.
 
-## Wireframe requirements
-
-Your wireframe should clearly identify the application which you are recreating. When building a wireframe, you should provide labels connecting placeholder "wireframe" objects to application level implementations -- for instance, a wireframe for our Pinterest layout might label
-
 When working with more advanced constraint layouts, you may find the following resource helpful: ["What's new in Constraint Layout 1.1.0"](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be)
 
 # Part 5
 
 ---
 
-For this part, you will submit your reflection on this assignment. The reflection should abide by the following layout:
+For this part, you simply need to provide a short reflection on your submission. Some things you may want to cover here:
 
-## Paragraph 1: Assignment Feedback
+* Your experience, positive or negative, working on parts 1 - 4. We are always looking to revise these specs as necessary, so any feedback provided here will improve the quality of assignment rubrics for future quarters.
 
----
+* Anything new that you learned while working on the assignment. This can be anything related to the process of building your app, including:
+    * new concepts in Java/Android
+    * new strategies for designing wireframes and layouts
+    * Advice you received from an instructor or peer which helped you complete the assignment.
 
-We would appreciate your feedback on this assignment, particularly in parts 1 through 3 (though feel free to cover anything in part 4 that is not relevant to paragraph 1).
+* Any feedback you have on the provided rubrics. Was anything unclear? Let us know!
 
-Things to consider:
-
-* Relative Difficulty
-    * How did the difficulty of this assignment feel?
-    * By an estimate, how much time did you spend working on your submission?
-    * Do you feel the workload was too much, too little, or just right?
-    * Is there anything you would add to/remove from this assignment?
-
-* Suggestions
-    * Do you think it contributed positively to the course material thus far? If not, why?
-    * If you had the opportunity, how would you change this assignment?
-
-## Paragraph 2: Reflection on Part 4 (optional)
-
----
-
-You should spend at least a paragraph describing your submission for part 4. This reflection is open ended, however you should take the following guidelines into consideration:
-
-* Inspiration
-    * If your layout submission is based on the layout of another popular interface, what interface did you use? If the layout was designed for another platform, what considerations did you take when porting it over to Android?
-    * If your layout submission is original, what inspired your decisions regarding layout and design? Was there anything you used as a resource when considering layout?
-        * Additionally, if you choose to go this route you should take a sentence or two to describe the use case of your mock layout application.
-
-* Implementation
-    * What resources did you use within Android Studio to accomplish your desired layout?
-
-* Successes and Struggles
-    * How successful do you feel with your submission? What worked and what didn't? Is there anything that you wanted to implement but could not figure out?
-
-<!-- do we want to do this? -->
-In addition, you should provide a labeled draft of your current app layout. The blueprint view in the visual studio is a good starting point for this.
-
-## Paragraph 3: General Feedback
-
-Here, you should consider the assignment's usefulness in the greater scope of the course. Any miscellaneous feedback you have for the TA team should be provided here as well.
-
-Some things to mention:
-* Do you feel like you were well-prepared for this assignment in lecture and section?
-
-* Is there anything we could cover in greater detail that would benefit students directly on this assignment?
-
-<!-- TODO: Integrate part 4 optional reflection -->
-
-As before, this reflection will be submitted to Gradescope.
+* Anything you want more explanation on in class. Although we can't cover everything, we will take these suggestions into account when planning out future material.
 
 # Development Strategies
 
@@ -277,7 +187,7 @@ You will turn in the following files [here](https://gradeit.cs.washington.edu/uw
 
 ```
 ─ part1.xml
-─ part2.xml
+─ Part2View.java
 - Part3View.java
 - Part4View.java
 - part4_grid.xml
@@ -297,7 +207,9 @@ You will turn in the following files [here](https://gradeit.cs.washington.edu/uw
   - (Portrait and Landscape) Correct image widths: 1 pt
   - (Portrait and Landscape) Correct image margins: 1 pt
 - Part 4
-  - 
+  - Portrait and Landscape: 2 pts
+- Part 5
+  - Completed reflection: 1 pt
 - Code Organization and Style: 1 pt
 
 ## IDE Errors/Warnings you can ignore
