@@ -30,7 +30,6 @@ group :jekyll_plugins do
   gem 'uglifier'
   gem 'jekyll-archives'
   gem 'jekyll-remote-theme'
-  gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
 end
 
