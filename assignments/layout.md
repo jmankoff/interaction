@@ -28,7 +28,48 @@ hci_goals:
 * TOC
 {:toc}
 
-# Part 1
+# Assignment Description
+
+This is the assignment spec for Exercise 2. Scroll down below part 5 for some development strategies and tips curated from last spring's students!
+
+In Spring 2019, students spent about 10 - 12 hours on average on this assignment. It has been modified somewhat since then, but make sure that you are getting started early -- part 4 is often the most difficult, so start early on that, as this can quickly become one of the more time-consuming assignments of the quarter.
+
+## Learning Goals
+
+- Understand Android layout GUI and XML
+- Familiarize with Android programmatic layout API
+- Understand Android constraints implementation
+- Handle portrait and landscape orientation correctly
+- Handle fixed and variable size container views
+
+- Make use of interactor hierarchy
+- Use constraints to create responsive layouts
+- Make use of complex built-in layouts
+- Implement reusable layouts
+- Understand how scrolling works
+- Understand how sizes influence layout
+
+<!-- These are just borrowed from the assignment header for now -->
+
+# Introduction to Parts 1 and 2
+
+For parts 1 and 2, you will be building the same layout twice.
+
+For part 1, you will create the desired layout using Android Studio's built-in layout editor to create the desired layout.
+
+For part 2, you will create the same layout programatically, using Java syntax to construct view objects and add them to our activity.
+
+![Reference image for parts 1 and 2](layout-img/LayoutSpec.png){:width="75%"}
+
+![Portrait screenshot for parts 1 and 2](layout-img/1_new_portrait.png){:width="25%"}
+
+![Landscape screenshot for parts 1 and 2](layout-img/1_new_landscape.png){:width="50%"}
+
+The interactor hierarchy for parts 1 and 2 is shown below:
+
+![Interactor hierarchy for parts 1 and 2](layout-img/pt1hierarchy.png)
+
+## Part 1
 
 ---
 
@@ -36,97 +77,197 @@ hci_goals:
 
 Tasks:
 
-- Create `TextView`, `ImageView`, and `Button`
-- Constrain them for automatic portrait and landscape layouts
+- Familiarize yourself with the Android Studio visual layout editor.
 
-First, create a `Button` in `part1.xml`. It should say `BUTTON` by default. Make sure the background color matches ours, `colorPrimary`. Color abstractions in `values/colors.xml` allow us to avoid changing values in multiple places in the future.
+- Use the tools provided by Visual Studio to build a layout based on a list of specifications.
 
-Next, create a `TextView`. Set the background color to black and add a `0` as the text. The font should be white and `200sp`. There also exists a similar `values/strings.xml` which allows us to store strings in a central location. For our purposes, you can hardcode the text into `part1.xml`. You may notice an IDE warning about hardcoded strings, just ignore it.
+When it comes to layout, working directly with XML can be a pain, especially when there's several attributes to keep track of on each element. Luckily, Android Studio provides a visual editor which you can use to build your app layout without knowing any XML.
 
-Finally, create an `ImageView`. It should contain `drawables/food_0` and be `150dp` by `150dp`.
+For `Part1View`, you will accomplish the following:
 
-All three views will have at least two sides along the perimeter of the `ConstraintLayout`. These sides should have a margin of `20dp` preventing the views from touching the edge. As the screen rotates/resizes, all views should stay `20dp` from the edge.
+* Use the visual/XML editor to construct a single, scrollable column of images.
 
-The `ImageView` should reside in the top left. As the screen rotates/resizes, it should remain constant in size.
+* You should place a `vMargin` gap between images and their container, as well as between consecutive images.
 
-The `Button` should reside in the bottom left. Its width should match the `ImageView` and it should be perfectly aligned with it. As the screen rotates/resizes, it should remain constant in size.
+    * Since this view will scroll, you only have to worry about the border between the top of the container and the first image, as well as the border between the bottom of the container and the last image.
 
-The `TextView` should be `20dp` from the right edge of the `ImageView`. As the screen rotates/resizes, it should change width to maintain the `20dp` margin.
 
-<span style="color:red;">**NOTE:**</span> It is possible to position some of the views in this assignment without constraints due to the fact that unconstrained views float upwards unless prevented by another view or a margin. **The purpose of this assignment is to practice constraints so such solutions will not be accepted. Every view you add during this assignment, including the other parts, will require at least one constraint.**
+You may find the following link helpful in composing your layout:
+[Linear Layouts | Android Developers](https://developer.android.com/guide/topics/ui/layout/linear)
 
-![Screenshot of part 1 in portrait](layout-img/1_portrait.jpeg){:width="25%"}
-![Screenshot of part 1 in landscape](layout-img/1_landscape.jpeg){:width="50%"}
-
-# Part 2
+## Part 2
 
 ---
 
-`part2.xml` can be found in the `res/layout` directory in Android Studio once the `layout` project has been opened.
+The `Part2View` starter code can be found in the `cse340.layout` directory in Android Studio.
 
 Tasks:
 
-- Working with a basic `ScrollView`
-- Add a fixed number of items with fixed constraints.
+- Working with View object in Java to reproduce the composed layout from the visual editor.
 
-In `part2.xml` we've created a basic `ScrollView` for you wrapped around a `ConstraintLayout` which will allow its contents to scroll.
-Add ImageViews with drawables `food_0` through `food_3` for a total of four images to the `ConstraintLayout`.
-Let each photo display at its natural resolution. As all three photos are exactly `200px` wide, so we can form a perfect column from them.
+In `Part2Activity` we have set up the basic scaffolding necessary to complete the given layout. For this section you will be instantiating the view objects from Part 1 programmatically.
 
-Using constraints, center them in the parent `ConstraintLayout`. Then position them such that `food_0` is `16dp` from the top of the parent layout and each additional `food_i` is `(16 * i)dp` from `food_(i-1)`.
+<!-- Before getting started on this section, try constructing a [LayoutInflater](https://developer.android.com/reference/android/view/LayoutInflater.html) and passing in your `part1.xml` file.
 
-That is, `food_1` is 16dp below `food_0`, `food_2` is 32dp below `food_1`, and `food_3` is 48dp below `food_2`. This increasing margin layout will also be used in [Part 3](#part-3). There should be **no** margin after the last photo. That is, it should be flush with the tab bar.
+*Hint: Look for a method which accepts our current context as a parameter and returns a new LayoutInflater.* -->
 
-When the layout is rotated, the images should stay the same size and remain horizontally centered.
+<!-- The LayoutInflater allows us to accept a valid XML file, in this case our `part1.xml` file, and convert it into a customizable View object. The XML/visual editor makes it much easier to build our app layouts, so we can use that to create new layouts, then use an inflater to convert the XML into an object before programmatically appending it to our current app layout. -->
 
-![Screenshot of part 2](layout-img/2_portrait.jpeg){:width="20%"}
-![Screenshot of part 2, scrolled down](layout-img/2_portrait_scrolled.jpeg){:width="20%"}
-![Screenshot of part 2, landscape](layout-img/2_landscape.jpeg){:width="50%"}
+Note that, although you have been given the list of image names to add to your view, you still need a way to access that image resource programmatically. There are a number of ways to accomplish this, so you are encouraged to search around for potential solutions.
+
+Your `Part2View` submission should accomplish the following:
+
+* Achieve the layout from `Part1View` without using an XML file. That is, you should accomplish the layout requirements from Part 1 programmatically, creating Views in Java to accomplish your desired layout.
+
+You may not make use of your part 1 solution when writing the code for this part of the assignment.
+
+<!-- For this part, you cannot use the LayoutInflater in your final submission. However, it may be useful to inflate your layout from part 1 in order to better understand how your XML is structured. -->
+
 
 # Part 3
 
 ---
 
+The `Part3View` starter code can be found in the `cse340.layout` directory in Android Studio.
+
+The interactor hierarchy for Part 3 is shown below:
+
+![interactor hierarchy for part 3](layout-img/pt3hierarchy.png)
+
 Tasks:
 
-- Subclass a `ScrollView`
-- Add a variable number of items with programmatic constraints.
+- Utilizing a combination of programmatic and pre-written layouts to produce a working model based on a provided spec sheet.
 
-This time, we'll be adding images and constraints programmatically with similar conditions as [Part 2](#part-2).
+- Using Java to write code which evenly distributes ImageViews between a given set of columns.
 
-First, add a ConstraintLayout then create ImageViews for each image to add to the ScrollView.
+For this part, you will be recreating a Pinterest-like layout. A diagram has been provided below.
 
-Using the similar math as part 2, position the first image `vMargin` px from the top (`vMargin` is a parameter in Part3View constructor), then the top of each image i afterward `vMargin * i` px from the bottom of the previous image. Note here we're working in `px`. At runtime, all `dp` values are represented as `px` which is dependent on the current device resolution. We've done this conversion for you. You can see how we convert `dp` to `px` in `MainActivity#L38`.
+![Screenshot of pinterest layout](https://newsroom.pinterest.com/sites/default/files/inline-images/2014112502.jpg)
+<p style="text-align: center; color:#808080; font-style: italic; font-size: 10pt;">On the left: the old design. On the right, the new design. How about that?</p>
 
-Again, when the layout is rotated, the images should stay the same size and remain horizontally centered.
+Pinterest is a great example of a high-profile app that can be built with relatively simple layout instructions. For instance, one could imagine breaking the layout into two large vertical columns, then assigning various elements to each one.
 
-![Screenshot of part 3](layout-img/3.jpeg){:width="30%"}
-![Screenshot of part 3, scrolled down](layout-img/3_scrolled.jpeg){:width="30%"}
+For this part, you will be doing just that. Using a combination of programmatic and XML layout, you will build the columnar layout necessary to house the images provided in `res/drawables`. Using Java, you should take into account the height of each image, so that each successive image is added to the shorter column. In order to accomplish this, you should take into account the height of each image resource provided.
 
-![Screenshot of part 3, landscape](layout-img/3_landscape.jpeg){:width="45%"}
-![Screenshot of part 3, landscape, scrolled down](layout-img/3_landscape_scrolled.jpeg){:width="45%"}
+*Hint: Our images are all actually the same width. Although we cannot rely on the width and height of the image view before it is added to the screen, we could find a way to access the image resource it contains in order to calculate its impact on the column height.*
+
+In `Part3View`, you should accomplish the following:
+
+- Add each image to one of two columns. By using two `LinearLayout`s instead of simply adding all images to the parent `ConstraintLayout` and using constraints to maintain the columns, we reduce the number of constraints required from `O(n)` to `O(1)` for `n` images.
+    * Each image should be `vMargin` from the previous image vertically (or the top of the column if first image).
+
+- There should be a vMargin gap between the two columns, however, **the center of the gap must be in the exact center of the screen**.
+
+- The bottom of the last image should be flush with the bottom of the column.
+
+- Finally, you should adjust the scaling of your images so that they scale proportionately to fill their respective columns. This means that you must take the aspect ratio into account, so that as your images expand to fill the column, their height scales up as well, preserving their aspect ratio. Additionally, when rotated, the images should change width (and therefore height) to fit the larger columns.
+    * (Hint: there's a function which will will do this for you.)
+
+To determine which column a photo should go in, we will use "pinterest" ordering. You should track the height of the images in each column and add the next image to the shorter column (or the *left* if equal). Be careful not to track the height of the `Drawables` as opposed to the display height of the image. Two photos of the same aspect ratio should affect the column height identically regardless of resolution as they will both have the same size on-screen.
+
+![Screenshot of part 3](layout-img/4.jpeg){:width="30%"}
+![Screenshot of part 3, scrolled down](layout-img/4_scrolled.jpeg){:width="30%"}
+
+![Screenshot of part 3, landscape](layout-img/4_landscape.jpeg){:width="45%"}
+![Screenshot of part 3, landscape, scrolled down](layout-img/4_landscape_scrolled.jpeg){:width="45%"}
+
+For this part, you may apply the margin rules to your liking in order to achieve the above layout. For instance, in order to satisfy the margin constraint between columns, you may apply a margin rule to each image, or to the columns.
+
+You may find the following link helpful when working with constraint layouts: ["Building a Responsive UI with Constraint Layout" -- Note the "Set Size as a ratio" section here](https://developer.android.com/training/constraint-layout)
 
 # Part 4
 
 ---
 
-Tasks:
+The `Part4View` starter code can be found in the `cse340.layout` directory in Android Studio.
 
-- Subclass a `ScrollView`
-- Add a variable number of items with programmatic constraints.
-- Maintain two balanced columns with "pinterest" ordering.
+For part 4, feel free to explore anything pertaining to layout that we have discussed in the past 2 weeks. Your task is to wireframe and recreate an interface from another popular app. For instance: Twitter, Facebook, Instagram, etc. (not Pinterest!)
 
-This will be similar to [Part 3](#part-3) but with two columns. Inside `part4_grid.xml`, add two `LinearLayout`s to be our columns. Constrain them such that they equally divide the horizontal space with no padding or margin. When the view is rotated, the columns should change width to maintain the 50% split.
+Your layout must meet the following requirements:
 
-In `Part4View`, add each image to one of the two columns. By using two `LinearLayout`s instead of simply adding all images to the parent `ConstraintLayout` and using constraints to maintain the columns, we reduce the number of constraints required from `O(n)` to `O(1)` for `n` images. Each image should be `vMargin` from the previous image vertically (or the top of the column if first image). There should be a vMargin gap between the two columns, however, **the center of the gap must be in the exact center of the screen**. The bottom of the last image should be flush with the bottom of the column. Finally, each image should expand to fill the width as restricted by the margins described above and the height should be such that the aspect ratio matches the source drawable. (Hint: there's a function which will will do this for you.) When rotated, the images should change width to fit the larger columns.
+* Your layout must implement a scroll view in some fashion, allowing the user to scroll through content on your application.
 
-To determine which column a photo should go in, we will use "pinterest" ordering. You should track the height of the images in each column and add the next image to the shorter column (or the left if equal). Be careful not to track the height of the `Drawables` as opposed to the display height of the image. Two photos of the same aspect ratio should affect the column height identically regardless of resolution as they will both have the same size on-screen.
+* Your layout must be responsive to device orientation. If the user rotates their device, then your application should adjust to fit the new orientation.
 
-![Screenshot of part 4](layout-img/4.jpeg){:width="30%"}
-![Screenshot of part 4, scrolled down](layout-img/4_scrolled.jpeg){:width="30%"}
+* In your final submission, you must provide a wireframe of the application you used as reference.
 
-![Screenshot of part 4, landscape](layout-img/4_landscape.jpeg){:width="45%"}
-![Screenshot of part 4, landscape, scrolled down](layout-img/4_landscape_scrolled.jpeg){:width="45%"}
+## Wireframe requirements
+
+Your wireframe should clearly identify the application which you are recreating. When building a wireframe, you should provide labels connecting placeholder "wireframe" objects to application level implementations -- for instance, a wireframe for our Pinterest layout might label
+
+When working with more advanced constraint layouts, you may find the following resource helpful: ["What's new in Constraint Layout 1.1.0"](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be)
+
+# Part 5
+
+---
+
+For this part, you will submit your reflection on this assignment. The reflection should abide by the following layout:
+
+## Paragraph 1: Assignment Feedback
+
+---
+
+We would appreciate your feedback on this assignment, particularly in parts 1 through 3 (though feel free to cover anything in part 4 that is not relevant to paragraph 1).
+
+Things to consider:
+
+* Relative Difficulty
+    * How did the difficulty of this assignment feel?
+    * By an estimate, how much time did you spend working on your submission?
+    * Do you feel the workload was too much, too little, or just right?
+    * Is there anything you would add to/remove from this assignment?
+
+* Suggestions
+    * Do you think it contributed positively to the course material thus far? If not, why?
+    * If you had the opportunity, how would you change this assignment?
+
+## Paragraph 2: Reflection on Part 4 (optional)
+
+---
+
+You should spend at least a paragraph describing your submission for part 4. This reflection is open ended, however you should take the following guidelines into consideration:
+
+* Inspiration
+    * If your layout submission is based on the layout of another popular interface, what interface did you use? If the layout was designed for another platform, what considerations did you take when porting it over to Android?
+    * If your layout submission is original, what inspired your decisions regarding layout and design? Was there anything you used as a resource when considering layout?
+        * Additionally, if you choose to go this route you should take a sentence or two to describe the use case of your mock layout application.
+
+* Implementation
+    * What resources did you use within Android Studio to accomplish your desired layout?
+
+* Successes and Struggles
+    * How successful do you feel with your submission? What worked and what didn't? Is there anything that you wanted to implement but could not figure out?
+
+<!-- do we want to do this? -->
+In addition, you should provide a labeled draft of your current app layout. The blueprint view in the visual studio is a good starting point for this.
+
+## Paragraph 3: General Feedback
+
+Here, you should consider the assignment's usefulness in the greater scope of the course. Any miscellaneous feedback you have for the TA team should be provided here as well.
+
+Some things to mention:
+* Do you feel like you were well-prepared for this assignment in lecture and section?
+
+* Is there anything we could cover in greater detail that would benefit students directly on this assignment?
+
+<!-- TODO: Integrate part 4 optional reflection -->
+
+As before, this reflection will be submitted to Gradescope.
+
+# Development Strategies
+
+---
+
+* You may run into issues when rotating the device. Note that, when rotating the emulated device, or your personal Android device, that the layout should adjust accordingly. You do not need to readjust the layout of your images when rotating the device, as this should remain the same.
+
+![Rotation buttons on emulated android device](layout-img/rotations.PNG)
+<p style="text-align: center; color:#808080; font-style: italic; font-size: 10pt;">These buttons will allow you to rotate the emulated device clockwise/counter-clockwise.</p>
+
+* When dealing with the Android documentation: ask as many questions as necessary! The android documentation can be painful to read through, as there are many potential options to choose from. If you need any help parsing it, feel free to ask anyone on the course staff for advice! Additionally, we suggest that you read through the following resources as you develop your apps, in order to better understand the tools you are utilizing (these are referenced in their respective parts as well):
+    * [Linear Layouts | Android Developers](https://developer.android.com/guide/topics/ui/layout/linear) (Part 1)
+    * ["An explanation of the ImageView ScaleType attribute" - Important when developing part 3!](https://thoughtbot.com/blog/android-imageview-scaletype-a-visual-guide) (Part 1)
+    * ["Building a Responsive UI with Constraint Layout" -- Note the "Set Size as a ratio" section here](https://developer.android.com/training/constraint-layout) (Part 3)
+    * ["What's new in Constraint Layout 1.1.0"](https://android.jlelse.eu/whats-new-in-constraint-layout-1-1-0-acfe30cfc7be) (Part 4)
 
 # Turn-in
 
@@ -148,17 +289,15 @@ You will turn in the following files [here](https://gradeit.cs.washington.edu/uw
 ## Grading (10pts)
 
 - Part 1
-  - Portrait: 1 pt
-  - Landscape: 1 pt
+  - Portrait and Landscape: 1 pt
 - Part 2
   - Portrait and Landscape: 1 pt
 - Part 3
-  - Portrait: 1 pt
-  - Landscape: 1 pt
-- Part 4
-  - Correct “Pinterest” column ordering: 2 pts
+  - Correct "Pinterest" column ordering: 2 pts
   - (Portrait and Landscape) Correct image widths: 1 pt
   - (Portrait and Landscape) Correct image margins: 1 pt
+- Part 4
+  - 
 - Code Organization and Style: 1 pt
 
 ## IDE Errors/Warnings you can ignore
