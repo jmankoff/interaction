@@ -9,8 +9,8 @@ Interactive technology is changing society. Some of today’s interfaces are use
 For quick links to key things,
 check out the navbar above and the table of contents here:
 
-* TOC
-{:toc}
+- TOC
+  {:toc}
 
 # Class Instructors, time and date
 
@@ -19,12 +19,11 @@ Labs will be Thursday morning
 
 CSE 340 is taught by <a href="make4all.org">Jennifer Mankoff</a>. Adam Towers is Head TA.
 
-| Instructor         | [Pronouns](https://www.mypronouns.org/) | Role        | Office Hour Time/Location |
-| ------------------ | ------   | ----------  | ----------------------    |
-| Jennifer Mankoff   | She/her  | Instructore | TBD                       |
-| Adam Towers        |          | Head TA     |                           |
-| Sophie Tian        |          | TA          |                           |
-
+| Instructor       | [Pronouns](https://www.mypronouns.org/) | Role        | Office Hour Time/Location |
+| ---------------- | --------------------------------------- | ----------- | ------------------------- |
+| Jennifer Mankoff | She/her                                 | Instructore | TBD                       |
+| Adam Towers      | He/him                                  | Head TA     | TBD                       |
+| Sophie Tian      |                                         | TA          |                           |
 
 # Should I take this class?
 
@@ -151,15 +150,15 @@ hours of homework a week. We hope make the workload as predictable as
 possible. You can expect your weeks to look look something like this:
 
 - **Monday:** Come to class ready for discussion and activity
-- **Tuesday:** Do your Wednesday reading and quiz 
+- **Tuesday:** Do your Wednesday reading and quiz
 - **Wednesday:** Come to class ready for discussion and activity;
   Finish your homework by class today [8-10 hours]
 - **Thursday:** Come to lab ready to work on your homework;
-  do your Friday reading and quiz 
+  do your Friday reading and quiz
 - **Friday:** Come to class ready for discussion and activity
 - **Weekend:** Focus on your homework. Most Monday classes will have no assigned reading.
 
-Homework will typically be assigned on Wednesday after class and due on the following Wednesday before class, though in some cases there is an earlier deadline. 
+Homework will typically be assigned on Wednesday after class and due on the following Wednesday before class, though in some cases there is an earlier deadline.
 
 # Class Coordination
 
