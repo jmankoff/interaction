@@ -6,7 +6,7 @@ code: EX1
 published: draft
 assigned: Wednesday, January 8, 2020
 due: Noon, Wednesday, January 15, 2020 
-revised: 4:22 PM Sunday, November 17, 2019 
+revised: 11:25 AM Sunday, December 16, 2019 
 
 objective: Create an Android app that draws a doodle consisting of a text, a line, and a set of images on the main canvas.
 
@@ -26,7 +26,7 @@ android_goals:
 * TOC
 {:toc}
 
-# Assignment Description
+## Assignment Description
 
 For this assignment, you will be creating an activity class which will allow you to create "Doodles" consisting of images, lines, and text.
 
@@ -36,20 +36,19 @@ If you find yourself taking additional time on this submission, we strongly sugg
 
 ## Learning Goals
 
-- Use abstracted methods to draw onto the screen.
-- Create animations in Android Studio.
-- Begin considering how to style your Android apps.
-
+* Use abstracted methods to draw onto the screen.
+* Create animations in Android Studio.
+* Begin considering how to style your Android apps.
 
 # Part 1
-***
 
-Tasks:
-- Download and install Android development environment
-- Open our skeleton code in Android Studio
-- Implement three methods: `addImage`, `addText`, `addLine`
-- Call the methods you implemented and compare your app screen with our screenshot
-- Animate `UW` so it slides from left to right when the app opens.
+**Tasks**:
+
+* Download and install Android development environment
+* Open our skeleton code in Android Studio
+* Implement three methods: `addImage`, `addText`, `addLine`
+* Call the methods you implemented and compare your app screen with our screenshot
+* Animate `UW` so it slides from left to right when the app opens.
 
 This task involves implementing three methods in `Part1.java`. Each method is named here but detailed doc comments can be found in `Part1`'s superclass, `Doodler`, which also defines some nice helper methods. It also defines the `onCreate` behavior of the Activity which calls the method `Doodler#doodle(FrameLayout)`.
 
@@ -61,7 +60,8 @@ Subclasses of `Part1` will have access to these methods once they are implemente
 
 You'll notice in `doodle` in `Part1` that we use `scaleX` and `scaleY` around our coordinates (and size for images). These allow us to ensure the doodle still looks good on smaller screen sizes. **If you use _any_ pixel coordinates in your solutions, remember to wrap them in these scaling methods**. These will scale coordinates from the Pixel 2 XL to the dimensions of your device's screen. We'd recommend that you use a Pixel 2 XL emulator to compare the finished doodle against our screenshot to be sure you're implementing everything right.
 
-### Specs for addImage
+### Specification for addImage
+
 ```java
 ImageView addImage(FrameLayout mainCanvas, String imageName, float x, float y, int size);
 ```
@@ -71,7 +71,8 @@ Most of this method is implemented for you. Please read through it to understand
 *Related APIs*:
 [ImageView](https://developer.android.com/reference/android/widget/ImageView.html)
 
-### Specs for addText
+### Specification for addText
+
 ```java
 TextView addText(FrameLayout mainCanvas, String text, float x, float y, int fontSize, int color);
 ```
@@ -83,13 +84,15 @@ TextView addText(FrameLayout mainCanvas, String text, float x, float y, int font
 You may find the comments and the implementation of `addImage` useful.
 
 If you implement it correctly, you'll see the image below if you run:
+
 ```java
 addText(mainCanvas, "CSE340", scaleX(550), scaleY(200), 60, Color.rgb(51,0,111))
 ```
 
 ![A purple text "CSE340" shows at the top right of the screenshot.](doodle-img/add_text_sample.jpeg){:width="25%"}
 
-### Specs for addLine
+### Specification for addLine
+
 ```java
 LineView addLine(FrameLayout mainCanvas, float startX, float startY, float endX, float endY, int width, int color);
 ```
@@ -99,6 +102,7 @@ There are several ways to draw a line. [android--code](https://android--code.blo
 For this function, you will be implementing a LineView class whose job is to draw a line onto the canvas. To this end, we have provided some blank stub code for you to fill in. Parameters for this function should be passed into your LineView constructor, and you will be implementing both the constructor and `onDraw` functions to successfully draw the line onto your device screen. Each `LineView` should draw a single line onto the canvas.
 
 If you implement it correctly, you'll see the image below if you run:
+
 ```java
 addLine(mainCanvas, scaleX(100), scaleY(250), scaleX(700), scaleY(1200), 15, Color.rgb(200,0,0))
 ```
@@ -116,23 +120,26 @@ Once you've finished your animation, your doodle should match this screenshot:
 ![A screenshot with a heart on it made up of smaller pictures. There's an "I" in the upper left and a "UW" in the middle right](doodle-img/screenshot.jpeg){:width="25%"}
 
 # Part 2
+
 ***
 
-Tasks:
-- Create a beautiful doodle of your own
+**Tasks**:
+
+* Create a beautiful doodle of your own
 
 This is where your creativity comes into play. We've created a blank slate for you in `Part2Activity`. In here you should use all three methods implemented in [Part 1](#part-1) to draw your own doodle. You are welcome to implement new methods in `Part2Activity` to make a more creative and beautiful doodle.
 
 **Tips**:
-- To control which activity launches with the app by moving the existing `<intent-filter>` tag between different activities.
-- Aim for complexity similar to [Part 1](#part-1) (images, text, and shapes) though you don't need to use as many images. Try to be creative, you work will be graded by your peers. 
-- You may use the attractive home-cooked food images ([photo credit](https://www.XiaoyiZhang.me)) we include in `res/drawable` or use your own images.
-  - **If you chose to use your own images, please be sure to turn them in exactly as specified in [Turn-in](#turn-in).**
-- If your animation is laggy, please reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
-- **Make sure that your doodle depends on _nothing_ outside of the files described in [Turn-in](#turn-in).**
 
-*For Peer Grading*
-<!-- XXX TODO(rfrowe): Will we use canvas -->
+* To control which activity launches with the app by moving the existing `<intent-filter>` tag between different activities.
+* Aim for complexity similar to [Part 1](#part-1) (images, text, and shapes) though you don't need to use as many images. Try to be creative, you work will be graded by your peers. 
+* You may use the attractive home-cooked food images ([photo credit](https://www.XiaoyiZhang.me)) we include in `res/drawable` or use your own images.
+* **If you chose to use your own images, please be sure to turn them in exactly as specified in [Turn-in](#turn-in).**
+* If your animation is laggy, please reduce the number of images you put on canvas or reduce the file size of images (e.g., convert png to jpg, reduce resolution of image file).
+* **Make sure that your doodle depends on _nothing_ outside of the files described in [Turn-in](#turn-in).**
+
+_For Peer Grading_
+
 This portion of the assignment will be peer graded. You will receive 1pt for peer grading others' doodles. You will have a chance to nominate the most creative doodles. The winners will be shown off in class.
 
 *Related APIs*:
@@ -141,12 +148,25 @@ This portion of the assignment will be peer graded. You will receive 1pt for pee
 [Property Animation](https://developer.android.com/guide/topics/graphics/prop-animation.html) /
 [Vogella Tutorials - Android Animation](http://www.vogella.com/tutorials/AndroidAnimation/article.html)
 
+# Part 3
+
+In addition, you are expected to turn in a short reflection on this assignment. Moving forward for this quarter, you will be expected to fill out a reflection for many assignments. These reflections are your opportunity to offer us feedback on the structure of each assignment, as well as reflect on the topics covered.
+
+These reflections should always be **submitted on Gradescope**.
+
+For this assignment, your reflection should cover the following:
+
+* _Why might it be better to animate a view, rather than invalidate/redraw its contents?_
+
+* _At the moment our application is pretty static. Think of at least two ways that you would go about adding interactivity to this application._
+
 # Turn-in
-## Submission Instructions
+
+### Submission Instructions
 
 You will turn in the following files [here](https://gradeit.cs.washington.edu/uwcse/turnin/code/turnin_page_view.php?course=340&quarter=19sp&assignment=ex1):
 
-```
+```txt
 ─ Part1.java
 ─ Part1Activity.java
 ─ Part2Activity.java
@@ -161,16 +181,17 @@ If you use your own images in [Part 2](#part-2), please include them in a ZIP ar
 
 If you're positioning a large number of images for [Part 2](#part-2), it may be best to use a CSV similar to `data.csv` which is used for the heart in [Part 1](#part-1). Include this as `part2.csv` if necessary. Remember, the CSV coordinates are on a Pixel 2 XL and scaled to the current screen in `Doodler#addAllImagesFromData(FrameLayout)`.
 
-## Grading (10pts)
+### Grading (10pts)
 
-- Part 1
-  - `addImage`: 1 pt
-  - `addText`: 1 pt
-  - `addLine`: 3 pts
-  - `UW` Animation: 1 pt
-- Part 2
-  - Peer Grading of Custom Doodle
-    - Using each of the three methods: 1 pt
-    - Using an animation: 1 pt
-  - Complete assigned peer grading: 1 pt
-- Turn-in and compiles: 1 pt
+* Part 1
+  * `addImage`: 1 pt
+  * `addText`: 1 pt
+  * `addLine`: 2 pts
+  * `UW` Animation: 1 pt
+* Part 2
+  * Peer Grading of Custom Doodle
+    * Using each of the three methods: 1 pt
+    * Using an animation: 1 pt
+  * Complete assigned peer grading: 1 pt
+* Part 3: 1pt
+* Turn-in and compiles: 1 pt
