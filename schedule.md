@@ -16,7 +16,7 @@ layout: default
 ||Reading/Video | TBD | Getting up to speed on Android | 
 ||Preparation | Get up to speed on Android | Download Android Studio and follow [this tutorial]( https://developer.android.com/training/basics/firstapp) to create an Android Application. Continue with the tutorial to also [run your app](https://developer.android.com/training/basics/firstapp/running-app) either on an emulator or on your phone. Here is [additional information on android studio setup](slides/wk01/setup-android.html)|
 ||Reading Quiz|[On Canvas]({{site.canvas}}), due night before|
-||Exercise Assigned | [Doodle](/interaction/assignments/doodle)| Getting up to speed on Android; Basics of drawing on the screen | 
+||**AS1 Assigned** | [Doodle](/interaction/assignments/doodle)| Getting up to speed on Android; Basics of drawing on the screen | 
 ||Lecture | [Core Toolkit Abstractions](/interaction/slides/wk01/MVC.html)| Toolkit User Types; Basic structure of a user interfaces; Common interactors|
 |**1/9**|**Thursday** | **Introduction to Android (active)**| Android project structure; Hello World|
 ||Lecture| [Hello World](/interaction/slides/l01/hello.html)| Android 
