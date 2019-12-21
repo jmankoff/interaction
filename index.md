@@ -23,7 +23,7 @@ CSE 340 is taught by <a href="make4all.org">Jennifer Mankoff</a>. Adam Towers is
 | ---------------- | --------------------------------------- | ----------- | ------------------------- |
 | Jennifer Mankoff | She/her                                 | Instructore | TBD                       |
 | Adam Towers      | He/him                                  | Head TA     | TBD                       |
-| Sophie Tian      |                                         | TA          |                           |
+| Sophie Tian      | She/her                                 | TA          | Tuesday 9:30-11:30am/TBD  |
 
 # Should I take this class?
 
