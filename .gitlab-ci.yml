@@ -1,5 +1,8 @@
 image: ruby:2.4.6
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 before_script:
   - mkdir public
   - bundle install
