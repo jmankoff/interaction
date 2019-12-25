@@ -1,0 +1,17 @@
+image: ruby:2.4.6
+
+before_script:
+  - mkdir public
+  - bundle install
+
+pages:
+  stage: deploy
+  script
+  - bundle exec jekyll build -d public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+  tags:
+  - Pages
