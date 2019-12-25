@@ -15,6 +15,7 @@ gem "jekyll", "3.5"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem 'execjs'
+  gem 'therubyracer'
   gem "jekyll-feed", "~> 0.6"
   gem "jekyll-paginate"
   gem "jekyll-contentblocks"
