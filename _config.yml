@@ -53,7 +53,7 @@ assets:
         - "*"
 
 sass:
-  sass_dir:          _scss
+  sass_dir: "./_scss"
 #  style: compressed
 
 kramdown:
