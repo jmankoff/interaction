@@ -9,13 +9,12 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 
-gem "jekyll", "3.8"
+gem "jekyll", "3.7.4"
 
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem 'execjs'
-  gem 'therubyracer'
   gem 'jekyll-redirect-from'
   gem "jekyll-feed"
   gem "jekyll-paginate"
@@ -24,7 +23,6 @@ group :jekyll_plugins do
   gem 'jekyll-font-awesome-sass'
   gem 'remark'
   gem 'jekyll-mermaid'
-  gem 'jekyll-bootstrap-sass'
   gem 'uglifier'
 end
 
