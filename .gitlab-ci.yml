@@ -1,12 +1,16 @@
 image: ruby:2.6
 
+cache:
+  paths:
+  - vendor/
+  
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
   JEKYLL_ENV: production 
 
 before_script:
   - mkdir public
-  - bundle install
+  - bundle install --path vendor
 
 pages:
   stage: deploy
