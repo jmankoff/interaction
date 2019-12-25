@@ -1,4 +1,4 @@
-image: ruby:2.4.6
+image: ruby:2.6
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
