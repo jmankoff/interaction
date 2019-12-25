@@ -12,6 +12,6 @@ pages:
     paths:
     - public
   only:
-  - master
+  - CSE340-SP19-FINAL
   tags:
   - Pages
