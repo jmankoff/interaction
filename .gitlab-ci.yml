@@ -2,6 +2,7 @@ image: ruby:2.6
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
+  JEKYLL_ENV=production 
 
 before_script:
   - mkdir public
@@ -18,3 +19,4 @@ pages:
   - CSE340-SP19-FINAL
   tags:
   - Pages
+
