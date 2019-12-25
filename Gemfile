@@ -9,7 +9,7 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 
-gem "jekyll", "3.5"
+gem "jekyll", "3.8"
 
 
 # If you have any plugins, put them here!
@@ -17,7 +17,7 @@ group :jekyll_plugins do
   gem 'execjs'
   gem 'therubyracer'
   gem 'jekyll-redirect-from'
-  gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-feed"
   gem "jekyll-paginate"
   gem "jekyll-contentblocks"
   gem "jekyll-assets"
