@@ -21,7 +21,7 @@ group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-contentblocks"
   gem "jekyll-assets"
-  gem 'font-awesome-sass'
+  gem 'jekyll-font-awesome-sass'
   gem 'remark'
   gem 'jekyll-mermaid'
   gem 'jekyll-bootstrap-sass'
