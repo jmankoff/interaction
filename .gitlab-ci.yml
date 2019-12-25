@@ -6,7 +6,7 @@ before_script:
 
 pages:
   stage: deploy
-  script
+  script:
   - bundle exec jekyll build -d public
   artifacts:
     paths:
