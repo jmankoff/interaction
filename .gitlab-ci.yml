@@ -7,9 +7,6 @@ cache:
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
   JEKYLL_ENV: production 
-  LC_ALL: "en_US.UTF-8"
-  LANG:"en_US.UTF-8"
-  LANGUAGE:"en_US.UTF-8"
 
 before_script:
   - mkdir public
