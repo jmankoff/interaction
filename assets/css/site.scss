@@ -4,3 +4,6 @@
 
 @charset 'UTF-8';
 $fa-font-path: '../fonts/font-awesome/';
+
+@import 'fontawesome';
+@import '{{site.thme}}';
