@@ -24,6 +24,7 @@ group :jekyll_plugins do
   gem 'remark'
   gem 'jekyll-mermaid'
   gem 'uglifier'
+  gem 'therubyracer' 
 end
 
 
