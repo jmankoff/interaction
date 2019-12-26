@@ -11,3 +11,8 @@ $fa-font-path: '../fonts/font-awesome/';
 $font-size-base: 1rem;
 $headings-font-weight: 500;
 $blockquote-font-size: $font-size-base;
+
+$icon-font-path: '{{ site.github.url }}/assets/fonts/bootstrap';
+
+@import 'bootstrap/bootstrap';	       
+@import 'mermaid/dark/index';
