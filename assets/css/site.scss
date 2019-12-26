@@ -6,4 +6,8 @@
 $fa-font-path: '../fonts/font-awesome/';
 
 @import 'fontawesome';
-@import '{{site.thme}}';
+@import '{{site.theme}}';
+
+$font-size-base: 1rem;
+$headings-font-weight: 500;
+$blockquote-font-size: $font-size-base;
