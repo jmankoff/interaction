@@ -6,7 +6,7 @@
 
 title: Interaction Programming (CSE 340)
 description: Interactive Tech is changing society. Help invent the future!
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/website" # the subpath of your site, e.g. /blog
 relativeurls: true
 url: "https://jmankoff.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jcmankoff
