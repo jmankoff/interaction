@@ -7,11 +7,18 @@ cache:
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
   JEKYLL_ENV: production 
+  LC_ALL: "en_US.UTF-8"
+  LANG:"en_US.UTF-8"
+  LANGUAGE:"en_US.UTF-8"
 
 before_script:
   - mkdir public
   - bundle install --path vendor
-
+  - echo "en_US UTF-8" > /etc/locale.gen
+  - locale-gen en_US.UTF-8
+  - export LANG=en_US.UTF-8
+  - export LANGUAGE=en_US:en
+  - export LC_ALL=en_US.UTF-8
 pages:
   stage: deploy
   script:
