@@ -6,7 +6,7 @@
 
 title: Interaction Programming (CSE 340)
 description: Interactive Tech is changing society. Help invent the future!
-baseurl: "website/" # use relative url instead
+baseurl: "/website" # use relative url instead
 url: "http://cse340-19sp.pages.cs.washington.edu/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jcmankoff
 github_username:  jmankoff
