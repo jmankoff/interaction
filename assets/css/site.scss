@@ -14,5 +14,6 @@ $blockquote-font-size: $font-size-base;
 
 $icon-font-path: '{{ site.github.url }}/assets/fonts/bootstrap';
 
-@import 'bootstrap/bootstrap';	       
+@import 'mermaid/dark/index';
+@import 'mermaid/mermaid';
 
