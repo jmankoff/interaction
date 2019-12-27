@@ -1,22 +1,20 @@
 ---
-# This is the main style sheet
+# The main stylesheet
 ---
-@charset "utf-8";
 
-$fa-font-path: "../fonts/font-awesome/";
+@charset 'UTF-8';
+$fa-font-path: '../fonts/font-awesome/';
 
-@import "fontawesome";
-@import "{{site.theme}}";
+@import 'fontawesome';
+@import '{{site.theme}}';
 
 $font-size-base: 1rem;
 $headings-font-weight: 500;
 $blockquote-font-size: $font-size-base;
 
-$icon-font-path: "{{ site.github.url }}/assets/fonts/bootstrap";
+$icon-font-path: '{{ site.github.url }}/assets/fonts/bootstrap';
 
-@import "bootstrap/bootstrap";	       
+@import 'mermaid/dark/index';
+@import 'mermaid/mermaid';
 
-@import "mermaid/dark/index";
-@import "mermaid/mermaid";
-
-
+@import 'bootstrap/bootstrap';	       

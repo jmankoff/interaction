@@ -1,0 +1,29 @@
+image: ruby:2.4
+
+cache:
+  paths:
+  - vendor/
+  
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  JEKYLL_ENV: production 
+
+before_script:
+  - mkdir public
+  - bundle install --path vendor
+  - echo "en_US UTF-8" > /etc/locale.gen
+  - export LANG=en_US.UTF-8
+  - export LANGUAGE=en_US:en
+  - export LC_ALL=en_US.UTF-8
+pages:
+  stage: deploy
+  script:
+  - env LANG=\"en_US.UTF-8\" bundle exec jekyll build -d public
+  artifacts:
+    paths:
+    - public
+  only:
+  - CSE340-SP19-FINAL
+  tags:
+  - Pages
+
