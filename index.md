@@ -1,5 +1,6 @@
 ---
 layout: default
+(no)warning: old
 ---
 
 <h1> Welcome to Interaction Programming! </h1>
@@ -8,23 +9,21 @@ Interactive technology is changing society. Some of today’s interfaces are use
 For quick links to key things,
 check out the navbar above and the table of contents here:
 
-* TOC
-{:toc}
+- TOC
+  {:toc}
 
 # Class Instructors, time and date
 
-CSE 340 will be held on M/W/F at 10:30am
+CSE 340 will be held on M/W/F at 12:30pm
 Labs will be Thursday morning
 
-CSE 340 is taught by <a href="make4all.org">Jennifer Mankoff</a>. Ryan Rowe is Head TA.
+CSE 340 is taught by <a href="make4all.org">Jennifer Mankoff</a>. Adam Towers is Head TA.
 
-| Instructor         | Role       | Office Hour Time/Location                |
-| ------------------ | ---------- | ---------------------------------------- |
-| Jennifer Mankoff   | Instructor | 2:30pm to 4pm, Wednesdays, Gates 211     |
-| Ryan Rowe          | Head TA    | Fridays 1:30-3pm, Gates 150              |
-| Saidutt Nimmagadda | TA         | Mondays 12-1pm, Allen Center 021         |
-| Adam Towers        | TA         | Tuesdays 5pm-6pm, Gates 131              |
-| Harshitha Akkaraju | TA         | Thursdays 5:30 - 7:30pm Allen Center 021 |
+| Instructor       | [Pronouns](https://www.mypronouns.org/) | Role        | Office Hour Time/Location |
+| ---------------- | --------------------------------------- | ----------- | ------------------------- |
+| Jennifer Mankoff | She/her                                 | Instructore | TBD                       |
+| Adam Towers      | He/him                                  | Head TA     | TBD                       |
+| Sophie Tian      |                                         | TA          |                           |
 
 # Should I take this class?
 
@@ -48,7 +47,7 @@ before. This class will teach you
   making interactions that users will want, which improves both the user
   experience and the business value of what you create.
 - How to avoid common gotchas in the implementation of user
-  interfaces. We will teach you the proper way to implement Undo, create
+  interfaces. We will teach you the proper way to implement Undo and create
   Accessible Interfaces. We will also touch on other necessities (no
   modal dialogues; good use of color; inclusion of support for help and
   so on).
@@ -76,7 +75,7 @@ learning Android with Java first](https://dzone.com/articles/java-vs-kotlin-whic
 Note that this class is designed for CS majors, and other students who
 work regularly with information technology and are strong
 programmers. While we will consider applications from outside the
-major, in its first year, financial and room restrictions may limit
+major, financial and room restrictions may limit
 space for such students.
 
 # Other relevant classes to know about
@@ -86,7 +85,7 @@ which you may wish to consider in addition to this one. As of summer,
 2018, here are the ones we are aware of:
 
 - HCID 520: User Interface Software +
-  Technology ([Wi 17](http://uwdata.github.io/hcid520/17wi/), [Wi 16](http://faculty.washington.edu/ajko/hcid520/))
+  Technology ([Wi 17](http://uwdata.github.io/hcid520/17wi/), [Wi 16](http://faculty.washington.edu/ajko/hcid520/) [Wi 19](https://canvas.uw.edu/courses/1256337))
   This course
   teaches about user interfaces, including what they are, how they are
   built, and some inventions in user interface software and
@@ -129,9 +128,7 @@ which you may wish to consider in addition to this one. As of summer,
 
 # Resources
 
-- Optional textbook: (but finding a good introduction of your own is
-  recommended): {{site.androidbook}}
-- Required textbook: {{site.hcibook}}
+- TBD textbook: {{site.androidbook}}
 - Programming Platforms: Android Platform/Github
 
 # Course Structure
@@ -139,20 +136,12 @@ which you may wish to consider in addition to this one. As of summer,
 Many of the goals in this class center around learning by doing. This
 means that hands on time trying out everything from implementation to
 evaluation is critical to learning. An educational approach that can
-support this is active learning. To support this, readings and videos
-will be available _ahead_ of class, while class time will be used as
-much as possible for activities, discussion, review, and
-homework. This means you'll be getting information at home and doing
-problem sets in lecture, rather than the reverse. We will help to support
-and guide your learning, but your preparation outside of class is
-_essential_.
-
-**Why break the mold of standard lecture classes?** I believe that
-this will _improve your learning_.I also value the chance to support
-you while you do work on assignments and practice material. However
-this requires you to be independent and accountable for
-your own learning, stay on top of course materials, bring your
-questions to class and seek help if there are problems.
+support this is active learning. To support this, class time will be
+used as much as possible for activities, discussion, review, and
+homework. Preparation outside of class and participation in class are
+both very important and will improve your class experience. Stay on
+top of course materials, bring your questions to class and seek help
+if there are problems.
 
 # Workload
 
@@ -161,15 +150,15 @@ hours of homework a week. We hope make the workload as predictable as
 possible. You can expect your weeks to look look something like this:
 
 - **Monday:** Come to class ready for discussion and activity
-- **Tuesday:** Do your Wednesday reading and quiz [10 minutes]
+- **Tuesday:** Do your Wednesday reading and quiz
 - **Wednesday:** Come to class ready for discussion and activity;
-  Finish your homework by class today [6-7 hours]
+  Finish your homework by class today [8-10 hours]
 - **Thursday:** Come to lab ready to work on your homework;
-  do your Friday reading and quiz [10 minutes]
+  do your Friday reading and quiz
 - **Friday:** Come to class ready for discussion and activity
 - **Weekend:** Focus on your homework. Most Monday classes will have no assigned reading.
 
-Homework takes two forms -- exercises and assignments. Exercises are assigned on Thursdays and due on Mondays. Assignments typically have two weekends to be completed.
+Homework will typically be assigned on Wednesday after class and due on the following Wednesday before class, though in some cases there is an earlier deadline.
 
 # Class Coordination
 
@@ -209,7 +198,6 @@ will do to try to make the class a welcoming environment:
   document any information you get from other students in comments at
   the top of the relevant file. You will work on
   one of your projects in pairs.
-- **Pronouns**: I use she/her, please let me know if you have any specific pronoun preferences
 
 # Grading
 
@@ -225,9 +213,9 @@ To estimate your final GPA, multiply your current overall grade (from 0 to 100) 
 
 Each homework will allow late days with a 10% penalty per day. Partial days may not be used (i.e., 12 hours late is a 10% deduction, not 5%). You are allowed to use up to 2 late days on each assignment, after which turn-ins will be given a zero.
 
-For the quarter, two **penalty-free** late days are provided which can be used on assignments by filling out the late day request form posted on Piazza.
+For the quarter, three **penalty-free** late days are provided which can be used on assignments by filling out the late day request form posted on Piazza.
 
-- Penalty-free late days do not pause late penalty accumulation. _For example, one late is day is used, but the assignment is turned in two days late: -20%._
+- Penalty-free late days also pause late penalty accumulation. _For example, one late is day is used, but the assignment is turned in two days late: -10%._
 
 <!-- Text can be **bold**, _italic_, or ~~strikethrough~~. -->
 

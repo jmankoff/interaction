@@ -3,10 +3,10 @@ layout: assignment
 title: Undo
 code: A2
 
-published: true
-assigned: Thursday, May 16, 2019
-due: 11:59 PM Tuesday, May 21, 2019; Heuristic evaluation in lab on May 23, 2019
-revised: 2:00 PM, Monday, May 20, 2019
+published: draft
+assigned: <!-- Thursday, May 16, 2019 -->
+due: <!-- 11:59 PM Tuesday, May 21, 2019; Heuristic evaluation in lab on May 23, 2019 -->
+revised: <!-- 2:00 PM, Monday, May 20, 2019 -->
 
 objective: Understand Undo Abstractions, practice Heuristic Evaluation
 
@@ -236,7 +236,7 @@ Buttons](https://developer.android.com/reference/com/google/android/material/flo
 
 There are two main things you will need to do to add one.
 
-First, you right place in `thickness_menu.xml` to
+First, you find the right place in `thickness_menu.xml` to
 modify. For example, this is the XML in that file for the thickest FAB
 Action Button:
 
@@ -258,16 +258,25 @@ Next, you will need to update `onThicknessSelected` to respond when
 your FAB is pressed. It should change the stroke width to 0. Once you
 do that, everything should work!
 
-# Requirement 3: Improving the application
+# Requirement 3: Integrating color picker
+In addition to adding a thickness, we want to be able to draw strokes of _any_ color instead of being limited to 3. You may recall that we have
+already made a custom interactor that allows users to choose any color on the color spectrum in a previous assignment. It is time to wire up a
+`ColorPickerView` into this application.
 
-You can add any feature you want to the app (except another option in
-the thickness menu since you've already done that). When you do, make sure
-your change is accessible. We have some suggestions that will help guide you.
-Whatever you add, please describe your addition in the provided README.
+First, you need to copy over the `ColorPicker.java` and `ColorPickerView.java` files from your `as3-Color-Picker` repository. Put these files in the same
+directory as your `MainActivity.java` file. 
 
-- The simplest possible thing you could do is add a FAB to one of the existing menus. This would let you for example add a new color option.
-- A more complex choice would be to replace the color option with something that calls your color picker. If you do this, try to make sure it is really round, meaning that if you click in a corner of its bounding box outside the color wheel, the right thing happens (a stroke starts in the underlying drawing view)
-- You could do something even more complex like allow the user to change the location of a stroke by dragging it. This is quite hard because you have to modify the command object and undo infrastructure, as well as adding new event handling capabilities to StrokeView.
+Next, you will need to change the behavior of the color FAB so that, when clicked, it opens up the color picking interface instead of opening the collapsible color menu. For reference on how to do this, take a look at `MainActivity.java#onCreate` from the color picker assignment (hint: make sure to take a look at what interfaces `MainActivity.java` implements). When users have the color picker interactor open, they _should not_ be able to access any of the FABs (undo, redo, color change, thickness change) so be sure to disable them when you show the color picker and visually indicate to the user that they are disabled. This behavior should be very similar to the what happens when you try to change the thickness using the collapsible menu. If a color change is undone or redone, the color picker should reflect the correct color. Once you set up all the listeners to respond correctly, your color picker interactor should allow users to pick any stroke color they want!
+
+_Related APIs_:
+[View#using-views](https://developer.android.com/reference/android/view/View#using-views)
+
+# Extra Credit: Improving the application
+
+Create an interesting way the user can interact with the application that **can be undone and redone**. This means that whatever interaction you
+add must have a custom undo and redo function (it might help to take a look at `ReversibleAction#doAction` and `ReversibleAction#undoAction(DrawingView)`).
+
+Please implement this extra feature **on a new branch**. Whatever you choose to implement, make sure to describe your addition in the provided README.md.
 
 # Optional addition: Improving usability
 

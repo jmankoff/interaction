@@ -93,6 +93,7 @@ exclude:
    - vendor/cache/
    - vendor/gems/
    - vendor/ruby/
+   - .jekyll-cache
 
 font-awesome:
   assets: true
